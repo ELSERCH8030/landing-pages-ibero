@@ -492,6 +492,55 @@
         </div>
     </div>
 </section>
+<!-- Pop-up de urgencia -->
+<div id="popup-urgencia" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; padding:1rem; pointer-events:none;">
+    <div style="max-width:480px; margin:0 auto; background:var(--blanco); border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,.25); padding:1.5rem; position:relative; pointer-events:auto; transform:translateY(100%); transition:transform .5s ease;">
+        <button onclick="cerrarPopup()" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--gris); line-height:1;">&times;</button>
+        <div style="display:flex; align-items:center; gap:.5rem; margin-bottom:.75rem;">
+            <span style="background:var(--rojo); color:white; font-size:.7rem; font-weight:700; padding:.25rem .6rem; border-radius:20px; text-transform:uppercase; letter-spacing:.5px;">Cupo limitado</span>
+        </div>
+        <p style="font-size:1.05rem; font-weight:700; color:var(--gris-oscuro); margin-bottom:.5rem;">Solo quedan <span style="color:var(--rojo);" id="popup-lugares">14</span> de 20 lugares para Enfermería</p>
+        <div style="background:var(--gris-claro); border-radius:8px; height:8px; margin-bottom:.75rem; overflow:hidden;">
+            <div id="popup-barra" style="height:100%; background:var(--rojo); border-radius:8px; width:70%; transition:width .5s;"></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span style="font-size:.85rem; color:var(--gris);">Examen de admisión: <strong style="color:var(--gris-oscuro);">24 de Abril</strong></span>
+        </div>
+        <a href="#contacto" onclick="cerrarPopup()" style="display:block; text-align:center; background:var(--rojo); color:white; padding:.75rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:.95rem; transition:background .3s;">Inscríbete ahora</a>
+    </div>
+</div>
+<script>
+(function(){
+    var popupShown = false;
+    function mostrarPopup() {
+        if (popupShown) return;
+        var popup = document.getElementById('popup-urgencia');
+        if (!popup) return;
+        popupShown = true;
+        // Sync lugares
+        var lugaresEl = document.getElementById('lugares-count');
+        if (lugaresEl) {
+            var lugares = lugaresEl.textContent;
+            document.getElementById('popup-lugares').textContent = lugares;
+            var pct = ((20 - parseInt(lugares)) / 20) * 100;
+            document.getElementById('popup-barra').style.width = pct + '%';
+        }
+        popup.style.display = 'block';
+        setTimeout(function(){ popup.querySelector('div').style.transform = 'translateY(0)'; }, 50);
+    }
+    window.cerrarPopup = function() {
+        var popup = document.getElementById('popup-urgencia');
+        popup.querySelector('div').style.transform = 'translateY(100%)';
+        setTimeout(function(){ popup.style.display = 'none'; }, 500);
+    };
+    window.addEventListener('scroll', function() {
+        var scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        if (scrollPct > 0.4) mostrarPopup();
+    });
+})();
+</script>
+
 <footer style="padding:1rem 1.5rem; text-align:center;">
     <div class="footer-bottom" style="margin:0;">&copy; 2026 Universidad Iberoamericana Tijuana. Todos los derechos reservados.</div>
 </footer>
