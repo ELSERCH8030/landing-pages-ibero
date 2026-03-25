@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="https://use.typekit.net/phs8jtn.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        .parallax-bg { position: relative; }
+        .parallax-bg::before,
+        .parallax-bg::after {
+            content: '';
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.06;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .parallax-bg::before {
+            background-image: url('assets/bg-sol.png');
+            width: 600px; height: 600px;
+            top: 10%; right: -100px;
+        }
+        .parallax-bg::after {
+            background-image: url('assets/bg-escudo.png');
+            width: 500px; height: 500px;
+            bottom: 5%; left: -80px;
+        }
+        .parallax-bg > section,
+        .parallax-bg > * { position: relative; z-index: 1; }
         :root {
             --rojo: #E00034; --rojo-oscuro: #B8002A; --blanco: #FFFFFF;
             --gris-claro: #F5F5F5; --gris: #666666; --gris-oscuro: #333333; --negro: #1A1A1A;
@@ -329,6 +352,7 @@
         </div>
     </div>
 </section>
+<div class="parallax-bg">
 <section id="perfil">
     <div class="container">
         <div class="section-title">
@@ -492,6 +516,7 @@
         </div>
     </div>
 </section>
+</div><!-- /parallax-bg -->
 <footer style="padding:1rem 1.5rem; text-align:center;">
     <div class="footer-bottom" style="margin:0;">&copy; 2026 Universidad Iberoamericana Tijuana. Todos los derechos reservados.</div>
 </footer>
