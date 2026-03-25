@@ -1,10 +1,27 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Licenciatura en Enfermería | IBERO Tijuana</title>
+    <title>Licenciatura en [NOMBRE DE LA CARRERA] | IBERO Tijuana</title>
     <link rel="stylesheet" href="https://use.typekit.net/phs8jtn.css">
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1259299219355859');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1259299219355859&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -62,41 +79,6 @@
         .perfil-lista li { padding: .75rem 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: .75rem; font-size: .92rem; }
         .perfil-lista li:last-child { border-bottom: none; }
         .check-icon { width: 24px; height: 24px; background: rgba(200,16,46,.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--rojo); font-weight: 700; font-size: .8rem; margin-top: 2px; }
-        .parallax-escudo {
-            position: relative;
-        }
-        .parallax-escudo::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: var(--escudo);
-            background-size: 500px;
-            background-position: right -100px center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            opacity: .15;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .parallax-escudo > * { position: relative; z-index: 1; }
-        .parallax-sol {
-            position: relative;
-        }
-        .parallax-sol::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: var(--sol);
-            background-size: 450px;
-            background-position: left -80px center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            opacity: .08;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .parallax-sol > * { position: relative; z-index: 1; }
-        header { background: var(--rojo); color: var(--blanco); padding: .75rem 1.25rem; font-weight: 600; font-size: .95rem; }
         .campo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
         .campo-item { background: var(--blanco); padding: 1.5rem; border-radius: 14px; text-align: center; border-left: 4px solid var(--rojo); box-shadow: 0 2px 8px rgba(0,0,0,.04); transition: .3s; }
         .campo-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
@@ -109,19 +91,6 @@
         .diferencia-item p { font-size: .9rem; line-height: 1.6; color: var(--gris-oscuro); margin: 0; }
         .collage { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
         .collage img { width: 100%; height: 280px; object-fit: cover; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,.1); }
-        .video-wrapper { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,.12); display: block; }
-        .video-wrapper img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
-        .video-play-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.35); display: flex; align-items: center; justify-content: center; transition: .3s; }
-        .video-wrapper:hover .video-play-overlay { background: rgba(0,0,0,.5); }
-        .play-btn { width: 72px; height: 72px; background: var(--rojo); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: .3s; box-shadow: 0 4px 20px rgba(0,0,0,.3); }
-        .play-btn::after { content: ''; display: block; width: 0; height: 0; border-style: solid; border-width: 14px 0 14px 24px; border-color: transparent transparent transparent var(--blanco); margin-left: 4px; }
-        .video-wrapper:hover .play-btn { transform: scale(1.1); background: var(--rojo-oscuro); }
-        .video-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,.7)); color: var(--blanco); padding: 2rem 1.2rem 1rem; font-size: .85rem; font-weight: 300; }
-        .experiencia-texto blockquote { font-size: 1.1rem; font-style: italic; font-weight: 300; color: var(--gris-oscuro); border-left: 4px solid var(--rojo); padding-left: 1.25rem; margin-bottom: 1.5rem; line-height: 1.7; }
-        .experiencia-autor { display: flex; align-items: center; gap: .75rem; }
-        .autor-avatar { width: 48px; height: 48px; background: var(--rojo); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--blanco); font-weight: 700; font-size: 1.1rem; }
-        .autor-info .autor-nombre { font-weight: 600; color: var(--negro); font-size: .95rem; }
-        .autor-info .autor-detalle { font-size: .82rem; color: var(--gris); font-weight: 300; }
         .urgencia-banner { background: linear-gradient(135deg, #1A1A1A, #2a2a2a); color: var(--blanco); padding: 3rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
         .urgencia-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--rojo), #ff4d6a, var(--rojo)); }
         .urgencia-lema { font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 400; margin-bottom: .5rem; text-transform: uppercase; letter-spacing: 2px; }
@@ -152,9 +121,6 @@
         .urgencia-left .urgencia-barra { margin: 0 0 1.5rem; }
         .urgencia-form .form-card { background: var(--blanco); color: var(--gris-oscuro); }
         .urgencia-form .form-card h3 { color: var(--negro); }
-        .cta-banner { background: linear-gradient(135deg, var(--rojo), var(--rojo-oscuro)); color: var(--blanco); text-align: center; padding: 4rem 1.5rem; }
-        .cta-banner h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: .75rem; }
-        .cta-banner p { opacity: .9; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
         .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
         .mapa-wrapper { border-radius: 14px; overflow: hidden; margin-top: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
         .mapa-wrapper iframe { width: 100%; height: 220px; border: none; display: block; }
@@ -180,8 +146,6 @@
         .footer-bottom { max-width: 1100px; margin: 1.5rem auto 0; text-align: center; font-size: .82rem; color: rgba(255,255,255,.4); }
         .footer-legal { max-width: 1100px; margin: .5rem auto 0; text-align: center; font-size: .72rem; color: rgba(255,255,255,.3); }
         @media (max-width: 768px) {
-            .parallax-escudo::before,
-            .parallax-sol::before { background-attachment: scroll; }
             nav { display: none; }
             .hamburger { display: flex; }
             nav.active { display: flex; flex-direction: column; width: 100%; padding: .5rem 0; gap: .25rem; background: var(--rojo); }
@@ -201,7 +165,6 @@
             .campo-grid { grid-template-columns: repeat(2, 1fr); }
             section { padding: 3.5rem 1.25rem; }
             .section-title h2 { font-size: 1.5rem; }
-            .cta-banner { padding: 3rem 1.25rem; }
             .urgencia-layout { grid-template-columns: 1fr; text-align: center; }
             .urgencia-left .urgencia-lema, .urgencia-left .urgencia-precio, .urgencia-left .urgencia-lugares { text-align: center; }
             .urgencia-left .countdown { justify-content: center; }
@@ -242,14 +205,6 @@
             .campo-item { padding: 1rem; display: flex; align-items: center; gap: .75rem; text-align: left; border-left: 3px solid var(--rojo); }
             .campo-item .campo-icon { font-size: 1.5rem; margin-bottom: 0; }
             .campo-item h3 { font-size: .88rem; }
-            .video-wrapper { border-radius: 12px; }
-            .play-btn { width: 56px; height: 56px; }
-            .play-btn::after { border-width: 10px 0 10px 18px; margin-left: 3px; }
-            .video-label { font-size: .78rem; padding: 1.5rem 1rem .75rem; }
-            .experiencia-texto blockquote { font-size: .9rem; padding-left: 1rem; }
-            .autor-avatar { width: 40px; height: 40px; font-size: .95rem; }
-            .autor-info .autor-nombre { font-size: .88rem; }
-            .autor-info .autor-detalle { font-size: .75rem; }
             .cta-banner { padding: 2rem .85rem; }
             .cta-banner h2 { font-size: 1.15rem; }
             .cta-banner p { font-size: .85rem; margin-bottom: 1.5rem; }
@@ -261,7 +216,6 @@
             .mapa-wrapper { margin-top: 1rem; border-radius: 10px; }
             .mapa-wrapper iframe { height: 180px; }
             #ubicacion .container > div[style*="grid-template-columns"] img { height: 180px; }
-
             .form-card { padding: 1.25rem; border-radius: 12px; }
             .form-card h3 { font-size: 1rem; margin-bottom: 1.25rem; }
             .form-group { margin-bottom: .9rem; }
@@ -294,41 +248,49 @@
     </style>
 </head>
 <body>
+<!-- ==================== HEADER ==================== -->
 <header>
     <div class="header-inner">
         <div class="logo-area">
             <img src="assets/asset_2.png" alt="IBERO Tijuana" class="logo-img">
             <span class="header-divider"></span>
-            <span class="header-career">Licenciatura en Enfermería</span>
+            <span class="header-career">Licenciatura en [NOMBRE DE LA CARRERA]</span>
         </div>
-        <a href="#contacto" class="nav-cta">Inscríbete ahora</a>
+        <a href="#contacto" class="nav-cta">Regístrate y descarga el plan de estudios</a>
     </div>
 </header>
+
+<!-- ==================== HERO ==================== -->
 <section class="hero">
+    <!-- Opción A: Video de fondo -->
     <video class="hero-video-bg" autoplay muted loop playsinline><source src="assets/video.mp4" type="video/mp4"></video>
+    <!-- Opción B: Si no hay video, usar imagen de fondo definida en .hero background-image -->
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <span class="hero-badge">Universidad Iberoamericana Tijuana</span>
-        <h1>Licenciatura en Enfermería</h1>
-        <p>Formamos profesionales con espíritu de servicio, sentido de solidaridad y calidad educativa, preparados para brindar cuidado holístico con enfoque humanizado y multicultural.</p>
+        <h1>Licenciatura en [NOMBRE DE LA CARRERA]</h1>
+        <p>[DESCRIPCIÓN BREVE DE LA CARRERA - 1 o 2 líneas que resuman la propuesta de valor]</p>
         <a href="#contacto" class="nav-cta" style="font-size:1.1rem; padding:.85rem 2.5rem;">Inscríbete ahora</a>
     </div>
 </section>
 
+<!-- ==================== BENEFICIOS ==================== -->
 <section class="beneficios" id="beneficios">
     <div class="container">
         <div class="section-title">
-            <h2>¿Por qué estudiar Enfermería?</h2>
+            <h2>¿Para qué estudiar [NOMBRE DE LA CARRERA] en IBERO?</h2>
             <div class="accent-line"></div>
         </div>
         <div class="beneficios-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-            <div class="beneficio-card"><div class="beneficio-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/><path d="M12 13v4M10 15h4"/></svg></div><h3>Acompañar, cuidar y mejorar</h3><p>Para comprender cómo acompañar, cuidar y mejorar la salud de las personas en distintos momentos de su vida.</p></div>
-            <div class="beneficio-card"><div class="beneficio-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><path d="M8 2h8"/></svg></div><h3>Respuesta con conocimiento</h3><p>Para desarrollar la capacidad de identificar necesidades de cuidado y responder a ellas con conocimiento científico, sensibilidad humana y responsabilidad profesional.</p></div>
-            <div class="beneficio-card"><div class="beneficio-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6M12 9v6"/><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><h3>Promoción y prevención</h3><p>Para participar activamente en la promoción de la salud, la prevención de enfermedades y la atención de pacientes en distintos contextos.</p></div>
-            <div class="beneficio-card"><div class="beneficio-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg></div><h3>Visión integral</h3><p>Tu formación te permitirá cuidar a las personas desde una visión integral que considera su salud física, emocional y social.</p></div>
+            <div class="beneficio-card"><div class="beneficio-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div><h3>[TÍTULO BENEFICIO 1]</h3><p>[DESCRIPCIÓN BENEFICIO 1]</p></div>
+            <div class="beneficio-card"><div class="beneficio-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div><h3>[TÍTULO BENEFICIO 2]</h3><p>[DESCRIPCIÓN BENEFICIO 2]</p></div>
+            <div class="beneficio-card"><div class="beneficio-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div><h3>[TÍTULO BENEFICIO 3]</h3><p>[DESCRIPCIÓN BENEFICIO 3]</p></div>
+            <div class="beneficio-card"><div class="beneficio-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div><h3>[TÍTULO BENEFICIO 4]</h3><p>[DESCRIPCIÓN BENEFICIO 4]</p></div>
         </div>
     </div>
 </section>
+
+<!-- ==================== PERFIL DE EGRESO ==================== -->
 <section id="perfil">
     <div class="container">
         <div class="section-title">
@@ -338,42 +300,42 @@
         </div>
         <div class="perfil-content">
             <div class="perfil-image">
-                <img src="assets/asset_3.jpg" alt="Estudiantes de enfermería realizando prácticas clínicas">
+                <img src="assets/asset_3.jpg" alt="[DESCRIPCIÓN DE LA IMAGEN]">
             </div>
             <div>
                 <ul class="perfil-lista">
-                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Identificar necesidades de cuidado en personas y comunidades.</span></li>
-                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Aplicar el proceso de enfermería para la atención de pacientes.</span></li>
-                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Participar en programas de prevención y promoción de la salud.</span></li>
-                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Colaborar con equipos de salud en distintos contextos clínicos y comunitarios.</span></li>
-                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Desarrollar intervenciones orientadas al bienestar y la calidad de vida.</span></li>
-                    <li style="border-bottom:none; padding-top:1rem;"><span></span><span style="font-style:italic; opacity:.85;">La formación te permitirá desempeñarte con criterio profesional, sensibilidad humana y compromiso con el cuidado de las personas.</span></li>
+                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>[COMPETENCIA DE EGRESO 1]</span></li>
+                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>[COMPETENCIA DE EGRESO 2]</span></li>
+                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>[COMPETENCIA DE EGRESO 3]</span></li>
+                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>[COMPETENCIA DE EGRESO 4]</span></li>
+                    <li><span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>[COMPETENCIA DE EGRESO 5]</span></li>
+                    <li style="border-bottom:none; padding-top:1rem;"><span></span><span style="font-style:italic; opacity:.85;">[FRASE DE CIERRE MOTIVACIONAL SOBRE LA FORMACIÓN]</span></li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
+
+<!-- ==================== CAMPO LABORAL ==================== -->
 <section id="campo">
     <div class="container">
         <div class="section-title">
             <h2>Campo laboral</h2>
-            <p>Un amplio abanico de oportunidades profesionales te espera al egresar.</p>
+            <p>[SUBTÍTULO CAMPO LABORAL]</p>
             <div class="accent-line"></div>
         </div>
         <div class="campo-grid">
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M9 8h6M12 8v6"/><rect x="4" y="2" width="16" height="19" rx="2"/></svg></span><h3>Instituciones de salud pública y privada</h3></div>
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20V8l7-4 7 4v12"/><path d="M9 20v-4h6v4M9 12h6"/></svg></span><h3>Sector industrial</h3></div>
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><path d="M22 10a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/></svg></span><h3>Prestador de servicios independiente</h3></div>
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Organizaciones de la sociedad civil</h3></div>
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><h3>Docencia en enfermería</h3></div>
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2a2 2 0 0 1 2 2v5l3-3"/><path d="M13 9l-3-3"/><path d="M22 22H2"/><path d="M16 13a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/><path d="M12 17v5"/></svg></span><h3>Atención primaria de la salud</h3></div>
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v6h6v6h-6v6H9v-6H3V8h6z"/></svg></span><h3>Investigación en salud</h3></div>
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3>Salud internacional</h3></div>
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><h3>Práctica privada y clínica propia</h3></div>
-            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 8h2M7 11h2M13 8h4M13 11h4"/></svg></span><h3>Gestión y administración hospitalaria</h3></div>
+            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></span><h3>[CAMPO LABORAL 1]</h3></div>
+            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></span><h3>[CAMPO LABORAL 2]</h3></div>
+            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></span><h3>[CAMPO LABORAL 3]</h3></div>
+            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></span><h3>[CAMPO LABORAL 4]</h3></div>
+            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></span><h3>[CAMPO LABORAL 5]</h3></div>
+            <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></span><h3>[CAMPO LABORAL 6]</h3></div>
         </div>
     </div>
 </section>
+
+<!-- ==================== LO QUE NOS DIFERENCIA ==================== -->
 <section id="experiencias" style="background: var(--gris-claro);">
     <div class="container">
         <div class="section-title">
@@ -382,55 +344,56 @@
         </div>
         <div class="diferencia-grid">
             <div class="diferencia-item">
-                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-                <p>Formación con enfoque humanista jesuita, que prepara profesionales comprometidos con el cuidado, la dignidad humana y la justicia social.</p>
+                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div>
+                <p>[DIFERENCIADOR 1]</p>
             </div>
             <div class="diferencia-item">
-                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M9 8h6M12 8v8M9 21V8a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v13M5 21v-8a2 2 0 0 1 2-2h0M19 21v-8a2 2 0 0 0-2-2h0"/></svg></div>
-                <p>Experiencias reales de aprendizaje en hospitales, comunidades y organizaciones sociales desde etapas tempranas de la carrera.</p>
+                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div>
+                <p>[DIFERENCIADOR 2]</p>
             </div>
             <div class="diferencia-item">
-                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                <p>Participación en proyectos de salud comunitaria y atención a población migrante, en uno de los contextos fronterizos más dinámicos del mundo.</p>
+                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div>
+                <p>[DIFERENCIADOR 3]</p>
             </div>
             <div class="diferencia-item">
-                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg></div>
-                <p>Acompañamiento académico cercano y formación en liderazgo para el desarrollo profesional de las y los estudiantes.</p>
+                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div>
+                <p>[DIFERENCIADOR 4]</p>
             </div>
             <div class="diferencia-item">
-                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-                <p>Oportunidades para integrarse en proyectos de investigación, intervención social y experiencias de aprendizaje con impacto comunitario.</p>
+                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div>
+                <p>[DIFERENCIADOR 5]</p>
             </div>
             <div class="diferencia-item">
-                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6M12 9v6"/><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-                <p>Desarrollo de competencias en cuidado integral, promoción de la salud y prevención de enfermedades, con una visión interdisciplinaria.</p>
+                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div>
+                <p>[DIFERENCIADOR 6]</p>
             </div>
             <div class="diferencia-item">
-                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
-                <p>Colaboración y vinculación con instituciones y redes académicas internacionales, que enriquecen la formación con perspectivas globales en salud y enfermería.</p>
+                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div>
+                <p>[DIFERENCIADOR 7]</p>
             </div>
             <div class="diferencia-item">
-                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l-2 5 2-1 2 1-2-5z"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/><circle cx="12" cy="8" r="7"/></svg></div>
-                <p>Formación profesional con perspectiva global y compromiso social, características distintivas del Sistema Universitario Jesuita.</p>
+                <div class="dif-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- [ICONO SVG] --></svg></div>
+                <p>[DIFERENCIADOR 8]</p>
             </div>
         </div>
         <div class="collage">
-            <img src="assets/asset_4.jpg" alt="Alumna de enfermería IBERO Tijuana con estetoscopio" loading="lazy">
-            <img src="assets/asset_5.jpg" alt="Práctica quirúrgica en IBERO Tijuana" loading="lazy">
-            <img src="assets/asset_6.jpg" alt="Generación de enfermería IBERO Tijuana" loading="lazy">
+            <img src="assets/asset_4.jpg" alt="[DESCRIPCIÓN IMAGEN 1]" loading="lazy">
+            <img src="assets/asset_5.jpg" alt="[DESCRIPCIÓN IMAGEN 2]" loading="lazy">
+            <img src="assets/asset_6.jpg" alt="[DESCRIPCIÓN IMAGEN 3]" loading="lazy">
         </div>
     </div>
 </section>
 
+<!-- ==================== SECCIÓN DE URGENCIA + FORMULARIO ==================== -->
 <section class="urgencia-banner" id="contacto">
     <div class="urgencia-layout">
         <div class="urgencia-left">
             <div class="urgencia-lema">Hazlo <span>Realidad</span></div>
-            <p style="font-size:clamp(1rem, 2vw, 1.25rem); font-weight:300; opacity:.9; margin-bottom:1rem; line-height:1.7;">Hoy más que nunca, el mundo necesita <strong style="font-weight:700;">profesionales de la salud preparados y comprometidos.</strong></p>
-            <p style="font-size:clamp(.95rem, 1.8vw, 1.1rem); font-weight:300; opacity:.8; margin-bottom:1.5rem; line-height:1.7;">En <strong style="font-weight:700;">IBERO Tijuana</strong> decidimos formar parte activa de esa respuesta.</p>
+            <p style="font-size:clamp(1rem, 2vw, 1.25rem); font-weight:300; opacity:.9; margin-bottom:1rem; line-height:1.7;">[FRASE MOTIVACIONAL PRINCIPAL DE LA CARRERA]</p>
+            <p style="font-size:clamp(.95rem, 1.8vw, 1.1rem); font-weight:300; opacity:.8; margin-bottom:1.5rem; line-height:1.7;">En <strong style="font-weight:700;">IBERO Tijuana</strong> [FRASE COMPLEMENTARIA].</p>
             <div class="urgencia-item" style="display:inline-block; margin-bottom:1.5rem;">
                 <div class="urgencia-item-label">Próximo examen de admisión</div>
-                <div class="urgencia-item-value rojo">24 de Abril</div>
+                <div class="urgencia-item-value rojo">[FECHA DEL EXAMEN]</div>
             </div>
             <p style="font-size:.95rem; margin-bottom:.75rem; opacity:.85;">El examen de admisión se acerca en:</p>
             <div class="countdown" id="countdown">
@@ -441,14 +404,15 @@
             </div>
             <div class="urgencia-lugares">Lugares disponibles: <strong id="lugares-count">14</strong> de 20</div>
             <div class="urgencia-barra"><div class="urgencia-barra-inner" id="barra-lugares" style="width:70%"></div></div>
-            <p style="font-size:clamp(1rem, 2vw, 1.15rem); margin-top:1.25rem; line-height:1.6; background:rgba(224,0,52,.15); border-left:4px solid var(--rojo); padding:.75rem 1rem; border-radius:0 8px 8px 0;">Sé de los <strong style="font-weight:700; color:var(--rojo); font-size:1.2em;">primeros 20</strong> en inscribirte y conoce nuestro <strong style="font-weight:700;">esquema especial de colegiatura Otoño 2026.</strong></p>
+            <p style="font-size:clamp(1rem, 2vw, 1.15rem); margin-top:1.25rem; line-height:1.6; background:rgba(224,0,52,.15); border-left:4px solid var(--rojo); padding:.75rem 1rem; border-radius:0 8px 8px 0;">Sé de los <strong style="font-weight:700; color:var(--rojo); font-size:1.2em;">primeros 20</strong> en inscribirte y conoce nuestro <strong style="font-weight:700;">esquema especial de colegiatura [PERIODO].</strong></p>
         </div>
         <div class="urgencia-form">
             <div style="overflow:hidden;">
+                <!-- IFRAME DE PROSPECTY: Reemplazar src y data-form-id con el formulario correspondiente -->
                 <iframe
-                    src="https://app.prospecty.mx/widget/form/X5wtZh0QEVabU2EH1zsI"
+                    src="[URL_DEL_FORMULARIO_PROSPECTY]"
                     style="width:100%;height:863px;border:none;border-radius:16px;" scrolling="no"
-                    id="inline-X5wtZh0QEVabU2EH1zsI"
+                    id="inline-[FORM_ID]"
                     data-layout="{'id':'INLINE'}"
                     data-trigger-type="alwaysShow"
                     data-trigger-value=""
@@ -456,17 +420,22 @@
                     data-activation-value=""
                     data-deactivation-type="neverDeactivate"
                     data-deactivation-value=""
-                    data-form-name="Form 20"
+                    data-form-name="[NOMBRE DEL FORM]"
                     data-height="863"
-                    data-layout-iframe-id="inline-X5wtZh0QEVabU2EH1zsI"
-                    data-form-id="X5wtZh0QEVabU2EH1zsI"
-                    title="Form 20"
+                    data-layout-iframe-id="inline-[FORM_ID]"
+                    data-form-id="[FORM_ID]"
+                    title="[NOMBRE DEL FORM]"
                 ></iframe>
             </div>
+            <a href="assets/plan-de-estudios-[CARRERA].pdf" download style="display:flex; align-items:center; justify-content:center; gap:.5rem; margin-top:1rem; padding:.75rem 1.5rem; background:var(--blanco); color:var(--rojo); border:2px solid var(--rojo); border-radius:10px; text-decoration:none; font-weight:700; font-size:.9rem; transition:all .3s;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Descarga el plan de estudios
+            </a>
         </div>
     </div>
 </section>
 
+<!-- ==================== UBICACIÓN ==================== -->
 <section id="ubicacion">
     <div class="container">
         <div class="section-title">
@@ -486,15 +455,67 @@
                     </a>
                 </div>
                 <div style="border-radius:14px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.08);">
-                    <img src="assets/campus.jpg" alt="Campus IBERO Tijuana - Biblioteca Loyola" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <img src="assets/campus.jpg" alt="Campus IBERO Tijuana" style="width:100%; height:100%; object-fit:cover; display:block;">
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- ==================== POP-UP DE URGENCIA ==================== -->
+<div id="popup-urgencia" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; padding:1rem; pointer-events:none;">
+    <div style="max-width:480px; margin:0 auto; background:var(--blanco); border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,.25); padding:1.5rem; position:relative; pointer-events:auto; transform:translateY(100%); transition:transform .5s ease;">
+        <button onclick="cerrarPopup()" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--gris); line-height:1;">&times;</button>
+        <div style="display:flex; align-items:center; gap:.5rem; margin-bottom:.75rem;">
+            <span style="background:var(--rojo); color:white; font-size:.7rem; font-weight:700; padding:.25rem .6rem; border-radius:20px; text-transform:uppercase; letter-spacing:.5px;">Cupo limitado</span>
+        </div>
+        <p style="font-size:1.05rem; font-weight:700; color:var(--gris-oscuro); margin-bottom:.5rem;">Solo quedan <span style="color:var(--rojo);" id="popup-lugares">17</span> de 20 colegiaturas especiales para [NOMBRE DE LA CARRERA] [PERIODO]</p>
+        <div style="background:var(--gris-claro); border-radius:8px; height:8px; margin-bottom:.75rem; overflow:hidden;">
+            <div id="popup-barra" style="height:100%; background:var(--rojo); border-radius:8px; width:70%; transition:width .5s;"></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span style="font-size:.85rem; color:var(--gris);">Examen de admisión: <strong style="color:var(--gris-oscuro);">[FECHA DEL EXAMEN]</strong></span>
+        </div>
+        <a href="#contacto" onclick="cerrarPopup()" style="display:block; text-align:center; background:var(--rojo); color:white; padding:.75rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:.95rem; transition:background .3s;">Regístrate ahora</a>
+    </div>
+</div>
+<script>
+(function(){
+    var popupShown = false;
+    function mostrarPopup() {
+        if (popupShown) return;
+        var popup = document.getElementById('popup-urgencia');
+        if (!popup) return;
+        popupShown = true;
+        var lugaresEl = document.getElementById('lugares-count');
+        if (lugaresEl) {
+            var lugares = lugaresEl.textContent;
+            document.getElementById('popup-lugares').textContent = lugares;
+            var pct = ((20 - parseInt(lugares)) / 20) * 100;
+            document.getElementById('popup-barra').style.width = pct + '%';
+        }
+        popup.style.display = 'block';
+        setTimeout(function(){ popup.querySelector('div').style.transform = 'translateY(0)'; }, 50);
+    }
+    window.cerrarPopup = function() {
+        var popup = document.getElementById('popup-urgencia');
+        popup.querySelector('div').style.transform = 'translateY(100%)';
+        setTimeout(function(){ popup.style.display = 'none'; }, 500);
+    };
+    window.addEventListener('scroll', function() {
+        var scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        if (scrollPct > 0.4) mostrarPopup();
+    });
+})();
+</script>
+
+<!-- ==================== FOOTER ==================== -->
 <footer style="padding:1rem 1.5rem; text-align:center;">
     <div class="footer-bottom" style="margin:0;">&copy; 2026 Universidad Iberoamericana Tijuana. Todos los derechos reservados.</div>
 </footer>
+
+<!-- ==================== SCRIPTS ==================== -->
 <script>
     function handleSubmit(e) {
         e.preventDefault();
@@ -508,9 +529,9 @@
         link.addEventListener('click', () => { document.querySelector('nav').classList.remove('active'); });
     });
 
-    // Countdown al 24 de abril 2026
+    // Countdown - CAMBIAR FECHA según periodo de admisión
     (function() {
-        const target = new Date('2026-04-24T09:00:00-07:00').getTime();
+        const target = new Date('2026-04-24T09:00:00-07:00').getTime(); // [CAMBIAR FECHA]
         function update() {
             const now = Date.now();
             let diff = target - now;
@@ -531,8 +552,8 @@
     // Simulador de lugares disponibles
     (function() {
         const total = 20;
-        const startDate = new Date('2026-03-20').getTime();
-        const endDate = new Date('2026-04-24').getTime();
+        const startDate = new Date('2026-03-20').getTime(); // [CAMBIAR FECHA INICIO]
+        const endDate = new Date('2026-04-24').getTime();   // [CAMBIAR FECHA FIN]
         const now = Date.now();
         const progress = Math.min(1, Math.max(0, (now - startDate) / (endDate - startDate)));
         const taken = Math.floor(progress * 13) + Math.floor(Math.random() * 2);
@@ -544,44 +565,46 @@
 </script>
 <script src="https://app.prospecty.mx/js/form_embed.js"></script>
 <script>
+    // Meta Pixel: Rastrear conversión cuando se envía el formulario de Prospecty
+    window.addEventListener('message', function(event) {
+        if (event.data && (event.data.type === 'form:submit' || event.data.type === 'form_submitted' ||
+            (typeof event.data === 'string' && event.data.indexOf('form') !== -1 && event.data.indexOf('submit') !== -1))) {
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead');
+            }
+        }
+    });
+</script>
+<script>
     // Scroll animations
     (function() {
-        // Section titles
         document.querySelectorAll('.section-title').forEach(el => {
             el.classList.add('anim', 'anim-up');
         });
-        // Beneficio cards
         document.querySelectorAll('.beneficio-card').forEach((el, i) => {
             el.classList.add('anim', 'anim-up', 'anim-delay-' + (i + 1));
         });
-        // Diferencia items
         document.querySelectorAll('.diferencia-item').forEach((el, i) => {
             el.classList.add('anim', 'anim-up', 'anim-delay-' + (i + 1));
         });
-        // Collage images
         document.querySelectorAll('.collage img').forEach((el, i) => {
             el.classList.add('anim', 'anim-scale', 'anim-delay-' + (i + 1));
         });
-        // Campo items
         document.querySelectorAll('.campo-item').forEach((el, i) => {
             el.classList.add('anim', 'anim-up', 'anim-delay-' + Math.min(i + 1, 8));
         });
-        // Perfil content
         document.querySelectorAll('.perfil-content > *').forEach((el, i) => {
             el.classList.add('anim', i === 0 ? 'anim-left' : 'anim-right');
         });
-        // Perfil lista items
         document.querySelectorAll('.perfil-lista li').forEach((el, i) => {
             el.classList.add('anim', 'anim-up', 'anim-delay-' + (i + 1));
         });
-        // Urgencia layout
         document.querySelectorAll('.urgencia-left').forEach(el => {
             el.classList.add('anim', 'anim-left');
         });
         document.querySelectorAll('.urgencia-form').forEach(el => {
             el.classList.add('anim', 'anim-right');
         });
-        // Ubicacion
         document.querySelectorAll('#ubicacion .info-item').forEach((el, i) => {
             el.classList.add('anim', 'anim-up', 'anim-delay-' + (i + 1));
         });
