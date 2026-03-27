@@ -122,6 +122,8 @@
 
         /* Plan de Estudios */
         #plan-estudios { background: #f8f8f8; }
+        .download-btn { display: inline-flex; align-items: center; gap: .6rem; margin-top: 1.2rem; background: var(--rojo); color: #fff; padding: .75rem 1.8rem; border-radius: 50px; font-size: .88rem; font-weight: 700; text-decoration: none; transition: background .25s, transform .2s, box-shadow .25s; box-shadow: 0 4px 18px rgba(224,0,52,.3); letter-spacing: .3px; }
+        .download-btn:hover { background: #b5001e; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(224,0,52,.4); }
         .plan-phases { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: 2rem 0 2.5rem; }
         .phase-btn { background: #fff; border: 1.5px solid #ddd; color: #555; padding: .55rem 1.3rem; border-radius: 50px; font-size: .82rem; font-weight: 600; cursor: pointer; transition: .25s; letter-spacing: .3px; font-family: inherit; display: flex; flex-direction: column; align-items: center; gap: .1rem; }
         .phase-btn span { font-size: .7rem; font-weight: 400; opacity: .7; }
@@ -433,6 +435,10 @@
             <h2>Plan de Estudios</h2>
             <p>14 semestres de formación integral en medicina · IBERO Tijuana 2026</p>
             <div class="accent-line"></div>
+            <a href="assets/plan-estudios-medicina-ibero-2026.pdf" download class="download-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Descargar Mapa Curricular PDF
+            </a>
         </div>
 
         <div class="plan-phases">
