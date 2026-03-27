@@ -120,6 +120,35 @@
         .heart-hint { animation: hintFloat 2.2s ease-in-out infinite; }
         @media(max-width:768px){ .heart-section{height:280vh;} }
 
+        /* Plan de Estudios */
+        #plan-estudios { background: #f8f8f8; }
+        .plan-phases { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: 2rem 0 2.5rem; }
+        .phase-btn { background: #fff; border: 1.5px solid #ddd; color: #555; padding: .55rem 1.3rem; border-radius: 50px; font-size: .82rem; font-weight: 600; cursor: pointer; transition: .25s; letter-spacing: .3px; font-family: inherit; display: flex; flex-direction: column; align-items: center; gap: .1rem; }
+        .phase-btn span { font-size: .7rem; font-weight: 400; opacity: .7; }
+        .phase-btn:hover { border-color: var(--rojo); color: var(--rojo); }
+        .phase-btn.active { background: var(--rojo); border-color: var(--rojo); color: #fff; }
+        .phase-btn.active span { opacity: .85; }
+        .plan-panel { display: none; }
+        .plan-panel.active { display: block; animation: fadeUp .4s cubic-bezier(.16,1,.3,1); }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+        .semestres-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+        .semestre-card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+        .sem-header { background: var(--rojo); color: #fff; padding: .75rem 1.1rem; font-weight: 700; font-size: .9rem; letter-spacing: .5px; }
+        .sem-header .sem-num { font-size: .72rem; font-weight: 400; opacity: .8; display: block; margin-top: .1rem; }
+        .sem-body { padding: 1rem 1.1rem; }
+        .sem-body li { list-style: none; padding: .38rem 0; border-bottom: 1px solid #f0f0f0; font-size: .82rem; color: #333; display: flex; align-items: flex-start; gap: .5rem; line-height: 1.4; }
+        .sem-body li:last-child { border-bottom: none; }
+        .sem-body li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--rojo); flex-shrink: 0; margin-top: .42rem; }
+        .plan-badge { display: inline-flex; align-items: center; gap: .4rem; background: rgba(224,0,52,.08); color: var(--rojo); border-radius: 6px; padding: .2rem .6rem; font-size: .75rem; font-weight: 600; margin: .25rem; }
+        .plan-internado-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .internado-card { background: #fff; border-radius: 12px; padding: 1.2rem; box-shadow: 0 2px 12px rgba(0,0,0,.07); border-left: 4px solid var(--rojo); }
+        .internado-card h4 { font-size: .88rem; font-weight: 700; margin-bottom: .3rem; color: #1a1a1a; }
+        .internado-card p { font-size: .78rem; color: #666; margin: 0; }
+        .ss-card { background: linear-gradient(135deg,#1a1a1a,#2d2d2d); color: #fff; border-radius: 16px; padding: 2.5rem; text-align: center; max-width: 600px; margin: 0 auto; }
+        .ss-card h3 { font-size: 1.5rem; margin-bottom: .75rem; }
+        .ss-card p { opacity: .75; font-size: .9rem; }
+        @media(max-width:600px){ .semestres-grid{grid-template-columns:1fr;} .phase-btn{font-size:.78rem;padding:.5rem 1rem;} }
+
         /* Toggle Accordion */
         .toggle-wrap { }
         .toggle-content { max-height: 0; overflow: hidden; transition: max-height .75s cubic-bezier(.16,1,.3,1), opacity .5s ease; opacity: 0; pointer-events: none; }
@@ -394,6 +423,210 @@
             <div class="campo-item"><span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><h3>Salud pública y epidemiología</h3></div>
         </div>
         </div><!-- /toggle-content campo -->
+    </div>
+</section>
+
+<!-- PLAN DE ESTUDIOS -->
+<section id="plan-estudios">
+    <div class="container">
+        <div class="section-title">
+            <h2>Plan de Estudios</h2>
+            <p>14 semestres de formación integral en medicina · IBERO Tijuana 2026</p>
+            <div class="accent-line"></div>
+        </div>
+
+        <div class="plan-phases">
+            <button class="phase-btn active" data-phase="basica">Área Básica<span>Sem. 1 – 4</span></button>
+            <button class="phase-btn" data-phase="clinica">Clínicas<span>Sem. 5 – 8</span></button>
+            <button class="phase-btn" data-phase="avanzada">Práctica Avanzada<span>Sem. 9 – 10</span></button>
+            <button class="phase-btn" data-phase="internado">Internado<span>Sem. 11 – 12</span></button>
+            <button class="phase-btn" data-phase="servicio">Servicio Social<span>Sem. 13 – 14</span></button>
+        </div>
+
+        <!-- FASE 1: BÁSICA Sem 1-4 -->
+        <div class="plan-panel active" id="phase-basica">
+            <div class="semestres-grid">
+                <div class="semestre-card">
+                    <div class="sem-header">1er Semestre<span class="sem-num">Fundamentos</span></div>
+                    <ul class="sem-body">
+                        <li>Principios y Habilidades Básicas en Medicina</li>
+                        <li>Homeostasis y Regulación</li>
+                        <li>Fundamentos de las Ciencias Médicas</li>
+                        <li>Estructura Funcional de la Persona</li>
+                        <li>Tecnologías de Información y Comunicación</li>
+                        <li>Taller de Integración Universitaria</li>
+                        <li>Atención Básica en la Comunidad</li>
+                    </ul>
+                </div>
+                <div class="semestre-card">
+                    <div class="sem-header">2do Semestre<span class="sem-num">Ciencias Básicas</span></div>
+                    <ul class="sem-body">
+                        <li>Concepción y Desarrollo</li>
+                        <li>Bioquímica Aplicada a las Ciencias Médicas</li>
+                        <li>Semiología Médica</li>
+                        <li>Bases Anatómicas y Fisiológicas de Aparatos y Sistemas I</li>
+                        <li>Taller de Escritura Académica</li>
+                        <li>Atención Primaria de Salud</li>
+                        <li>Estilo de Vida Personal y Comunitario</li>
+                    </ul>
+                </div>
+                <div class="semestre-card">
+                    <div class="sem-header">3er Semestre<span class="sem-num">Fisiología e Inmunología</span></div>
+                    <ul class="sem-body">
+                        <li>Neuroanatomía y Neurofisiología</li>
+                        <li>Bases Farmacológicas</li>
+                        <li>Fisiopatología I</li>
+                        <li>Propedéutica Clínica I</li>
+                        <li>Inmunología</li>
+                        <li>Bases Anatómicas y Fisiológicas de Aparatos y Sistemas II</li>
+                        <li>Genética</li>
+                        <li>Persona y Humanismo</li>
+                    </ul>
+                </div>
+                <div class="semestre-card">
+                    <div class="sem-header">4to Semestre<span class="sem-num">Patología y Clínica</span></div>
+                    <ul class="sem-body">
+                        <li>Fisiopatología II</li>
+                        <li>Propedéutica Clínica II</li>
+                        <li>Microbiología y Fisiopatología de la Infección</li>
+                        <li>Farmacología Clínica</li>
+                        <li>Parasitología Clínica</li>
+                        <li>Medicina Basada en Evidencia y Epidemiología</li>
+                        <li>Medicina Social y Familiar</li>
+                        <li>ARU Optativa I</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 2: CLÍNICAS Sem 5-8 -->
+        <div class="plan-panel" id="phase-clinica">
+            <div class="semestres-grid">
+                <div class="semestre-card">
+                    <div class="sem-header">5to Semestre<span class="sem-num">Clínicas Especializadas I</span></div>
+                    <ul class="sem-body">
+                        <li>Clínica de Gastroenterología</li>
+                        <li>Neurología Clínica</li>
+                        <li>Principios de Cirugía</li>
+                        <li>Hematología</li>
+                        <li>Salud Pública y Medicina Preventiva</li>
+                        <li>Apoyos para el Diagnóstico Clínico</li>
+                        <li>Atención Comunitaria I</li>
+                        <li>ARU Optativa II</li>
+                    </ul>
+                </div>
+                <div class="semestre-card">
+                    <div class="sem-header">6to Semestre<span class="sem-num">Clínicas Especializadas II</span></div>
+                    <ul class="sem-body">
+                        <li>Clínica de Cardiología</li>
+                        <li>Clínica de Neumología</li>
+                        <li>Oftalmología</li>
+                        <li>Dermatología</li>
+                        <li>Otorrinolaringología</li>
+                        <li>Reumatología</li>
+                        <li>Atención Comunitaria II</li>
+                        <li>ARU Optativa III</li>
+                    </ul>
+                </div>
+                <div class="semestre-card">
+                    <div class="sem-header">7mo Semestre<span class="sem-num">Clínicas Especializadas III</span></div>
+                    <ul class="sem-body">
+                        <li>Clínica de Ginecobstetricia</li>
+                        <li>Clínica Maternoinfantil</li>
+                        <li>Clínica de Pediatría</li>
+                        <li>Radiología e Imagen</li>
+                        <li>Inmunología Clínica</li>
+                        <li>Endocrinología</li>
+                        <li>Atención Comunitaria III</li>
+                        <li>Epidemiología Avanzada</li>
+                    </ul>
+                </div>
+                <div class="semestre-card">
+                    <div class="sem-header">8vo Semestre<span class="sem-num">Urgencias y Especialidades</span></div>
+                    <ul class="sem-body">
+                        <li>Clínica de Urgencias Medicoquirúrgicas</li>
+                        <li>Clínica de Geriatría</li>
+                        <li>Salud Mental</li>
+                        <li>Clínica de Traumatología y Ortopedia</li>
+                        <li>Seminario de Investigación I</li>
+                        <li>Gerontología</li>
+                        <li>Sanidad Internacional y Medicina Global</li>
+                        <li>Optativa I</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 3: PRÁCTICA AVANZADA Sem 9-10 -->
+        <div class="plan-panel" id="phase-avanzada">
+            <div class="semestres-grid">
+                <div class="semestre-card">
+                    <div class="sem-header">9no Semestre<span class="sem-num">Práctica Clínica</span></div>
+                    <ul class="sem-body">
+                        <li>Práctica Clínica en Primer Nivel</li>
+                        <li>Cuidados Paliativos y Atención Tanatológica</li>
+                        <li>Alimentación y Desarrollo</li>
+                        <li>Bioética</li>
+                        <li>Seminario de Investigación II</li>
+                        <li>Decisiones Clínicas de Casos de Primer Nivel</li>
+                        <li>Optativa II</li>
+                        <li>Optativa III</li>
+                    </ul>
+                </div>
+                <div class="semestre-card">
+                    <div class="sem-header">10mo Semestre<span class="sem-num">Integración Clínica</span></div>
+                    <ul class="sem-body">
+                        <li>Práctica Clínica Medicoquirúrgica</li>
+                        <li>Integración Clínica y Quirúrgica</li>
+                        <li>Decisiones Clínicas de Casos de Segundo Nivel</li>
+                        <li>Ética Profesional</li>
+                        <li>Liderazgo Médico</li>
+                        <li>Nefrología y Urología</li>
+                        <li>Optativa IV</li>
+                        <li>Optativa V</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 4: INTERNADO Sem 11-12 -->
+        <div class="plan-panel" id="phase-internado">
+            <div class="plan-internado-grid">
+                <div class="internado-card">
+                    <h4>Internado en Medicina Interna</h4>
+                    <p>11vo Semestre · Rotación hospitalaria</p>
+                </div>
+                <div class="internado-card">
+                    <h4>Internado en Cirugía General</h4>
+                    <p>11vo Semestre · Quirófano y procedimientos</p>
+                </div>
+                <div class="internado-card">
+                    <h4>Internado en Ginecobstetricia</h4>
+                    <p>11vo Semestre · Salud materno-fetal</p>
+                </div>
+                <div class="internado-card">
+                    <h4>Internado en Pediatría</h4>
+                    <p>12vo Semestre · Atención pediátrica integral</p>
+                </div>
+                <div class="internado-card">
+                    <h4>Internado en Urgencias</h4>
+                    <p>12vo Semestre · Emergencias médicas</p>
+                </div>
+                <div class="internado-card">
+                    <h4>Internado en Atención Primaria de Salud</h4>
+                    <p>12vo Semestre · Primer nivel de atención</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 5: SERVICIO SOCIAL Sem 13-14 -->
+        <div class="plan-panel" id="phase-servicio">
+            <div class="ss-card">
+                <h3>Servicio Social</h3>
+                <p>Semestres 13 y 14 · Dos semestres de servicio comunitario con impacto real en la salud pública de la región. Una experiencia que cierra tu formación con compromiso social.</p>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -760,6 +993,19 @@
 
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
+    })();
+
+    // Plan de Estudios Tabs
+    (function () {
+        document.querySelectorAll('.phase-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.plan-panel').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                const panel = document.getElementById('phase-' + this.dataset.phase);
+                if (panel) panel.classList.add('active');
+            });
+        });
     })();
 
     // Toggle Accordion
