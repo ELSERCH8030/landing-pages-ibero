@@ -632,17 +632,6 @@
 </script>
 <script src="https://app.prospecty.mx/js/form_embed.js"></script>
 <script>
-    // Meta Pixel: Rastrear conversión cuando se envía el formulario de Prospecty
-    window.addEventListener('message', function(event) {
-        if (event.data && (event.data.type === 'form:submit' || event.data.type === 'form_submitted' ||
-            (typeof event.data === 'string' && event.data.indexOf('form') !== -1 && event.data.indexOf('submit') !== -1))) {
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead');
-            }
-        }
-    });
-</script>
-<script>
     // Scroll animations
     (function() {
         // Section titles
@@ -709,7 +698,9 @@ window.addEventListener("message", function(event) {
       event.data.type === "formSubmitted" ||
       event.data === "form_submitted"
     )) {
-      fbq('track', 'Lead');
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
     }
   }
 });
