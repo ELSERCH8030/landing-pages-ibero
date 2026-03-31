@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1259299219355859');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1259299219355859&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licenciatura en Arquitectura | IBERO Tijuana</title>
+    <link rel="stylesheet" href="https://use.typekit.net/phs8jtn.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --rojo: #E00034; --rojo-oscuro: #B8002A; --blanco: #FFFFFF;
+            --gris-claro: #F5F5F5; --gris: #666666; --gris-oscuro: #333333; --negro: #1A1A1A;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'alverata', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 400; color: var(--gris-oscuro); line-height: 1.6; }
+        h1, h2 { font-weight: 700; }
+        h3, h4 { font-weight: 600; }
+        p, li, span, label, select, input, textarea { font-weight: 400; }
+        .hero p, .beneficio-card p, .campo-item h3, footer p, .footer-col a { font-weight: 300; }
+        header { background: var(--rojo); box-shadow: 0 2px 12px rgba(0,0,0,.15); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: .9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+        .logo-area { display: flex; align-items: center; gap: .75rem; }
+        .logo-img { height: 50px; width: auto; flex-shrink: 0; object-fit: contain; }
+        .header-divider { width: 1px; height: 32px; background: rgba(255,255,255,.4); flex-shrink: 0; }
+        .header-career { color: var(--blanco); font-size: .95rem; font-weight: 600; letter-spacing: .3px; }
+        .nav-cta { display: inline-block; padding: .6rem 1.5rem; background: var(--blanco); color: var(--rojo); font-weight: 700; font-size: .9rem; border-radius: 50px; text-decoration: none; position: relative; overflow: hidden; transition: transform .3s, box-shadow .3s; animation: cta-pulse 2s infinite; }
+        .nav-cta:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(255,255,255,.4); }
+        .nav-cta::after { content: ""; position: absolute; top: -50%; left: -60%; width: 30%; height: 200%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent); transform: skewX(-20deg); animation: cta-shine 3s infinite; }
+        @keyframes cta-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,.4); } 50% { box-shadow: 0 0 15px 5px rgba(255,255,255,.2); } }
+        @keyframes cta-shine { 0% { left: -60%; } 100% { left: 120%; } }
+        .btn { display: inline-block; padding: .95rem 2.5rem; border-radius: 50px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: .3s; cursor: pointer; border: none; }
+        .btn-white { background: var(--blanco); color: var(--rojo); box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,.2); }
+        section { padding: 5rem 1.5rem; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); color: var(--negro); margin-bottom: .6rem; }
+        .section-title p { color: var(--gris); max-width: 600px; margin: 0 auto; }
+        .section-title .accent-line { width: 60px; height: 4px; background: var(--rojo); border-radius: 2px; margin: .8rem auto 0; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        /* Hero */
+        .hero { margin-top: 80px; position: relative; overflow: hidden; background-image: linear-gradient(rgba(200,16,46,.75), rgba(160,13,36,.8)), url("assets/asset_1.jpg"); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--blanco); padding: 7rem 1.5rem 6rem; text-align: center; }
+        .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(224,0,52,.55), rgba(184,0,42,.6)); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(255,255,255,.15); backdrop-filter: blur(8px); padding: .4rem 1.2rem; border-radius: 50px; font-size: .85rem; font-weight: 500; margin-bottom: 1.5rem; letter-spacing: .5px; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.25rem; }
+        .hero p { font-size: 1.1rem; opacity: .92; max-width: 620px; margin: 0 auto 2.5rem; }
+
+        /* Beneficios */
+        .beneficios { background: var(--gris-claro); }
+        .beneficios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .beneficio-card { background: var(--blanco); padding: 2rem 1.5rem; border-radius: 16px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,.05); transition: .3s; }
+        .beneficio-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.1); }
+        .beneficio-icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--rojo), var(--rojo-oscuro)); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; color: var(--blanco); }
+        .beneficio-card h3 { font-size: 1.05rem; margin-bottom: .5rem; color: var(--negro); }
+        .beneficio-card p { font-size: .9rem; color: var(--gris); }
+
+        /* Perfil egresado */
+        .perfil-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .perfil-image { border-radius: 20px; height: 420px; position: relative; overflow: hidden; }
+        .perfil-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .perfil-lista { list-style: none; }
+        .perfil-lista li { padding: .75rem 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: .75rem; font-size: .92rem; }
+        .perfil-lista li:last-child { border-bottom: none; }
+        .check-icon { width: 24px; height: 24px; background: rgba(200,16,46,.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--rojo); font-weight: 700; font-size: .8rem; margin-top: 2px; }
+
+        /* Aprendizaje */
+        .aprende-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+        .aprende-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--blanco); border-radius: 14px; box-shadow: 0 2px 8px rgba(0,0,0,.04); border-left: 4px solid var(--rojo); }
+        .aprende-num { width: 36px; height: 36px; min-width: 36px; background: var(--rojo); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--blanco); font-weight: 700; font-size: .9rem; }
+        .aprende-item p { font-size: .92rem; color: var(--gris-oscuro); margin: 0; line-height: 1.6; }
+
+        /* Campo laboral */
+        .campo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+        .campo-item { background: var(--blanco); padding: 1.5rem; border-radius: 14px; text-align: center; border-left: 4px solid var(--rojo); box-shadow: 0 2px 8px rgba(0,0,0,.04); transition: .3s; }
+        .campo-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+        .campo-item .campo-icon { margin-bottom: .6rem; display: flex; justify-content: center; color: var(--rojo); }
+        .campo-item h3 { font-size: .95rem; color: var(--negro); }
+
+        /* Diferenciadores */
+        .diferencia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 3rem; }
+        .diferencia-item { display: flex; gap: .75rem; align-items: flex-start; padding: 1rem; background: var(--blanco); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+        .diferencia-item .dif-icon { width: 40px; height: 40px; min-width: 40px; background: rgba(224,0,52,.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--rojo); }
+        .diferencia-item p { font-size: .9rem; line-height: 1.6; color: var(--gris-oscuro); margin: 0; }
+
+        /* Acreditación */
+        .acred-banner { background: var(--negro); color: var(--blanco); border-radius: 16px; padding: 2rem; display: flex; align-items: center; gap: 1.5rem; margin-top: 2rem; }
+        .acred-icon { width: 56px; height: 56px; min-width: 56px; background: var(--rojo); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .acred-text h4 { font-size: 1rem; margin-bottom: .35rem; color: var(--blanco); }
+        .acred-text p { font-size: .88rem; color: rgba(255,255,255,.65); margin: 0; line-height: 1.6; }
+
+        /* Collage */
+        .collage { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+        .collage img { width: 100%; height: 280px; object-fit: cover; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,.1); }
+
+        /* Urgencia / Formulario */
+        .urgencia-banner { background: linear-gradient(135deg, #1A1A1A, #2a2a2a); color: var(--blanco); padding: 3rem 1.5rem; position: relative; overflow: hidden; }
+        .urgencia-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--rojo), #ff4d6a, var(--rojo)); }
+        .urgencia-layout { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 3fr; gap: 2rem; align-items: start; }
+        .urgencia-left { text-align: left; }
+        .urgencia-lema { font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 400; margin-bottom: .5rem; text-transform: uppercase; letter-spacing: 2px; }
+        .urgencia-lema span { color: var(--rojo); font-weight: 700; }
+        .countdown { display: flex; justify-content: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+        .countdown-unit { background: var(--rojo); border-radius: 10px; padding: .75rem 1rem; min-width: 70px; }
+        .countdown-number { font-size: 1.8rem; font-weight: 700; display: block; line-height: 1; }
+        .countdown-label { font-size: .65rem; text-transform: uppercase; letter-spacing: 1px; opacity: .8; }
+        .urgencia-item { background: rgba(255,255,255,.08); border-radius: 12px; padding: 1rem 1.5rem; display: inline-block; margin-bottom: 1.5rem; }
+        .urgencia-item-label { font-size: .75rem; text-transform: uppercase; letter-spacing: 1px; opacity: .6; margin-bottom: .3rem; }
+        .urgencia-item-value { font-size: 1.3rem; font-weight: 700; }
+        .urgencia-item-value.rojo { color: var(--rojo); }
+        .urgencia-lugares { font-size: .95rem; margin-bottom: 1rem; opacity: .85; }
+        .urgencia-lugares strong { color: var(--rojo); font-size: 1.3em; }
+        .urgencia-barra { width: 100%; max-width: 400px; height: 8px; background: rgba(255,255,255,.15); border-radius: 4px; margin: 0 0 1.5rem; overflow: hidden; }
+        .urgencia-barra-inner { height: 100%; background: linear-gradient(90deg, var(--rojo), #ff4d6a); border-radius: 4px; transition: width 1s ease; }
+        .urgencia-form .form-card { background: var(--blanco); color: var(--gris-oscuro); }
+
+        /* Ubicación */
+        .mapa-wrapper { border-radius: 14px; overflow: hidden; margin-top: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+        .mapa-wrapper iframe { width: 100%; height: 220px; border: none; display: block; }
+        .info-item { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; color: var(--gris-oscuro); font-size: .95rem; }
+        .info-icon { width: 40px; height: 40px; background: rgba(200,16,46,.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+
+        /* Parallax decorativo */
+        .parallax-escudo { position: relative; }
+        .parallax-escudo::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: var(--escudo); background-size: 500px; background-position: right -100px center; background-repeat: no-repeat; background-attachment: fixed; opacity: .15; pointer-events: none; z-index: 0; }
+        .parallax-escudo > * { position: relative; z-index: 1; }
+
+        /* Footer */
+        footer { background: var(--negro); color: rgba(255,255,255,.7); }
+        .footer-bottom { max-width: 1100px; margin: 0 auto; text-align: center; font-size: .82rem; color: rgba(255,255,255,.4); padding: 1.25rem 1.5rem; }
+
+        /* Scroll animations */
+        .anim { opacity: 0; transition: opacity .8s ease, transform .8s ease; }
+        .anim-up { transform: translateY(40px); }
+        .anim-left { transform: translateX(-40px); }
+        .anim-right { transform: translateX(40px); }
+        .anim-scale { transform: scale(.85); }
+        .anim.visible { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+        .anim-delay-1 { transition-delay: .1s; }
+        .anim-delay-2 { transition-delay: .2s; }
+        .anim-delay-3 { transition-delay: .3s; }
+        .anim-delay-4 { transition-delay: .4s; }
+        .anim-delay-5 { transition-delay: .5s; }
+        .anim-delay-6 { transition-delay: .6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .parallax-escudo::before { background-attachment: scroll; }
+            .hero { padding: 4.5rem 1.25rem 3.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .perfil-content { grid-template-columns: 1fr; }
+            .diferencia-grid { grid-template-columns: 1fr; }
+            .collage { grid-template-columns: 1fr; }
+            .collage img { height: 220px; }
+            .perfil-image { height: 280px; }
+            .urgencia-layout { grid-template-columns: 1fr; text-align: center; }
+            .urgencia-left { text-align: center; }
+            .countdown { justify-content: center; }
+            .urgencia-barra { margin: 0 auto 1.5rem; }
+            .countdown-unit { min-width: 60px; padding: .6rem .75rem; }
+            .countdown-number { font-size: 1.4rem; }
+            .mapa-wrapper iframe { height: 200px; }
+            section { padding: 3.5rem 1.25rem; }
+            .acred-banner { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .header-inner { padding: .6rem .75rem; }
+            .logo-img { height: 34px; }
+            .header-divider { height: 22px; }
+            .header-career { font-size: .7rem; max-width: 120px; line-height: 1.2; }
+            .hero { margin-top: 62px; padding: 2.5rem 1rem 2rem; }
+            .hero h1 { font-size: 1.4rem; margin-bottom: 1rem; }
+            .hero p { font-size: .88rem; margin-bottom: 1.5rem; }
+            .hero-badge { font-size: .72rem; padding: .3rem .8rem; margin-bottom: .8rem; }
+            .btn { padding: .7rem 1.6rem; font-size: .88rem; }
+            section { padding: 2.5rem .85rem; }
+            .section-title h2 { font-size: 1.25rem; }
+            .beneficios-grid { grid-template-columns: 1fr; gap: .85rem; }
+            .beneficio-card { padding: 1.25rem 1rem; }
+            .campo-grid { grid-template-columns: 1fr; gap: .85rem; }
+            .campo-item { padding: 1rem; display: flex; align-items: center; gap: .75rem; text-align: left; border-left: 3px solid var(--rojo); }
+            .campo-item .campo-icon { margin-bottom: 0; }
+            .campo-item h3 { font-size: .88rem; }
+            .perfil-image { height: 200px; border-radius: 14px; }
+            .perfil-lista li { font-size: .83rem; padding: .6rem 0; gap: .6rem; }
+            .check-icon { width: 20px; height: 20px; font-size: .7rem; }
+            .footer-bottom { font-size: .75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo-area">
+            <img src="assets/asset_2.png" alt="IBERO Tijuana" class="logo-img">
+            <span class="header-divider"></span>
+            <span class="header-career">Licenciatura en Arquitectura</span>
+        </div>
+        <a href="#contacto" class="nav-cta">Regístrate e infórmate</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <video class="hero-video-bg" autoplay muted loop playsinline><source src="assets/video.mp4" type="video/mp4"></video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <span class="hero-badge">Universidad Iberoamericana Tijuana</span>
+        <h1>Licenciatura en Arquitectura</h1>
+        <p>Formamos arquitectos capaces de diseñar espacios que transforman la manera en que las personas habitan, trabajan y conviven con su entorno.</p>
+        <a href="#contacto" class="btn btn-white" style="font-size:1.1rem; padding:.85rem 2.5rem;">Inscríbete ahora</a>
+    </div>
+</section>
+
+<!-- ¿PARA QUÉ ESTUDIAR ARQUITECTURA? -->
+<section class="beneficios" id="beneficios">
+    <div class="container">
+        <div class="section-title">
+            <h2>¿Para qué estudiar Arquitectura en IBERO?</h2>
+            <div class="accent-line"></div>
+        </div>
+        <div class="beneficios-grid">
+            <div class="beneficio-card">
+                <div class="beneficio-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3>Diseñar para las personas</h3>
+                <p>Para crear espacios que respondan a las necesidades reales de las personas y de las ciudades en constante evolución.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3>Impacto en la ciudad</h3>
+                <p>Para comprender cómo la arquitectura influye en la forma en que habitamos, trabajamos y convivimos en el entorno urbano.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Creatividad y sostenibilidad</h3>
+                <p>Para proponer soluciones creativas que integren funcionalidad, estética y responsabilidad ambiental en cada proyecto.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <h3>Proyectos con impacto social</h3>
+                <p>Tu formación te permitirá analizar el entorno construido y desarrollar proyectos arquitectónicos con impacto social y urbano real.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ¿QUÉ VAS A APRENDER? -->
+<section id="aprendizaje">
+    <div class="container">
+        <div class="section-title">
+            <h2>¿Qué vas a aprender?</h2>
+            <p>Vas a desarrollar la capacidad de diseñar espacios arquitectónicos funcionales, estéticos y sostenibles.</p>
+            <div class="accent-line"></div>
+        </div>
+        <div class="aprende-grid">
+            <div class="aprende-item">
+                <div class="aprende-num">1</div>
+                <p>Diseñar espacios arquitectónicos funcionales, estéticos y sostenibles con criterio profesional.</p>
+            </div>
+            <div class="aprende-item">
+                <div class="aprende-num">2</div>
+                <p>Historia de la arquitectura, urbanismo, materiales y sistemas constructivos aplicados al diseño.</p>
+            </div>
+            <div class="aprende-item">
+                <div class="aprende-num">3</div>
+                <p>Talleres de diseño, laboratorio de construcción y espacios de experimentación arquitectónica.</p>
+            </div>
+            <div class="aprende-item">
+                <div class="aprende-num">4</div>
+                <p>Herramientas digitales, modelado y tecnologías contemporáneas aplicadas al diseño arquitectónico.</p>
+            </div>
+            <div class="aprende-item">
+                <div class="aprende-num">5</div>
+                <p>La relación entre arquitectura, ciudad, medio ambiente y sociedad desde una perspectiva humanista.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PERFIL DEL EGRESADO -->
+<section id="perfil" style="background: var(--gris-claro);">
+    <div class="container">
+        <div class="section-title">
+            <h2>¿Cuáles serán tus capacidades al egresar?</h2>
+            <p>Al finalizar la carrera contarás con herramientas para:</p>
+            <div class="accent-line"></div>
+        </div>
+        <div class="perfil-content">
+            <div class="perfil-image">
+                <img src="assets/asset_3.jpg" alt="Estudiante de Arquitectura IBERO Tijuana">
+            </div>
+            <div>
+                <ul class="perfil-lista">
+                    <li>
+                        <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                        <span>Diseñar proyectos arquitectónicos integrales con criterio técnico y estético.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                        <span>Analizar el contexto urbano y ambiental de los proyectos arquitectónicos.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                        <span>Desarrollar propuestas arquitectónicas funcionales y sostenibles.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                        <span>Integrar tecnologías digitales y herramientas de diseño contemporáneo.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                        <span>Participar en procesos de planeación, gestión y construcción de proyectos.</span>
+                    </li>
+                    <li style="border-bottom:none; padding-top:1rem;"><span></span><span style="font-style:italic; opacity:.85;">La formación te permitirá desempeñarte con criterio profesional, creatividad y responsabilidad social.</span></li>
+                </ul>
+
+                <!-- Acreditación -->
+                <div class="acred-banner">
+                    <div class="acred-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <div class="acred-text">
+                        <h4>Programa acreditado por ANPADEH</h4>
+                        <p>Parte del <strong style="color:var(--blanco);">Acuerdo de Canberra</strong>, que reconoce la equivalencia sustancial de los sistemas de acreditación en arquitectura a nivel internacional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CAMPO LABORAL -->
+<section id="campo">
+    <div class="container">
+        <div class="section-title">
+            <h2>Campo laboral</h2>
+            <p>Un amplio abanico de oportunidades profesionales te espera al egresar.</p>
+            <div class="accent-line"></div>
+        </div>
+        <div class="campo-grid">
+            <div class="campo-item">
+                <span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <h3>Despacho de arquitectura</h3>
+            </div>
+            <div class="campo-item">
+                <span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20V8l7-4 7 4v12"/><path d="M9 20v-5h6v5M9 11h6"/></svg></span>
+                <h3>Construcción y dirección de obra</h3>
+            </div>
+            <div class="campo-item">
+                <span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+                <h3>Diseño urbano y planificación</h3>
+            </div>
+            <div class="campo-item">
+                <span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+                <h3>Gobierno y sector público</h3>
+            </div>
+            <div class="campo-item">
+                <span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <h3>Docencia e investigación</h3>
+            </div>
+            <div class="campo-item">
+                <span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                <h3>Diseño de interiores</h3>
+            </div>
+            <div class="campo-item">
+                <span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M9 8h1m4 0h1M9 12h1m4 0h1M5 21V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14"/></svg></span>
+                <h3>Desarrollo inmobiliario</h3>
+            </div>
+            <div class="campo-item">
+                <span class="campo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                <h3>Consultoría y peritaje</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LO QUE NOS DIFERENCIA -->
+<section id="diferencia" style="background: var(--gris-claro);">
+    <div class="container">
+        <div class="section-title">
+            <h2>Lo que nos diferencia</h2>
+            <div class="accent-line"></div>
+        </div>
+        <div class="diferencia-grid">
+            <div class="diferencia-item">
+                <div class="dif-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <p>Formarte en una universidad con <strong>trayectoria en arquitectura a nivel nacional</strong> y reconocimiento internacional por el Acuerdo de Canberra.</p>
+            </div>
+            <div class="diferencia-item">
+                <div class="dif-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <p>Desarrollar proyectos reales desde la carrera que <strong>fortalecen tu perfil profesional</strong> y te preparan para el mercado laboral desde el primer día.</p>
+            </div>
+            <div class="diferencia-item">
+                <div class="dif-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </div>
+                <p>Aprender a diseñar con criterio, considerando siempre el <strong>contexto social, urbano y ambiental</strong> de cada proyecto.</p>
+            </div>
+            <div class="diferencia-item">
+                <div class="dif-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+                </div>
+                <p>Trabajar con <strong>docentes activos en el campo profesional</strong> que traen experiencia real al aula y a los talleres de diseño.</p>
+            </div>
+            <div class="diferencia-item">
+                <div class="dif-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <p>Integrarte a una comunidad que <strong>impulsa tu crecimiento creativo y técnico</strong>, con enfoque humanista jesuita y compromiso social.</p>
+            </div>
+        </div>
+
+        <!-- Collage de imágenes -->
+        <div class="collage">
+            <img src="assets/asset_4.jpg" alt="Taller de diseño arquitectónico IBERO Tijuana" loading="lazy">
+            <img src="assets/asset_5.jpg" alt="Proyecto arquitectónico de estudiantes IBERO" loading="lazy">
+            <img src="assets/asset_6.jpg" alt="Laboratorio de construcción IBERO Tijuana" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- FORMULARIO / CONTACTO -->
+<section class="urgencia-banner" id="contacto">
+    <div class="urgencia-layout">
+        <div class="urgencia-left">
+            <div class="urgencia-lema">Hazlo <span>Realidad</span></div>
+            <p style="font-size:clamp(1rem, 2vw, 1.25rem); font-weight:300; opacity:.9; margin-bottom:1rem; line-height:1.7;">La arquitectura transforma ciudades. <strong style="font-weight:700;">Tú puedes ser quien las diseñe.</strong></p>
+            <p style="font-size:clamp(.95rem, 1.8vw, 1.1rem); font-weight:300; opacity:.8; margin-bottom:1.5rem; line-height:1.7;">En <strong style="font-weight:700;">IBERO Tijuana</strong> te formamos con criterio, creatividad y responsabilidad social.</p>
+            <div class="urgencia-item">
+                <div class="urgencia-item-label">Próximo examen de admisión</div>
+                <div class="urgencia-item-value rojo">24 de Abril</div>
+            </div>
+            <p style="font-size:.95rem; margin-bottom:.75rem; opacity:.85;">El examen de admisión se acerca en:</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-unit"><span class="countdown-number" id="cd-dias">00</span><span class="countdown-label">Días</span></div>
+                <div class="countdown-unit"><span class="countdown-number" id="cd-horas">00</span><span class="countdown-label">Horas</span></div>
+                <div class="countdown-unit"><span class="countdown-number" id="cd-min">00</span><span class="countdown-label">Min</span></div>
+                <div class="countdown-unit"><span class="countdown-number" id="cd-seg">00</span><span class="countdown-label">Seg</span></div>
+            </div>
+            <div class="urgencia-lugares">Lugares disponibles: <strong id="lugares-count">14</strong> de 20</div>
+            <div class="urgencia-barra"><div class="urgencia-barra-inner" id="barra-lugares" style="width:70%"></div></div>
+            <p style="font-size:clamp(1rem, 2vw, 1.15rem); margin-top:1.25rem; line-height:1.6; background:rgba(224,0,52,.15); border-left:4px solid var(--rojo); padding:.75rem 1rem; border-radius:0 8px 8px 0;">Sé de los <strong style="font-weight:700; color:var(--rojo); font-size:1.2em;">primeros 20</strong> en inscribirte y conoce nuestro <strong style="font-weight:700;">esquema especial de colegiatura Otoño 2026.</strong></p>
+        </div>
+        <div class="urgencia-form">
+            <div style="overflow:hidden;">
+                <!-- TODO: Reemplazar con el formulario de Prospecty para Arquitectura -->
+                <iframe
+                    src="https://app.prospecty.mx/widget/form/FORM-ID-ARQUITECTURA"
+                    style="width:100%;height:863px;border:none;border-radius:16px;" scrolling="no"
+                    id="inline-arquitectura"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="FORMS ARQUITECTURA LANDING PAGE"
+                    data-height="863"
+                    data-layout-iframe-id="inline-arquitectura"
+                    data-form-id="FORM-ID-ARQUITECTURA"
+                    title="FORMS ARQUITECTURA LANDING PAGE"
+                ></iframe>
+                <script src="https://app.prospecty.mx/js/form_embed.js"></script>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section id="ubicacion">
+    <div class="container">
+        <div class="section-title">
+            <h2>Ubicación</h2>
+            <p>Visítanos y conoce nuestras instalaciones.</p>
+            <div class="accent-line"></div>
+        </div>
+        <div style="max-width:700px; margin:0 auto;">
+            <div class="info-item">
+                <div class="info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <span>Av. Centro Universitario 2501, Col. Playas de Tijuana, C.P. 22500, Tijuana, B.C.</span>
+            </div>
+            <div class="info-item">
+                <div class="info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <span>Lunes a Viernes: 8:00 a 18:00 hrs</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem;">
+                <div class="mapa-wrapper" style="margin-top:0;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3367.5!2d-117.100958!3d32.5186438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d94a36bcc6d9cb%3A0x81d09293048babd8!2sUniversidad%20Iberoamericana%20Tijuana!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div style="border-radius:14px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.08);">
+                    <img src="assets/campus.jpg" alt="Campus IBERO Tijuana" style="width:100%; height:100%; object-fit:cover; display:block;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- POP-UP DE URGENCIA -->
+<div id="popup-urgencia" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; padding:1rem; pointer-events:none;">
+    <div style="max-width:480px; margin:0 auto; background:var(--blanco); border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,.25); padding:1.5rem; position:relative; pointer-events:auto; transform:translateY(100%); transition:transform .5s ease;">
+        <button onclick="cerrarPopup()" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--gris); line-height:1;">&times;</button>
+        <div style="display:flex; align-items:center; gap:.5rem; margin-bottom:.75rem;">
+            <span style="background:var(--rojo); color:white; font-size:.7rem; font-weight:700; padding:.25rem .6rem; border-radius:20px; text-transform:uppercase; letter-spacing:.5px;">Cupo limitado</span>
+        </div>
+        <p style="font-size:1.05rem; font-weight:700; color:var(--gris-oscuro); margin-bottom:.75rem;">El examen de admisión para Arquitectura Otoño 2026 está a <span style="color:var(--rojo);" id="popup-dias">30</span> días</p>
+        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span style="font-size:.85rem; color:var(--gris);">Examen de admisión: <strong style="color:var(--gris-oscuro);">24 de Abril</strong></span>
+        </div>
+        <a href="#contacto" onclick="cerrarPopup()" style="display:block; text-align:center; background:var(--rojo); color:white; padding:.75rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:.95rem; transition:background .3s;">Quiero saber más</a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-bottom">&copy; 2026 Universidad Iberoamericana Tijuana. Todos los derechos reservados.</div>
+</footer>
+
+<script>
+(function(){
+    var popupShown = false;
+    function mostrarPopup() {
+        if (popupShown) return;
+        var popup = document.getElementById('popup-urgencia');
+        if (!popup) return;
+        popupShown = true;
+        var diasEl = document.getElementById('cd-dias');
+        if (diasEl) {
+            document.getElementById('popup-dias').textContent = diasEl.textContent;
+        }
+        popup.style.display = 'block';
+        setTimeout(function(){ popup.querySelector('div').style.transform = 'translateY(0)'; }, 50);
+    }
+    window.cerrarPopup = function() {
+        var popup = document.getElementById('popup-urgencia');
+        popup.querySelector('div').style.transform = 'translateY(100%)';
+        setTimeout(function(){ popup.style.display = 'none'; }, 500);
+    };
+    window.addEventListener('scroll', function() {
+        var scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        if (scrollPct > 0.4) mostrarPopup();
+    });
+})();
+</script>
+
+<script>
+    // Countdown al 24 de abril 2026
+    (function() {
+        const target = new Date('2026-04-24T09:00:00-07:00').getTime();
+        function update() {
+            const now = Date.now();
+            let diff = target - now;
+            if (diff < 0) diff = 0;
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            document.getElementById('cd-dias').textContent = String(d).padStart(2, '0');
+            document.getElementById('cd-horas').textContent = String(h).padStart(2, '0');
+            document.getElementById('cd-min').textContent = String(m).padStart(2, '0');
+            document.getElementById('cd-seg').textContent = String(s).padStart(2, '0');
+        }
+        update();
+        setInterval(update, 1000);
+    })();
+
+    // Simulador de lugares disponibles
+    (function() {
+        const total = 20;
+        const startDate = new Date('2026-03-20').getTime();
+        const endDate = new Date('2026-04-24').getTime();
+        const now = Date.now();
+        const progress = Math.min(1, Math.max(0, (now - startDate) / (endDate - startDate)));
+        const taken = Math.floor(progress * 13) + Math.floor(Math.random() * 2);
+        const remaining = Math.max(3, total - taken);
+        document.getElementById('lugares-count').textContent = remaining;
+        const pct = ((total - remaining) / total) * 100;
+        document.getElementById('barra-lugares').style.width = pct + '%';
+    })();
+
+    // Scroll animations
+    (function() {
+        document.querySelectorAll('.section-title').forEach(el => el.classList.add('anim', 'anim-up'));
+        document.querySelectorAll('.beneficio-card').forEach((el, i) => el.classList.add('anim', 'anim-up', 'anim-delay-' + (i + 1)));
+        document.querySelectorAll('.aprende-item').forEach((el, i) => el.classList.add('anim', 'anim-up', 'anim-delay-' + (i + 1)));
+        document.querySelectorAll('.diferencia-item').forEach((el, i) => el.classList.add('anim', 'anim-up', 'anim-delay-' + (i + 1)));
+        document.querySelectorAll('.campo-item').forEach((el, i) => el.classList.add('anim', 'anim-up', 'anim-delay-' + Math.min(i + 1, 6)));
+        document.querySelectorAll('.collage img').forEach((el, i) => el.classList.add('anim', 'anim-scale', 'anim-delay-' + (i + 1)));
+        document.querySelectorAll('.perfil-content > *').forEach((el, i) => el.classList.add('anim', i === 0 ? 'anim-left' : 'anim-right'));
+        document.querySelectorAll('.perfil-lista li').forEach((el, i) => el.classList.add('anim', 'anim-up', 'anim-delay-' + (i + 1)));
+        document.querySelectorAll('.urgencia-left').forEach(el => el.classList.add('anim', 'anim-left'));
+        document.querySelectorAll('.urgencia-form').forEach(el => el.classList.add('anim', 'anim-right'));
+        document.querySelectorAll('#ubicacion .info-item').forEach((el, i) => el.classList.add('anim', 'anim-up', 'anim-delay-' + (i + 1)));
+        document.querySelectorAll('.mapa-wrapper').forEach(el => el.classList.add('anim', 'anim-scale'));
+        document.querySelectorAll('.acred-banner').forEach(el => el.classList.add('anim', 'anim-up'));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+                else entry.target.classList.remove('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+    })();
+</script>
+
+<!-- Meta Pixel Lead tracking -->
+<script>
+window.addEventListener("message", function(event) {
+  if (event.origin.indexOf("prospecty.mx") !== -1) {
+    if (event.data && (
+      event.data.type === "form_submitted" ||
+      event.data.type === "formSubmitted" ||
+      event.data === "form_submitted"
+    )) {
+      fbq('track', 'Lead');
+    }
+  }
+});
+</script>
+
+</body>
+</html>
