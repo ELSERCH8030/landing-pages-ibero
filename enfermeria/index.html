@@ -701,5 +701,18 @@
         document.querySelectorAll('.anim').forEach(el => observer.observe(el));
     })();
 </script>
+<script>
+window.addEventListener("message", function(event) {
+  if (event.origin.indexOf("prospecty.mx") !== -1) {
+    if (event.data && (
+      event.data.type === "form_submitted" ||
+      event.data.type === "formSubmitted" ||
+      event.data === "form_submitted"
+    )) {
+      fbq('track', 'Lead');
+    }
+  }
+});
+</script>
 </body>
 </html>
