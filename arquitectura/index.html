@@ -661,7 +661,9 @@ window.addEventListener("message", function(event) {
       event.data.type === "formSubmitted" ||
       event.data === "form_submitted"
     )) {
-      fbq('track', 'Lead');
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
     }
   }
 });
