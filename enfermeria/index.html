@@ -19,28 +19,10 @@
     src="https://www.facebook.com/tr?id=1259299219355859&ev=PageView&noscript=1"/>
     </noscript>
     <!-- End Meta Pixel Code -->
-    <meta name="facebook-domain-verification" content="b7wjsl4tk1uck77j7jrh96wao28kvl" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Licenciatura en Enfermería | IBERO Tijuana</title>
     <link rel="stylesheet" href="https://use.typekit.net/phs8jtn.css">
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1259299219355859');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1259299219355859&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -691,17 +673,18 @@
         document.querySelectorAll('.anim').forEach(el => observer.observe(el));
     })();
 </script>
+<!-- Meta Pixel Lead tracking -->
 <script>
 window.addEventListener("message", function(event) {
-  if (event.origin.indexOf("prospecty.mx") !== -1) {
-    if (event.data && (
-      event.data.type === "form_submitted" ||
-      event.data.type === "formSubmitted" ||
-      event.data === "form_submitted"
-    )) {
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead');
-      }
+  if (event.data && (
+    event.data.type === "form_submitted" ||
+    event.data.type === "formSubmitted" ||
+    event.data.type === "form:submit" ||
+    event.data === "form_submitted" ||
+    (typeof event.data === "string" && event.data.indexOf("form") !== -1 && event.data.indexOf("submit") !== -1)
+  )) {
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead');
     }
   }
 });

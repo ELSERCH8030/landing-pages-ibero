@@ -19,7 +19,6 @@
     src="https://www.facebook.com/tr?id=1259299219355859&ev=PageView&noscript=1"/>
     </noscript>
     <!-- End Meta Pixel Code -->
-    <meta name="facebook-domain-verification" content="b7wjsl4tk1uck77j7jrh96wao28kvl" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Licenciatura en Arquitectura | IBERO Tijuana</title>
@@ -656,15 +655,15 @@
 <!-- Meta Pixel Lead tracking -->
 <script>
 window.addEventListener("message", function(event) {
-  if (event.origin.indexOf("prospecty.mx") !== -1) {
-    if (event.data && (
-      event.data.type === "form_submitted" ||
-      event.data.type === "formSubmitted" ||
-      event.data === "form_submitted"
-    )) {
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead');
-      }
+  if (event.data && (
+    event.data.type === "form_submitted" ||
+    event.data.type === "formSubmitted" ||
+    event.data.type === "form:submit" ||
+    event.data === "form_submitted" ||
+    (typeof event.data === "string" && event.data.indexOf("form") !== -1 && event.data.indexOf("submit") !== -1)
+  )) {
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead');
     }
   }
 });
