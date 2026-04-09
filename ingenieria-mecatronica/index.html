@@ -309,7 +309,7 @@
         </div>
         <div class="perfil-content">
             <div class="perfil-image anim anim-left">
-                <img src="assets/campus.jpg" alt="Estudiante de Mecatrónica IBERO Tijuana">
+                <img src="assets/asset_3.jpg" alt="Estudiante de Mecatrónica IBERO Tijuana">
             </div>
             <div class="anim anim-right">
                 <ul class="perfil-lista">
@@ -534,32 +534,59 @@
     </div>
 </footer>
 
-<!-- Popup urgencia -->
-<div id="popup-urgencia" style="display:none; position:fixed; bottom:20px; right:20px; background:var(--negro); color:var(--blanco); padding:1.25rem 1.5rem; border-radius:14px; max-width:300px; box-shadow:0 8px 30px rgba(0,0,0,.3); z-index:9999; border-left:4px solid var(--rojo);">
-    <button onclick="document.getElementById('popup-urgencia').style.display='none'" style="position:absolute; top:.5rem; right:.75rem; background:none; border:none; color:rgba(255,255,255,.5); font-size:1.1rem; cursor:pointer;">✕</button>
-    <p style="font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--rojo); margin-bottom:.4rem;">¡Últimos lugares!</p>
-    <p style="font-size:.95rem; font-weight:600; margin-bottom:.5rem;">Solo quedan <strong style="color:var(--rojo);">13 lugares</strong> disponibles para Mecatrónica.</p>
-    <p style="font-size:.82rem; opacity:.75; margin-bottom:1rem;">Examen de admisión: <strong>24 de Abril</strong></p>
-    <a href="#contacto" onclick="document.getElementById('popup-urgencia').style.display='none'" style="display:block; text-align:center; background:var(--rojo); color:var(--blanco); padding:.6rem 1rem; border-radius:8px; text-decoration:none; font-weight:700; font-size:.88rem;">Registrarme ahora</a>
+<!-- POP-UP DE URGENCIA -->
+<div id="popup-urgencia" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; padding:1rem; pointer-events:none;">
+    <div style="max-width:480px; margin:0 auto; background:var(--blanco); border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,.25); padding:1.5rem; position:relative; pointer-events:auto; transform:translateY(100%); transition:transform .5s ease;">
+        <button onclick="cerrarPopup()" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--gris); line-height:1;">&times;</button>
+        <div style="display:flex; align-items:center; gap:.5rem; margin-bottom:.75rem;">
+            <span style="background:var(--rojo); color:white; font-size:.7rem; font-weight:700; padding:.25rem .6rem; border-radius:20px; text-transform:uppercase; letter-spacing:.5px;">Cupo limitado</span>
+        </div>
+        <p style="font-size:1.05rem; font-weight:700; color:var(--gris-oscuro); margin-bottom:.75rem;">El examen de admisión para Mecatrónica Otoño 2026 está a <span style="color:var(--rojo);" id="popup-dias">30</span> días</p>
+        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span style="font-size:.85rem; color:var(--gris);">Examen de admisión: <strong style="color:var(--gris-oscuro);">24 de Abril</strong></span>
+        </div>
+        <a href="#contacto" onclick="cerrarPopup()" style="display:block; text-align:center; background:var(--rojo); color:white; padding:.75rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:.95rem; transition:background .3s;">Quiero saber más</a>
+    </div>
 </div>
 
 <script>
-// Countdown
+(function(){
+    var popupShown = false;
+    function mostrarPopup() {
+        if (popupShown) return;
+        var popup = document.getElementById('popup-urgencia');
+        if (!popup) return;
+        popupShown = true;
+        var diasEl = document.getElementById('cd-dias');
+        if (diasEl) document.getElementById('popup-dias').textContent = diasEl.textContent;
+        popup.style.display = 'block';
+        setTimeout(function(){ popup.querySelector('div').style.transform = 'translateY(0)'; }, 50);
+    }
+    window.cerrarPopup = function() {
+        var popup = document.getElementById('popup-urgencia');
+        popup.querySelector('div').style.transform = 'translateY(100%)';
+        setTimeout(function(){ popup.style.display = 'none'; }, 500);
+    };
+    window.addEventListener('scroll', function() {
+        if (window.scrollY / (document.body.scrollHeight - window.innerHeight) > 0.4) mostrarPopup();
+    });
+})();
+</script>
+
+<script>
 (function() {
-    var target = new Date('2026-04-24T09:00:00-07:00');
+    var target = new Date('2026-04-24T09:00:00-07:00').getTime();
     function update() {
-        var now = new Date(), diff = target - now;
-        if (diff <= 0) { document.getElementById('countdown').innerHTML = '<p style="color:var(--rojo); font-weight:700;">¡El examen es hoy!</p>'; return; }
-        var d = Math.floor(diff/86400000), h = Math.floor((diff%86400000)/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
-        document.getElementById('cd-dias').textContent = String(d).padStart(2,'0');
-        document.getElementById('cd-horas').textContent = String(h).padStart(2,'0');
-        document.getElementById('cd-min').textContent = String(m).padStart(2,'0');
-        document.getElementById('cd-seg').textContent = String(s).padStart(2,'0');
+        var diff = Math.max(0, target - Date.now());
+        document.getElementById('cd-dias').textContent = String(Math.floor(diff / 86400000)).padStart(2,'0');
+        document.getElementById('cd-horas').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+        document.getElementById('cd-min').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+        document.getElementById('cd-seg').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
     }
     update(); setInterval(update, 1000);
 })();
 
-// Simulador de lugares
 (function() {
     var base = 13, min = 9;
     function fluctuar() {
@@ -573,7 +600,6 @@
     setInterval(fluctuar, 8000);
 })();
 
-// Scroll animations
 (function() {
     var obs = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
@@ -581,17 +607,6 @@
     document.querySelectorAll('.anim').forEach(function(el) { obs.observe(el); });
 })();
 
-// Popup urgencia al 40% scroll
-(function() {
-    var shown = false;
-    window.addEventListener('scroll', function() {
-        if (shown) return;
-        var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-        if (pct >= .4) { shown = true; document.getElementById('popup-urgencia').style.display = 'block'; }
-    });
-})();
-
-// Meta Pixel Lead event on Prospecty form submit
 window.addEventListener('message', function(e) {
     if (e.data && (e.data.type === 'form-submitted' || e.data.event === 'form-submitted')) {
         if (typeof fbq !== 'undefined') fbq('track', 'Lead');
