@@ -44,7 +44,8 @@
         @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
 
         /* ── STATS BAR ── */
-        .stats-bar { background: var(--negro); padding: 2rem 1.5rem; }
+        .stats-bar { background: var(--negro); padding: 2rem 1.5rem; position: relative; overflow: hidden; }
+        .stats-bar::before { content:''; position:absolute; inset:0; background: url('assets/ciudad.jpg') center/cover no-repeat; opacity:.08; pointer-events:none; }
         .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
         .stat-item { text-align: center; padding: 1rem; border-right: 1px solid rgba(255,255,255,.08); }
         .stat-item:last-child { border-right: none; }
@@ -152,7 +153,7 @@
 
 <!-- HERO -->
 <section class="hero">
-    <video class="hero-video-bg" autoplay muted loop playsinline>
+    <video class="hero-video-bg" autoplay muted loop playsinline poster="assets/ciudad.jpg">
         <source src="assets/hero-video.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
