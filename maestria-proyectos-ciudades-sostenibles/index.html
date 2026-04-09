@@ -204,8 +204,78 @@
         .wsp-btn:hover { background: #1ebe5a; transform: scale(1.03); }
 
         /* ── FORM ── */
-        .form-section { background: var(--gris-claro); padding: 5rem 1.5rem; }
-        .form-inner { max-width: 560px; margin: 0 auto; }
+        .form-section { background: var(--negro); padding: 5rem 1.5rem; }
+        .form-inner { max-width: 1100px; margin: 0 auto; }
+        .form-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 2rem; }
+
+        /* lado info */
+        .form-side { color: #fff; }
+        .side-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--rojo); margin-bottom: .6rem; }
+        .side-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; color: #fff; }
+        .side-sub { color: rgba(255,255,255,.5); font-size: .95rem; margin-bottom: 2rem; }
+
+        /* countdown */
+        .countdown-box {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(224,0,52,.25);
+            border-radius: 20px;
+            padding: 1.75rem 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .countdown-box::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(224,0,52,.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .countdown-label {
+            font-size: .68rem; text-transform: uppercase; letter-spacing: 2px;
+            color: var(--rojo); margin-bottom: 1.25rem; font-weight: 700;
+            display: flex; align-items: center; gap: .5rem;
+        }
+        .countdown-label::before {
+            content: ''; width: 6px; height: 6px; border-radius: 50%;
+            background: var(--rojo); display: inline-block;
+            box-shadow: 0 0 6px var(--rojo);
+            animation: pulse-dot 1.4s ease-in-out infinite;
+        }
+        .countdown-grid { display: flex; align-items: stretch; gap: .6rem; margin-bottom: 1.1rem; }
+        .cd-item {
+            flex: 1; display: flex; flex-direction: column; align-items: center;
+            background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.07);
+            border-radius: 12px; padding: .9rem .5rem .6rem;
+        }
+        .cd-num {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900;
+            color: #fff; line-height: 1; font-variant-numeric: tabular-nums;
+            text-shadow: 0 0 20px rgba(224,0,52,.5);
+        }
+        .cd-unit {
+            font-size: .58rem; text-transform: uppercase; letter-spacing: 1.5px;
+            color: rgba(255,255,255,.3); margin-top: .4rem; font-weight: 600;
+        }
+        .cd-sep {
+            font-size: 1.6rem; font-weight: 900; color: var(--rojo);
+            align-self: center; margin-bottom: .6rem; opacity: .7;
+        }
+        .countdown-fecha {
+            font-size: .75rem; color: rgba(255,255,255,.3);
+            letter-spacing: .5px; text-align: center;
+        }
+        /* barra de progreso */
+        .countdown-progress { margin: .75rem 0 .4rem; height: 3px; background: rgba(255,255,255,.08); border-radius: 2px; overflow: hidden; }
+        .countdown-progress-fill { height: 100%; background: linear-gradient(90deg, var(--rojo), #ff6b35); border-radius: 2px; transition: width .5s; }
+
+        /* social proof */
+        .proof-list { display: flex; flex-direction: column; gap: 1rem; }
+        .proof-item { display: flex; align-items: center; gap: 1rem; padding: .9rem 1rem; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; }
+        .proof-icon { font-size: 1.3rem; min-width: 36px; text-align: center; }
+        .proof-item div { display: flex; flex-direction: column; }
+        .proof-item strong { font-size: 1rem; color: #fff; font-weight: 800; }
+        .proof-item span { font-size: .78rem; color: rgba(255,255,255,.4); }
+
         .form-title { text-align: center; margin-bottom: 2.5rem; }
         .form-title h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--negro); margin-bottom: .5rem; }
         .form-title p { color: var(--gris); font-size: .9rem; }
@@ -493,12 +563,59 @@
 <!-- FORMULARIO -->
 <section class="form-section" id="form">
     <div class="form-inner">
-        <div class="form-title anim anim-up">
-            <h2>Da el primer paso hoy.</h2>
-            <p>Recibe toda la información del programa y fechas de admisión.</p>
-        </div>
-        <div class="form-card anim anim-up anim-delay-1">
-            <form id="contact-form">
+        <div class="form-cols">
+
+            <!-- LADO DERECHO: urgencia + social proof -->
+            <div class="form-side anim anim-left">
+                <p class="side-eyebrow">Próxima generación</p>
+                <h2 class="side-title">Da el primer<br>paso hoy.</h2>
+                <p class="side-sub">Recibe toda la información del programa y fechas de admisión.</p>
+
+                <!-- COUNTDOWN -->
+                <div class="countdown-box">
+                    <p class="countdown-label">Inicio de clases en</p>
+                    <div class="countdown-grid" id="countdown">
+                        <div class="cd-item"><span class="cd-num" id="cd-dias">--</span><span class="cd-unit">Días</span></div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-item"><span class="cd-num" id="cd-horas">--</span><span class="cd-unit">Horas</span></div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-item"><span class="cd-num" id="cd-mins">--</span><span class="cd-unit">Mins</span></div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-item"><span class="cd-num" id="cd-segs">--</span><span class="cd-unit">Segs</span></div>
+                    </div>
+                    <div class="countdown-progress"><div class="countdown-progress-fill" id="cd-progress"></div></div>
+                    <p class="countdown-fecha">1 de septiembre · 2026</p>
+                </div>
+
+                <!-- SOCIAL PROOF -->
+                <div class="proof-list">
+                    <div class="proof-item">
+                        <span class="proof-icon">🎓</span>
+                        <div>
+                            <strong>+500</strong>
+                            <span>Egresados IBERO Tijuana</span>
+                        </div>
+                    </div>
+                    <div class="proof-item">
+                        <span class="proof-icon">⭐</span>
+                        <div>
+                            <strong>4.9 / 5</strong>
+                            <span>Satisfacción de egresados</span>
+                        </div>
+                    </div>
+                    <div class="proof-item">
+                        <span class="proof-icon">📋</span>
+                        <div>
+                            <strong>Cupos limitados</strong>
+                            <span>por generación</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LADO IZQUIERDO: formulario -->
+            <div class="form-card anim anim-right anim-delay-1">
+                <form id="contact-form">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
@@ -555,7 +672,10 @@
                     Descargar Plan de Estudios PDF
                 </a>
             </div>
-        </div>
+            </div><!-- /form-card -->
+
+        </div><!-- /form-cols -->
+
         <div style="text-align:center; margin-top:1.5rem;">
             <a href="assets/plan-estudios-maestria-ciudades-sostenibles.pdf" download style="display:inline-flex; align-items:center; gap:.5rem; color:var(--gris); font-size:.85rem; text-decoration:none; font-weight:600; transition:.2s;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -624,6 +744,37 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     this.style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
 });
+
+// Countdown timer
+(function () {
+    const target = new Date('2026-09-01T08:00:00');
+    const start  = new Date('2026-01-01T00:00:00'); // inicio del rango para la barra
+    const totalRange = target - start;
+
+    function update() {
+        const now  = new Date();
+        const diff = target - now;
+        if (diff <= 0) {
+            document.getElementById('countdown').innerHTML = '<span style="color:var(--rojo);font-weight:800;font-size:1.2rem;">¡Clases iniciadas!</span>';
+            return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-dias').textContent  = String(d).padStart(2,'0');
+        document.getElementById('cd-horas').textContent = String(h).padStart(2,'0');
+        document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+        document.getElementById('cd-segs').textContent  = String(s).padStart(2,'0');
+        // barra de progreso: cuánto del rango ya transcurrió
+        const elapsed = now - start;
+        const pct = Math.max(0, Math.min(100, (elapsed / totalRange) * 100));
+        const bar = document.getElementById('cd-progress');
+        if (bar) bar.style.width = pct.toFixed(1) + '%';
+    }
+    update();
+    setInterval(update, 1000);
+})();
 
 // Scroll animations
 (function () {
