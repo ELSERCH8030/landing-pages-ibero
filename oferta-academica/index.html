@@ -317,7 +317,7 @@
             padding: .45rem 1.2rem;
             border-radius: 50px;
             display: inline-block;
-            max-width: none;
+            max-width: 90vw;
             margin: 0 auto;
         }
 
@@ -489,6 +489,34 @@
         @media (max-width: 540px) {
             .career-card { flex: 0 0 100%; max-width: 100%; }
             .header-text, .header-divider { display: none; }
+
+            /* Hero subtitle: wrap en móvil */
+            .hero p {
+                white-space: normal;
+                font-size: .85rem;
+                padding: .4rem 1rem;
+            }
+            .hero h1 {
+                font-size: clamp(1.7rem, 7vw, 2.4rem);
+                overflow-wrap: break-word;
+            }
+
+            /* Popup centrado en móvil */
+            .corner-popup {
+                left: 1rem;
+                right: 1rem;
+                bottom: 1rem;
+                width: auto;
+                transform: translateY(calc(100% + 2rem));
+            }
+            .corner-popup.visible { transform: translateY(0); }
+            .corner-popup.hidden  { transform: translateY(calc(100% + 2rem)); }
+
+            /* Ticker font más pequeño */
+            .ticker-item { font-size: .72rem; padding: 0 1.5rem; }
+
+            /* Back link oculto en pantallas muy chicas */
+            .back-link { display: none; }
         }
     </style>
 </head>
