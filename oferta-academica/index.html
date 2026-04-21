@@ -199,16 +199,20 @@
             position: absolute;
             inset: 0;
             background: radial-gradient(
-                ellipse 70% 80% at 50% 40%,
-                rgba(224,0,52,.13) 0%,
-                transparent 70%
+                ellipse 65% 90% at 50% 45%,
+                rgba(224,0,52,.22) 0%,
+                rgba(224,0,52,.06) 50%,
+                transparent 72%
             );
             pointer-events: none;
         }
         .section-header h2 {
-            font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+            font-size: clamp(1.7rem, 3.5vw, 2.4rem);
             font-weight: 800;
-            color: #fff;
+            background: linear-gradient(135deg, #ffffff 30%, rgba(224,0,52,.85) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: .6rem;
             position: relative;
             letter-spacing: -.3px;
@@ -220,9 +224,10 @@
             border-radius: 2px;
             margin: .7rem auto 0;
             position: relative;
+            box-shadow: 0 0 12px rgba(224,0,52,.6);
         }
         .section-header p {
-            color: rgba(255,255,255,.42);
+            color: rgba(255,255,255,.45);
             font-size: .9rem;
             margin-top: .85rem;
             max-width: 520px;
