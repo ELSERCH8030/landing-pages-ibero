@@ -1,0 +1,9 @@
+# Archivos de video originales (.mov) — se usan los .mp4 convertidos
+*.mov
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Claude local config
+.claude/
