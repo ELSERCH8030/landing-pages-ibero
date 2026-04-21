@@ -40,47 +40,7 @@
             background: var(--negro);
             color: #ccc;
             line-height: 1.6;
-            padding-top: 105px; /* header 69px + ticker 36px */
-        }
-
-        /* ── TICKER ──────────────────────────────────── */
-        .ticker-bar {
-            position: fixed;
-            top: 69px; left: 0; right: 0;
-            z-index: 999;
-            background: #1a0008;
-            border-bottom: 1px solid rgba(224,0,52,.3);
-            height: 36px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-        .ticker-track {
-            display: flex;
-            white-space: nowrap;
-            animation: ticker-scroll 40s linear infinite;
-            will-change: transform;
-        }
-        .ticker-track:hover { animation-play-state: paused; }
-        .ticker-item {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            padding: 0 2.5rem;
-            font-size: .78rem;
-            font-weight: 500;
-            color: rgba(255,255,255,.82);
-            letter-spacing: .2px;
-        }
-        .ticker-dot {
-            width: 5px; height: 5px;
-            background: var(--rojo);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-        @keyframes ticker-scroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            padding-top: 69px;
         }
 
         /* ── CORNER POPUP ────────────────────────────── */
@@ -512,37 +472,12 @@
             .corner-popup.visible { transform: translateY(0); }
             .corner-popup.hidden  { transform: translateY(calc(100% + 2rem)); }
 
-            /* Ticker font más pequeño */
-            .ticker-item { font-size: .72rem; padding: 0 1.5rem; }
-
             /* Back link oculto en pantallas muy chicas */
             .back-link { display: none; }
         }
     </style>
 </head>
 <body>
-
-    <!-- TICKER BAR -->
-    <div class="ticker-bar">
-        <div class="ticker-track">
-            <!-- items duplicados para loop infinito -->
-            <span class="ticker-item"><span class="ticker-dot"></span>Top 5 universidades privadas de México en rankings nacionales e internacionales</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Próximo Examen de Admisión · 29 de Mayo 2026 · ¡Aparta tu lugar!</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Primera universidad jesuita en México en ofrecer Licenciatura en Medicina</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Lic. en Derecho con Acreditación Internacional y Reacreditación Nacional CONAED</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>702 alumnos en otoño 2025 — el mayor índice de matrícula en 10 años</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Sistema Universitario Jesuita de México — formando líderes desde 1982</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>11 licenciaturas diseñadas para transformar tu futuro en Tijuana</span>
-            <!-- duplicado para loop -->
-            <span class="ticker-item"><span class="ticker-dot"></span>Top 5 universidades privadas de México en rankings nacionales e internacionales</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Próximo Examen de Admisión · 29 de Mayo 2026 · ¡Aparta tu lugar!</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Primera universidad jesuita en México en ofrecer Licenciatura en Medicina</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Lic. en Derecho con Acreditación Internacional y Reacreditación Nacional CONAED</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>702 alumnos en otoño 2025 — el mayor índice de matrícula en 10 años</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>Sistema Universitario Jesuita de México — formando líderes desde 1982</span>
-            <span class="ticker-item"><span class="ticker-dot"></span>11 licenciaturas diseñadas para transformar tu futuro en Tijuana</span>
-        </div>
-    </div>
 
     <!-- CORNER POPUP: EXAMEN ADMISIÓN -->
     <div class="corner-popup" id="examPopup">
