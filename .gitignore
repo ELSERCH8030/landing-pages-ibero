@@ -1,5 +1,6 @@
-# Archivos de video originales (.mov) — se usan los .mp4 convertidos
+# Archivos de video originales — se usan los comprimidos
 *.mov
+hero-video-mp4.mp4
 
 # Archivos de sistema
 .DS_Store

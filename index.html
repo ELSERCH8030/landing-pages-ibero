@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1259299219355859');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1259299219355859&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oferta Académica | IBERO Tijuana</title>
+    <link rel="stylesheet" href="https://use.typekit.net/phs8jtn.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --rojo: #E00034;
+            --rojo-oscuro: #B8002A;
+            --blanco: #FFFFFF;
+            --negro: #0d0d0d;
+            --negro-card: #111111;
+            --gris: #888;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'alverata', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--negro);
+            color: #ccc;
+            line-height: 1.6;
+            padding-top: 69px;
+        }
+
+        /* ── HEADER ─────────────────────────────────── */
+        header {
+            background: var(--rojo);
+            box-shadow: 0 2px 12px rgba(0,0,0,.3);
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: .9rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: .5rem;
+        }
+        .logo-area { display: flex; align-items: center; gap: .75rem; }
+        .logo-img { height: 50px; width: auto; object-fit: contain; }
+        .header-divider { width: 1px; height: 32px; background: rgba(255,255,255,.4); flex-shrink: 0; }
+        .header-text { color: #fff; font-size: .92rem; font-weight: 600; letter-spacing: .3px; }
+        .nav-cta {
+            display: inline-block;
+            padding: .58rem 1.4rem;
+            background: #fff;
+            color: var(--rojo);
+            font-weight: 700;
+            font-size: .88rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform .25s, box-shadow .25s;
+            white-space: nowrap;
+        }
+        .nav-cta:hover { transform: scale(1.04); box-shadow: 0 4px 18px rgba(255,255,255,.3); }
+
+        /* ── HERO ────────────────────────────────────── */
+        .hero {
+            position: relative;
+            height: 52vh;
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('arquitectura/assets/campus.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            filter: brightness(.28);
+        }
+        .hero-video-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(
+                160deg,
+                rgba(224,0,52,.18) 0%,
+                rgba(13,13,13,.75) 100%
+            );
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 2rem 1.5rem;
+            max-width: 780px;
+        }
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(224,0,52,.9);
+            color: #fff;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: .32rem 1.1rem;
+            border-radius: 50px;
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5.5vw, 3.5rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.12;
+            margin-bottom: 1rem;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: var(--rojo);
+        }
+        .hero p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,.65);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ── CAREERS SECTION ─────────────────────────── */
+        .careers {
+            padding: 4.5rem 1.5rem 6rem;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: .6rem;
+        }
+        .accent-line {
+            width: 56px;
+            height: 4px;
+            background: var(--rojo);
+            border-radius: 2px;
+            margin: .7rem auto 0;
+        }
+        .section-header p {
+            color: rgba(255,255,255,.4);
+            font-size: .9rem;
+            margin-top: .85rem;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── GRID ────────────────────────────────────── */
+        .careers-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .career-card {
+            flex: 0 0 calc(33.333% - .75rem);
+            max-width: calc(33.333% - .75rem);
+            background: var(--negro-card);
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 14px;
+            padding: 1.6rem 1.4rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+        }
+        .career-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--rojo);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .35s ease;
+        }
+        .career-card:hover::before { transform: scaleX(1); }
+        .career-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(224,0,52,.28);
+            box-shadow: 0 14px 45px rgba(0,0,0,.55);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(224,0,52,.1);
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rojo);
+            flex-shrink: 0;
+            transition: background .28s;
+        }
+        .career-card:hover .card-icon { background: rgba(224,0,52,.18); }
+        .card-icon svg { width: 22px; height: 22px; }
+
+        .card-body { flex: 1; }
+        .card-body h3 {
+            font-size: .97rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.35;
+            margin-bottom: .3rem;
+        }
+        .card-body p {
+            font-size: .8rem;
+            color: rgba(255,255,255,.38);
+            line-height: 1.5;
+        }
+
+        .card-cta {
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--rojo);
+            padding-top: .2rem;
+        }
+        .card-cta svg {
+            width: 14px; height: 14px;
+            transition: transform .25s;
+        }
+        .career-card:hover .card-cta svg { transform: translateX(4px); }
+
+        /* ── FOOTER ──────────────────────────────────── */
+        footer {
+            background: #080808;
+            border-top: 1px solid rgba(255,255,255,.06);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+        .footer-inner { max-width: 700px; margin: 0 auto; }
+        .footer-logo { height: 38px; margin-bottom: 1rem; opacity: .9; }
+        footer p { color: rgba(255,255,255,.3); font-size: .82rem; }
+        footer a { color: rgba(255,255,255,.45); text-decoration: none; }
+        footer a:hover { color: var(--rojo); }
+
+        /* ── RESPONSIVE ──────────────────────────────── */
+        @media (max-width: 860px) {
+            .career-card {
+                flex: 0 0 calc(50% - .6rem);
+                max-width: calc(50% - .6rem);
+            }
+        }
+        @media (max-width: 540px) {
+            .career-card { flex: 0 0 100%; max-width: 100%; }
+            .header-text, .header-divider { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-inner">
+            <div class="logo-area">
+                <img src="arquitectura/assets/asset_2.png" alt="IBERO Tijuana" class="logo-img">
+                <span class="header-divider"></span>
+                <span class="header-text">Oferta Académica</span>
+            </div>
+            <a href="mailto:admisiones@tijuana.ibero.mx" class="nav-cta">Información</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <video class="hero-video-bg" autoplay muted loop playsinline
+               poster="arquitectura/assets/campus.jpg"
+               src="assets/hero-video.mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">Campus Tijuana</span>
+            <h1>Encuentra tu carrera en<br><em>IBERO Tijuana</em></h1>
+            <p>Explora las 11 licenciaturas diseñadas para transformar tu futuro</p>
+        </div>
+    </section>
+
+    <!-- CAREERS GRID -->
+    <section class="careers">
+        <div class="section-header">
+            <h2>Todas nuestras licenciaturas</h2>
+            <div class="accent-line"></div>
+            <p>Elige una carrera para conocer el plan de estudios, perfil de egreso y más</p>
+        </div>
+
+        <div class="careers-grid">
+
+            <!-- 1. Administración de Empresas -->
+            <a href="administracion-de-empresas/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2"/>
+                        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                        <line x1="12" y1="12" x2="12" y2="16"/>
+                        <line x1="10" y1="14" x2="14" y2="14"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Administración de Empresas</h3>
+                    <p>Liderazgo, estrategia y gestión empresarial</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 2. Administración de Negocios Internacionales -->
+            <a href="administracion-de-negocios-internacionales/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Administración de Negocios Internacionales</h3>
+                    <p>Comercio global y mercados internacionales</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 3. Arquitectura -->
+            <a href="arquitectura/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="3 9 12 2 21 9 21 20 3 20"/>
+                        <polyline points="9 20 9 13 15 13 15 20"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Arquitectura</h3>
+                    <p>Diseño, espacio y construcción del entorno</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 4. Comunicación -->
+            <a href="comunicacion/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Comunicación</h3>
+                    <p>Medios, narrativa y comunicación estratégica</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 5. Derecho -->
+            <a href="derecho/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                        <path d="M5 20h14"/>
+                        <path d="M3 7l3 8 3-8"/>
+                        <path d="M15 7l3 8 3-8"/>
+                        <line x1="3" y1="7" x2="21" y2="7"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Derecho</h3>
+                    <p>Justicia, práctica jurídica y legalidad</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 6. Enfermería -->
+            <a href="enfermeria/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Enfermería</h3>
+                    <p>Cuidado integral y ciencias de la salud</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 7. Ingeniería Industrial con Manufactura Inteligente -->
+            <a href="ingenieria-industrial-manufactura-inteligente/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Ingeniería Industrial con Manufactura Inteligente</h3>
+                    <p>Procesos industriales e Industria 4.0</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 8. Ingeniería en Mecatrónica -->
+            <a href="ingenieria-mecatronica/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2"/>
+                        <rect x="9" y="9" width="6" height="6"/>
+                        <line x1="9" y1="1" x2="9" y2="4"/>
+                        <line x1="15" y1="1" x2="15" y2="4"/>
+                        <line x1="9" y1="20" x2="9" y2="23"/>
+                        <line x1="15" y1="20" x2="15" y2="23"/>
+                        <line x1="20" y1="9" x2="23" y2="9"/>
+                        <line x1="20" y1="14" x2="23" y2="14"/>
+                        <line x1="1" y1="9" x2="4" y2="9"/>
+                        <line x1="1" y1="14" x2="4" y2="14"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Ingeniería en Mecatrónica</h3>
+                    <p>Robótica, automatización y sistemas inteligentes</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 9. Medicina -->
+            <a href="medicina/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Medicina</h3>
+                    <p>Ciencias médicas y atención a la salud humana</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 10. Nutrición -->
+            <a href="nutricion/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12c0-3.14 1.45-5.94 3.72-7.79"/>
+                        <path d="M12 6v6l4 2"/>
+                        <line x1="12" y1="2" x2="12" y2="6"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Nutrición</h3>
+                    <p>Alimentación, salud y bienestar humano</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 11. Psicología -->
+            <a href="psicologia/index.html" class="career-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                </div>
+                <div class="card-body">
+                    <h3>Psicología</h3>
+                    <p>Comportamiento humano, mente y sociedad</p>
+                </div>
+                <span class="card-cta">Ver licenciatura
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <img src="arquitectura/assets/asset_2.png" alt="IBERO Tijuana" class="footer-logo">
+            <p>Universidad Iberoamericana Tijuana &nbsp;·&nbsp;
+                <a href="mailto:admisiones@tijuana.ibero.mx">admisiones@tijuana.ibero.mx</a>
+            </p>
+            <p style="margin-top:.5rem">© 2026 IBERO Tijuana. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
