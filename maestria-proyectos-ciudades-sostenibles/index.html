@@ -357,7 +357,191 @@
         .anim-delay-3 { transition-delay: .3s; }
         .anim-delay-4 { transition-delay: .4s; }
 
+        /* ── DOCENTES ── */
+        .docentes-section {
+            background: #0f0f0f;
+            padding: 5rem 1.5rem;
+            border-top: 3px solid var(--rojo);
+            border-bottom: 3px solid var(--rojo);
+            position: relative;
+            overflow: hidden;
+        }
+        .docentes-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at top, rgba(224,0,52,.1) 0%, transparent 55%);
+            pointer-events: none;
+        }
+        .docentes-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .docentes-header { text-align: center; margin-bottom: 3.5rem; }
+        .docentes-eyebrow {
+            font-size: .75rem; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--rojo); margin-bottom: .7rem;
+        }
+        .docentes-title {
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 800;
+            color: #fff; margin-bottom: .7rem; line-height: 1.18;
+        }
+        .docentes-title em { color: var(--rojo); font-style: normal; }
+        .docentes-sub { color: rgba(255,255,255,.6); font-size: 1rem; max-width: 640px; margin: 0 auto; line-height: 1.55; }
+
+        .docentes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+        }
+        .docente-card {
+            background: linear-gradient(180deg, #181818 0%, #0c0c0c 100%);
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 18px;
+            padding: 2rem 1.5rem 1.75rem;
+            text-align: center;
+            transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .docente-card::before {
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 60%; height: 1px; background: linear-gradient(90deg, transparent, var(--rojo), transparent);
+            opacity: 0; transition: opacity .4s;
+        }
+        .docente-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(224,0,52,.35);
+            box-shadow: 0 20px 50px rgba(224,0,52,.12);
+        }
+        .docente-card:hover::before { opacity: 1; }
+
+        .docente-photo-wrap {
+            width: 140px; height: 140px; margin: 0 auto 1.25rem;
+            border-radius: 50%; padding: 3px;
+            background: linear-gradient(135deg, var(--rojo), #ff6b35, #1a0a12);
+            position: relative;
+        }
+        .docente-photo-wrap::after {
+            content: ''; position: absolute; inset: -8px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(224,0,52,.4), transparent 65%);
+            opacity: 0; transition: opacity .35s; z-index: -1;
+            filter: blur(14px);
+        }
+        .docente-card:hover .docente-photo-wrap::after { opacity: 1; }
+        .docente-photo {
+            width: 100%; height: 100%; border-radius: 50%;
+            object-fit: cover; background: #0a0a0a;
+            display: block;
+        }
+
+        .docente-coord-badge {
+            position: absolute; top: 14px; right: 14px;
+            background: var(--rojo); color: #fff;
+            font-size: .6rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+            padding: .35rem .65rem; border-radius: 20px;
+            box-shadow: 0 4px 14px rgba(224,0,52,.4);
+        }
+
+        .docente-name { color: #fff; font-size: 1.02rem; font-weight: 700; margin-bottom: .3rem; line-height: 1.3; }
+        .docente-grade { color: rgba(255,255,255,.55); font-size: .78rem; margin-bottom: 1rem; font-style: italic; line-height: 1.35; min-height: 2.1em; }
+
+        .docente-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+        .docente-chip {
+            font-size: .66rem; font-weight: 700; letter-spacing: .5px;
+            color: rgba(255,255,255,.88);
+            background: rgba(224,0,52,.12);
+            border: 1px solid rgba(224,0,52,.35);
+            padding: .3rem .6rem; border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .docente-tagline { color: rgba(255,255,255,.7); font-size: .82rem; line-height: 1.5; margin-bottom: 1.25rem; min-height: 2.5em; }
+
+        .docente-view-btn {
+            background: transparent;
+            color: var(--rojo);
+            border: 1.5px solid rgba(224,0,52,.55);
+            font-weight: 700; font-size: .8rem; letter-spacing: .5px;
+            padding: .6rem 1.2rem; border-radius: 30px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: .25s;
+            display: inline-flex; align-items: center; gap: .4rem;
+        }
+        .docente-view-btn:hover {
+            background: var(--rojo); color: #fff; border-color: var(--rojo);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(224,0,52,.35);
+        }
+        .docente-view-btn svg { transition: transform .25s; }
+        .docente-view-btn:hover svg { transform: translateX(3px); }
+
+        /* ── DOCENTE MODAL ── */
+        .doc-modal-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,.85);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            align-items: center; justify-content: center;
+            padding: 2rem 1rem;
+        }
+        .doc-modal-overlay.active { display: flex; animation: docFadeIn .25s ease; }
+        @keyframes docFadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+        .doc-modal {
+            background: #131313;
+            border: 1px solid rgba(224,0,52,.3);
+            border-radius: 20px;
+            max-width: 760px; width: 100%;
+            max-height: 90vh; overflow-y: auto;
+            padding: 2.5rem 2rem;
+            position: relative;
+            animation: docModalUp .35s cubic-bezier(.2,.9,.3,1.2);
+        }
+        @keyframes docModalUp { from { transform: translateY(30px); opacity: 0 } to { transform: none; opacity: 1 } }
+
+        .doc-modal::-webkit-scrollbar { width: 8px; }
+        .doc-modal::-webkit-scrollbar-track { background: #1a1a1a; }
+        .doc-modal::-webkit-scrollbar-thumb { background: var(--rojo); border-radius: 4px; }
+
+        .doc-modal-close {
+            position: absolute; top: 14px; right: 14px;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,.08); color: #fff;
+            border: none; font-size: 1.3rem; line-height: 1; cursor: pointer;
+            transition: .25s;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 2;
+        }
+        .doc-modal-close:hover { background: var(--rojo); transform: rotate(90deg); }
+
+        .doc-modal-header { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,.08); }
+        .doc-modal-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--rojo); flex-shrink: 0; box-shadow: 0 0 30px rgba(224,0,52,.3); }
+        .doc-modal-identity { flex: 1; min-width: 0; }
+        .doc-modal-name { color: #fff; font-size: 1.4rem; font-weight: 800; line-height: 1.2; margin-bottom: .4rem; }
+        .doc-modal-grade { color: rgba(255,255,255,.6); font-size: .9rem; font-style: italic; }
+        .doc-modal-section-title { color: var(--rojo); font-size: .72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin: 1.4rem 0 .7rem; display: flex; align-items: center; gap: .5rem; }
+        .doc-modal-section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(224,0,52,.4), transparent); }
+        .doc-modal-bio p { color: rgba(255,255,255,.78); font-size: .92rem; line-height: 1.65; margin-bottom: .7rem; }
+        .doc-modal-degrees { list-style: none; padding: 0; margin: 0; }
+        .doc-modal-degrees li { color: rgba(255,255,255,.78); font-size: .88rem; padding: .55rem 0 .55rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,.05); position: relative; line-height: 1.45; }
+        .doc-modal-degrees li:last-child { border-bottom: none; }
+        .doc-modal-degrees li::before { content: '✦'; color: var(--rojo); position: absolute; left: 0; top: .55rem; }
+        .doc-modal-degrees li strong { color: #fff; font-weight: 700; }
+        .doc-modal-quote {
+            background: rgba(224,0,52,.08);
+            border-left: 3px solid var(--rojo);
+            padding: 1rem 1.25rem;
+            margin-top: 1.3rem;
+            color: rgba(255,255,255,.85);
+            font-style: italic;
+            font-size: .9rem;
+            border-radius: 0 12px 12px 0;
+            line-height: 1.6;
+        }
+
         /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .docentes-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        }
         @media (max-width: 768px) {
             .stats-inner { grid-template-columns: repeat(2, 1fr); }
             .stat-item:nth-child(2) { border-right: none; }
@@ -366,6 +550,11 @@
             .conv-img { height: 240px; }
             .form-row { grid-template-columns: 1fr; }
             .header-career { display: none; }
+        }
+        @media (max-width: 560px) {
+            .docentes-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+            .doc-modal-header { flex-direction: column; text-align: center; }
+            .doc-modal { padding: 2rem 1.25rem; }
         }
         @media (max-width: 480px) {
             .stats-inner { grid-template-columns: repeat(2, 1fr); }
@@ -600,6 +789,155 @@
         </div>
     </div>
 </section>
+
+<!-- DOCENTES -->
+<section class="docentes-section" id="docentes">
+    <div class="docentes-inner">
+        <div class="docentes-header anim anim-up">
+            <p class="docentes-eyebrow">Plantilla Docente</p>
+            <h2 class="docentes-title">Aprende con <em>expertos</em> de talla internacional</h2>
+            <p class="docentes-sub">Doctores y maestros con trayectoria en UNESCO, UNAM, Oxford, CONACYT y universidades líderes en urbanismo y sostenibilidad.</p>
+        </div>
+
+        <div class="docentes-grid">
+
+            <!-- 1. César Velandia -->
+            <article class="docente-card anim anim-up anim-delay-1" data-docente="cesar-velandia">
+                <div class="docente-photo-wrap">
+                    <img class="docente-photo" src="assets/docentes/cesar-velandia.jpg" alt="Dr. César Augusto Velandia Silva" loading="lazy">
+                </div>
+                <h3 class="docente-name">Dr. César Augusto Velandia Silva</h3>
+                <p class="docente-grade">Doctor Cum Laude en Geografía</p>
+                <div class="docente-chips">
+                    <span class="docente-chip">UNESCO</span>
+                    <span class="docente-chip">ICOMOS</span>
+                    <span class="docente-chip">U. Alicante</span>
+                </div>
+                <p class="docente-tagline">Investigador posdoctoral en la U. Complutense de Madrid. Trayectoria en Colombia, México y España.</p>
+                <button class="docente-view-btn" type="button">
+                    Ver perfil
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </button>
+            </article>
+
+            <!-- 2. Dinorah González -->
+            <article class="docente-card anim anim-up anim-delay-2" data-docente="dinorah-gonzalez">
+                <div class="docente-photo-wrap">
+                    <img class="docente-photo" src="assets/docentes/dinorah-gonzalez.png" alt="Dra. Dinorah Judith González Ochoa" loading="lazy">
+                </div>
+                <h3 class="docente-name">Dra. Dinorah Judith González Ochoa</h3>
+                <p class="docente-grade">Doctora en Ciencias Sociales</p>
+                <div class="docente-chips">
+                    <span class="docente-chip">UNAM</span>
+                    <span class="docente-chip">COLEF</span>
+                    <span class="docente-chip">SEDESOL</span>
+                </div>
+                <p class="docente-tagline">Especialista en planificación urbana y políticas públicas. Estancia postdoctoral activa.</p>
+                <button class="docente-view-btn" type="button">
+                    Ver perfil
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </button>
+            </article>
+
+            <!-- 3. Cinthya Paz - COORDINADORA -->
+            <article class="docente-card anim anim-up anim-delay-3" data-docente="cinthya-paz">
+                <span class="docente-coord-badge">Coordinadora</span>
+                <div class="docente-photo-wrap">
+                    <img class="docente-photo" src="assets/docentes/cinthya-paz.jpg" alt="Dra. Cinthya Lorena Paz Rodríguez" loading="lazy">
+                </div>
+                <h3 class="docente-name">Dra. Cinthya Lorena Paz Rodríguez</h3>
+                <p class="docente-grade">Doctora en Turismo y Desarrollo Sostenible</p>
+                <div class="docente-chips">
+                    <span class="docente-chip">CONACYT</span>
+                    <span class="docente-chip">U. Las Palmas</span>
+                    <span class="docente-chip">IBERO TJ</span>
+                </div>
+                <p class="docente-tagline">Coordinadora de la Maestría y Jefa del Departamento de Arquitectura, Diseño e Ingeniería.</p>
+                <button class="docente-view-btn" type="button">
+                    Ver perfil
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </button>
+            </article>
+
+            <!-- 4. Raymundo Reyes -->
+            <article class="docente-card anim anim-up anim-delay-1" data-docente="raymundo-reyes">
+                <div class="docente-photo-wrap">
+                    <img class="docente-photo" src="assets/docentes/raymundo-reyes.jpg" alt="Dr. Raymundo Reyes Vicite" loading="lazy">
+                </div>
+                <h3 class="docente-name">Dr. Raymundo Reyes Vicite</h3>
+                <p class="docente-grade">Doctor en Arquitectura – Gerencia de Proyecto</p>
+                <div class="docente-chips">
+                    <span class="docente-chip">Oxford Brookes</span>
+                    <span class="docente-chip">Western U.</span>
+                    <span class="docente-chip">U. Londres</span>
+                </div>
+                <p class="docente-tagline">31 años como consultor y desarrollador inmobiliario. Asesor para Banco Mundial y Booz Allen.</p>
+                <button class="docente-view-btn" type="button">
+                    Ver perfil
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </button>
+            </article>
+
+            <!-- 5. Alberto Osuna -->
+            <article class="docente-card anim anim-up anim-delay-2" data-docente="alberto-osuna">
+                <div class="docente-photo-wrap">
+                    <img class="docente-photo" src="assets/docentes/alberto-osuna.jpg" alt="Arq. Alberto Osuna Palma y Meza" loading="lazy">
+                </div>
+                <h3 class="docente-name">Arq. Alberto Osuna Palma y Meza</h3>
+                <p class="docente-grade">Maestro en Desarrollo Urbano</p>
+                <div class="docente-chips">
+                    <span class="docente-chip">UABC</span>
+                    <span class="docente-chip">IBERO TJ</span>
+                    <span class="docente-chip">TEC Monterrey</span>
+                </div>
+                <p class="docente-tagline">30+ años en desarrollo de vivienda, valuación y planeación urbana en el noroeste de México.</p>
+                <button class="docente-view-btn" type="button">
+                    Ver perfil
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </button>
+            </article>
+
+            <!-- 6. Karla Bañuelos -->
+            <article class="docente-card anim anim-up anim-delay-3" data-docente="karla-banuelos">
+                <div class="docente-photo-wrap">
+                    <img class="docente-photo" src="assets/docentes/karla-banuelos.png" alt="Dra. Karla Fabiola Bañuelos Miranda" loading="lazy">
+                </div>
+                <h3 class="docente-name">Dra. Karla Fabiola Bañuelos Miranda</h3>
+                <p class="docente-grade">Doctora en Ciudad, Territorio y Sustentabilidad</p>
+                <div class="docente-chips">
+                    <span class="docente-chip">UdeG</span>
+                    <span class="docente-chip">ITESO</span>
+                    <span class="docente-chip">WRI</span>
+                </div>
+                <p class="docente-tagline">Profesora investigadora en ITESO. 20+ años en movilidad urbana sustentable y desarrollo territorial.</p>
+                <button class="docente-view-btn" type="button">
+                    Ver perfil
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </button>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- DOCENTE MODAL -->
+<div class="doc-modal-overlay" id="docModal" role="dialog" aria-modal="true" aria-labelledby="docModalName">
+    <div class="doc-modal">
+        <button class="doc-modal-close" id="docModalClose" aria-label="Cerrar">×</button>
+        <div class="doc-modal-header">
+            <img class="doc-modal-photo" id="docModalPhoto" src="" alt="">
+            <div class="doc-modal-identity">
+                <h3 class="doc-modal-name" id="docModalName"></h3>
+                <p class="doc-modal-grade" id="docModalGrade"></p>
+            </div>
+        </div>
+        <p class="doc-modal-section-title">Trayectoria</p>
+        <div class="doc-modal-bio" id="docModalBio"></div>
+        <p class="doc-modal-section-title">Grados académicos</p>
+        <ul class="doc-modal-degrees" id="docModalDegrees"></ul>
+        <blockquote class="doc-modal-quote" id="docModalQuote" hidden></blockquote>
+    </div>
+</div>
 
 <!-- FORMULARIO -->
 <section class="form-section" id="form">
@@ -875,6 +1213,160 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
         entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+})();
+
+// Docente modal
+(function () {
+    const docentes = {
+        'cesar-velandia': {
+            name: 'Dr. César Augusto Velandia Silva',
+            grade: 'Doctor Cum Laude en Geografía',
+            photo: 'assets/docentes/cesar-velandia.jpg',
+            bio: [
+                'Arquitecto de la Universidad Nacional de Colombia. Maestro en Desarrollo Urbano y Sistemas de Información Geográfica por IBERO Tijuana, y Doctor Cum Laude en Geografía por la Universidad de Alicante.',
+                'Desde 1997 tiene experiencia en el sector académico a nivel pregrado y posgrado en universidades de México, Colombia, Perú y recientemente España.',
+                'Entre 2012 y 2015 fue coordinador del Paisaje Cultural Cafetero de Colombia, inscrito en la Lista de Patrimonio Mundial de la UNESCO, en el Ministerio de Cultura de Colombia.',
+                'En 2016 recibió la beca UNESCO para el Taller de creación de capacidades sobre los vínculos entre naturaleza y cultura en conservación del patrimonio en Asia y el Pacífico, con el Programa de Estudios del Patrimonio Mundial de la Universidad de Tsukuba, en Tokio, Japón.',
+                'Miembro fundador de ICOMOS Colombia y presidente del comité nacional entre 2017 y 2020. Pertenece al Comité Científico Internacional de Paisajes Culturales de ICOMOS-IFLA.',
+                'En 2019 recibió el Premio Extraordinario de Doctorado de la Universidad de Alicante. Actualmente es investigador posdoctoral en la Universidad Complutense de Madrid y prepara 2 libros para la colección "Arte y Memoria" de la Universidad de Zaragoza.'
+            ],
+            degrees: [
+                '<strong>Doctorado en Geografía (Cum Laude)</strong> – Universidad de Alicante, España',
+                '<strong>Maestría en Desarrollo Urbano y SIG</strong> – IBERO Tijuana',
+                '<strong>Licenciatura en Arquitectura</strong> – Universidad Nacional de Colombia'
+            ]
+        },
+        'dinorah-gonzalez': {
+            name: 'Dra. Dinorah Judith González Ochoa',
+            grade: 'Doctora en Ciencias Sociales con Especialidad en Estudios Regionales',
+            photo: 'assets/docentes/dinorah-gonzalez.png',
+            bio: [
+                'Arquitecta por el Instituto Tecnológico de Tijuana. En la Universidad Nacional Autónoma de México (UNAM) cursó la Maestría en Planificación Urbana, y en El Colegio de la Frontera Norte (Tijuana, B.C.) obtuvo el Doctorado en Ciencias Sociales con Especialidad en Estudios Regionales.',
+                'Cuenta con experiencia en el proceso de planificación urbana y social, específicamente en la definición de programas, generación, implementación y evaluación de políticas públicas, así como estudios de impacto urbano.',
+                'Con la Secretaría de Desarrollo Social del Estado de Baja California ha colaborado en diversos proyectos: propuesta para la elaboración de Planes de Desarrollo Comunitario de los polígonos hábitat, y espacialización del índice de rezago social a partir del modelo dinámico integral de planeación del desarrollo social, entre otros.',
+                'Actualmente colabora en el Departamento de Estudios Urbanos donde realiza su estancia postdoctoral.'
+            ],
+            degrees: [
+                '<strong>Doctorado en Ciencias Sociales</strong> – El Colegio de la Frontera Norte',
+                '<strong>Maestría en Planificación Urbana</strong> – UNAM',
+                '<strong>Licenciatura en Arquitectura</strong> – Instituto Tecnológico de Tijuana'
+            ]
+        },
+        'cinthya-paz': {
+            name: 'Dra. Cinthya Lorena Paz Rodríguez',
+            grade: 'Doctora en Turismo y Desarrollo Sostenible · Coordinadora de la Maestría',
+            photo: 'assets/docentes/cinthya-paz.jpg',
+            bio: [
+                'Arquitecta por la Universidad Autónoma de Baja California campus Mexicali. En la Universidad de Las Palmas de Gran Canaria (España) estudió la Maestría en Turismo Internacional, y es egresada de la primera generación de la Maestría en Gestión de la Fotografía de la IBERO Tijuana.',
+                'Obtuvo beca de CONACYT en el programa Demanda Libre al Extranjero para estudios del Doctorado en Turismo y Desarrollo Sostenible en la Universidad de Las Palmas de Gran Canaria, España. Realizó estancia profesional becada por parte del Club Rotario Internacional "Group Study Exchange" en Queensland, Australia.',
+                'Ha sido coordinadora del área técnica, gerente de división mercancía y arquitecta proyectista en desarrollos turísticos y residenciales, como el Hotel Festival Plaza en Playas de Rosarito.',
+                'Desde 2003 es catedrática en nivel licenciatura y posgrado en la Universidad Iberoamericana Tijuana, donde ha sido coordinadora técnica del Programa de Desarrollo Humano Institucional en Construcción Verde con la Colorado State University.',
+                'Participa en comités de tesis doctorales, asesora tesinas de maestría, es representante académica en las juntas de gobierno de Institutos Municipales de Planeación en la región Tijuana-San Diego, y titular del Consejo Consultivo Metropolitano de Tijuana.',
+                'Actualmente es Jefa del Departamento de Arquitectura, Diseño e Ingeniería y Coordinadora de la Maestría en Proyectos para Ciudades Sostenibles.'
+            ],
+            degrees: [
+                '<strong>Doctorado en Turismo y Desarrollo Sostenible</strong> (beca CONACYT) – U. de Las Palmas de Gran Canaria',
+                '<strong>Maestría en Turismo Internacional</strong> – U. de Las Palmas de Gran Canaria',
+                '<strong>Maestría en Gestión de la Fotografía</strong> – IBERO Tijuana',
+                '<strong>Licenciatura en Arquitectura</strong> – UABC Mexicali'
+            ]
+        },
+        'raymundo-reyes': {
+            name: 'Dr. Raymundo Reyes Vicite',
+            grade: 'Doctor en Arquitectura – Gerencia de Proyecto',
+            photo: 'assets/docentes/raymundo-reyes.jpg',
+            bio: [
+                'Arquitecto urbanista egresado de la Universidad Iberoamericana, con un Doctorado en Arquitectura–Gerencia de Proyecto por Western University, USA.',
+                'Cuenta con una Maestría en Diseño Urbano por Oxford Brookes University, UK, y la Maestría en Gerencia de Proyectos en la Universidad de Londres, UK.',
+                'Ha colaborado con GTI desde 1984 como Director General en proyectos inmobiliarios, urbanismo y APP para centros turísticos, vivienda, tránsito, vialidad, transporte y centros comerciales. Tiene 31 años de experiencia como asesor y desarrollador inmobiliario y en la docencia.',
+                'Durante su trayectoria ha sido consultor de empresas como Booz Allen y Banco Mundial. Se ha especializado en la promoción, dirección e instrumentación de procesos para el desarrollo de negocios inmobiliarios.',
+                'Ha participado en macro proyectos en diversas sedes: Playa del Carmen y Cancún Quintana Roo, Veracruz, Mazatlán y Valle de Guadalupe, entre otros.',
+                'En la Dirección General de Desarrollo Urbano, ha sido asesor para proyectos en Asociación Público Privada (APP) en infraestructura, urbanismo y turismo para la Cámara Mexicana de la Industria de la Construcción (CMIC).'
+            ],
+            degrees: [
+                '<strong>Doctorado en Arquitectura–Gerencia de Proyecto</strong> – Western University, USA',
+                '<strong>Maestría en Diseño Urbano</strong> – Oxford Brookes University, UK',
+                '<strong>Maestría en Gerencia de Proyectos</strong> – Universidad de Londres, UK',
+                '<strong>Licenciatura en Arquitectura Urbanista</strong> – Universidad Iberoamericana'
+            ]
+        },
+        'alberto-osuna': {
+            name: 'Arq. Alberto Osuna Palma y Meza',
+            grade: 'Arquitecto y Maestro en Desarrollo Urbano',
+            photo: 'assets/docentes/alberto-osuna.jpg',
+            bio: [
+                'Arquitecto especialista en valuación y proyectos de inversión inmobiliaria, con más de tres décadas de experiencia en desarrollo de vivienda, planeación urbana y gestión de fraccionamientos en el noroeste de México.',
+                'Ha dirigido la planeación, evaluación físico–financiera y gestión gubernamental de proyectos de vivienda para diversos desarrolladores, así como la evaluación de proyectos inmobiliarios para financiamiento hipotecario.'
+            ],
+            degrees: [
+                '<strong>Maestría en Desarrollo Urbano con especialidad en SIG</strong> – IBERO Tijuana',
+                '<strong>Maestría en Planeación Estratégica de Ciudades</strong> – IBERO Tijuana',
+                '<strong>Diplomado en Proyectos de Inversión Inmobiliaria</strong> – Instituto Tecnológico de Monterrey',
+                '<strong>Especialidad en Valuación Inmobiliaria</strong> – UABC',
+                '<strong>Licenciatura en Arquitectura</strong> – UABC'
+            ],
+            quote: 'Mi compromiso es aportar experiencia y rigor técnico para construir ciudades más habitables, donde cada proyecto de vivienda se piense desde las personas y no solo desde los números.'
+        },
+        'karla-banuelos': {
+            name: 'Dra. Karla Fabiola Bañuelos Miranda',
+            grade: 'Doctora en Ciudad, Territorio y Sustentabilidad',
+            photo: 'assets/docentes/karla-banuelos.png',
+            bio: [
+                'Arquitecta especializada en movilidad urbana, desarrollo territorial y proyectos sustentables de ciudad. Con más de 20 años de experiencia en arquitectura y desarrollo urbano, combina la práctica profesional con la investigación académica y la docencia.',
+                'Ha dirigido proyectos arquitectónicos residenciales, comerciales e industriales, y ha sido residente de obra en proyectos de alto nivel. Actualmente se desempeña como profesora investigadora en el ITESO y coordina iniciativas de movilidad urbana sustentable.'
+            ],
+            degrees: [
+                '<strong>Doctorado en Ciudad, Territorio y Sustentabilidad</strong> – Universidad de Guadalajara',
+                '<strong>Maestría en Ciudad y Espacio Público Sustentable</strong> – ITESO',
+                '<strong>Licenciatura en Arquitectura</strong> – Instituto Tecnológico de Tepic (mejor promedio)',
+                '<strong>Diplomado en Gestión Educativa</strong> – CIDEA-ITESO',
+                '<strong>Leaders in Urban Transport Planning</strong> – WRI Guadalajara, 2019'
+            ],
+            quote: 'Mi compromiso es aportar experiencia y rigor técnico para construir ciudades más habitables, donde cada proyecto de vivienda se piense desde las personas y no sólo desde los números.'
+        }
+    };
+
+    const overlay  = document.getElementById('docModal');
+    const photoEl  = document.getElementById('docModalPhoto');
+    const nameEl   = document.getElementById('docModalName');
+    const gradeEl  = document.getElementById('docModalGrade');
+    const bioEl    = document.getElementById('docModalBio');
+    const degsEl   = document.getElementById('docModalDegrees');
+    const quoteEl  = document.getElementById('docModalQuote');
+    const closeBtn = document.getElementById('docModalClose');
+
+    function openModal(key) {
+        const d = docentes[key];
+        if (!d) return;
+        photoEl.src = d.photo;
+        photoEl.alt = d.name;
+        nameEl.textContent  = d.name;
+        gradeEl.textContent = d.grade;
+        bioEl.innerHTML  = d.bio.map(p => '<p>' + p + '</p>').join('');
+        degsEl.innerHTML = d.degrees.map(g => '<li>' + g + '</li>').join('');
+        if (d.quote) {
+            quoteEl.textContent = '"' + d.quote + '"';
+            quoteEl.hidden = false;
+        } else {
+            quoteEl.hidden = true;
+        }
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.docente-card').forEach(card => {
+        const btn = card.querySelector('.docente-view-btn');
+        const key = card.getAttribute('data-docente');
+        if (btn) btn.addEventListener('click', () => openModal(key));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal(); });
 })();
 </script>
 </body>
