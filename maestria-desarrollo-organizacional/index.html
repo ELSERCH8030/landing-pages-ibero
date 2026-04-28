@@ -105,6 +105,29 @@
         .plan-materia-icon { width: 42px; height: 42px; background: rgba(224,0,52,.1); border: 1px solid rgba(224,0,52,.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--rojo); flex-shrink: 0; }
         .plan-materia-name { color: var(--negro); font-size: 1rem; font-weight: 700; line-height: 1.35; }
 
+        /* descripción de materia */
+        .plan-materia-obj { color: var(--gris); font-size: .82rem; line-height: 1.5; margin-top: .35rem; }
+
+        /* ── DOCENTE MODAL ── */
+        .doc-modal-overlay { position: fixed; inset: 0; background: rgba(20,20,20,.55); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 1rem; overflow-y: auto; }
+        .doc-modal-overlay.active { display: flex; animation: docFadeIn .25s ease; }
+        @keyframes docFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .doc-modal { background: #fff; border: 1px solid var(--borde); border-radius: 22px; max-width: 720px; width: 100%; max-height: 92vh; overflow-y: auto; padding: 2.5rem 2.25rem; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,.25); animation: docModalUp .35s cubic-bezier(.2,.9,.3,1.2); }
+        @keyframes docModalUp { from { transform: translateY(30px); opacity: 0 } to { transform: none; opacity: 1 } }
+        .doc-modal-close { position: absolute; top: 1rem; right: 1rem; width: 38px; height: 38px; background: var(--gris-suave); border: none; color: var(--gris-oscuro); font-size: 1.4rem; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: .25s; line-height: 1; }
+        .doc-modal-close:hover { background: var(--rojo); color: #fff; transform: rotate(90deg); }
+        .doc-modal-header { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--borde); }
+        .doc-modal-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--rojo); flex-shrink: 0; box-shadow: 0 4px 20px rgba(224,0,52,.15); }
+        .doc-modal-name { color: var(--negro); font-size: 1.4rem; font-weight: 800; line-height: 1.2; margin-bottom: .4rem; }
+        .doc-modal-grade { color: var(--gris); font-size: .9rem; font-style: italic; }
+        .doc-modal-section-title { color: var(--rojo); font-size: .72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin: 1rem 0 .7rem; display: flex; align-items: center; gap: .5rem; }
+        .doc-modal-section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(224,0,52,.4), transparent); }
+        .doc-modal-bio p { color: var(--gris-oscuro); font-size: .95rem; line-height: 1.65; margin-bottom: .7rem; }
+        .docente-card[data-docente] { cursor: pointer; }
+        .docente-view-btn { background: rgba(224,0,52,.06); border: 1px solid rgba(224,0,52,.25); color: var(--rojo); font-weight: 700; font-size: .76rem; letter-spacing: .5px; text-transform: uppercase; padding: .5rem .9rem; border-radius: 50px; cursor: pointer; display: inline-flex; align-items: center; gap: .35rem; transition: .25s; font-family: inherit; margin-top: .5rem; }
+        .docente-view-btn:hover { background: var(--rojo); color: #fff; transform: translateY(-1px); }
+        @media (max-width: 520px) { .doc-modal-header { flex-direction: column; text-align: center; } .doc-modal { padding: 2rem 1.25rem; } }
+
         /* ── DOCENTES ── */
         .docentes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
         .docente-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 1.75rem 1.25rem 1.5rem; text-align: center; transition: .3s; box-shadow: 0 4px 16px rgba(0,0,0,.03); position: relative; }
@@ -319,68 +342,76 @@
         </div>
 
         <div class="docentes-grid">
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="jorge-bautista">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/jorge-bautista.jpeg" alt="Jorge Bautista" loading="lazy"></div>
                 <h3 class="docente-name">Jorge Bautista</h3>
                 <p class="docente-grade">MAI</p>
                 <div class="docente-chips"><span class="docente-chip">Multinacionales</span><span class="docente-chip">Habilidades Blandas</span></div>
                 <p class="docente-tagline">Experto en Desarrollo Organizacional. Ha desarrollado programas de posgrado y diplomados, y es asesor/capacitador empresarial.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="jose-shvarzblat">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/jose-shvarzblat.jpeg" alt="José Shvarzblat" loading="lazy"></div>
                 <h3 class="docente-name">José Shvarzblat</h3>
                 <p class="docente-grade">Mtro. en Desarrollo Organizacional</p>
                 <div class="docente-chips"><span class="docente-chip">Consultoría</span><span class="docente-chip">Capacitación</span></div>
                 <p class="docente-tagline">Consultor y capacitador para el desarrollo humano y organizacional con trayectoria en empresas de la región.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="ignacio-lopez">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/ignacio-lopez.jpeg" alt="Ignacio López" loading="lazy"></div>
                 <h3 class="docente-name">Ignacio López</h3>
                 <p class="docente-grade">Dr. Sociólogo</p>
                 <div class="docente-chips"><span class="docente-chip">Transcultural</span><span class="docente-chip">Investigación</span></div>
                 <p class="docente-tagline">Experto en Administración Transcultural e investigador de la incidencia social dentro de las organizaciones.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="salvador-olvera">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/salvador-olvera.jpeg" alt="Salvador Olvera" loading="lazy"></div>
                 <h3 class="docente-name">Salvador Olvera</h3>
                 <p class="docente-grade">Mtro. en Comunicación Organizacional</p>
                 <div class="docente-chips"><span class="docente-chip">Comunicación</span><span class="docente-chip">Investigación</span></div>
                 <p class="docente-tagline">Experto e investigador en Comunicación Organizacional, formando profesionales en estrategias de comunicación interna.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="sergio-banuelos">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/sergio-banuelos.jpeg" alt="Sergio Bañuelos" loading="lazy"></div>
                 <h3 class="docente-name">Sergio Bañuelos</h3>
                 <p class="docente-grade">MGEI</p>
                 <div class="docente-chips"><span class="docente-chip">SAFRAN</span><span class="docente-chip">RH</span></div>
                 <p class="docente-tagline">Experto en Desarrollo Organizacional y Potencial Humano. Gestor de proyectos de cambio y Gte. de R.H. en SAFRAN.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="maribel-balderas">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/maribel-balderas.jpeg" alt="Maribel Balderas" loading="lazy"></div>
                 <h3 class="docente-name">Maribel Balderas</h3>
                 <p class="docente-grade">Mtra. en Desarrollo Organizacional</p>
                 <div class="docente-chips"><span class="docente-chip">EnerSys</span><span class="docente-chip">RH</span></div>
                 <p class="docente-tagline">Gerente de R.H. en EnerSys México, especialista en desarrollo de programas de cambio dentro de las organizaciones.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="deisy-mora">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/deisy-mora.jpeg" alt="Deisy Mora" loading="lazy"></div>
                 <h3 class="docente-name">Deisy Mora</h3>
                 <p class="docente-grade">Mtra. en Desarrollo Organizacional</p>
                 <div class="docente-chips"><span class="docente-chip">GLECO</span><span class="docente-chip">Talento y Cultura</span></div>
                 <p class="docente-tagline">Gte. de Talento y Cultura en GLECO. Consultora en Desarrollo Organizacional y Potencial Humano en DM Consultores.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="eduardo-lopez">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/eduardo-lopez.jpeg" alt="Eduardo López" loading="lazy"></div>
                 <h3 class="docente-name">Eduardo López</h3>
                 <p class="docente-grade">Dr. en Educación</p>
                 <div class="docente-chips"><span class="docente-chip">Consultoría</span><span class="docente-chip">Competencias</span></div>
                 <p class="docente-tagline">Consultor organizacional, experto en Capacitación y Desarrollo de Competencias laborales.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
         </div>
     </div>
@@ -585,6 +616,22 @@
     </div>
 </section>
 
+<!-- DOCENTE MODAL -->
+<div class="doc-modal-overlay" id="docModal" role="dialog" aria-modal="true" aria-labelledby="docModalName">
+    <div class="doc-modal">
+        <button class="doc-modal-close" id="docModalClose" aria-label="Cerrar">×</button>
+        <div class="doc-modal-header">
+            <img class="doc-modal-photo" id="docModalPhoto" src="" alt="">
+            <div>
+                <h3 class="doc-modal-name" id="docModalName"></h3>
+                <p class="doc-modal-grade" id="docModalGrade"></p>
+            </div>
+        </div>
+        <p class="doc-modal-section-title">Trayectoria</p>
+        <div class="doc-modal-bio" id="docModalBio"></div>
+    </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
     <p>© IBERO Tijuana · Maestría en Desarrollo Organizacional y del Potencial Humano · RVOE SEP</p>
@@ -594,36 +641,36 @@
     // ── PLAN DE ESTUDIOS ──
     const PLAN = {
         1: { title: 'Primer Trimestre', sub: 'Fundamentos del comportamiento humano y la comunicación', materias: [
-            { name: 'Comportamiento Organizacional y Desarrollo Humano' },
-            { name: 'Desarrollo de Habilidades de Comunicación' }
+            { name: 'Comportamiento Organizacional y Desarrollo Humano', obj: 'Comprender el comportamiento individual y grupal en las organizaciones y su impacto en el desarrollo humano integral.' },
+            { name: 'Desarrollo de Habilidades de Comunicación', obj: 'Fortalecer habilidades de comunicación efectiva, asertiva y empática en contextos profesionales y multidisciplinarios.' }
         ]},
         2: { title: 'Segundo Trimestre', sub: 'Consultoría y posicionamiento estratégico', materias: [
-            { name: 'Consultoría y Cambio Organizacional' },
-            { name: 'Competitividad Estratégica' }
+            { name: 'Consultoría y Cambio Organizacional', obj: 'Aplicar metodologías de consultoría para guiar procesos de cambio y transformación dentro de las organizaciones.' },
+            { name: 'Competitividad Estratégica', obj: 'Analizar los factores que determinan la competitividad y diseñar estrategias para posicionarse en mercados dinámicos.' }
         ]},
         3: { title: 'Tercer Trimestre', sub: 'Diagnóstico y liderazgo del cambio', materias: [
-            { name: 'Análisis y Diagnóstico Organizacional' },
-            { name: 'Liderazgo y Cambio Organizacional' }
+            { name: 'Análisis y Diagnóstico Organizacional', obj: 'Aplicar técnicas de diagnóstico para identificar áreas de oportunidad y problemáticas estructurales en la organización.' },
+            { name: 'Liderazgo y Cambio Organizacional', obj: 'Desarrollar competencias de liderazgo para inspirar y conducir procesos de transformación con humanismo.' }
         ]},
         4: { title: 'Cuarto Trimestre', sub: 'Estrategia y negociación', materias: [
-            { name: 'Estrategia y Cambio Organizacional' },
-            { name: 'Liderazgo y Negociación' }
+            { name: 'Estrategia y Cambio Organizacional', obj: 'Diseñar e implementar estrategias integrales que orienten el cambio organizacional hacia objetivos sostenibles.' },
+            { name: 'Liderazgo y Negociación', obj: 'Combinar liderazgo y técnicas de negociación para resolver conflictos y alcanzar acuerdos productivos.' }
         ]},
         5: { title: 'Quinto Trimestre', sub: 'Intervención y gestión transcultural', materias: [
-            { name: 'Estrategias de Intervención Organizacional' },
-            { name: 'Administración Transcultural' }
+            { name: 'Estrategias de Intervención Organizacional', obj: 'Diseñar intervenciones específicas que optimicen procesos, cultura y desempeño organizacional.' },
+            { name: 'Administración Transcultural', obj: 'Gestionar equipos y operaciones en contextos multiculturales y globales con sensibilidad intercultural.' }
         ]},
         6: { title: 'Sexto Trimestre', sub: 'Potencial humano y desarrollo de competencias', materias: [
-            { name: 'Administración del Potencial Humano' },
-            { name: 'Capacitación y Desarrollo de Competencias' }
+            { name: 'Administración del Potencial Humano', obj: 'Implementar prácticas que potencien el talento y el desarrollo profesional de los colaboradores.' },
+            { name: 'Capacitación y Desarrollo de Competencias', obj: 'Diseñar programas de capacitación que cierren brechas y aceleren el crecimiento profesional.' }
         ]},
         7: { title: 'Séptimo Trimestre', sub: 'Productividad y gestión de conflictos', materias: [
-            { name: 'Productividad y Calidad Laboral' },
-            { name: 'Manejo de Conflictos' }
+            { name: 'Productividad y Calidad Laboral', obj: 'Aplicar metodologías para incrementar la productividad sin sacrificar la calidad de vida laboral.' },
+            { name: 'Manejo de Conflictos', obj: 'Identificar, prevenir y resolver conflictos en el entorno laboral mediante técnicas probadas.' }
         ]},
         8: { title: 'Octavo Trimestre', sub: 'Investigación aplicada y ética organizacional', materias: [
-            { name: 'Seminario de Investigación Aplicada al D.O.' },
-            { name: 'Ética e Inclusión dentro de la Organización' }
+            { name: 'Seminario de Investigación Aplicada al D.O.', obj: 'Desarrollar un proyecto de investigación aplicada que aporte soluciones reales a una organización.' },
+            { name: 'Ética e Inclusión dentro de la Organización', obj: 'Promover prácticas éticas e inclusivas que enriquezcan la cultura organizacional.' }
         ]}
     };
 
@@ -645,6 +692,7 @@
                         </div>
                         <div class="plan-materia-body">
                             <p class="plan-materia-name">${m.name}</p>
+                            ${m.obj ? `<p class="plan-materia-obj">${m.obj}</p>` : ''}
                         </div>
                     </div>
                 `).join('')}
@@ -678,6 +726,86 @@
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // ── DOCENTE MODAL ──
+    (function () {
+        const docentes = {
+            'jorge-bautista': {
+                name: 'Jorge Bautista',
+                grade: 'MAI · Experto en Desarrollo Organizacional',
+                photo: 'assets/docentes/jorge-bautista.jpeg',
+                bio: ['Maestro en Administración Internacional. Gerente en diversas empresas multinacionales con amplia experiencia en desarrollo organizacional y habilidades blandas.', 'Ha desarrollado programas de posgrado (MDOYPH) y diplomados, además de fungir como asesor y capacitador empresarial.']
+            },
+            'jose-shvarzblat': {
+                name: 'José Shvarzblat',
+                grade: 'Mtro. en Desarrollo Organizacional',
+                photo: 'assets/docentes/jose-shvarzblat.jpeg',
+                bio: ['Maestro en Desarrollo Organizacional, consultor y capacitador para el desarrollo humano y organizacional con trayectoria en empresas de la región.']
+            },
+            'ignacio-lopez': {
+                name: 'Ignacio López',
+                grade: 'Dr. Sociólogo',
+                photo: 'assets/docentes/ignacio-lopez.jpeg',
+                bio: ['Doctor sociólogo, experto en Administración Transcultural e investigador en la incidencia social dentro de las organizaciones.']
+            },
+            'salvador-olvera': {
+                name: 'Salvador Olvera',
+                grade: 'Mtro. en Comunicación Organizacional',
+                photo: 'assets/docentes/salvador-olvera.jpeg',
+                bio: ['Maestro experto e investigador en Comunicación Organizacional, formando profesionales en estrategias de comunicación interna y externa.']
+            },
+            'sergio-banuelos': {
+                name: 'Sergio Bañuelos',
+                grade: 'MGEI · Experto en D.O. y Potencial Humano',
+                photo: 'assets/docentes/sergio-banuelos.jpeg',
+                bio: ['Maestro en Gestión Empresarial Internacional, experto en Desarrollo Organizacional y del Potencial Humano.', 'Gestor de proyectos de cambio y transformación de empresas. Actualmente Gerente de Recursos Humanos en SAFRAN.']
+            },
+            'maribel-balderas': {
+                name: 'Maribel Balderas',
+                grade: 'Mtra. en Desarrollo Organizacional',
+                photo: 'assets/docentes/maribel-balderas.jpeg',
+                bio: ['Maestra en Desarrollo Organizacional. Gerente de Recursos Humanos en EnerSys México.', 'Experta en Desarrollo Organizacional y del Potencial Humano, especialista en desarrollo de programas de cambio dentro de las organizaciones.']
+            },
+            'deisy-mora': {
+                name: 'Deisy Mora',
+                grade: 'Mtra. en Desarrollo Organizacional',
+                photo: 'assets/docentes/deisy-mora.jpeg',
+                bio: ['Maestra en Desarrollo Organizacional. Gerente de Talento y Cultura en GLECO.', 'Consultora en Desarrollo Organizacional y Formación del Potencial Humano en DM Consultores en Desarrollo Humano.']
+            },
+            'eduardo-lopez': {
+                name: 'Eduardo López',
+                grade: 'Dr. en Educación',
+                photo: 'assets/docentes/eduardo-lopez.jpeg',
+                bio: ['Doctor en Educación, consultor organizacional y experto en Capacitación y Desarrollo de Competencias laborales.']
+            }
+        };
+
+        const overlay = document.getElementById('docModal');
+        const photoEl = document.getElementById('docModalPhoto');
+        const nameEl  = document.getElementById('docModalName');
+        const gradeEl = document.getElementById('docModalGrade');
+        const bioEl   = document.getElementById('docModalBio');
+        const closeBtn= document.getElementById('docModalClose');
+
+        function openModal(key) {
+            const d = docentes[key]; if (!d) return;
+            photoEl.src = d.photo; photoEl.alt = d.name;
+            nameEl.textContent = d.name; gradeEl.textContent = d.grade;
+            bioEl.innerHTML = d.bio.map(p => '<p>' + p + '</p>').join('');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.docente-card[data-docente]').forEach(card => {
+            card.addEventListener('click', () => openModal(card.getAttribute('data-docente')));
+        });
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    })();
 
     // ── ANIMACIONES ──
     const observer = new IntersectionObserver(entries => {

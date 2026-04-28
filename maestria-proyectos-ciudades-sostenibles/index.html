@@ -4,867 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maestría en Proyectos para Ciudades Sostenibles | IBERO Tijuana</title>
+    <meta name="description" content="Forma profesionales que diseñan ciudades sostenibles e incluyentes. Modalidad presencial, 8 trimestres, 3 ejes de especialización, inicio 30 de junio 2026.">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="https://use.typekit.net/phs8jtn.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --rojo: #E00034; --rojo-oscuro: #B8002A;
-            --blanco: #FFFFFF; --negro: #0A0A0A;
-            --gris-claro: #F5F5F5; --gris: #666; --gris-oscuro: #222;
-            --verde: #2D6A4F; --verde-claro: #40916C;
+            --blanco: #FFFFFF; --negro: #1A1A1A;
+            --gris-claro: #F7F7F8; --gris-suave: #EDEDF0; --gris: #6B6B70; --gris-oscuro: #2A2A2E;
+            --borde: #E5E5E8;
         }
         html { scroll-behavior: smooth; }
-        body { font-family: 'alverata', 'Segoe UI', sans-serif; color: var(--gris-oscuro); line-height: 1.6; overflow-x: hidden; padding-top: 69px; }
+        body { font-family: 'alverata', 'Segoe UI', sans-serif; color: var(--gris-oscuro); line-height: 1.6; background: var(--blanco); overflow-x: hidden; padding-top: 69px; }
 
         /* ── HEADER ── */
-        header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: .75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,10,.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.08); }
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: .75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; background: var(--rojo); box-shadow: 0 2px 12px rgba(0,0,0,.15); }
         .logo-area { display: flex; align-items: center; gap: .75rem; }
         .logo-img { height: 44px; width: auto; }
-        .header-divider { width: 1px; height: 28px; background: rgba(255,255,255,.3); }
-        .header-career { color: rgba(255,255,255,.85); font-size: .82rem; font-weight: 500; max-width: 200px; line-height: 1.3; }
-        .nav-cta { background: var(--rojo); color: #fff; padding: .55rem 1.4rem; border-radius: 50px; font-size: .85rem; font-weight: 700; text-decoration: none; transition: .2s; white-space: nowrap; }
-        .nav-cta:hover { background: var(--rojo-oscuro); transform: scale(1.04); }
+        .header-divider { width: 1px; height: 28px; background: rgba(255,255,255,.4); }
+        .header-career { color: #fff; font-size: .82rem; font-weight: 600; max-width: 220px; line-height: 1.3; }
+        .nav-cta { background: #fff; color: var(--rojo); padding: .55rem 1.4rem; border-radius: 50px; font-size: .85rem; font-weight: 800; text-decoration: none; transition: .2s; white-space: nowrap; }
+        .nav-cta:hover { background: #f3f3f3; transform: scale(1.04); }
 
         /* ── TICKER ── */
-        .ticker-wrap {
-            width: 100%;
-            background: var(--rojo);
-            overflow: hidden;
-            padding: .6rem 0;
-            position: relative;
-        }
-        .ticker-wrap::before,
-        .ticker-wrap::after {
-            content: '';
-            position: absolute;
-            top: 0; bottom: 0;
-            width: 60px;
-            z-index: 2;
-            pointer-events: none;
-        }
+        .ticker-wrap { width: 100%; background: var(--rojo); overflow: hidden; padding: .6rem 0; position: relative; }
+        .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none; }
         .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--rojo), transparent); }
         .ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--rojo), transparent); }
-        .ticker-track {
-            display: flex;
-            width: max-content;
-            animation: ticker-scroll 30s linear infinite;
-        }
+        .ticker-track { display: flex; width: max-content; animation: ticker-scroll 30s linear infinite; }
         .ticker-track:hover { animation-play-state: paused; }
-        .ticker-item {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            white-space: nowrap;
-            font-size: .8rem;
-            font-weight: 600;
-            color: #fff;
-            letter-spacing: .8px;
-            text-transform: uppercase;
-            padding: 0 2.5rem;
-        }
-        .ticker-dot {
-            color: rgba(255,255,255,.6);
-            font-size: .65rem;
-        }
-        @keyframes ticker-scroll {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-        }
+        .ticker-item { display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; font-size: .8rem; font-weight: 600; color: #fff; letter-spacing: .8px; text-transform: uppercase; padding: 0 2.5rem; }
+        .ticker-dot { color: rgba(255,255,255,.6); font-size: .65rem; }
+        @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
         /* ── HERO ── */
-        .hero { position: relative; height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #0a0a0a; }
+        .hero { position: relative; min-height: 560px; padding: 5rem 1.5rem; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #1a1a1a; }
         .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
-        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(10,10,10,.72) 0%, rgba(180,0,30,.45) 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; max-width: 820px; padding: 0 1.5rem; }
-        .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.2); padding: .35rem 1rem; border-radius: 50px; font-size: .78rem; font-weight: 600; color: #fff; letter-spacing: .6px; text-transform: uppercase; margin-bottom: 1.5rem; }
-        .hero-badge span { width: 6px; height: 6px; background: var(--rojo); border-radius: 50%; display: inline-block; }
-        .hero h1 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 1.2rem; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(20,20,20,.65) 0%, rgba(40,20,30,.55) 60%, rgba(184,0,42,.45) 100%); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 880px; padding: 0 1.5rem; }
+        .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.2); padding: .4rem 1.1rem; border-radius: 50px; font-size: .78rem; font-weight: 700; color: #fff; letter-spacing: .6px; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .hero-badge span { width: 6px; height: 6px; background: var(--rojo); border-radius: 50%; display: inline-block; animation: pulse-dot 1.6s ease-in-out infinite; }
+        .hero h1 { font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.12; margin-bottom: 1.2rem; letter-spacing: -.5px; }
         .hero h1 em { color: var(--rojo); font-style: normal; }
-        @keyframes pulse-dot {
-            0%   { box-shadow: 0 0 0 0 rgba(224,0,52,.6); }
-            70%  { box-shadow: 0 0 0 8px rgba(224,0,52,0); }
-            100% { box-shadow: 0 0 0 0 rgba(224,0,52,0); }
-        }
-        .hero p { font-size: clamp(.95rem, 2vw, 1.15rem); color: rgba(255,255,255,.85); max-width: 560px; margin: 0 auto 2rem; font-weight: 300; }
-        .hero-badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-        .hero-badge-item { background: rgba(255,255,255,.1); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.15); padding: .45rem 1rem; border-radius: 10px; font-size: .8rem; color: #fff; font-weight: 500; display: flex; align-items: center; gap: .4rem; }
-        .btn-hero {
-            display: inline-flex; align-items: center; gap: .65rem;
-            background: linear-gradient(135deg, var(--rojo), #c8102e);
-            color: #fff;
-            padding: 1.05rem 2.4rem;
-            border-radius: 50px;
-            font-size: 1.02rem;
-            font-weight: 700;
-            letter-spacing: .3px;
-            text-decoration: none;
-            margin-top: 1.5rem;
-            border: 1.5px solid rgba(255,255,255,.12);
-            box-shadow: 0 8px 30px rgba(224,0,52,.45), 0 0 0 0 rgba(224,0,52,.4);
-            transition: all .3s ease;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .btn-hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
-            transform: translateX(-100%);
-            transition: transform .6s ease;
-        }
-        .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(224,0,52,.55), 0 0 0 6px rgba(224,0,52,.12); }
-        .btn-hero:hover::before { transform: translateX(100%); }
+        .hero p { font-size: clamp(.98rem, 2vw, 1.18rem); color: rgba(255,255,255,.88); max-width: 620px; margin: 0 auto 1.6rem; font-weight: 400; }
+        .hero-meta { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin-bottom: 2rem; padding: .9rem 1.4rem; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 14px; backdrop-filter: blur(6px); }
+        .hero-meta-item { display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: #fff; font-weight: 600; }
+        .hero-meta-item svg { color: var(--rojo); }
+        @keyframes pulse-dot { 0%{box-shadow:0 0 0 0 rgba(224,0,52,.6)} 70%{box-shadow:0 0 0 8px rgba(224,0,52,0)} 100%{box-shadow:0 0 0 0 rgba(224,0,52,0)} }
+        .btn-hero { display: inline-flex; align-items: center; gap: .65rem; background: linear-gradient(135deg, var(--rojo), #c8102e); color: #fff; padding: 1.05rem 2.4rem; border-radius: 50px; font-size: 1.02rem; font-weight: 700; letter-spacing: .3px; text-decoration: none; border: 1.5px solid rgba(255,255,255,.18); box-shadow: 0 12px 30px rgba(224,0,52,.3); transition: all .3s ease; cursor: pointer; }
+        .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(224,0,52,.4); }
         .btn-hero svg { transition: transform .3s ease; }
         .btn-hero:hover svg { transform: translateX(4px); }
-        .hero-scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .4rem; color: rgba(255,255,255,.4); font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; animation: bounce 2s ease-in-out infinite; }
-        .hero-scroll-hint svg { opacity: .5; }
-        @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
 
         /* ── STATS BAR ── */
-        .stats-bar {
-            background: #0a0a0a;
-            padding: 0 1.5rem;
-            position: relative;
-            overflow: hidden;
-            border-top: 3px solid var(--rojo);
-            border-bottom: 3px solid var(--rojo);
-        }
-        .stats-bar::before {
-            content:''; position:absolute; inset:0;
-            background: url('assets/ciudad.jpg') center/cover no-repeat;
-            opacity:.06; pointer-events:none;
-        }
-        .stats-inner {
-            max-width: 960px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-        }
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            border-right: 1px solid rgba(255,255,255,.07);
-            position: relative;
-        }
+        .stats-bar { background: var(--blanco); padding: 0 1.5rem; border-top: 3px solid var(--rojo); border-bottom: 1px solid var(--borde); }
+        .stats-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+        .stat-item { text-align: center; padding: 2rem 1rem; border-right: 1px solid var(--borde); }
         .stat-item:last-child { border-right: none; }
-        .stat-num {
-            font-size: clamp(2.4rem, 5vw, 3.6rem);
-            font-weight: 900;
-            color: var(--rojo);
-            line-height: 1;
-            letter-spacing: -1px;
-        }
-        .stat-label {
-            font-size: .72rem;
-            color: rgba(255,255,255,.45);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-top: .5rem;
-            font-weight: 500;
-        }
+        .stat-num { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 900; color: var(--rojo); line-height: 1; letter-spacing: -1px; }
+        .stat-label { font-size: .72rem; color: var(--gris); letter-spacing: 1.5px; text-transform: uppercase; margin-top: .5rem; font-weight: 600; }
+
+        /* ── SECCIONES BASE ── */
+        .section { padding: 5rem 1.5rem; }
+        .section-light { background: var(--blanco); }
+        .section-soft { background: var(--gris-claro); }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-eyebrow { color: var(--rojo); font-size: .8rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: .8rem; font-weight: 800; }
+        .section-title { color: var(--negro); font-size: clamp(1.9rem, 3.6vw, 2.6rem); font-weight: 800; line-height: 1.2; max-width: 820px; margin: 0 auto .8rem; letter-spacing: -.3px; }
+        .section-title em { color: var(--rojo); font-style: normal; }
+        .section-sub { color: var(--gris); font-size: 1rem; max-width: 640px; margin: 0 auto; line-height: 1.6; }
 
         /* ── PLAN DE ESTUDIOS ── */
-        .plan-section { background: linear-gradient(180deg, #0a0a0a 0%, #111 100%); padding: 5.5rem 1.5rem; border-top: 3px solid var(--rojo); border-bottom: 3px solid var(--rojo); position: relative; overflow: hidden; }
-        .plan-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(224,0,52,.4), transparent);
-        }
-        .plan-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-        .plan-header { text-align: center; margin-bottom: 3rem; }
-        .plan-eyebrow { color: var(--rojo); font-size: .8rem; letter-spacing: 3.5px; text-transform: uppercase; margin-bottom: 1rem; font-weight: 700; }
-        .plan-title { color: #fff; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.15; max-width: 820px; margin: 0 auto 1.5rem; letter-spacing: -.3px; }
-        .plan-title em { color: var(--rojo); font-style: normal; }
-        .plan-meta { display: inline-flex; align-items: center; gap: 1.5rem; padding: 1rem 1.75rem; background: rgba(255,255,255,.03); border: 1px solid rgba(224,0,52,.25); border-radius: 14px; flex-wrap: wrap; justify-content: center; }
+        .plan-meta { display: inline-flex; align-items: center; gap: 1.5rem; padding: 1rem 1.75rem; background: var(--blanco); border: 1px solid var(--borde); border-radius: 14px; flex-wrap: wrap; justify-content: center; margin-top: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,.03); }
         .plan-meta-item { display: flex; flex-direction: column; align-items: center; min-width: 110px; }
-        .plan-meta-item strong { color: #fff; font-size: 1.05rem; font-weight: 800; letter-spacing: .2px; }
-        .plan-meta-item span { color: rgba(255,255,255,.5); font-size: .72rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: .2rem; }
-        .plan-meta-sep { width: 1px; height: 32px; background: rgba(255,255,255,.15); }
+        .plan-meta-item strong { color: var(--negro); font-size: 1.05rem; font-weight: 800; }
+        .plan-meta-item span { color: var(--gris); font-size: .72rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: .2rem; font-weight: 600; }
+        .plan-meta-sep { width: 1px; height: 32px; background: var(--borde); }
 
-        /* Tabs de trimestres */
-        .plan-tabs-wrap { margin-bottom: 2rem; }
         .plan-tabs { display: grid; grid-template-columns: repeat(8, 1fr); gap: .5rem; margin-bottom: .75rem; }
-        .plan-tab {
-            position: relative;
-            background: rgba(255,255,255,.03);
-            border: 1px solid rgba(255,255,255,.08);
-            color: rgba(255,255,255,.5);
-            padding: .95rem .5rem;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all .3s cubic-bezier(.2,.8,.2,1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: .2rem;
-        }
-        .plan-tab:hover { background: rgba(255,255,255,.06); color: rgba(255,255,255,.85); border-color: rgba(224,0,52,.35); transform: translateY(-2px); }
-        .plan-tab .plan-tab-num { font-size: 1.15rem; font-weight: 800; letter-spacing: .3px; }
-        .plan-tab .plan-tab-lbl { font-size: .62rem; letter-spacing: 1.3px; text-transform: uppercase; opacity: .7; }
-        .plan-tab.active {
-            background: linear-gradient(135deg, var(--rojo), #c8102e);
-            border-color: var(--rojo);
-            color: #fff;
-            box-shadow: 0 8px 22px rgba(224,0,52,.35);
-        }
-        .plan-tab.active .plan-tab-lbl { opacity: 1; }
-        .plan-progress { height: 3px; background: rgba(255,255,255,.08); border-radius: 2px; overflow: hidden; }
+        .plan-tab { background: var(--blanco); border: 1px solid var(--borde); color: var(--gris); padding: .95rem .5rem; border-radius: 10px; cursor: pointer; font-family: inherit; transition: all .3s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; align-items: center; gap: .2rem; }
+        .plan-tab:hover { border-color: rgba(224,0,52,.4); color: var(--negro); transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.05); }
+        .plan-tab .plan-tab-num { font-size: 1.15rem; font-weight: 800; }
+        .plan-tab .plan-tab-lbl { font-size: .62rem; letter-spacing: 1.3px; text-transform: uppercase; opacity: .8; }
+        .plan-tab.active { background: linear-gradient(135deg, var(--rojo), #c8102e); border-color: var(--rojo); color: #fff; box-shadow: 0 8px 22px rgba(224,0,52,.3); }
+        .plan-progress { height: 3px; background: var(--gris-suave); border-radius: 2px; overflow: hidden; }
         .plan-progress-fill { height: 100%; background: linear-gradient(90deg, var(--rojo), #ff6b35); border-radius: 2px; transition: width .5s cubic-bezier(.2,.8,.2,1); width: 12.5%; }
 
-        /* Panel del trimestre activo */
-        .plan-panel { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08); border-radius: 18px; padding: 2.25rem; margin-bottom: 3rem; animation: planFade .4s ease both; }
+        .plan-panel { background: var(--blanco); border: 1px solid var(--borde); border-radius: 18px; padding: 2.25rem; margin-top: 2rem; animation: planFade .4s ease both; box-shadow: 0 4px 20px rgba(0,0,0,.04); }
         @keyframes planFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        .plan-panel-header { display: flex; align-items: center; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 1.5rem; }
-        .plan-panel-badge {
-            width: 58px; height: 58px;
-            background: linear-gradient(135deg, var(--rojo), #c8102e);
-            border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            color: #fff; font-weight: 800; font-size: 1.35rem;
-            box-shadow: 0 6px 18px rgba(224,0,52,.35);
-            flex-shrink: 0;
-        }
-        .plan-panel-badge-sub { font-size: .6rem; letter-spacing: 1.2px; opacity: .85; font-weight: 600; margin-top: -2px; }
-        .plan-panel-heading { flex: 1; }
-        .plan-panel-heading h3 { color: #fff; font-size: 1.3rem; font-weight: 800; letter-spacing: -.2px; margin-bottom: .2rem; }
-        .plan-panel-heading p { color: rgba(255,255,255,.55); font-size: .85rem; font-weight: 400; }
+        .plan-panel-header { display: flex; align-items: center; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--borde); margin-bottom: 1.5rem; }
+        .plan-panel-badge { width: 58px; height: 58px; background: linear-gradient(135deg, var(--rojo), #c8102e); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 1.35rem; box-shadow: 0 6px 18px rgba(224,0,52,.3); flex-shrink: 0; }
+        .plan-panel-badge-sub { font-size: .55rem; letter-spacing: 1.2px; opacity: .9; font-weight: 600; }
+        .plan-panel-heading h3 { color: var(--negro); font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+        .plan-panel-heading p { color: var(--gris); font-size: .9rem; }
         .plan-materias { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-        .plan-materia {
-            background: rgba(255,255,255,.025);
-            border: 1px solid rgba(255,255,255,.07);
-            border-radius: 12px;
-            padding: 1.35rem 1.4rem;
-            transition: all .25s ease;
-            display: flex;
-            gap: 1rem;
-        }
-        .plan-materia:hover { border-color: rgba(224,0,52,.35); background: rgba(224,0,52,.04); transform: translateY(-2px); }
-        .plan-materia-icon {
-            width: 42px; height: 42px;
-            background: rgba(224,0,52,.1);
-            border: 1px solid rgba(224,0,52,.3);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--rojo);
-            flex-shrink: 0;
-        }
-        .plan-materia-body { flex: 1; }
-        .plan-materia-name { color: #fff; font-size: 1rem; font-weight: 700; line-height: 1.3; margin-bottom: .45rem; letter-spacing: -.1px; }
-        .plan-materia-obj { color: rgba(255,255,255,.62); font-size: .85rem; line-height: 1.55; font-weight: 300; }
-        .plan-materia.optativa .plan-materia-icon { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.85); }
-        .plan-materia.optativa .plan-materia-tag {
-            display: inline-block;
-            font-size: .62rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.6);
-            background: rgba(255,255,255,.06);
-            padding: .2rem .55rem;
-            border-radius: 4px;
-            margin-bottom: .4rem;
-            font-weight: 600;
-        }
+        .plan-materia { background: var(--gris-claro); border: 1px solid var(--borde); border-radius: 12px; padding: 1.35rem 1.4rem; transition: all .25s ease; display: flex; gap: 1rem; }
+        .plan-materia:hover { border-color: rgba(224,0,52,.35); background: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+        .plan-materia-icon { width: 42px; height: 42px; background: rgba(224,0,52,.1); border: 1px solid rgba(224,0,52,.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--rojo); flex-shrink: 0; }
+        .plan-materia-name { color: var(--negro); font-size: 1rem; font-weight: 700; line-height: 1.35; }
 
-        /* Ejes de especialización */
-        .plan-ejes { margin-top: 1rem; }
+        /* ── DOCENTE MODAL ── */
+        .doc-modal-overlay { position: fixed; inset: 0; background: rgba(20,20,20,.55); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 1rem; overflow-y: auto; }
+        .doc-modal-overlay.active { display: flex; animation: docFadeIn .25s ease; }
+        @keyframes docFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .doc-modal { background: #fff; border: 1px solid var(--borde); border-radius: 22px; max-width: 760px; width: 100%; max-height: 92vh; overflow-y: auto; padding: 2.5rem 2.25rem; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,.25); animation: docModalUp .35s cubic-bezier(.2,.9,.3,1.2); }
+        @keyframes docModalUp { from { transform: translateY(30px); opacity: 0 } to { transform: none; opacity: 1 } }
+        .doc-modal::-webkit-scrollbar { width: 8px; }
+        .doc-modal::-webkit-scrollbar-track { background: var(--gris-suave); }
+        .doc-modal::-webkit-scrollbar-thumb { background: var(--rojo); border-radius: 4px; }
+        .doc-modal-close { position: absolute; top: 1rem; right: 1rem; width: 38px; height: 38px; background: var(--gris-suave); border: none; color: var(--gris-oscuro); font-size: 1.4rem; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: .25s; line-height: 1; }
+        .doc-modal-close:hover { background: var(--rojo); color: #fff; transform: rotate(90deg); }
+        .doc-modal-header { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--borde); }
+        .doc-modal-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--rojo); flex-shrink: 0; box-shadow: 0 4px 20px rgba(224,0,52,.15); }
+        .doc-modal-identity { flex: 1; min-width: 0; }
+        .doc-modal-name { color: var(--negro); font-size: 1.4rem; font-weight: 800; line-height: 1.2; margin-bottom: .4rem; }
+        .doc-modal-grade { color: var(--gris); font-size: .9rem; font-style: italic; }
+        .doc-modal-section-title { color: var(--rojo); font-size: .72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin: 1.4rem 0 .7rem; display: flex; align-items: center; gap: .5rem; }
+        .doc-modal-section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(224,0,52,.4), transparent); }
+        .doc-modal-bio p { color: var(--gris-oscuro); font-size: .92rem; line-height: 1.65; margin-bottom: .7rem; }
+        .doc-modal-degrees { list-style: none; padding: 0; margin: 0; }
+        .doc-modal-degrees li { color: var(--gris-oscuro); font-size: .88rem; padding: .55rem 0 .55rem 1.5rem; border-bottom: 1px solid var(--borde); position: relative; line-height: 1.45; }
+        .doc-modal-degrees li:last-child { border-bottom: none; }
+        .doc-modal-degrees li::before { content: '✦'; color: var(--rojo); position: absolute; left: 0; top: .55rem; }
+        .doc-modal-degrees li strong { color: var(--negro); font-weight: 700; }
+        .doc-modal-quote { display: block; margin-top: 1.5rem; padding: 1.1rem 1.2rem; background: rgba(224,0,52,.05); border-left: 3px solid var(--rojo); border-radius: 0 10px 10px 0; color: var(--gris-oscuro); font-style: italic; font-size: .9rem; line-height: 1.55; }
+        .doc-modal-quote[hidden] { display: none; }
+        .docente-view-btn { background: rgba(224,0,52,.06); border: 1px solid rgba(224,0,52,.25); color: var(--rojo); font-weight: 700; font-size: .78rem; letter-spacing: .5px; text-transform: uppercase; padding: .55rem 1rem; border-radius: 50px; cursor: pointer; display: inline-flex; align-items: center; gap: .4rem; transition: .25s; font-family: inherit; }
+        .docente-view-btn:hover { background: var(--rojo); color: #fff; transform: translateY(-1px); }
+        @media (max-width: 520px) { .doc-modal-header { flex-direction: column; text-align: center; } .doc-modal { padding: 2rem 1.25rem; } }
+
+        /* ── DOCENTES ── */
+        .docentes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .docente-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 1.75rem 1.25rem 1.5rem; text-align: center; transition: .3s; box-shadow: 0 4px 16px rgba(0,0,0,.03); position: relative; }
+        .docente-card:hover { transform: translateY(-4px); border-color: rgba(224,0,52,.4); box-shadow: 0 16px 40px rgba(0,0,0,.08); }
+        .docente-photo-wrap { width: 110px; height: 110px; margin: 0 auto 1rem; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, var(--rojo), #ff6b35); }
+        .docente-photo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: var(--gris-suave); display: block; }
+        .docente-name { color: var(--negro); font-size: .98rem; font-weight: 800; line-height: 1.25; margin-bottom: .35rem; letter-spacing: -.1px; }
+        .docente-grade { color: var(--rojo); font-size: .78rem; font-weight: 700; margin-bottom: .85rem; letter-spacing: .3px; }
+        .docente-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; margin-bottom: .85rem; }
+        .docente-chip { background: rgba(224,0,52,.08); border: 1px solid rgba(224,0,52,.2); color: var(--rojo); font-size: .67rem; font-weight: 700; letter-spacing: .4px; padding: .25rem .55rem; border-radius: 50px; text-transform: uppercase; }
+        .docente-tagline { color: var(--gris); font-size: .82rem; line-height: 1.5; }
+
+        /* ── EJES DE ESPECIALIZACIÓN ── */
+        .plan-ejes { margin-top: 3rem; }
         .plan-ejes-header { text-align: center; margin-bottom: 2rem; }
-        .plan-ejes-title { color: #fff; font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 800; margin-bottom: .5rem; letter-spacing: -.2px; }
-        .plan-ejes-sub { color: rgba(255,255,255,.55); font-size: .92rem; max-width: 680px; margin: 0 auto; font-weight: 300; }
+        .plan-ejes-title { color: var(--negro); font-size: clamp(1.4rem, 2.4vw, 1.8rem); font-weight: 800; margin-bottom: .5rem; }
+        .plan-ejes-sub { color: var(--gris); font-size: .92rem; max-width: 680px; margin: 0 auto; }
         .plan-ejes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.35rem; }
-        .plan-eje {
-            background: rgba(255,255,255,.025);
-            border: 1px solid rgba(255,255,255,.08);
-            border-radius: 14px;
-            padding: 1.75rem 1.5rem;
-            transition: all .3s ease;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-        .plan-eje::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--rojo), #ff6b35);
-            opacity: 0;
-            transition: opacity .3s ease;
-        }
-        .plan-eje:hover { border-color: rgba(224,0,52,.35); background: rgba(224,0,52,.04); transform: translateY(-4px); }
+        .plan-eje { background: var(--blanco); border: 1px solid var(--borde); border-radius: 14px; padding: 1.75rem 1.5rem; transition: all .3s ease; display: flex; flex-direction: column; position: relative; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,.04); }
+        .plan-eje::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--rojo), #ff6b35); opacity: 0; transition: opacity .3s ease; }
+        .plan-eje:hover { border-color: rgba(224,0,52,.4); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.08); }
         .plan-eje:hover::before { opacity: 1; }
-        .plan-eje-num {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px; height: 36px;
-            background: linear-gradient(135deg, var(--rojo), #c8102e);
-            color: #fff;
-            border-radius: 50%;
-            font-weight: 800;
-            font-size: .95rem;
-            margin-bottom: .9rem;
-        }
-        .plan-eje-title { color: #fff; font-size: 1.05rem; font-weight: 800; line-height: 1.3; margin-bottom: 1rem; letter-spacing: -.1px; }
+        .plan-eje-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: linear-gradient(135deg, var(--rojo), #c8102e); color: #fff; border-radius: 50%; font-weight: 800; font-size: .95rem; margin-bottom: .9rem; }
+        .plan-eje-title { color: var(--negro); font-size: 1.05rem; font-weight: 800; line-height: 1.3; margin-bottom: 1rem; }
         .plan-eje-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
         .plan-eje-list li { display: flex; gap: .65rem; }
-        .plan-eje-list .plan-eje-materia { color: #fff; font-size: .88rem; font-weight: 600; line-height: 1.35; }
-        .plan-eje-list .plan-eje-obj { color: rgba(255,255,255,.55); font-size: .78rem; font-weight: 300; line-height: 1.5; margin-top: .15rem; }
-        .plan-eje-list .plan-eje-check {
-            width: 18px; height: 18px; min-width: 18px;
-            background: rgba(224,0,52,.15);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--rojo);
-            margin-top: 2px;
-        }
+        .plan-eje-list .plan-eje-materia { color: var(--negro); font-size: .88rem; font-weight: 700; line-height: 1.35; }
+        .plan-eje-list .plan-eje-obj { color: var(--gris); font-size: .78rem; line-height: 1.5; margin-top: .15rem; }
+        .plan-eje-list .plan-eje-check { width: 18px; height: 18px; min-width: 18px; background: rgba(224,0,52,.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--rojo); margin-top: 2px; }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .plan-materias { grid-template-columns: 1fr; }
-            .plan-ejes-grid { grid-template-columns: 1fr; }
-            .plan-tabs { grid-template-columns: repeat(4, 1fr); }
-            .plan-meta { gap: .9rem; padding: .85rem 1.2rem; }
-            .plan-meta-sep { display: none; }
-            .plan-meta-item { min-width: 90px; }
-            .plan-panel { padding: 1.5rem 1.25rem; }
-            .plan-panel-badge { width: 50px; height: 50px; font-size: 1.15rem; }
-        }
+        /* descripción de materia */
+        .plan-materia-obj { color: var(--gris); font-size: .82rem; line-height: 1.5; margin-top: .35rem; }
 
-        /* ── PARA QUIEN / FORM ── */
-        .conversion { background: #0f0f0f; padding: 5rem 1.5rem; border-top: 3px solid var(--rojo); border-bottom: 3px solid var(--rojo); }
-        .conversion-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .conv-left h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 1rem; }
-        .conv-left h2 em { color: var(--rojo); font-style: normal; }
-        .conv-left p { color: rgba(255,255,255,.55); font-size: .95rem; margin-bottom: 2rem; font-weight: 300; }
-        .conv-checks { list-style: none; display: flex; flex-direction: column; gap: .85rem; margin-bottom: 2rem; }
-        .conv-checks li { display: flex; align-items: flex-start; gap: .75rem; color: rgba(255,255,255,.8); font-size: .92rem; }
-        .conv-checks li .icon { width: 22px; height: 22px; min-width: 22px; background: rgba(224,0,52,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
-        .conv-img { width: 100%; border-radius: 20px; overflow: hidden; height: 320px; }
-        .conv-img img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px; }
+        /* ── INVERSIÓN / PRECIOS ── */
+        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+        .price-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 2.2rem 1.8rem; text-align: center; transition: .25s; box-shadow: 0 4px 16px rgba(0,0,0,.04); }
+        .price-card:hover { border-color: rgba(224,0,52,.45); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.08); }
+        .price-label { color: var(--gris); font-size: .8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: .8rem; }
+        .price-amount { color: var(--negro); font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 800; line-height: 1; margin-bottom: .4rem; }
+        .price-amount .currency { color: var(--rojo); font-size: .55em; vertical-align: top; margin-right: .15em; font-weight: 700; }
+        .price-note { color: var(--gris); font-size: .85rem; }
+        .price-trimestre { background: linear-gradient(135deg, rgba(224,0,52,.08) 0%, rgba(224,0,52,.02) 100%); border: 1px solid rgba(224,0,52,.3); border-radius: 16px; padding: 1.5rem; text-align: center; margin: 0 auto 2.5rem; max-width: 720px; }
+        .price-trimestre strong { color: var(--rojo); font-weight: 800; }
+        .price-trimestre span { color: var(--gris-oscuro); font-size: 1.05rem; }
+        .beca-card { background: linear-gradient(135deg, #fff5f7 0%, #fff 100%); border: 1px solid rgba(224,0,52,.3); border-radius: 16px; padding: 2rem; display: flex; gap: 1.5rem; align-items: flex-start; max-width: 920px; margin: 0 auto; box-shadow: 0 6px 24px rgba(224,0,52,.06); }
+        .beca-icon { flex-shrink: 0; width: 56px; height: 56px; background: var(--rojo); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .beca-title { color: var(--negro); font-size: 1.25rem; font-weight: 800; margin-bottom: .5rem; }
+        .beca-title em { color: var(--rojo); font-style: normal; }
+        .beca-text { color: var(--gris-oscuro); font-size: .98rem; line-height: 1.55; margin-bottom: .8rem; }
+        .beca-disclaimer { color: var(--gris); font-size: .82rem; line-height: 1.5; font-style: italic; }
+
+        /* ── ¿QUÉ HACE ÚNICO? ── */
+        .unique-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .unique-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 2rem; transition: .25s; box-shadow: 0 4px 16px rgba(0,0,0,.03); }
+        .unique-card:hover { border-color: rgba(224,0,52,.4); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.07); }
+        .unique-icon { width: 52px; height: 52px; background: rgba(224,0,52,.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--rojo); margin-bottom: 1rem; }
+        .unique-title { color: var(--negro); font-size: 1.15rem; font-weight: 800; margin-bottom: .5rem; line-height: 1.3; }
+        .unique-text { color: var(--gris); font-size: .95rem; line-height: 1.6; }
+
+        /* ── PARA QUIÉN ── */
+        .conv-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .conv-checks { list-style: none; display: flex; flex-direction: column; gap: .85rem; margin-bottom: 1.5rem; }
+        .conv-checks li { display: flex; align-items: flex-start; gap: .75rem; color: var(--gris-oscuro); font-size: .95rem; line-height: 1.55; }
+        .conv-checks li .icon { width: 22px; height: 22px; min-width: 22px; background: rgba(224,0,52,.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--rojo); margin-top: 2px; }
+        .conv-img { width: 100%; border-radius: 20px; overflow: hidden; height: 360px; box-shadow: 0 12px 40px rgba(0,0,0,.12); }
+        .conv-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* ── PERFIL DE EGRESO ── */
+        .perfil-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        .perfil-item { background: var(--blanco); border: 1px solid var(--borde); border-radius: 14px; padding: 1.5rem; display: flex; gap: 1rem; transition: .25s; box-shadow: 0 2px 10px rgba(0,0,0,.03); }
+        .perfil-item:hover { border-color: rgba(224,0,52,.35); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.06); }
+        .perfil-num { width: 36px; height: 36px; min-width: 36px; background: var(--rojo); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .95rem; }
+        .perfil-text { color: var(--gris-oscuro); font-size: .95rem; line-height: 1.55; }
 
         /* ── FORM ── */
-        .form-section { background: var(--negro); padding: 5rem 1.5rem; border-top: 3px solid var(--rojo); }
-        .form-inner { max-width: 1100px; margin: 0 auto; }
-        .form-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 2rem; }
-
-        /* lado info */
-        .form-side { color: #fff; }
-        .side-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--rojo); margin-bottom: .6rem; }
-        .side-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; color: #fff; }
-        .side-sub { color: rgba(255,255,255,.5); font-size: .95rem; margin-bottom: 2rem; }
-
-        /* countdown */
-        .countdown-box {
-            background: rgba(255,255,255,.03);
-            border: 1px solid rgba(224,0,52,.25);
-            border-radius: 20px;
-            padding: 1.75rem 1.5rem;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .countdown-box::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(224,0,52,.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .countdown-label {
-            font-size: .68rem; text-transform: uppercase; letter-spacing: 2px;
-            color: var(--rojo); margin-bottom: 1.25rem; font-weight: 700;
-            display: flex; align-items: center; gap: .5rem;
-        }
-        .countdown-label::before {
-            content: ''; width: 6px; height: 6px; border-radius: 50%;
-            background: var(--rojo); display: inline-block;
-            box-shadow: 0 0 6px var(--rojo);
-            animation: pulse-dot 1.4s ease-in-out infinite;
-        }
-        .countdown-grid { display: flex; align-items: stretch; gap: .6rem; margin-bottom: 1.1rem; }
-        .cd-item {
-            flex: 1; display: flex; flex-direction: column; align-items: center;
-            background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.07);
-            border-radius: 12px; padding: .9rem .5rem .6rem;
-        }
-        .cd-num {
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900;
-            color: #fff; line-height: 1; font-variant-numeric: tabular-nums;
-            text-shadow: 0 0 20px rgba(224,0,52,.5);
-        }
-        .cd-unit {
-            font-size: .58rem; text-transform: uppercase; letter-spacing: 1.5px;
-            color: rgba(255,255,255,.3); margin-top: .4rem; font-weight: 600;
-        }
-        .cd-sep {
-            font-size: 1.6rem; font-weight: 900; color: var(--rojo);
-            align-self: center; margin-bottom: .6rem; opacity: .7;
-        }
-        .countdown-fecha {
-            font-size: .75rem; color: rgba(255,255,255,.3);
-            letter-spacing: .5px; text-align: center;
-        }
-        /* barra de progreso */
-        .countdown-progress { margin: .75rem 0 .4rem; height: 3px; background: rgba(255,255,255,.08); border-radius: 2px; overflow: hidden; }
-        .countdown-progress-fill { height: 100%; background: linear-gradient(90deg, var(--rojo), #ff6b35); border-radius: 2px; transition: width .5s; }
-
-        /* social proof */
+        .form-section { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 5rem 1.5rem; border-top: 3px solid var(--rojo); color: #fff; }
+        .form-cols { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .form-side h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.15; }
+        .form-side h2 em { color: var(--rojo); font-style: normal; }
+        .form-side > p { color: rgba(255,255,255,.7); font-size: .98rem; margin-bottom: 2rem; }
+        .countdown-box { background: rgba(255,255,255,.04); border: 1px solid rgba(224,0,52,.3); border-radius: 18px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .countdown-label { font-size: .68rem; text-transform: uppercase; letter-spacing: 2px; color: var(--rojo); margin-bottom: 1rem; font-weight: 800; display: flex; align-items: center; gap: .5rem; }
+        .countdown-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--rojo); display: inline-block; box-shadow: 0 0 6px var(--rojo); animation: pulse-dot 1.4s ease-in-out infinite; }
+        .countdown-grid { display: flex; align-items: stretch; gap: .6rem; margin-bottom: .8rem; }
+        .cd-item { flex: 1; display: flex; flex-direction: column; align-items: center; background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: .9rem .5rem .6rem; }
+        .cd-num { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
+        .cd-unit { font-size: .58rem; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,.5); margin-top: .4rem; font-weight: 700; }
+        .cd-sep { font-size: 1.6rem; font-weight: 900; color: var(--rojo); align-self: center; margin-bottom: .6rem; opacity: .7; }
+        .countdown-fecha { font-size: .8rem; color: rgba(255,255,255,.55); text-align: center; }
         .proof-list { display: flex; flex-direction: column; gap: 1rem; }
-        .proof-item { display: flex; align-items: center; gap: 1rem; padding: .9rem 1rem; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; }
-        .proof-icon { min-width: 40px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(224,0,52,.1); border-radius: 10px; flex-shrink: 0; }
-        .proof-item div { display: flex; flex-direction: column; }
-        .proof-item strong { font-size: 1rem; color: #fff; font-weight: 800; }
-        .proof-item span { font-size: .78rem; color: rgba(255,255,255,.4); }
+        .proof-item { display: flex; align-items: center; gap: 1rem; padding: .9rem 1rem; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; }
+        .proof-icon { min-width: 40px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(224,0,52,.15); border-radius: 10px; }
+        .proof-item strong { font-size: 1rem; color: #fff; font-weight: 800; display: block; }
+        .proof-item span { font-size: .78rem; color: rgba(255,255,255,.55); }
 
-        .form-title { text-align: center; margin-bottom: 2.5rem; }
-        .form-title h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--negro); margin-bottom: .5rem; }
-        .form-title p { color: var(--gris); font-size: .9rem; }
-        .form-card { background: #fff; border-radius: 24px; padding: 2.5rem; box-shadow: 0 8px 40px rgba(0,0,0,.1); }
-        .form-group { margin-bottom: 1.25rem; }
-        .form-group label { display: block; font-size: .82rem; font-weight: 700; color: var(--gris-oscuro); margin-bottom: .4rem; letter-spacing: .3px; text-transform: uppercase; }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: .85rem 1rem; border: 1.5px solid #e0e0e0; border-radius: 12px;
-            font-size: .95rem; font-family: inherit; color: var(--gris-oscuro); background: #fafafa;
-            transition: border-color .2s, box-shadow .2s; outline: none;
-        }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: var(--rojo); box-shadow: 0 0 0 3px rgba(224,0,52,.1); background: #fff;
-        }
-        .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 16px; padding-right: 2.5rem; cursor: pointer; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .btn-submit { width: 100%; padding: 1rem; background: var(--rojo); color: #fff; border: none; border-radius: 14px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer; transition: .3s; margin-top: .5rem; display: flex; align-items: center; justify-content: center; gap: .6rem; }
-        .btn-submit:hover { background: var(--rojo-oscuro); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(224,0,52,.3); }
-        .form-disclaimer { text-align: center; font-size: .78rem; color: var(--gris); margin-top: 1rem; line-height: 1.5; }
-        .form-success { display: none; text-align: center; padding: 2rem; }
-        .form-success h3 { font-size: 1.4rem; color: var(--negro); margin-bottom: .5rem; }
-        .form-success p { color: var(--gris); }
+        .form-card { background: #fff; color: var(--gris-oscuro); border-radius: 24px; padding: 2.2rem; box-shadow: 0 16px 50px rgba(0,0,0,.4); }
+        .form-card h3 { color: var(--negro); font-size: 1.4rem; font-weight: 800; margin-bottom: .3rem; }
+        .form-card > p { color: var(--gris); font-size: .9rem; margin-bottom: 1.5rem; }
+        .form-iframe-wrap { overflow: hidden; min-height: 540px; }
+        .form-iframe-wrap iframe { width: 100%; min-height: 540px; border: none; border-radius: 8px; }
+
+        /* ── UBICACIÓN ── */
+        .ubi-inner { max-width: 1100px; margin: 0 auto; }
+        .ubi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; margin-top: 2rem; }
+        .ubi-card { background: #fff; border: 1px solid var(--borde); border-radius: 16px; padding: 1.75rem; box-shadow: 0 4px 16px rgba(0,0,0,.04); }
+        .ubi-info { display: flex; align-items: flex-start; gap: .85rem; margin-bottom: 1.1rem; }
+        .ubi-info svg { color: var(--rojo); flex-shrink: 0; margin-top: 3px; }
+        .ubi-info strong { display: block; color: var(--negro); font-weight: 800; margin-bottom: .15rem; font-size: .95rem; }
+        .ubi-info span { color: var(--gris); font-size: .92rem; line-height: 1.5; }
+        .ubi-info a { color: var(--rojo); text-decoration: none; font-weight: 600; }
+        .ubi-info a:hover { text-decoration: underline; }
+        .ubi-map { border-radius: 16px; overflow: hidden; border: 1px solid var(--borde); min-height: 380px; }
+        .ubi-map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; }
 
         /* ── FOOTER ── */
-        footer { background: var(--negro); color: rgba(255,255,255,.45); padding: 2rem 1.5rem; text-align: center; font-size: .8rem; }
-        footer a { color: rgba(255,255,255,.45); text-decoration: none; }
+        footer { background: var(--negro); color: rgba(255,255,255,.55); padding: 2rem 1.5rem; text-align: center; font-size: .82rem; }
+        footer a { color: rgba(255,255,255,.7); text-decoration: none; }
 
         /* ── ANIMATIONS ── */
         .anim { opacity: 0; transition: opacity .8s ease, transform .8s ease; }
         .anim-up { transform: translateY(35px); }
-        .anim-left { transform: translateX(-35px); }
-        .anim-right { transform: translateX(35px); }
         .anim.visible { opacity: 1; transform: none; }
         .anim-delay-1 { transition-delay: .1s; }
         .anim-delay-2 { transition-delay: .2s; }
         .anim-delay-3 { transition-delay: .3s; }
-        .anim-delay-4 { transition-delay: .4s; }
-
-        /* ── DOCENTES ── */
-        .docentes-section {
-            background: #0f0f0f;
-            padding: 5rem 1.5rem;
-            border-top: 3px solid var(--rojo);
-            border-bottom: 3px solid var(--rojo);
-            position: relative;
-            overflow: hidden;
-        }
-        .docentes-section::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse at top, rgba(224,0,52,.1) 0%, transparent 55%);
-            pointer-events: none;
-        }
-        .docentes-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-        .docentes-header { text-align: center; margin-bottom: 3.5rem; }
-        .docentes-eyebrow {
-            font-size: .75rem; font-weight: 700; letter-spacing: 3px;
-            text-transform: uppercase; color: var(--rojo); margin-bottom: .7rem;
-        }
-        .docentes-title {
-            font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 800;
-            color: #fff; margin-bottom: .7rem; line-height: 1.18;
-        }
-        .docentes-title em { color: var(--rojo); font-style: normal; }
-        .docentes-sub { color: rgba(255,255,255,.6); font-size: 1rem; max-width: 640px; margin: 0 auto; line-height: 1.55; }
-
-        .docentes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.75rem;
-        }
-        .docente-card {
-            background: linear-gradient(180deg, #181818 0%, #0c0c0c 100%);
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 18px;
-            padding: 2rem 1.5rem 1.75rem;
-            text-align: center;
-            transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .docente-card::before {
-            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 60%; height: 1px; background: linear-gradient(90deg, transparent, var(--rojo), transparent);
-            opacity: 0; transition: opacity .4s;
-        }
-        .docente-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(224,0,52,.35);
-            box-shadow: 0 20px 50px rgba(224,0,52,.12);
-        }
-        .docente-card:hover::before { opacity: 1; }
-
-        .docente-photo-wrap {
-            width: 140px; height: 140px; margin: 0 auto 1.25rem;
-            border-radius: 50%; padding: 3px;
-            background: linear-gradient(135deg, var(--rojo), #ff6b35, #1a0a12);
-            position: relative;
-        }
-        .docente-photo-wrap::after {
-            content: ''; position: absolute; inset: -8px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(224,0,52,.4), transparent 65%);
-            opacity: 0; transition: opacity .35s; z-index: -1;
-            filter: blur(14px);
-        }
-        .docente-card:hover .docente-photo-wrap::after { opacity: 1; }
-        .docente-photo {
-            width: 100%; height: 100%; border-radius: 50%;
-            object-fit: cover; background: #0a0a0a;
-            display: block;
-        }
-
-        .docente-coord-badge {
-            position: absolute; top: 14px; right: 14px;
-            background: var(--rojo); color: #fff;
-            font-size: .6rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
-            padding: .35rem .65rem; border-radius: 20px;
-            box-shadow: 0 4px 14px rgba(224,0,52,.4);
-        }
-
-        .docente-name { color: #fff; font-size: 1.02rem; font-weight: 700; margin-bottom: .3rem; line-height: 1.3; }
-        .docente-grade { color: rgba(255,255,255,.55); font-size: .78rem; margin-bottom: 1rem; font-style: italic; line-height: 1.35; min-height: 2.1em; }
-
-        .docente-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
-        .docente-chip {
-            font-size: .66rem; font-weight: 700; letter-spacing: .5px;
-            color: rgba(255,255,255,.88);
-            background: rgba(224,0,52,.12);
-            border: 1px solid rgba(224,0,52,.35);
-            padding: .3rem .6rem; border-radius: 20px;
-            white-space: nowrap;
-        }
-
-        .docente-tagline { color: rgba(255,255,255,.7); font-size: .82rem; line-height: 1.5; margin-bottom: 1.25rem; min-height: 2.5em; }
-
-        .docente-view-btn {
-            background: transparent;
-            color: var(--rojo);
-            border: 1.5px solid rgba(224,0,52,.55);
-            font-weight: 700; font-size: .8rem; letter-spacing: .5px;
-            padding: .6rem 1.2rem; border-radius: 30px;
-            cursor: pointer;
-            font-family: inherit;
-            transition: .25s;
-            display: inline-flex; align-items: center; gap: .4rem;
-        }
-        .docente-view-btn:hover {
-            background: var(--rojo); color: #fff; border-color: var(--rojo);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(224,0,52,.35);
-        }
-        .docente-view-btn svg { transition: transform .25s; }
-        .docente-view-btn:hover svg { transform: translateX(3px); }
-
-        /* ── DOCENTE MODAL ── */
-        .doc-modal-overlay {
-            display: none;
-            position: fixed; inset: 0;
-            background: rgba(0,0,0,.85);
-            backdrop-filter: blur(6px);
-            z-index: 2000;
-            align-items: center; justify-content: center;
-            padding: 2rem 1rem;
-        }
-        .doc-modal-overlay.active { display: flex; animation: docFadeIn .25s ease; }
-        @keyframes docFadeIn { from { opacity: 0 } to { opacity: 1 } }
-
-        .doc-modal {
-            background: #131313;
-            border: 1px solid rgba(224,0,52,.3);
-            border-radius: 20px;
-            max-width: 760px; width: 100%;
-            max-height: 90vh; overflow-y: auto;
-            padding: 2.5rem 2rem;
-            position: relative;
-            animation: docModalUp .35s cubic-bezier(.2,.9,.3,1.2);
-        }
-        @keyframes docModalUp { from { transform: translateY(30px); opacity: 0 } to { transform: none; opacity: 1 } }
-
-        .doc-modal::-webkit-scrollbar { width: 8px; }
-        .doc-modal::-webkit-scrollbar-track { background: #1a1a1a; }
-        .doc-modal::-webkit-scrollbar-thumb { background: var(--rojo); border-radius: 4px; }
-
-        .doc-modal-close {
-            position: absolute; top: 14px; right: 14px;
-            width: 36px; height: 36px; border-radius: 50%;
-            background: rgba(255,255,255,.08); color: #fff;
-            border: none; font-size: 1.3rem; line-height: 1; cursor: pointer;
-            transition: .25s;
-            display: flex; align-items: center; justify-content: center;
-            z-index: 2;
-        }
-        .doc-modal-close:hover { background: var(--rojo); transform: rotate(90deg); }
-
-        .doc-modal-header { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,.08); }
-        .doc-modal-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--rojo); flex-shrink: 0; box-shadow: 0 0 30px rgba(224,0,52,.3); }
-        .doc-modal-identity { flex: 1; min-width: 0; }
-        .doc-modal-name { color: #fff; font-size: 1.4rem; font-weight: 800; line-height: 1.2; margin-bottom: .4rem; }
-        .doc-modal-grade { color: rgba(255,255,255,.6); font-size: .9rem; font-style: italic; }
-        .doc-modal-section-title { color: var(--rojo); font-size: .72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin: 1.4rem 0 .7rem; display: flex; align-items: center; gap: .5rem; }
-        .doc-modal-section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(224,0,52,.4), transparent); }
-        .doc-modal-bio p { color: rgba(255,255,255,.78); font-size: .92rem; line-height: 1.65; margin-bottom: .7rem; }
-        .doc-modal-degrees { list-style: none; padding: 0; margin: 0; }
-        .doc-modal-degrees li { color: rgba(255,255,255,.78); font-size: .88rem; padding: .55rem 0 .55rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,.05); position: relative; line-height: 1.45; }
-        .doc-modal-degrees li:last-child { border-bottom: none; }
-        .doc-modal-degrees li::before { content: '✦'; color: var(--rojo); position: absolute; left: 0; top: .55rem; }
-        .doc-modal-degrees li strong { color: #fff; font-weight: 700; }
-        .doc-modal-quote {
-            background: rgba(224,0,52,.08);
-            border-left: 3px solid var(--rojo);
-            padding: 1rem 1.25rem;
-            margin-top: 1.3rem;
-            color: rgba(255,255,255,.85);
-            font-style: italic;
-            font-size: .9rem;
-            border-radius: 0 12px 12px 0;
-            line-height: 1.6;
-        }
-
-        /* ── INVERSIÓN / PRECIOS ── */
-        .pricing-section { background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%); padding: 5.5rem 1.5rem; border-top: 3px solid var(--rojo); border-bottom: 3px solid var(--rojo); position: relative; overflow: hidden; }
-        .pricing-section::before { content: ''; position: absolute; top: 0; right: -120px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(224,0,52,.15) 0%, transparent 65%); pointer-events: none; }
-        .pricing-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-        .pricing-header { text-align: center; margin-bottom: 3rem; }
-        .pricing-eyebrow { color: var(--rojo); font-size: .8rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; }
-        .pricing-title { color: #fff; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.15; margin-bottom: .8rem; }
-        .pricing-title em { color: var(--rojo); font-style: normal; }
-        .pricing-sub { color: #b8b8b8; font-size: 1.05rem; max-width: 620px; margin: 0 auto; line-height: 1.6; }
-        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
-        .price-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 2.2rem 1.8rem; text-align: center; transition: .25s; }
-        .price-card:hover { border-color: rgba(224,0,52,.5); transform: translateY(-3px); }
-        .price-label { color: #b8b8b8; font-size: .85rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: .8rem; }
-        .price-amount { color: #fff; font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 800; line-height: 1; margin-bottom: .4rem; }
-        .price-amount .currency { color: var(--rojo); font-size: .55em; vertical-align: top; margin-right: .15em; font-weight: 700; }
-        .price-note { color: #888; font-size: .85rem; }
-        .price-trimestre { background: linear-gradient(135deg, rgba(224,0,52,.12) 0%, rgba(224,0,52,.04) 100%); border: 1px solid rgba(224,0,52,.35); border-radius: 16px; padding: 1.5rem; text-align: center; margin-bottom: 2.5rem; }
-        .price-trimestre strong { color: var(--rojo); font-weight: 800; }
-        .price-trimestre span { color: #fff; font-size: 1.05rem; }
-        .beca-card { background: linear-gradient(135deg, rgba(224,0,52,.18) 0%, rgba(184,0,42,.08) 100%); border: 1px solid rgba(224,0,52,.4); border-radius: 16px; padding: 2rem; display: flex; gap: 1.5rem; align-items: flex-start; }
-        .beca-icon { flex-shrink: 0; width: 56px; height: 56px; background: var(--rojo); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .beca-content { flex: 1; }
-        .beca-title { color: #fff; font-size: 1.25rem; font-weight: 800; margin-bottom: .5rem; }
-        .beca-title em { color: var(--rojo); font-style: normal; }
-        .beca-text { color: #cfcfcf; font-size: .98rem; line-height: 1.55; margin-bottom: .8rem; }
-        .beca-disclaimer { color: #888; font-size: .82rem; line-height: 1.5; font-style: italic; }
-        @media (max-width: 720px) {
-            .pricing-grid { grid-template-columns: 1fr; }
-            .beca-card { flex-direction: column; gap: 1rem; }
-        }
-
-        /* ── UNIQUE PROGRAM ── */
-        .unique-section {
-            background: var(--negro);
-            padding: 5rem 1.5rem;
-            border-top: 3px solid var(--rojo);
-            border-bottom: 3px solid var(--rojo);
-            position: relative;
-            overflow: hidden;
-        }
-        .unique-section::before {
-            content: ''; position: absolute; inset: 0;
-            background:
-                radial-gradient(ellipse at 15% 0%, rgba(224,0,52,.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 85% 100%, rgba(255,107,53,.06) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .unique-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-        .unique-header { text-align: center; margin-bottom: 3rem; }
-        .unique-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--rojo); margin-bottom: .7rem; }
-        .unique-title { font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 800; color: #fff; margin-bottom: 1rem; line-height: 1.18; }
-        .unique-title em { color: var(--rojo); font-style: normal; }
-        .unique-intro {
-            color: rgba(255,255,255,.72);
-            font-size: 1rem;
-            max-width: 720px;
-            margin: 0 auto 0;
-            line-height: 1.65;
-            font-style: italic;
-            padding: 1.1rem 1.5rem;
-            border-left: 3px solid var(--rojo);
-            border-right: 3px solid var(--rojo);
-            background: rgba(224,0,52,.05);
-            border-radius: 10px;
-        }
-
-        .unique-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-            margin-top: 3rem;
-        }
-        .unique-card {
-            background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 16px;
-            padding: 1.75rem 1.25rem;
-            text-align: center;
-            transition: transform .35s, border-color .35s, box-shadow .35s;
-            position: relative;
-            overflow: hidden;
-        }
-        .unique-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--rojo), transparent);
-            opacity: 0; transition: opacity .35s;
-        }
-        .unique-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(224,0,52,.4);
-            box-shadow: 0 15px 35px rgba(224,0,52,.12);
-        }
-        .unique-card:hover::before { opacity: 1; }
-        .unique-icon {
-            width: 58px; height: 58px; margin: 0 auto 1rem;
-            display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, rgba(224,0,52,.18), rgba(255,107,53,.1));
-            border: 1px solid rgba(224,0,52,.35);
-            border-radius: 14px;
-            color: var(--rojo);
-            transition: transform .35s, background .35s;
-        }
-        .unique-card:hover .unique-icon {
-            transform: scale(1.1) rotate(-4deg);
-            background: linear-gradient(135deg, rgba(224,0,52,.3), rgba(255,107,53,.18));
-        }
-        .unique-num {
-            position: absolute; top: 10px; right: 14px;
-            font-size: .72rem; font-weight: 800;
-            color: rgba(224,0,52,.4); letter-spacing: 1px;
-        }
-        .unique-card h4 { color: #fff; font-size: .98rem; font-weight: 700; margin-bottom: .4rem; line-height: 1.3; }
-        .unique-card p { color: rgba(255,255,255,.6); font-size: .82rem; line-height: 1.5; }
-
-        /* ── OUTCOMES (inside conversion) ── */
-        .outcomes-title {
-            font-size: .78rem; font-weight: 800; letter-spacing: 2px;
-            text-transform: uppercase; color: var(--rojo);
-            margin: 2rem 0 .9rem;
-            display: flex; align-items: center; gap: .7rem;
-        }
-        .outcomes-title::before { content: ''; width: 22px; height: 2px; background: var(--rojo); }
-        .outcomes-list {
-            list-style: none; padding: 0; margin: 0 0 1.5rem 0;
-            display: flex; flex-direction: column; gap: .7rem;
-        }
-        .outcomes-list li {
-            color: rgba(255,255,255,.85);
-            font-size: .95rem;
-            line-height: 1.45;
-            padding: .7rem 1rem .7rem 2.6rem;
-            position: relative;
-            background: rgba(224,0,52,.06);
-            border: 1px solid rgba(224,0,52,.18);
-            border-radius: 12px;
-            transition: background .3s, border-color .3s, transform .3s;
-        }
-        .outcomes-list li:hover {
-            background: rgba(224,0,52,.12);
-            border-color: rgba(224,0,52,.4);
-            transform: translateX(3px);
-        }
-        .outcomes-list li::before {
-            content: ''; position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
-            width: 18px; height: 18px;
-            background: var(--rojo);
-            -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'><polyline points='9 18 15 12 9 6'/></svg>") center/contain no-repeat;
-                    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'><polyline points='9 18 15 12 9 6'/></svg>") center/contain no-repeat;
-        }
-
-        /* ── PERFIL DE INGRESO ── */
-        .perfil-section {
-            background: #0f0f0f;
-            padding: 5rem 1.5rem;
-            border-top: 3px solid var(--rojo);
-            border-bottom: 3px solid var(--rojo);
-            position: relative;
-            overflow: hidden;
-        }
-        .perfil-section::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(circle at 50% 0%, rgba(224,0,52,.08), transparent 60%);
-            pointer-events: none;
-        }
-        .perfil-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-        .perfil-header { text-align: center; margin-bottom: 3rem; }
-        .perfil-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--rojo); margin-bottom: .7rem; }
-        .perfil-title { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800; color: #fff; margin-bottom: .6rem; line-height: 1.2; }
-        .perfil-title em { color: var(--rojo); font-style: normal; }
-        .perfil-sub { color: rgba(255,255,255,.6); font-size: .98rem; max-width: 640px; margin: 0 auto; line-height: 1.55; }
-
-        .perfil-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-        .perfil-pillar {
-            text-align: center;
-            padding: 1.75rem 1rem;
-            transition: transform .35s;
-        }
-        .perfil-pillar:hover { transform: translateY(-6px); }
-        .perfil-pillar-icon {
-            width: 78px; height: 78px;
-            margin: 0 auto 1.1rem;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(224,0,52,.2), rgba(255,107,53,.1));
-            border: 2px solid rgba(224,0,52,.35);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--rojo);
-            position: relative;
-            transition: border-color .35s, box-shadow .35s;
-        }
-        .perfil-pillar:hover .perfil-pillar-icon {
-            border-color: var(--rojo);
-            box-shadow: 0 0 0 6px rgba(224,0,52,.1), 0 10px 30px rgba(224,0,52,.2);
-        }
-        .perfil-pillar h4 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: .4rem; line-height: 1.3; }
-        .perfil-pillar p { color: rgba(255,255,255,.6); font-size: .83rem; line-height: 1.5; }
 
         /* ── RESPONSIVE ── */
-        @media (max-width: 1100px) {
-            .unique-grid { grid-template-columns: repeat(2, 1fr); }
-        }
         @media (max-width: 900px) {
-            .docentes-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-            .perfil-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        }
-        @media (max-width: 768px) {
             .stats-inner { grid-template-columns: repeat(2, 1fr); }
-            .stat-item:nth-child(2) { border-right: none; }
-            .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,.08); }
-            .conversion-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-            .conv-img { height: 240px; }
-            .form-cols { grid-template-columns: 1fr; gap: 2.5rem; }
-            .form-row { grid-template-columns: 1fr; }
+            .stat-item { border-bottom: 1px solid var(--borde); }
+            .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+            .stat-item:nth-child(2n) { border-right: none; }
+            .plan-tabs { grid-template-columns: repeat(4, 1fr); }
+            .plan-materias { grid-template-columns: 1fr; }
+            .plan-ejes-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .unique-grid { grid-template-columns: 1fr; }
+            .conv-inner { grid-template-columns: 1fr; gap: 2rem; }
+            .perfil-grid { grid-template-columns: 1fr; }
+            .form-cols { grid-template-columns: 1fr; gap: 2rem; }
+            .ubi-grid { grid-template-columns: 1fr; }
+            .beca-card { flex-direction: column; gap: 1rem; }
+            .plan-panel { padding: 1.5rem 1.25rem; }
             .header-career { display: none; }
+            .docentes-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 560px) {
-            .docentes-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
-            .doc-modal-header { flex-direction: column; text-align: center; }
-            .doc-modal { padding: 2rem 1.25rem; }
-            .unique-grid { grid-template-columns: 1fr; max-width: 340px; margin: 2rem auto 0; }
-            .perfil-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
-            .perfil-pillar { padding: 1.25rem 1rem; }
+        @media (max-width: 520px) {
+            .docentes-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
-            .stats-inner { grid-template-columns: repeat(2, 1fr); }
-            .hero h1 { font-size: 2rem; }
-            .form-card { padding: 1.5rem; }
-            .header-divider { display: none; }
+            .section { padding: 3.5rem 1rem; }
+            .hero { padding: 3.5rem 1rem; }
+            .hero-meta { gap: .8rem; padding: .7rem 1rem; }
         }
     </style>
 </head>
@@ -873,115 +296,73 @@
 <!-- HEADER -->
 <header>
     <div class="logo-area">
-        <img src="../medicina/assets/asset_2.png" alt="IBERO Tijuana" class="logo-img">
-        <span class="header-divider"></span>
-        <span class="header-career">Diseña el futuro<br>de las ciudades.</span>
+        <img src="../administracion-de-empresas/assets/asset_2.png" alt="IBERO Tijuana" class="logo-img" onerror="this.style.display='none'">
+        <div class="header-divider"></div>
+        <div class="header-career">Maestría en Proyectos para Ciudades Sostenibles</div>
     </div>
     <a href="#form" class="nav-cta">Solicitar información</a>
 </header>
 
-<!-- TICKER -->
-<div class="ticker-wrap">
-    <div class="ticker-track">
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Título con Aval SEP</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Clases Viernes y Sábados</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Red de egresados IBERO</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Profesores con experiencia internacional</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Proyectos reales de impacto urbano</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Universidad Iberoamericana Tijuana</span>
-        <!-- duplicado para loop continuo -->
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Título con Aval SEP</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Clases Viernes y Sábados</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Red de egresados IBERO</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Profesores con experiencia internacional</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Proyectos reales de impacto urbano</span>
-        <span class="ticker-item"><span class="ticker-dot">✦</span> Universidad Iberoamericana Tijuana</span>
-    </div>
-</div>
-
 <!-- HERO -->
 <section class="hero">
-    <video class="hero-video-bg" autoplay muted loop playsinline poster="assets/ciudad.jpg">
+    <video class="hero-video-bg" autoplay muted loop playsinline poster="assets/campus.jpg">
         <source src="assets/hero-video.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>Maestría en Proyectos para<br><em>Ciudades Sostenibles</em></h1>
-        <a href="#form" class="btn-hero">
-            Solicita información
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-    </div>
-    <div class="hero-scroll-hint">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        <span>Explora</span>
+        <a href="#form" class="btn-hero">Solicita información <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </div>
 </section>
 
 <!-- STATS BAR -->
-<div class="stats-bar">
+<section class="stats-bar">
     <div class="stats-inner">
-        <div class="stat-item">
-            <div class="stat-num">2</div>
-            <div class="stat-label">Años de duración</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">8</div>
-            <div class="stat-label">Trimestres</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">3</div>
-            <div class="stat-label">Ejes de especialización</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-num">2</div>
-            <div class="stat-label">Sesiones por semana</div>
-        </div>
+        <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Años de duración</div></div>
+        <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Trimestres</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Ejes de especialización</div></div>
+        <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Sesiones por semana</div></div>
     </div>
-</div>
+</section>
 
 <!-- PLAN DE ESTUDIOS -->
-<section class="plan-section" id="plan-estudios">
-    <div class="plan-inner">
-
-        <div class="plan-header anim anim-up">
-            <p class="plan-eyebrow">Plan de estudios</p>
-            <h2 class="plan-title">El mapa para diseñar ciudades <em>sostenibles</em></h2>
+<section class="section section-soft" id="plan-estudios">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Plan de estudios</p>
+            <h2 class="section-title">Una formación <em>integral</em> para diseñar la ciudad del futuro</h2>
+            <p class="section-sub">Plan trimestral con dos materias por periodo, complementado con tres ejes de especialización en los últimos trimestres.</p>
             <div class="plan-meta">
-                <div class="plan-meta-item"><strong>2 años</strong><span>Formación</span></div>
+                <div class="plan-meta-item"><strong>8</strong><span>Trimestres</span></div>
                 <div class="plan-meta-sep"></div>
-                <div class="plan-meta-item"><strong>8 trimestres</strong><span>Estructura</span></div>
+                <div class="plan-meta-item"><strong>16</strong><span>Materias</span></div>
                 <div class="plan-meta-sep"></div>
-                <div class="plan-meta-item"><strong>24 asignaturas</strong><span>16 centrales + 8 optativas</span></div>
+                <div class="plan-meta-item"><strong>2 años</strong><span>Duración</span></div>
                 <div class="plan-meta-sep"></div>
-                <div class="plan-meta-item"><strong>3 ejes</strong><span>Especialización</span></div>
+                <div class="plan-meta-item"><strong>Presencial</strong><span>Modalidad</span></div>
             </div>
         </div>
 
-        <!-- TABS + PROGRESS -->
-        <div class="plan-tabs-wrap anim anim-up">
-            <div class="plan-tabs" role="tablist" id="plan-tabs">
-                <button class="plan-tab active" data-trim="1" role="tab"><span class="plan-tab-num">01</span><span class="plan-tab-lbl">Trim</span></button>
-                <button class="plan-tab" data-trim="2" role="tab"><span class="plan-tab-num">02</span><span class="plan-tab-lbl">Trim</span></button>
-                <button class="plan-tab" data-trim="3" role="tab"><span class="plan-tab-num">03</span><span class="plan-tab-lbl">Trim</span></button>
-                <button class="plan-tab" data-trim="4" role="tab"><span class="plan-tab-num">04</span><span class="plan-tab-lbl">Trim</span></button>
-                <button class="plan-tab" data-trim="5" role="tab"><span class="plan-tab-num">05</span><span class="plan-tab-lbl">Trim</span></button>
-                <button class="plan-tab" data-trim="6" role="tab"><span class="plan-tab-num">06</span><span class="plan-tab-lbl">Trim</span></button>
-                <button class="plan-tab" data-trim="7" role="tab"><span class="plan-tab-num">07</span><span class="plan-tab-lbl">Trim</span></button>
-                <button class="plan-tab" data-trim="8" role="tab"><span class="plan-tab-num">08</span><span class="plan-tab-lbl">Trim</span></button>
-            </div>
-            <div class="plan-progress"><div class="plan-progress-fill" id="plan-progress-fill"></div></div>
+        <div class="plan-tabs">
+            <button class="plan-tab active" data-trim="1"><span class="plan-tab-num">1</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="2"><span class="plan-tab-num">2</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="3"><span class="plan-tab-num">3</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="4"><span class="plan-tab-num">4</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="5"><span class="plan-tab-num">5</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="6"><span class="plan-tab-num">6</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="7"><span class="plan-tab-num">7</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="8"><span class="plan-tab-num">8</span><span class="plan-tab-lbl">Trimestre</span></button>
         </div>
+        <div class="plan-progress"><div class="plan-progress-fill" id="planProgressFill"></div></div>
 
-        <!-- PANEL DEL TRIMESTRE ACTIVO (inyectado por JS) -->
-        <div class="plan-panel anim anim-up" id="plan-panel" role="tabpanel">
-            <!-- contenido dinámico -->
+        <div class="plan-panel" id="planPanel">
+            <!-- contenido dinámico inyectado por JS -->
         </div>
 
         <!-- EJES DE ESPECIALIZACIÓN -->
         <div class="plan-ejes anim anim-up">
             <div class="plan-ejes-header">
-                <p class="plan-eyebrow" style="margin-bottom:.6rem;">Optativas</p>
+                <p class="section-eyebrow" style="margin-bottom:.6rem;">Optativas</p>
                 <h3 class="plan-ejes-title">3 ejes de especialización</h3>
                 <p class="plan-ejes-sub">Eliges un eje y cursas sus 3 asignaturas como Optativa I, II y III durante los trimestres 6, 7 y 8.</p>
             </div>
@@ -1073,147 +454,83 @@
 
             </div>
         </div>
-
     </div>
 </section>
 
 <!-- DOCENTES -->
-<section class="docentes-section" id="docentes">
-    <div class="docentes-inner">
-        <div class="docentes-header anim anim-up">
-            <p class="docentes-eyebrow">Plantilla Docente</p>
-            <h2 class="docentes-title">Aprende con <em>expertos</em> de talla internacional</h2>
-            <p class="docentes-sub">Doctores y maestros con trayectoria en UNESCO, UNAM, Oxford, CONACYT y universidades líderes en urbanismo y sostenibilidad.</p>
+<section class="section section-light" id="docentes">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Plantilla Docente</p>
+            <h2 class="section-title">Aprende con <em>expertos</em> de talla internacional</h2>
+            <p class="section-sub">Doctores y maestros con trayectoria en UNESCO, UNAM, Oxford, CONACYT y universidades líderes en urbanismo y sostenibilidad.</p>
         </div>
 
         <div class="docentes-grid">
-
-            <!-- 1. César Velandia -->
-            <article class="docente-card anim anim-up anim-delay-1" data-docente="cesar-velandia">
-                <div class="docente-photo-wrap">
-                    <img class="docente-photo" src="assets/docentes/cesar-velandia.jpg" alt="Dr. César Augusto Velandia Silva" loading="lazy">
-                </div>
+            <article class="docente-card anim anim-up" data-docente="cesar-velandia">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/cesar-velandia.jpg" alt="Dr. César Augusto Velandia Silva" loading="lazy"></div>
                 <h3 class="docente-name">Dr. César Augusto Velandia Silva</h3>
                 <p class="docente-grade">Doctor Cum Laude en Geografía</p>
-                <div class="docente-chips">
-                    <span class="docente-chip">UNESCO</span>
-                    <span class="docente-chip">ICOMOS</span>
-                    <span class="docente-chip">U. Alicante</span>
-                </div>
+                <div class="docente-chips"><span class="docente-chip">UNESCO</span><span class="docente-chip">ICOMOS</span></div>
                 <p class="docente-tagline">Investigador posdoctoral en la U. Complutense de Madrid. Trayectoria en Colombia, México y España.</p>
-                <button class="docente-view-btn" type="button">
-                    Ver perfil
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                </button>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <!-- 2. Dinorah González -->
-            <article class="docente-card anim anim-up anim-delay-2" data-docente="dinorah-gonzalez">
-                <div class="docente-photo-wrap">
-                    <img class="docente-photo" src="assets/docentes/dinorah-gonzalez.png" alt="Dra. Dinorah Judith González Ochoa" loading="lazy">
-                </div>
+            <article class="docente-card anim anim-up" data-docente="dinorah-gonzalez">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/dinorah-gonzalez.png" alt="Dra. Dinorah Judith González Ochoa" loading="lazy"></div>
                 <h3 class="docente-name">Dra. Dinorah Judith González Ochoa</h3>
                 <p class="docente-grade">Doctora en Ciencias Sociales</p>
-                <div class="docente-chips">
-                    <span class="docente-chip">UNAM</span>
-                    <span class="docente-chip">COLEF</span>
-                    <span class="docente-chip">SEDESOL</span>
-                </div>
+                <div class="docente-chips"><span class="docente-chip">UNAM</span><span class="docente-chip">COLEF</span></div>
                 <p class="docente-tagline">Especialista en planificación urbana y políticas públicas. Estancia postdoctoral activa.</p>
-                <button class="docente-view-btn" type="button">
-                    Ver perfil
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                </button>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <!-- 3. Cinthya Paz - COORDINADORA -->
-            <article class="docente-card anim anim-up anim-delay-3" data-docente="cinthya-paz">
-                <span class="docente-coord-badge">Coordinadora</span>
-                <div class="docente-photo-wrap">
-                    <img class="docente-photo" src="assets/docentes/cinthya-paz.jpg" alt="Dra. Cinthya Lorena Paz Rodríguez" loading="lazy">
-                </div>
+            <article class="docente-card anim anim-up" data-docente="cinthya-paz">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/cinthya-paz.jpg" alt="Dra. Cinthya Lorena Paz Rodríguez" loading="lazy"></div>
                 <h3 class="docente-name">Dra. Cinthya Lorena Paz Rodríguez</h3>
-                <p class="docente-grade">Doctora en Turismo y Desarrollo Sostenible</p>
-                <div class="docente-chips">
-                    <span class="docente-chip">CONACYT</span>
-                    <span class="docente-chip">U. Las Palmas</span>
-                    <span class="docente-chip">IBERO TJ</span>
-                </div>
+                <p class="docente-grade">Coordinadora · Doctora en Turismo y Desarrollo Sostenible</p>
+                <div class="docente-chips"><span class="docente-chip">CONACYT</span><span class="docente-chip">IBERO TJ</span></div>
                 <p class="docente-tagline">Coordinadora de la Maestría y Jefa del Departamento de Arquitectura, Diseño e Ingeniería.</p>
-                <button class="docente-view-btn" type="button">
-                    Ver perfil
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                </button>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <!-- 4. Raymundo Reyes -->
-            <article class="docente-card anim anim-up anim-delay-1" data-docente="raymundo-reyes">
-                <div class="docente-photo-wrap">
-                    <img class="docente-photo" src="assets/docentes/raymundo-reyes.jpg" alt="Dr. Raymundo Reyes Vicite" loading="lazy">
-                </div>
+            <article class="docente-card anim anim-up" data-docente="raymundo-reyes">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/raymundo-reyes.jpg" alt="Dr. Raymundo Reyes Vicite" loading="lazy"></div>
                 <h3 class="docente-name">Dr. Raymundo Reyes Vicite</h3>
-                <p class="docente-grade">Doctor en Arquitectura – Gerencia de Proyecto</p>
-                <div class="docente-chips">
-                    <span class="docente-chip">Oxford Brookes</span>
-                    <span class="docente-chip">Western U.</span>
-                    <span class="docente-chip">U. Londres</span>
-                </div>
+                <p class="docente-grade">Doctor en Arquitectura · Gerencia de Proyecto</p>
+                <div class="docente-chips"><span class="docente-chip">Oxford Brookes</span><span class="docente-chip">U. Londres</span></div>
                 <p class="docente-tagline">31 años como consultor y desarrollador inmobiliario. Asesor para Banco Mundial y Booz Allen.</p>
-                <button class="docente-view-btn" type="button">
-                    Ver perfil
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                </button>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <!-- 5. Alberto Osuna -->
-            <article class="docente-card anim anim-up anim-delay-2" data-docente="alberto-osuna">
-                <div class="docente-photo-wrap">
-                    <img class="docente-photo" src="assets/docentes/alberto-osuna.jpg" alt="Arq. Alberto Osuna Palma y Meza" loading="lazy">
-                </div>
+            <article class="docente-card anim anim-up" data-docente="alberto-osuna">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/alberto-osuna.jpg" alt="Arq. Alberto Osuna Palma y Meza" loading="lazy"></div>
                 <h3 class="docente-name">Arq. Alberto Osuna Palma y Meza</h3>
                 <p class="docente-grade">Maestro en Desarrollo Urbano</p>
-                <div class="docente-chips">
-                    <span class="docente-chip">UABC</span>
-                    <span class="docente-chip">IBERO TJ</span>
-                    <span class="docente-chip">TEC Monterrey</span>
-                </div>
+                <div class="docente-chips"><span class="docente-chip">UABC</span><span class="docente-chip">TEC Monterrey</span></div>
                 <p class="docente-tagline">30+ años en desarrollo de vivienda, valuación y planeación urbana en el noroeste de México.</p>
-                <button class="docente-view-btn" type="button">
-                    Ver perfil
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                </button>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <!-- 6. Karla Bañuelos -->
-            <article class="docente-card anim anim-up anim-delay-3" data-docente="karla-banuelos">
-                <div class="docente-photo-wrap">
-                    <img class="docente-photo" src="assets/docentes/karla-banuelos.png" alt="Dra. Karla Fabiola Bañuelos Miranda" loading="lazy">
-                </div>
+            <article class="docente-card anim anim-up" data-docente="karla-banuelos">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/karla-banuelos.png" alt="Dra. Karla Fabiola Bañuelos Miranda" loading="lazy"></div>
                 <h3 class="docente-name">Dra. Karla Fabiola Bañuelos Miranda</h3>
                 <p class="docente-grade">Doctora en Ciudad, Territorio y Sustentabilidad</p>
-                <div class="docente-chips">
-                    <span class="docente-chip">UdeG</span>
-                    <span class="docente-chip">ITESO</span>
-                    <span class="docente-chip">WRI</span>
-                </div>
+                <div class="docente-chips"><span class="docente-chip">ITESO</span><span class="docente-chip">WRI</span></div>
                 <p class="docente-tagline">Profesora investigadora en ITESO. 20+ años en movilidad urbana sustentable y desarrollo territorial.</p>
-                <button class="docente-view-btn" type="button">
-                    Ver perfil
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                </button>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
-
         </div>
     </div>
 </section>
 
 <!-- INVERSIÓN -->
-<section class="pricing-section" id="inversion">
-    <div class="pricing-inner">
-        <div class="pricing-header anim anim-up">
-            <p class="pricing-eyebrow">Inversión</p>
-            <h2 class="pricing-title">Una inversión <em>accesible</em> para tu futuro profesional</h2>
-            <p class="pricing-sub">Costos transparentes y planes de beca para que el factor económico no detenga tu crecimiento.</p>
+<section class="section section-soft" id="inversion">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Inversión</p>
+            <h2 class="section-title">Una inversión <em>accesible</em> para tu futuro profesional</h2>
+            <p class="section-sub">Costos transparentes y planes de beca para que el factor económico no detenga tu crecimiento.</p>
         </div>
 
         <div class="pricing-grid anim anim-up">
@@ -1249,177 +566,159 @@
 </section>
 
 <!-- ¿QUÉ HACE ÚNICO? -->
-<section class="unique-section" id="programa">
-    <div class="unique-inner">
-        <div class="unique-header anim anim-up">
-            <p class="unique-eyebrow">Objetivo del programa</p>
-            <h2 class="unique-title">Diseña proyectos urbanos que <em>transformen</em> vidas</h2>
-            <p class="unique-intro">Elaborar proyectos de diseño y desarrollo urbano que busquen resolver los retos actuales de las ciudades en el marco de la sostenibilidad y la mejora en la calidad de vida de todas las personas.</p>
+<section class="section section-light" id="programa">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">¿Qué hace único este programa?</p>
+            <h2 class="section-title">Un enfoque <em>integral</em> para diseñar ciudades sostenibles</h2>
         </div>
-
-        <div style="text-align:center; margin-top:3.5rem;" class="anim anim-up">
-            <p class="unique-eyebrow" style="margin-bottom:.5rem;">¿Qué hace único a este programa?</p>
-            <h3 style="color:#fff; font-size:clamp(1.3rem,2.2vw,1.7rem); font-weight:700; letter-spacing:.2px;">8 razones que nos diferencian</h3>
-        </div>
-
         <div class="unique-grid">
-
-            <article class="unique-card anim anim-up anim-delay-1">
-                <span class="unique-num">01</span>
-                <div class="unique-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M10 13l2 2 4-4"/></svg>
-                </div>
-                <h4>Plan de estudios actualizado</h4>
-                <p>Contenido renovado constantemente para mantener la vanguardia académica.</p>
-            </article>
-
-            <article class="unique-card anim anim-up anim-delay-2">
-                <span class="unique-num">02</span>
-                <div class="unique-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
-                <h4>Visión internacional</h4>
-                <p>Acorde a tendencias globales con enfoque en el contexto regional de frontera.</p>
-            </article>
-
-            <article class="unique-card anim anim-up anim-delay-3">
-                <span class="unique-num">03</span>
-                <div class="unique-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                </div>
-                <h4>Docentes de alto nivel</h4>
-                <p>Doctores y maestros con trayectoria en UNESCO, UNAM, Oxford y CONACYT.</p>
-            </article>
-
-            <article class="unique-card anim anim-up anim-delay-4">
-                <span class="unique-num">04</span>
-                <div class="unique-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-                </div>
-                <h4>Internacionalización</h4>
-                <p>Actividades académicas con universidades extranjeras y estancias fuera del país.</p>
-            </article>
-
-            <article class="unique-card anim anim-up anim-delay-1">
-                <span class="unique-num">05</span>
-                <div class="unique-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="6" r="3"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/></svg>
-                </div>
-                <h4>Networking</h4>
-                <p>Conexión con profesionistas, empresas y tomadores de decisión del sector urbano.</p>
-            </article>
-
-            <article class="unique-card anim anim-up anim-delay-2">
-                <span class="unique-num">06</span>
-                <div class="unique-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 9l3 3 3-3 4 4"/></svg>
-                </div>
-                <h4>Software especializado</h4>
-                <p>Licencias de estudiante incluidas en las herramientas líderes del urbanismo.</p>
-            </article>
-
-            <article class="unique-card anim anim-up anim-delay-3">
-                <span class="unique-num">07</span>
-                <div class="unique-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a7 7 0 0 1 14 0"/><path d="M2 10a10 10 0 0 1 20 0"/><circle cx="12" cy="17" r="2"/><line x1="12" y1="20" x2="12" y2="22"/></svg>
-                </div>
-                <h4>Plataformas virtuales</h4>
-                <p>Acceso a las plataformas institucionales de IBERO Tijuana para las sesiones en línea y los materiales del programa.</p>
-            </article>
-
-            <article class="unique-card anim anim-up anim-delay-4">
-                <span class="unique-num">08</span>
-                <div class="unique-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-                </div>
-                <h4>Becas por convenio</h4>
-                <p>Apoyos económicos disponibles a través de convenios institucionales.</p>
-            </article>
-
+            <div class="unique-card anim anim-up">
+                <div class="unique-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <h3 class="unique-title">3 ejes de especialización</h3>
+                <p class="unique-text">Diseño urbano sostenible, gestión territorial y movilidad sustentable. Construye un perfil único.</p>
+            </div>
+            <div class="unique-card anim anim-up">
+                <div class="unique-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22l10-10M2 22l8-2M22 12L12 22M22 12l-2 8"/><circle cx="14" cy="10" r="3"/></svg></div>
+                <h3 class="unique-title">Plantilla docente internacional</h3>
+                <p class="unique-text">Doctores y maestros con trayectoria en UNESCO, UNAM, Oxford y CONACYT.</p>
+            </div>
+            <div class="unique-card anim anim-up">
+                <div class="unique-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div>
+                <h3 class="unique-title">Visión humanista y sostenible</h3>
+                <p class="unique-text">Tradición jesuita aplicada al urbanismo: justicia socio-espacial, inclusión y bien común.</p>
+            </div>
+            <div class="unique-card anim anim-up">
+                <div class="unique-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                <h3 class="unique-title">Casos reales y proyectos aplicados</h3>
+                <p class="unique-text">Aprendes con problemas reales de Tijuana y la frontera, no solo con teoría.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- PARA QUIÉN / IMAGEN -->
-<section class="conversion" id="quienes">
-    <div class="conversion-inner">
-        <div class="conv-left anim anim-left">
-            <h2>Hecha para quienes<br>quieren <em>liderar</em> el cambio.</h2>
-            <p>Este programa es para profesionistas que trabajan en el desarrollo de ciudades y quieren hacerlo con mayor impacto, herramientas y visión estratégica.</p>
-            <ul class="conv-checks">
-                <li>
-                    <span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                    Arquitectos, urbanistas e ingenieros con ambición de mayor impacto
-                </li>
-                <li>
-                    <span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                    Funcionarios de gobierno que diseñan políticas urbanas
-                </li>
-                <li>
-                    <span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                    Desarrolladores privados que buscan proyectos sostenibles
-                </li>
-                <li>
-                    <span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-                    Profesionistas que buscan horarios flexibles (Vie · Sáb)
-                </li>
-            </ul>
-            <p class="outcomes-title">Es para ti si… quieres</p>
-            <ul class="outcomes-list">
-                <li>Contribuir con soluciones innovadoras para el diseño y desarrollo urbano de las ciudades sostenibles.</li>
-                <li>Ser consultor urbano y liderar proyectos de impacto.</li>
-                <li>Mejorar y profesionalizar tus proyectos con metodologías de vanguardia.</li>
-            </ul>
-        </div>
-        <div class="conv-img anim anim-right">
-            <img src="assets/clase.jpg" alt="Proyecto urbano sostenible con energía solar">
+<!-- PARA QUIÉN -->
+<section class="section section-soft" id="quienes">
+    <div class="section-inner">
+        <div class="conv-inner">
+            <div class="conv-left anim anim-up">
+                <p class="section-eyebrow" style="text-align:left">¿Para quién es?</p>
+                <h2 class="section-title" style="text-align:left; margin:0 0 1rem">Hecha para quienes quieren <em>liderar el cambio</em></h2>
+                <p style="color:var(--gris); margin-bottom:1.5rem;">Este programa es para profesionistas que trabajan en el desarrollo de ciudades y quieren hacerlo con mayor impacto, herramientas y visión estratégica.</p>
+                <ul class="conv-checks">
+                    <li><span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Arquitectos, urbanistas e ingenieros con ambición de mayor impacto</li>
+                    <li><span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Funcionarios de gobierno que diseñan políticas urbanas</li>
+                    <li><span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Desarrolladores privados que buscan proyectos sostenibles</li>
+                    <li><span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Profesionistas con horarios flexibles (Vie · Sáb)</li>
+                </ul>
+            </div>
+            <div class="conv-img anim anim-up">
+                <img src="assets/clase.jpg" alt="Proyecto urbano sostenible con energía solar">
+            </div>
         </div>
     </div>
 </section>
 
 <!-- PERFIL DE INGRESO -->
-<section class="perfil-section" id="perfil">
-    <div class="perfil-inner">
-        <div class="perfil-header anim anim-up">
-            <p class="perfil-eyebrow">Perfil de ingreso</p>
-            <h2 class="perfil-title">Lo que <em>necesitas</em> para empezar</h2>
-            <p class="perfil-sub">Cuatro pilares que definen al candidato ideal para esta maestría. ¿Los identificas en ti?</p>
+<section class="section section-light" id="perfil">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Perfil de ingreso</p>
+            <h2 class="section-title">Lo que <em>necesitas</em> para empezar</h2>
+            <p class="section-sub">Cuatro cualidades que definen al candidato ideal para esta maestría. ¿Las identificas en ti?</p>
+        </div>
+        <div class="perfil-grid">
+            <div class="perfil-item anim anim-up"><div class="perfil-num">1</div><p class="perfil-text"><strong>Pensamiento crítico e innovador.</strong> Capacidad de cuestionar, analizar y proponer soluciones originales.</p></div>
+            <div class="perfil-item anim anim-up"><div class="perfil-num">2</div><p class="perfil-text"><strong>Visión estratégica.</strong> Mirada de largo plazo para planear ciudades con impacto sostenible.</p></div>
+            <div class="perfil-item anim anim-up"><div class="perfil-num">3</div><p class="perfil-text"><strong>Bases en metodologías de diseño urbano.</strong> Conocimiento de procesos y marcos de referencia del urbanismo.</p></div>
+            <div class="perfil-item anim anim-up"><div class="perfil-num">4</div><p class="perfil-text"><strong>Apertura a tecnología emergente.</strong> Interés en SIG, BIM y herramientas digitales aplicadas a la ciudad.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="form-section" id="form">
+    <div class="form-cols">
+        <div class="form-side anim anim-up">
+            <p style="color: var(--rojo); font-size: .8rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: .8rem;">Aparta tu lugar</p>
+            <h2>Da el siguiente paso en tu <em>desarrollo profesional</em></h2>
+            <p>Inicia el proceso de admisión y recibe asesoría personalizada con nuestra coordinadora de posgrados.</p>
+
+            <div class="countdown-box">
+                <div class="countdown-label">Inicio de clases</div>
+                <div class="countdown-grid">
+                    <div class="cd-item"><div class="cd-num" id="cd-d">00</div><div class="cd-unit">Días</div></div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-item"><div class="cd-num" id="cd-h">00</div><div class="cd-unit">Horas</div></div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-item"><div class="cd-num" id="cd-m">00</div><div class="cd-unit">Min</div></div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-item"><div class="cd-num" id="cd-s">00</div><div class="cd-unit">Seg</div></div>
+                </div>
+                <p class="countdown-fecha">30 de Junio, 2026</p>
+            </div>
+
+            <div class="proof-list">
+                <div class="proof-item">
+                    <div class="proof-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="2.2"><path d="M12 2l2.39 4.84L20 7.7l-4 3.9.94 5.5L12 14.5l-4.94 2.6L8 11.6l-4-3.9 5.61-.86z"/></svg></div>
+                    <div><strong>Reconocimiento Oficial</strong><span>RVOE SEP · Decreto Presidencial</span></div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <div><strong>Red Jesuita Internacional</strong><span>+220 universidades en el mundo</span></div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div><strong>Networking profesional</strong><span>Comunidad activa de egresados y empresas</span></div>
+                </div>
+            </div>
         </div>
 
-        <div class="perfil-grid">
-
-            <div class="perfil-pillar anim anim-up anim-delay-1">
-                <div class="perfil-pillar-icon">
-                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1M3 12h1M20 12h1M5.636 5.636l.707.707M17.657 17.657l.707.707M18.364 5.636l-.707.707M6.343 17.657l-.707.707"/><circle cx="12" cy="12" r="4"/></svg>
-                </div>
-                <h4>Pensamiento crítico<br>e innovador</h4>
-                <p>Capacidad de cuestionar, analizar y proponer soluciones originales.</p>
+        <div class="form-card anim anim-up">
+            <h3>Solicita información</h3>
+            <p>Te contactaremos a la brevedad con todos los detalles.</p>
+            <div class="form-iframe-wrap">
+                <iframe
+                    src="https://app.prospecty.mx/widget/form/LgL5Gg2vrA5XX7jyj5dy"
+                    title="Formulario Maestría Ciudades Sostenibles IBERO Tijuana"
+                    data-form-id="LgL5Gg2vrA5XX7jyj5dy"
+                ></iframe>
+                <script src="https://app.prospecty.mx/js/form_embed.js"></script>
             </div>
+            <p style="margin-top:1.25rem; font-size:.82rem; color:var(--gris); text-align:center;">
+                Contacto directo: <a href="mailto:wendy.sanchez@tijuana.ibero.mx" style="color:var(--rojo); font-weight:600;">wendy.sanchez@tijuana.ibero.mx</a><br>
+                Lic. Wendy Elizabeth Sánchez Alvarado · <a href="tel:+526643886002" style="color:var(--rojo); font-weight:600;">664-388-60-02</a>
+            </p>
+        </div>
+    </div>
+</section>
 
-            <div class="perfil-pillar anim anim-up anim-delay-2">
-                <div class="perfil-pillar-icon">
-                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+<!-- UBICACIÓN -->
+<section class="section section-light" id="ubicacion">
+    <div class="ubi-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Ubicación</p>
+            <h2 class="section-title">Conoce nuestro <em>campus</em></h2>
+            <p class="section-sub">IBERO Tijuana · Campus Playas</p>
+        </div>
+        <div class="ubi-grid">
+            <div class="ubi-card">
+                <div class="ubi-info">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div><strong>Dirección</strong><span>Av. Centro Universitario 2501, Col. Playas de Tijuana, C.P. 22500, Tijuana, B.C.</span></div>
                 </div>
-                <h4>Visión<br>estratégica</h4>
-                <p>Mirada de largo plazo para planear ciudades con impacto sostenible.</p>
-            </div>
-
-            <div class="perfil-pillar anim anim-up anim-delay-3">
-                <div class="perfil-pillar-icon">
-                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+                <div class="ubi-info">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div><strong>Horario de atención</strong><span>Lunes a Viernes · 8:00 a 18:00 hrs</span></div>
                 </div>
-                <h4>Metodologías de<br>diseño urbano</h4>
-                <p>Bases en procesos, herramientas y marcos de referencia del urbanismo.</p>
-            </div>
-
-            <div class="perfil-pillar anim anim-up anim-delay-4">
-                <div class="perfil-pillar-icon">
-                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+                <div class="ubi-info">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div><strong>Informes</strong><span>Lic. Wendy Elizabeth Sánchez Alvarado<br><a href="mailto:wendy.sanchez@tijuana.ibero.mx">wendy.sanchez@tijuana.ibero.mx</a><br><a href="tel:+526643886002">664-388-60-02</a></span></div>
                 </div>
-                <h4>Uso de tecnología<br>emergente</h4>
-                <p>Apertura a SIG, BIM y herramientas digitales aplicadas a la ciudad.</p>
             </div>
-
+            <div class="ubi-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3367.5!2d-117.100958!3d32.5186438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d94a36bcc6d9cb%3A0x81d09293048babd8!2sUniversidad%20Iberoamericana%20Tijuana!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </div>
 </section>
@@ -1443,528 +742,262 @@
     </div>
 </div>
 
-
-<!-- FORMULARIO -->
-<section class="form-section" id="form">
-    <div class="form-inner">
-        <div class="form-cols">
-
-            <!-- LADO DERECHO: urgencia + social proof -->
-            <div class="form-side anim anim-left">
-                <p class="side-eyebrow">Próxima generación</p>
-                <h2 class="side-title">Da el primer<br>paso hoy.</h2>
-                <p class="side-sub">Recibe toda la información del programa y fechas de admisión.</p>
-
-                <!-- COUNTDOWN -->
-                <div class="countdown-box">
-                    <p class="countdown-label">Inicio de clases en</p>
-                    <div class="countdown-grid" id="countdown">
-                        <div class="cd-item"><span class="cd-num" id="cd-dias">--</span><span class="cd-unit">Días</span></div>
-                        <div class="cd-sep">:</div>
-                        <div class="cd-item"><span class="cd-num" id="cd-horas">--</span><span class="cd-unit">Horas</span></div>
-                        <div class="cd-sep">:</div>
-                        <div class="cd-item"><span class="cd-num" id="cd-mins">--</span><span class="cd-unit">Mins</span></div>
-                        <div class="cd-sep">:</div>
-                        <div class="cd-item"><span class="cd-num" id="cd-segs">--</span><span class="cd-unit">Segs</span></div>
-                    </div>
-                    <div class="countdown-progress"><div class="countdown-progress-fill" id="cd-progress"></div></div>
-                    <p class="countdown-fecha">30 de junio · 2026</p>
-                </div>
-
-                <!-- SOCIAL PROOF -->
-                <div class="proof-list">
-                    <div class="proof-item">
-                        <span class="proof-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                        </span>
-                        <div>
-                            <strong>+500</strong>
-                            <span>Egresados IBERO Tijuana</span>
-                        </div>
-                    </div>
-                    <div class="proof-item">
-                        <span class="proof-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        </span>
-                        <div>
-                            <strong>4.9 / 5</strong>
-                            <span>Satisfacción de egresados</span>
-                        </div>
-                    </div>
-                    <div class="proof-item">
-                        <span class="proof-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h2M8 18h2M12 14h4M12 18h4"/></svg>
-                        </span>
-                        <div>
-                            <strong>Cupos limitados</strong>
-                            <span>por generación</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- LADO IZQUIERDO: formulario -->
-            <div class="form-card anim anim-right anim-delay-1">
-                <form id="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="tel" id="telefono" name="telefono" placeholder="(664) 000-0000" required>
-                </div>
-                <div class="form-group">
-                    <label for="sector">¿En qué sector trabajas?</label>
-                    <select id="sector" name="sector" required>
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <option>Arquitectura / Urbanismo</option>
-                        <option>Gobierno / Sector público</option>
-                        <option>Desarrollo inmobiliario</option>
-                        <option>Ingeniería / Construcción</option>
-                        <option>Consultoría / Academia</option>
-                        <option>Otro</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="como">¿Cómo te enteraste?</label>
-                    <select id="como" name="como">
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <option>Redes sociales</option>
-                        <option>Recomendación de un amigo</option>
-                        <option>Búsqueda en internet</option>
-                        <option>Evento o conferencia</option>
-                        <option>Otro</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    Quiero más información
-                </button>
-                <p class="form-disclaimer">Al enviar este formulario aceptas que IBERO Tijuana se comunique contigo con información sobre el programa.</p>
-            </form>
-            <div class="form-success" id="form-success">
-                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <h3>¡Gracias por tu interés!</h3>
-                <p>Un asesor se comunicará contigo en breve con toda la información del programa, horarios, inversión y proceso de admisión.</p>
-            </div>
-            </div><!-- /form-card -->
-
-        </div><!-- /form-cols -->
-    </div>
-</section>
-
-<!-- UBICACIÓN -->
-<section id="ubicacion" style="background:#f5f5f5; padding:5rem 0;">
-    <div style="max-width:1200px; margin:0 auto; padding:0 1.5rem;">
-        <div style="text-align:center; margin-bottom:3rem;">
-            <h2 style="font-size:2rem; font-weight:700; color:#1A1A1A;">Conoce nuestra ubicación</h2>
-            <div style="width:50px; height:3px; background:#E00034; margin:.75rem auto 0;"></div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
-            <div>
-                <div style="display:flex; align-items:flex-start; gap:.75rem; margin-bottom:1rem;">
-                    <div style="width:36px; height:36px; background:rgba(224,0,52,.1); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    </div>
-                    <span style="color:#333333; line-height:1.5;">Av. Centro Universitario 2501, Col. Playas de Tijuana, C.P. 22500, Tijuana, B.C.</span>
-                </div>
-                <div style="display:flex; align-items:flex-start; gap:.75rem; margin-bottom:1rem;">
-                    <div style="width:36px; height:36px; background:rgba(224,0,52,.1); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
-                    <div style="line-height:1.4;">
-                        <span style="display:block; color:#333333; font-weight:600;">Lic. Wendy Elizabeth Sánchez Alvarado</span>
-                        <span style="display:block; color:#666; font-size:.88rem;">Coordinadora de admisión a posgrados</span>
-                    </div>
-                </div>
-                <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
-                    <div style="width:36px; height:36px; background:rgba(224,0,52,.1); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.78-1.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    </div>
-                    <a href="tel:+526643886002" style="color:#333333; text-decoration:none;">(664) 388-60-02</a>
-                </div>
-                <div style="display:flex; align-items:center; gap:.75rem;">
-                    <div style="width:36px; height:36px; background:rgba(224,0,52,.1); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </div>
-                    <a href="mailto:wendy.sanchez@tijuana.ibero.mx" style="color:#333333; text-decoration:none;">wendy.sanchez@tijuana.ibero.mx</a>
-                </div>
-            </div>
-            <div style="display:flex; flex-direction:column; gap:1rem;">
-                <div style="border-radius:14px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.08);">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3367.5!2d-117.100958!3d32.5186438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d94a36bcc6d9cb%3A0x81d09293048babd8!2sUniversidad%20Iberoamericana%20Tijuana!5e0!3m2!1ses!2smx!4v1" width="100%" height="220" style="border:0; display:block;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div style="border-radius:14px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.08);">
-                    <img src="assets/campus.jpg" alt="Campus IBERO Tijuana" style="width:100%; height:220px; object-fit:cover; display:block;">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
-    <p style="margin-bottom:.4rem;">
-        <strong style="color:rgba(255,255,255,.7);">Universidad Iberoamericana Tijuana</strong>
-    </p>
-    <p>Av. Centro Universitario 2501, Playas de Tijuana · (664) 388-60-02 · <a href="mailto:wendy.sanchez@tijuana.ibero.mx">wendy.sanchez@tijuana.ibero.mx</a></p>
-    <p style="margin-top:.75rem;"><a href="https://tijuana.ibero.mx" target="_blank">tijuana.ibero.mx</a></p>
+    <p>© IBERO Tijuana · Maestría en Proyectos para Ciudades Sostenibles · RVOE SEP</p>
 </footer>
 
 <script>
-// Plan de estudios - tabs dinámicos
-(function () {
-    const tabsContainer = document.getElementById('plan-tabs');
-    const panel = document.getElementById('plan-panel');
-    const progress = document.getElementById('plan-progress-fill');
-    if (!tabsContainer || !panel) return;
-
-    const ICONS = {
-        book:    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
-        map:     '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>',
-        leaf:    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c1.4 9.3-3.8 15.9-8.2 17.04z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>',
-        users:   '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
-        file:    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>',
-        coins:   '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>',
-        chart:   '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>',
-        people:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
-        scales:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 16.5c0 2.5 2 4.5 4 4.5s4-2 4-4.5"/><path d="M16 16.5L20 6l4 10.5"/><path d="M0 16.5c0 2.5 2 4.5 4 4.5s4-2 4-4.5"/><path d="M0 16.5L4 6l4 10.5"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="4" y1="6" x2="20" y2="6"/></svg>',
-        shield:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-        compass: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
-        target:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
-        layers:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
-        gear:    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
-        search:  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
-        star:    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'
+    // ── PLAN DE ESTUDIOS ──
+    const PLAN = {
+        1: { title: 'Primer Trimestre', sub: 'Fundamentos técnicos y ambientales', materias: [
+            { name: 'Sistemas de información geográfica y representación cartográfica', obj: 'Aplicar herramientas GIS y técnicas de cartografía para representar, analizar y visualizar datos espaciales urbanos.' },
+            { name: 'Retos para el medio ambiente y el desarrollo sostenible de ciudades', obj: 'Identificar los principales desafíos ambientales y los marcos globales (ODS, agenda urbana) que orientan su transformación sostenible.' }
+        ]},
+        2: { title: 'Segundo Trimestre', sub: 'Dimensión social y comunicación profesional', materias: [
+            { name: 'Estudios sociales urbanos', obj: 'Analizar las dinámicas sociales, culturales y comunitarias que configuran la vida urbana, con pertinencia territorial y justicia socio-espacial.' },
+            { name: 'Presentación de proyectos e informes de investigación', obj: 'Desarrollar competencias de comunicación técnica y escrita para estructurar proyectos y presentarlos con rigor académico.' }
+        ]},
+        3: { title: 'Tercer Trimestre', sub: 'Economía del espacio y métodos cuantitativos', materias: [
+            { name: 'Economía y producción social del espacio', obj: 'Comprender los procesos económicos y sociales que producen el espacio urbano: mercados de suelo, vivienda e impactos distributivos.' },
+            { name: 'Análisis espacial, estadístico y demográfico', obj: 'Emplear métodos cuantitativos para estudiar fenómenos urbanos, poblacionales y territoriales con evidencia robusta.' }
+        ]},
+        4: { title: 'Cuarto Trimestre', sub: 'Diseño participativo y ética profesional', materias: [
+            { name: 'Planeación y diseño participativo en el espacio público', obj: 'Diseñar proyectos de espacio público integrando metodologías participativas con las comunidades usuarias.' },
+            { name: 'Ética y responsabilidad social', obj: 'Reflexionar sobre los dilemas éticos del ejercicio profesional en el urbanismo y la responsabilidad social del diseño de ciudades.' }
+        ]},
+        5: { title: 'Quinto Trimestre', sub: 'Marco legal y etnografía urbana', materias: [
+            { name: 'Legislación y planeación del desarrollo urbano', obj: 'Conocer el marco jurídico e instrumental que regula la planeación, el uso de suelo y el desarrollo urbano en México.' },
+            { name: 'Taller de etnografía urbana', obj: 'Aplicar métodos etnográficos de campo para comprender prácticas, comportamientos y significados en contextos urbanos reales.' }
+        ]},
+        6: { title: 'Sexto Trimestre', sub: 'Gestión estratégica y especialización (I)', materias: [
+            { name: 'Gestión de proyectos estratégicos urbanos', obj: 'Liderar el ciclo completo de un proyecto urbano (formulación, planeación, ejecución y evaluación) con enfoque estratégico.' },
+            { name: 'Optativa I — Eje de especialización', obj: 'Primera asignatura del eje elegido. Profundiza en herramientas y enfoques específicos del eje.' }
+        ]},
+        7: { title: 'Séptimo Trimestre', sub: 'Investigación aplicada y especialización (II)', materias: [
+            { name: 'Seminario de investigación', obj: 'Definir el problema, marco teórico y metodología del proyecto terminal de grado, con acompañamiento personalizado.' },
+            { name: 'Optativa II — Eje de especialización', obj: 'Segunda asignatura del eje elegido. Amplía el conocimiento especializado con aplicación práctica.' }
+        ]},
+        8: { title: 'Octavo Trimestre', sub: 'Integración final y especialización (III)', materias: [
+            { name: 'Proyectos urbanos', obj: 'Integrar todo lo aprendido en un proyecto urbano de impacto real, sintetizando teoría, metodología y técnica.' },
+            { name: 'Optativa III — Eje de especialización', obj: 'Tercera y última asignatura del eje elegido. Consolida tu perfil de especialización profesional.' }
+        ]}
     };
 
-    const data = [
-        {
-            trim: 1,
-            titulo: 'Fundamentos técnicos y ambientales',
-            intro: 'Bases espaciales, cartográficas y conceptuales para entender la ciudad como sistema complejo.',
-            materias: [
-                { nombre: 'Sistemas de información geográfica y representación cartográfica', obj: 'Aplicar herramientas GIS y técnicas de cartografía para representar, analizar y visualizar datos espaciales urbanos como soporte para la toma de decisiones.', icon: 'map' },
-                { nombre: 'Retos para el medio ambiente y el desarrollo sostenible de ciudades', obj: 'Identificar los principales desafíos ambientales de las ciudades contemporáneas y los marcos globales (ODS, agenda urbana) que orientan su transformación sostenible.', icon: 'leaf' }
-            ]
-        },
-        {
-            trim: 2,
-            titulo: 'Dimensión social y comunicación profesional',
-            intro: 'Leer la ciudad desde sus habitantes y comunicar proyectos con rigor técnico y académico.',
-            materias: [
-                { nombre: 'Estudios sociales urbanos', obj: 'Analizar las dinámicas sociales, culturales y comunitarias que configuran la vida urbana, para diseñar proyectos con pertinencia territorial y justicia socio-espacial.', icon: 'people' },
-                { nombre: 'Presentación de proyectos e informes de investigación', obj: 'Desarrollar competencias de comunicación técnica y escrita para estructurar proyectos, redactar informes y presentarlos con rigor académico y profesional.', icon: 'file' }
-            ]
-        },
-        {
-            trim: 3,
-            titulo: 'Economía del espacio y métodos cuantitativos',
-            intro: 'Entender cómo el mercado, la demografía y los datos producen y transforman el territorio.',
-            materias: [
-                { nombre: 'Economía y producción social del espacio', obj: 'Comprender los procesos económicos y sociales que producen el espacio urbano, incluyendo mercados de suelo, vivienda e impactos distributivos.', icon: 'coins' },
-                { nombre: 'Análisis espacial, estadístico y demográfico', obj: 'Emplear métodos cuantitativos y estadísticos para estudiar fenómenos urbanos, poblacionales y territoriales con evidencia robusta.', icon: 'chart' }
-            ]
-        },
-        {
-            trim: 4,
-            titulo: 'Diseño participativo y ética profesional',
-            intro: 'Proyectar el espacio público con las comunidades y desde una ética del bien común.',
-            materias: [
-                { nombre: 'Planeación y diseño participativo en el espacio público', obj: 'Diseñar proyectos de espacio público integrando metodologías participativas que recogen la voz de las comunidades usuarias.', icon: 'users' },
-                { nombre: 'Ética y responsabilidad social', obj: 'Reflexionar sobre los dilemas éticos del ejercicio profesional en el urbanismo y la responsabilidad social del diseño de ciudades.', icon: 'shield' }
-            ]
-        },
-        {
-            trim: 5,
-            titulo: 'Marco legal y etnografía urbana',
-            intro: 'Dominar el marco normativo y las herramientas para comprender prácticas urbanas reales.',
-            materias: [
-                { nombre: 'Legislación y planeación del desarrollo urbano', obj: 'Conocer el marco jurídico e instrumental que regula la planeación, el uso de suelo y el desarrollo urbano en México.', icon: 'scales' },
-                { nombre: 'Taller de etnografía urbana', obj: 'Aplicar métodos etnográficos de campo para comprender prácticas, comportamientos y significados en contextos urbanos reales.', icon: 'compass' }
-            ]
-        },
-        {
-            trim: 6,
-            titulo: 'Gestión estratégica y especialización (I)',
-            intro: 'Liderar proyectos urbanos y comenzar tu eje de especialización.',
-            materias: [
-                { nombre: 'Gestión de proyectos estratégicos urbanos', obj: 'Liderar el ciclo completo de un proyecto urbano (formulación, planeación, ejecución y evaluación) con enfoque estratégico y multidisciplinario.', icon: 'gear' },
-                { nombre: 'Optativa I', obj: 'Primera asignatura del eje de especialización elegido. Profundiza en las herramientas y enfoques específicos del eje.', icon: 'star', optativa: true }
-            ]
-        },
-        {
-            trim: 7,
-            titulo: 'Investigación aplicada y especialización (II)',
-            intro: 'Estructuras tu proyecto terminal y amplías tu especialización.',
-            materias: [
-                { nombre: 'Seminario de investigación', obj: 'Definir el problema, el marco teórico y la metodología del proyecto terminal de grado, con acompañamiento académico personalizado.', icon: 'search' },
-                { nombre: 'Optativa II', obj: 'Segunda asignatura del eje elegido. Amplía el conocimiento especializado con aplicación práctica.', icon: 'star', optativa: true }
-            ]
-        },
-        {
-            trim: 8,
-            titulo: 'Integración final y especialización (III)',
-            intro: 'Sintetizas la formación en un proyecto urbano de impacto real.',
-            materias: [
-                { nombre: 'Proyectos urbanos', obj: 'Integrar todo lo aprendido en un proyecto urbano de impacto real, que sintetiza la formación teórica, metodológica y técnica del programa.', icon: 'target' },
-                { nombre: 'Optativa III', obj: 'Tercera y última asignatura del eje elegido. Consolida tu perfil de especialización profesional.', icon: 'star', optativa: true }
-            ]
-        }
-    ];
-
-    function render(idx) {
-        const t = data[idx];
-        panel.innerHTML = `
+    function renderTrim(n) {
+        const data = PLAN[n];
+        const html = `
             <div class="plan-panel-header">
-                <div class="plan-panel-badge">
-                    ${String(t.trim).padStart(2,'0')}
-                    <div class="plan-panel-badge-sub"></div>
-                </div>
+                <div class="plan-panel-badge">${n}<div class="plan-panel-badge-sub">TRIM</div></div>
                 <div class="plan-panel-heading">
-                    <h3>${t.titulo}</h3>
-                    <p>Trimestre ${t.trim} de 8 · ${t.intro}</p>
+                    <h3>${data.title}</h3>
+                    <p>${data.sub}</p>
                 </div>
             </div>
             <div class="plan-materias">
-                ${t.materias.map(m => `
-                    <div class="plan-materia ${m.optativa ? 'optativa' : ''}">
-                        <div class="plan-materia-icon">${ICONS[m.icon] || ICONS.book}</div>
+                ${data.materias.map(m => `
+                    <div class="plan-materia">
+                        <div class="plan-materia-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
                         <div class="plan-materia-body">
-                            ${m.optativa ? '<span class="plan-materia-tag">Eje de especialización</span>' : ''}
-                            <div class="plan-materia-name">${m.nombre}</div>
-                            <div class="plan-materia-obj">${m.obj}</div>
+                            <p class="plan-materia-name">${m.name}</p>
+                            ${m.obj ? `<p class="plan-materia-obj">${m.obj}</p>` : ''}
                         </div>
                     </div>
                 `).join('')}
             </div>
         `;
-        // progress bar
-        if (progress) progress.style.width = ((t.trim / 8) * 100).toFixed(1) + '%';
+        document.getElementById('planPanel').innerHTML = html;
+        document.getElementById('planProgressFill').style.width = (n * 12.5) + '%';
+        document.querySelectorAll('.plan-tab').forEach(t => t.classList.toggle('active', +t.dataset.trim === n));
     }
-
-    tabsContainer.querySelectorAll('.plan-tab').forEach((btn, i) => {
-        btn.addEventListener('click', () => {
-            tabsContainer.querySelectorAll('.plan-tab').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            render(i);
-        });
+    document.querySelectorAll('.plan-tab').forEach(tab => {
+        tab.addEventListener('click', () => renderTrim(+tab.dataset.trim));
     });
+    renderTrim(1);
 
-    // Render inicial
-    render(0);
-})();
-
-// Form submit
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-});
-
-// Countdown timer
-(function () {
-    const target = new Date('2026-06-30T08:00:00');
-    const start  = new Date('2026-01-01T00:00:00'); // inicio del rango para la barra
-    const totalRange = target - start;
-
-    function update() {
-        const now  = new Date();
-        const diff = target - now;
+    // ── COUNTDOWN ──
+    const target = new Date('2026-06-30T08:00:00-07:00').getTime();
+    function updateCountdown() {
+        const diff = target - Date.now();
         if (diff <= 0) {
-            document.getElementById('countdown').innerHTML = '<span style="color:var(--rojo);font-weight:800;font-size:1.2rem;">¡Clases iniciadas!</span>';
+            ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '00');
             return;
         }
         const d = Math.floor(diff / 86400000);
         const h = Math.floor((diff % 86400000) / 3600000);
         const m = Math.floor((diff % 3600000) / 60000);
         const s = Math.floor((diff % 60000) / 1000);
-        document.getElementById('cd-dias').textContent  = String(d).padStart(2,'0');
-        document.getElementById('cd-horas').textContent = String(h).padStart(2,'0');
-        document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
-        document.getElementById('cd-segs').textContent  = String(s).padStart(2,'0');
-        // barra de progreso: cuánto del rango ya transcurrió
-        const elapsed = now - start;
-        const pct = Math.max(0, Math.min(100, (elapsed / totalRange) * 100));
-        const bar = document.getElementById('cd-progress');
-        if (bar) bar.style.width = pct.toFixed(1) + '%';
+        document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+        document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+        document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+        document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
     }
-    update();
-    setInterval(update, 1000);
-})();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-// Scroll animations
-(function () {
+    // ── DOCENTE MODAL ──
+    (function () {
+        const docentes = {
+            'cesar-velandia': {
+                name: 'Dr. César Augusto Velandia Silva',
+                grade: 'Doctor Cum Laude en Geografía',
+                photo: 'assets/docentes/cesar-velandia.jpg',
+                bio: [
+                    'Arquitecto de la Universidad Nacional de Colombia. Maestro en Desarrollo Urbano y Sistemas de Información Geográfica por IBERO Tijuana, y Doctor Cum Laude en Geografía por la Universidad de Alicante.',
+                    'Desde 1997 tiene experiencia en el sector académico a nivel pregrado y posgrado en universidades de México, Colombia, Perú y recientemente España.',
+                    'Entre 2012 y 2015 fue coordinador del Paisaje Cultural Cafetero de Colombia, inscrito en la Lista de Patrimonio Mundial de la UNESCO, en el Ministerio de Cultura de Colombia.',
+                    'En 2016 recibió la beca UNESCO para el Taller de creación de capacidades sobre los vínculos entre naturaleza y cultura en conservación del patrimonio en Asia y el Pacífico, con el Programa de Estudios del Patrimonio Mundial de la Universidad de Tsukuba, en Tokio, Japón.',
+                    'Miembro fundador de ICOMOS Colombia y presidente del comité nacional entre 2017 y 2020. Pertenece al Comité Científico Internacional de Paisajes Culturales de ICOMOS-IFLA.',
+                    'En 2019 recibió el Premio Extraordinario de Doctorado de la Universidad de Alicante. Actualmente es investigador posdoctoral en la Universidad Complutense de Madrid y prepara 2 libros para la colección "Arte y Memoria" de la Universidad de Zaragoza.'
+                ],
+                degrees: [
+                    '<strong>Doctorado en Geografía (Cum Laude)</strong> – Universidad de Alicante, España',
+                    '<strong>Maestría en Desarrollo Urbano y SIG</strong> – IBERO Tijuana',
+                    '<strong>Licenciatura en Arquitectura</strong> – Universidad Nacional de Colombia'
+                ]
+            },
+            'dinorah-gonzalez': {
+                name: 'Dra. Dinorah Judith González Ochoa',
+                grade: 'Doctora en Ciencias Sociales con Especialidad en Estudios Regionales',
+                photo: 'assets/docentes/dinorah-gonzalez.png',
+                bio: [
+                    'Arquitecta por el Instituto Tecnológico de Tijuana. En la Universidad Nacional Autónoma de México (UNAM) cursó la Maestría en Planificación Urbana, y en El Colegio de la Frontera Norte (Tijuana, B.C.) obtuvo el Doctorado en Ciencias Sociales con Especialidad en Estudios Regionales.',
+                    'Cuenta con experiencia en el proceso de planificación urbana y social, específicamente en la definición de programas, generación, implementación y evaluación de políticas públicas, así como estudios de impacto urbano.',
+                    'Con la Secretaría de Desarrollo Social del Estado de Baja California ha colaborado en diversos proyectos: propuesta para la elaboración de Planes de Desarrollo Comunitario de los polígonos hábitat, y espacialización del índice de rezago social a partir del modelo dinámico integral de planeación del desarrollo social, entre otros.',
+                    'Actualmente colabora en el Departamento de Estudios Urbanos donde realiza su estancia postdoctoral.'
+                ],
+                degrees: [
+                    '<strong>Doctorado en Ciencias Sociales</strong> – El Colegio de la Frontera Norte',
+                    '<strong>Maestría en Planificación Urbana</strong> – UNAM',
+                    '<strong>Licenciatura en Arquitectura</strong> – Instituto Tecnológico de Tijuana'
+                ]
+            },
+            'cinthya-paz': {
+                name: 'Dra. Cinthya Lorena Paz Rodríguez',
+                grade: 'Doctora en Turismo y Desarrollo Sostenible · Coordinadora de la Maestría',
+                photo: 'assets/docentes/cinthya-paz.jpg',
+                bio: [
+                    'Arquitecta por la Universidad Autónoma de Baja California campus Mexicali. En la Universidad de Las Palmas de Gran Canaria (España) estudió la Maestría en Turismo Internacional, y es egresada de la primera generación de la Maestría en Gestión de la Fotografía de la IBERO Tijuana.',
+                    'Obtuvo beca de CONACYT en el programa Demanda Libre al Extranjero para estudios del Doctorado en Turismo y Desarrollo Sostenible en la Universidad de Las Palmas de Gran Canaria, España. Realizó estancia profesional becada por parte del Club Rotario Internacional "Group Study Exchange" en Queensland, Australia.',
+                    'Ha sido coordinadora del área técnica, gerente de división mercancía y arquitecta proyectista en desarrollos turísticos y residenciales, como el Hotel Festival Plaza en Playas de Rosarito.',
+                    'Desde 2003 es catedrática en nivel licenciatura y posgrado en la Universidad Iberoamericana Tijuana, donde ha sido coordinadora técnica del Programa de Desarrollo Humano Institucional en Construcción Verde con la Colorado State University.',
+                    'Participa en comités de tesis doctorales, asesora tesinas de maestría, es representante académica en las juntas de gobierno de Institutos Municipales de Planeación en la región Tijuana-San Diego, y titular del Consejo Consultivo Metropolitano de Tijuana.',
+                    'Actualmente es Jefa del Departamento de Arquitectura, Diseño e Ingeniería y Coordinadora de la Maestría en Proyectos para Ciudades Sostenibles.'
+                ],
+                degrees: [
+                    '<strong>Doctorado en Turismo y Desarrollo Sostenible</strong> (beca CONACYT) – U. de Las Palmas de Gran Canaria',
+                    '<strong>Maestría en Turismo Internacional</strong> – U. de Las Palmas de Gran Canaria',
+                    '<strong>Maestría en Gestión de la Fotografía</strong> – IBERO Tijuana',
+                    '<strong>Licenciatura en Arquitectura</strong> – UABC Mexicali'
+                ]
+            },
+            'raymundo-reyes': {
+                name: 'Dr. Raymundo Reyes Vicite',
+                grade: 'Doctor en Arquitectura – Gerencia de Proyecto',
+                photo: 'assets/docentes/raymundo-reyes.jpg',
+                bio: [
+                    'Arquitecto urbanista egresado de la Universidad Iberoamericana, con un Doctorado en Arquitectura–Gerencia de Proyecto por Western University, USA.',
+                    'Cuenta con una Maestría en Diseño Urbano por Oxford Brookes University, UK, y la Maestría en Gerencia de Proyectos en la Universidad de Londres, UK.',
+                    'Ha colaborado con GTI desde 1984 como Director General en proyectos inmobiliarios, urbanismo y APP para centros turísticos, vivienda, tránsito, vialidad, transporte y centros comerciales. Tiene 31 años de experiencia como asesor y desarrollador inmobiliario y en la docencia.',
+                    'Durante su trayectoria ha sido consultor de empresas como Booz Allen y Banco Mundial. Se ha especializado en la promoción, dirección e instrumentación de procesos para el desarrollo de negocios inmobiliarios.',
+                    'Ha participado en macro proyectos en diversas sedes: Playa del Carmen y Cancún Quintana Roo, Veracruz, Mazatlán y Valle de Guadalupe, entre otros.',
+                    'En la Dirección General de Desarrollo Urbano, ha sido asesor para proyectos en Asociación Público Privada (APP) en infraestructura, urbanismo y turismo para la Cámara Mexicana de la Industria de la Construcción (CMIC).'
+                ],
+                degrees: [
+                    '<strong>Doctorado en Arquitectura–Gerencia de Proyecto</strong> – Western University, USA',
+                    '<strong>Maestría en Diseño Urbano</strong> – Oxford Brookes University, UK',
+                    '<strong>Maestría en Gerencia de Proyectos</strong> – Universidad de Londres, UK',
+                    '<strong>Licenciatura en Arquitectura Urbanista</strong> – Universidad Iberoamericana'
+                ]
+            },
+            'alberto-osuna': {
+                name: 'Arq. Alberto Osuna Palma y Meza',
+                grade: 'Arquitecto y Maestro en Desarrollo Urbano',
+                photo: 'assets/docentes/alberto-osuna.jpg',
+                bio: [
+                    'Arquitecto especialista en valuación y proyectos de inversión inmobiliaria, con más de tres décadas de experiencia en desarrollo de vivienda, planeación urbana y gestión de fraccionamientos en el noroeste de México.',
+                    'Ha dirigido la planeación, evaluación físico–financiera y gestión gubernamental de proyectos de vivienda para diversos desarrolladores, así como la evaluación de proyectos inmobiliarios para financiamiento hipotecario.'
+                ],
+                degrees: [
+                    '<strong>Maestría en Desarrollo Urbano con especialidad en SIG</strong> – IBERO Tijuana',
+                    '<strong>Maestría en Planeación Estratégica de Ciudades</strong> – IBERO Tijuana',
+                    '<strong>Diplomado en Proyectos de Inversión Inmobiliaria</strong> – Instituto Tecnológico de Monterrey',
+                    '<strong>Especialidad en Valuación Inmobiliaria</strong> – UABC',
+                    '<strong>Licenciatura en Arquitectura</strong> – UABC'
+                ],
+                quote: 'Mi compromiso es aportar experiencia y rigor técnico para construir ciudades más habitables, donde cada proyecto de vivienda se piense desde las personas y no solo desde los números.'
+            },
+            'karla-banuelos': {
+                name: 'Dra. Karla Fabiola Bañuelos Miranda',
+                grade: 'Doctora en Ciudad, Territorio y Sustentabilidad',
+                photo: 'assets/docentes/karla-banuelos.png',
+                bio: [
+                    'Arquitecta especializada en movilidad urbana, desarrollo territorial y proyectos sustentables de ciudad. Con más de 20 años de experiencia en arquitectura y desarrollo urbano, combina la práctica profesional con la investigación académica y la docencia.',
+                    'Ha dirigido proyectos arquitectónicos residenciales, comerciales e industriales, y ha sido residente de obra en proyectos de alto nivel. Actualmente se desempeña como profesora investigadora en el ITESO y coordina iniciativas de movilidad urbana sustentable.'
+                ],
+                degrees: [
+                    '<strong>Doctorado en Ciudad, Territorio y Sustentabilidad</strong> – Universidad de Guadalajara',
+                    '<strong>Maestría en Ciudad y Espacio Público Sustentable</strong> – ITESO',
+                    '<strong>Licenciatura en Arquitectura</strong> – Instituto Tecnológico de Tepic (mejor promedio)',
+                    '<strong>Diplomado en Gestión Educativa</strong> – CIDEA-ITESO',
+                    '<strong>Leaders in Urban Transport Planning</strong> – WRI Guadalajara, 2019'
+                ]
+            }
+        };
+
+        const overlay  = document.getElementById('docModal');
+        const photoEl  = document.getElementById('docModalPhoto');
+        const nameEl   = document.getElementById('docModalName');
+        const gradeEl  = document.getElementById('docModalGrade');
+        const bioEl    = document.getElementById('docModalBio');
+        const degsEl   = document.getElementById('docModalDegrees');
+        const quoteEl  = document.getElementById('docModalQuote');
+        const closeBtn = document.getElementById('docModalClose');
+
+        function openModal(key) {
+            const d = docentes[key];
+            if (!d) return;
+            photoEl.src = d.photo;
+            photoEl.alt = d.name;
+            nameEl.textContent  = d.name;
+            gradeEl.textContent = d.grade;
+            bioEl.innerHTML  = d.bio.map(p => '<p>' + p + '</p>').join('');
+            degsEl.innerHTML = d.degrees.map(g => '<li>' + g + '</li>').join('');
+            if (d.quote) {
+                quoteEl.textContent = '"' + d.quote + '"';
+                quoteEl.hidden = false;
+            } else {
+                quoteEl.hidden = true;
+            }
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.docente-card').forEach(card => {
+            const key = card.getAttribute('data-docente');
+            if (!key) return;
+            card.addEventListener('click', e => {
+                if (e.target.closest('a')) return;
+                openModal(key);
+            });
+        });
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    })();
+
+    // ── ANIMACIONES ──
     const observer = new IntersectionObserver(entries => {
-        entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: .12 });
     document.querySelectorAll('.anim').forEach(el => observer.observe(el));
-})();
-
-// Docente modal
-(function () {
-    const docentes = {
-        'cesar-velandia': {
-            name: 'Dr. César Augusto Velandia Silva',
-            grade: 'Doctor Cum Laude en Geografía',
-            photo: 'assets/docentes/cesar-velandia.jpg',
-            bio: [
-                'Arquitecto de la Universidad Nacional de Colombia. Maestro en Desarrollo Urbano y Sistemas de Información Geográfica por IBERO Tijuana, y Doctor Cum Laude en Geografía por la Universidad de Alicante.',
-                'Desde 1997 tiene experiencia en el sector académico a nivel pregrado y posgrado en universidades de México, Colombia, Perú y recientemente España.',
-                'Entre 2012 y 2015 fue coordinador del Paisaje Cultural Cafetero de Colombia, inscrito en la Lista de Patrimonio Mundial de la UNESCO, en el Ministerio de Cultura de Colombia.',
-                'En 2016 recibió la beca UNESCO para el Taller de creación de capacidades sobre los vínculos entre naturaleza y cultura en conservación del patrimonio en Asia y el Pacífico, con el Programa de Estudios del Patrimonio Mundial de la Universidad de Tsukuba, en Tokio, Japón.',
-                'Miembro fundador de ICOMOS Colombia y presidente del comité nacional entre 2017 y 2020. Pertenece al Comité Científico Internacional de Paisajes Culturales de ICOMOS-IFLA.',
-                'En 2019 recibió el Premio Extraordinario de Doctorado de la Universidad de Alicante. Actualmente es investigador posdoctoral en la Universidad Complutense de Madrid y prepara 2 libros para la colección "Arte y Memoria" de la Universidad de Zaragoza.'
-            ],
-            degrees: [
-                '<strong>Doctorado en Geografía (Cum Laude)</strong> – Universidad de Alicante, España',
-                '<strong>Maestría en Desarrollo Urbano y SIG</strong> – IBERO Tijuana',
-                '<strong>Licenciatura en Arquitectura</strong> – Universidad Nacional de Colombia'
-            ]
-        },
-        'dinorah-gonzalez': {
-            name: 'Dra. Dinorah Judith González Ochoa',
-            grade: 'Doctora en Ciencias Sociales con Especialidad en Estudios Regionales',
-            photo: 'assets/docentes/dinorah-gonzalez.png',
-            bio: [
-                'Arquitecta por el Instituto Tecnológico de Tijuana. En la Universidad Nacional Autónoma de México (UNAM) cursó la Maestría en Planificación Urbana, y en El Colegio de la Frontera Norte (Tijuana, B.C.) obtuvo el Doctorado en Ciencias Sociales con Especialidad en Estudios Regionales.',
-                'Cuenta con experiencia en el proceso de planificación urbana y social, específicamente en la definición de programas, generación, implementación y evaluación de políticas públicas, así como estudios de impacto urbano.',
-                'Con la Secretaría de Desarrollo Social del Estado de Baja California ha colaborado en diversos proyectos: propuesta para la elaboración de Planes de Desarrollo Comunitario de los polígonos hábitat, y espacialización del índice de rezago social a partir del modelo dinámico integral de planeación del desarrollo social, entre otros.',
-                'Actualmente colabora en el Departamento de Estudios Urbanos donde realiza su estancia postdoctoral.'
-            ],
-            degrees: [
-                '<strong>Doctorado en Ciencias Sociales</strong> – El Colegio de la Frontera Norte',
-                '<strong>Maestría en Planificación Urbana</strong> – UNAM',
-                '<strong>Licenciatura en Arquitectura</strong> – Instituto Tecnológico de Tijuana'
-            ]
-        },
-        'cinthya-paz': {
-            name: 'Dra. Cinthya Lorena Paz Rodríguez',
-            grade: 'Doctora en Turismo y Desarrollo Sostenible · Coordinadora de la Maestría',
-            photo: 'assets/docentes/cinthya-paz.jpg',
-            bio: [
-                'Arquitecta por la Universidad Autónoma de Baja California campus Mexicali. En la Universidad de Las Palmas de Gran Canaria (España) estudió la Maestría en Turismo Internacional, y es egresada de la primera generación de la Maestría en Gestión de la Fotografía de la IBERO Tijuana.',
-                'Obtuvo beca de CONACYT en el programa Demanda Libre al Extranjero para estudios del Doctorado en Turismo y Desarrollo Sostenible en la Universidad de Las Palmas de Gran Canaria, España. Realizó estancia profesional becada por parte del Club Rotario Internacional "Group Study Exchange" en Queensland, Australia.',
-                'Ha sido coordinadora del área técnica, gerente de división mercancía y arquitecta proyectista en desarrollos turísticos y residenciales, como el Hotel Festival Plaza en Playas de Rosarito.',
-                'Desde 2003 es catedrática en nivel licenciatura y posgrado en la Universidad Iberoamericana Tijuana, donde ha sido coordinadora técnica del Programa de Desarrollo Humano Institucional en Construcción Verde con la Colorado State University.',
-                'Participa en comités de tesis doctorales, asesora tesinas de maestría, es representante académica en las juntas de gobierno de Institutos Municipales de Planeación en la región Tijuana-San Diego, y titular del Consejo Consultivo Metropolitano de Tijuana.',
-                'Actualmente es Jefa del Departamento de Arquitectura, Diseño e Ingeniería y Coordinadora de la Maestría en Proyectos para Ciudades Sostenibles.'
-            ],
-            degrees: [
-                '<strong>Doctorado en Turismo y Desarrollo Sostenible</strong> (beca CONACYT) – U. de Las Palmas de Gran Canaria',
-                '<strong>Maestría en Turismo Internacional</strong> – U. de Las Palmas de Gran Canaria',
-                '<strong>Maestría en Gestión de la Fotografía</strong> – IBERO Tijuana',
-                '<strong>Licenciatura en Arquitectura</strong> – UABC Mexicali'
-            ]
-        },
-        'raymundo-reyes': {
-            name: 'Dr. Raymundo Reyes Vicite',
-            grade: 'Doctor en Arquitectura – Gerencia de Proyecto',
-            photo: 'assets/docentes/raymundo-reyes.jpg',
-            bio: [
-                'Arquitecto urbanista egresado de la Universidad Iberoamericana, con un Doctorado en Arquitectura–Gerencia de Proyecto por Western University, USA.',
-                'Cuenta con una Maestría en Diseño Urbano por Oxford Brookes University, UK, y la Maestría en Gerencia de Proyectos en la Universidad de Londres, UK.',
-                'Ha colaborado con GTI desde 1984 como Director General en proyectos inmobiliarios, urbanismo y APP para centros turísticos, vivienda, tránsito, vialidad, transporte y centros comerciales. Tiene 31 años de experiencia como asesor y desarrollador inmobiliario y en la docencia.',
-                'Durante su trayectoria ha sido consultor de empresas como Booz Allen y Banco Mundial. Se ha especializado en la promoción, dirección e instrumentación de procesos para el desarrollo de negocios inmobiliarios.',
-                'Ha participado en macro proyectos en diversas sedes: Playa del Carmen y Cancún Quintana Roo, Veracruz, Mazatlán y Valle de Guadalupe, entre otros.',
-                'En la Dirección General de Desarrollo Urbano, ha sido asesor para proyectos en Asociación Público Privada (APP) en infraestructura, urbanismo y turismo para la Cámara Mexicana de la Industria de la Construcción (CMIC).'
-            ],
-            degrees: [
-                '<strong>Doctorado en Arquitectura–Gerencia de Proyecto</strong> – Western University, USA',
-                '<strong>Maestría en Diseño Urbano</strong> – Oxford Brookes University, UK',
-                '<strong>Maestría en Gerencia de Proyectos</strong> – Universidad de Londres, UK',
-                '<strong>Licenciatura en Arquitectura Urbanista</strong> – Universidad Iberoamericana'
-            ]
-        },
-        'alberto-osuna': {
-            name: 'Arq. Alberto Osuna Palma y Meza',
-            grade: 'Arquitecto y Maestro en Desarrollo Urbano',
-            photo: 'assets/docentes/alberto-osuna.jpg',
-            bio: [
-                'Arquitecto especialista en valuación y proyectos de inversión inmobiliaria, con más de tres décadas de experiencia en desarrollo de vivienda, planeación urbana y gestión de fraccionamientos en el noroeste de México.',
-                'Ha dirigido la planeación, evaluación físico–financiera y gestión gubernamental de proyectos de vivienda para diversos desarrolladores, así como la evaluación de proyectos inmobiliarios para financiamiento hipotecario.'
-            ],
-            degrees: [
-                '<strong>Maestría en Desarrollo Urbano con especialidad en SIG</strong> – IBERO Tijuana',
-                '<strong>Maestría en Planeación Estratégica de Ciudades</strong> – IBERO Tijuana',
-                '<strong>Diplomado en Proyectos de Inversión Inmobiliaria</strong> – Instituto Tecnológico de Monterrey',
-                '<strong>Especialidad en Valuación Inmobiliaria</strong> – UABC',
-                '<strong>Licenciatura en Arquitectura</strong> – UABC'
-            ],
-            quote: 'Mi compromiso es aportar experiencia y rigor técnico para construir ciudades más habitables, donde cada proyecto de vivienda se piense desde las personas y no solo desde los números.'
-        },
-        'karla-banuelos': {
-            name: 'Dra. Karla Fabiola Bañuelos Miranda',
-            grade: 'Doctora en Ciudad, Territorio y Sustentabilidad',
-            photo: 'assets/docentes/karla-banuelos.png',
-            bio: [
-                'Arquitecta especializada en movilidad urbana, desarrollo territorial y proyectos sustentables de ciudad. Con más de 20 años de experiencia en arquitectura y desarrollo urbano, combina la práctica profesional con la investigación académica y la docencia.',
-                'Ha dirigido proyectos arquitectónicos residenciales, comerciales e industriales, y ha sido residente de obra en proyectos de alto nivel. Actualmente se desempeña como profesora investigadora en el ITESO y coordina iniciativas de movilidad urbana sustentable.'
-            ],
-            degrees: [
-                '<strong>Doctorado en Ciudad, Territorio y Sustentabilidad</strong> – Universidad de Guadalajara',
-                '<strong>Maestría en Ciudad y Espacio Público Sustentable</strong> – ITESO',
-                '<strong>Licenciatura en Arquitectura</strong> – Instituto Tecnológico de Tepic (mejor promedio)',
-                '<strong>Diplomado en Gestión Educativa</strong> – CIDEA-ITESO',
-                '<strong>Leaders in Urban Transport Planning</strong> – WRI Guadalajara, 2019'
-            ],
-            quote: 'Mi compromiso es aportar experiencia y rigor técnico para construir ciudades más habitables, donde cada proyecto de vivienda se piense desde las personas y no sólo desde los números.'
-        }
-    };
-
-    const overlay  = document.getElementById('docModal');
-    const photoEl  = document.getElementById('docModalPhoto');
-    const nameEl   = document.getElementById('docModalName');
-    const gradeEl  = document.getElementById('docModalGrade');
-    const bioEl    = document.getElementById('docModalBio');
-    const degsEl   = document.getElementById('docModalDegrees');
-    const quoteEl  = document.getElementById('docModalQuote');
-    const closeBtn = document.getElementById('docModalClose');
-
-    function openModal(key) {
-        const d = docentes[key];
-        if (!d) return;
-        photoEl.src = d.photo;
-        photoEl.alt = d.name;
-        nameEl.textContent  = d.name;
-        gradeEl.textContent = d.grade;
-        bioEl.innerHTML  = d.bio.map(p => '<p>' + p + '</p>').join('');
-        degsEl.innerHTML = d.degrees.map(g => '<li>' + g + '</li>').join('');
-        if (d.quote) {
-            quoteEl.textContent = '"' + d.quote + '"';
-            quoteEl.hidden = false;
-        } else {
-            quoteEl.hidden = true;
-        }
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.docente-card').forEach(card => {
-        const btn = card.querySelector('.docente-view-btn');
-        const key = card.getAttribute('data-docente');
-        if (btn) btn.addEventListener('click', () => openModal(key));
-    });
-
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal(); });
-})();
 </script>
+
 </body>
 </html>

@@ -105,6 +105,29 @@
         .plan-materia-icon { width: 42px; height: 42px; background: rgba(224,0,52,.1); border: 1px solid rgba(224,0,52,.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--rojo); flex-shrink: 0; }
         .plan-materia-name { color: var(--negro); font-size: 1rem; font-weight: 700; line-height: 1.35; }
 
+        /* descripción de materia */
+        .plan-materia-obj { color: var(--gris); font-size: .82rem; line-height: 1.5; margin-top: .35rem; }
+
+        /* ── DOCENTE MODAL ── */
+        .doc-modal-overlay { position: fixed; inset: 0; background: rgba(20,20,20,.55); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 1rem; overflow-y: auto; }
+        .doc-modal-overlay.active { display: flex; animation: docFadeIn .25s ease; }
+        @keyframes docFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .doc-modal { background: #fff; border: 1px solid var(--borde); border-radius: 22px; max-width: 720px; width: 100%; max-height: 92vh; overflow-y: auto; padding: 2.5rem 2.25rem; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,.25); animation: docModalUp .35s cubic-bezier(.2,.9,.3,1.2); }
+        @keyframes docModalUp { from { transform: translateY(30px); opacity: 0 } to { transform: none; opacity: 1 } }
+        .doc-modal-close { position: absolute; top: 1rem; right: 1rem; width: 38px; height: 38px; background: var(--gris-suave); border: none; color: var(--gris-oscuro); font-size: 1.4rem; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: .25s; line-height: 1; }
+        .doc-modal-close:hover { background: var(--rojo); color: #fff; transform: rotate(90deg); }
+        .doc-modal-header { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--borde); }
+        .doc-modal-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--rojo); flex-shrink: 0; box-shadow: 0 4px 20px rgba(224,0,52,.15); }
+        .doc-modal-name { color: var(--negro); font-size: 1.4rem; font-weight: 800; line-height: 1.2; margin-bottom: .4rem; }
+        .doc-modal-grade { color: var(--gris); font-size: .9rem; font-style: italic; }
+        .doc-modal-section-title { color: var(--rojo); font-size: .72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin: 1rem 0 .7rem; display: flex; align-items: center; gap: .5rem; }
+        .doc-modal-section-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(224,0,52,.4), transparent); }
+        .doc-modal-bio p { color: var(--gris-oscuro); font-size: .95rem; line-height: 1.65; margin-bottom: .7rem; }
+        .docente-card[data-docente] { cursor: pointer; }
+        .docente-view-btn { background: rgba(224,0,52,.06); border: 1px solid rgba(224,0,52,.25); color: var(--rojo); font-weight: 700; font-size: .76rem; letter-spacing: .5px; text-transform: uppercase; padding: .5rem .9rem; border-radius: 50px; cursor: pointer; display: inline-flex; align-items: center; gap: .35rem; transition: .25s; font-family: inherit; margin-top: .5rem; }
+        .docente-view-btn:hover { background: var(--rojo); color: #fff; transform: translateY(-1px); }
+        @media (max-width: 520px) { .doc-modal-header { flex-direction: column; text-align: center; } .doc-modal { padding: 2rem 1.25rem; } }
+
         /* ── DOCENTES ── */
         .docentes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
         .docente-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 1.75rem 1.25rem 1.5rem; text-align: center; transition: .3s; box-shadow: 0 4px 16px rgba(0,0,0,.03); position: relative; }
@@ -319,68 +342,76 @@
         </div>
 
         <div class="docentes-grid">
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="jorge-bautista">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/jorge-bautista.jpeg" alt="Jorge Bautista" loading="lazy"></div>
                 <h3 class="docente-name">Jorge Bautista</h3>
                 <p class="docente-grade">MAI</p>
                 <div class="docente-chips"><span class="docente-chip">Multinacionales</span><span class="docente-chip">Logística</span></div>
                 <p class="docente-tagline">Experto en Logística y Gerente en diversas empresas multinacionales. Desarrollador de programas de posgrado y diplomados.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="renato-brassea">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/renato-brassea.jpeg" alt="Renato Brassea" loading="lazy"></div>
                 <h3 class="docente-name">Renato Brassea</h3>
                 <p class="docente-grade">Mtro. en Derecho</p>
                 <div class="docente-chips"><span class="docente-chip">Aduanas</span><span class="docente-chip">Comercio Ext.</span></div>
                 <p class="docente-tagline">Abogado y Asesor Aduanero. Director de Brassea & Brassea — Abogados y Asesores Aduaneros.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="guillermo-rivero">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/guillermo-rivero.jpeg" alt="Guillermo Rivero" loading="lazy"></div>
                 <h3 class="docente-name">Guillermo Rivero</h3>
                 <p class="docente-grade">Doctorando · MBA</p>
                 <div class="docente-chips"><span class="docente-chip">Operaciones</span><span class="docente-chip">Coca-Cola</span></div>
                 <p class="docente-tagline">Gerente de Operaciones en Pasteurizadora Jersey del Noroeste. Ex-Gte. de Planta en Coca-Cola CDF.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="alejandro-gracida">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/alejandro-gracida.jpeg" alt="Alejandro Gracida" loading="lazy"></div>
                 <h3 class="docente-name">Alejandro Gracida</h3>
                 <p class="docente-grade">MBA</p>
                 <div class="docente-chips"><span class="docente-chip">Toyota</span><span class="docente-chip">Aeroespacial</span></div>
                 <p class="docente-tagline">Ex-Presidente de Toyota CAMEX. Consejero en MGL y miembro del Cluster Aeroespacial de Baja California.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="alejandro-osuna">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/alejandro-osuna.png" alt="Alejandro Osuna" loading="lazy"></div>
                 <h3 class="docente-name">Alejandro Osuna</h3>
                 <p class="docente-grade">LLM</p>
                 <div class="docente-chips"><span class="docente-chip">Arbitraje Int.</span><span class="docente-chip">Mediación</span></div>
                 <p class="docente-tagline">Abogado especializado en arbitraje internacional, mediación y litigios corporativos transfronterizos.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="ricardo-aranda">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/ricardo-aranda.jpeg" alt="Ricardo Aranda" loading="lazy"></div>
                 <h3 class="docente-name">Ricardo Aranda</h3>
                 <p class="docente-grade">MBA</p>
                 <div class="docente-chips"><span class="docente-chip">Sumitronics</span><span class="docente-chip">CRM</span></div>
                 <p class="docente-tagline">Gerente Senior de Programa en Sumitronics, con enfoque firme en servicio al cliente y CRM.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="armando-tejeda">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/armando-tejeda.jpeg" alt="Armando Tejeda" loading="lazy"></div>
                 <h3 class="docente-name">Armando Tejeda</h3>
                 <p class="docente-grade">MBA</p>
                 <div class="docente-chips"><span class="docente-chip">Telvista</span><span class="docente-chip">Estrategia</span></div>
                 <p class="docente-tagline">Ejecutivo líder en empresas internacionales (Telvista). Experto en planificación estratégica y desarrollo de mercados.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
 
-            <article class="docente-card anim anim-up">
+            <article class="docente-card anim anim-up" data-docente="juan-carlos-falcon">
                 <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/juan-carlos-falcon.jpeg" alt="Juan Carlos Falcón" loading="lazy"></div>
                 <h3 class="docente-name">Juan Carlos Falcón</h3>
                 <p class="docente-grade">MGEI</p>
                 <div class="docente-chips"><span class="docente-chip">Negocios Int.</span><span class="docente-chip">Business Plans</span></div>
                 <p class="docente-tagline">Especializado en desarrollo de Business Plans y Planes de Negocios Internacionales.</p>
+                <button class="docente-view-btn" type="button">Ver perfil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
             </article>
         </div>
     </div>
@@ -585,6 +616,22 @@
     </div>
 </section>
 
+<!-- DOCENTE MODAL -->
+<div class="doc-modal-overlay" id="docModal" role="dialog" aria-modal="true" aria-labelledby="docModalName">
+    <div class="doc-modal">
+        <button class="doc-modal-close" id="docModalClose" aria-label="Cerrar">×</button>
+        <div class="doc-modal-header">
+            <img class="doc-modal-photo" id="docModalPhoto" src="" alt="">
+            <div>
+                <h3 class="doc-modal-name" id="docModalName"></h3>
+                <p class="doc-modal-grade" id="docModalGrade"></p>
+            </div>
+        </div>
+        <p class="doc-modal-section-title">Trayectoria</p>
+        <div class="doc-modal-bio" id="docModalBio"></div>
+    </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
     <p>© IBERO Tijuana · Maestría en Logística Internacional · RVOE BC 199 M2 14</p>
@@ -594,36 +641,36 @@
     // ── PLAN DE ESTUDIOS ──
     const PLAN = {
         1: { title: 'Primer Trimestre', sub: 'Fundamentos del plan de negocios y producción', materias: [
-            { name: 'Plan de Negocios' },
-            { name: 'Programación Maestra de Producción' }
+            { name: 'Plan de Negocios', obj: 'Estructurar planes de negocios viables con análisis de mercado, operaciones y proyecciones financieras.' },
+            { name: 'Programación Maestra de Producción', obj: 'Diseñar la programación maestra que coordina demanda, capacidad y materiales.' }
         ]},
         2: { title: 'Segundo Trimestre', sub: 'Requerimientos y planeación de producción', materias: [
-            { name: 'Plan de Requerimientos de Materiales' },
-            { name: 'Plan de Producción' }
+            { name: 'Plan de Requerimientos de Materiales', obj: 'Aplicar MRP para asegurar disponibilidad de materiales y minimizar inventarios.' },
+            { name: 'Plan de Producción', obj: 'Planificar la producción agregada equilibrando recursos, capacidad y demanda.' }
         ]},
         3: { title: 'Tercer Trimestre', sub: 'Abastecimiento y cadena de suministros', materias: [
-            { name: 'Desarrollo de Fuentes de Abastecimiento' },
-            { name: 'Cadena de Suministros' }
+            { name: 'Desarrollo de Fuentes de Abastecimiento', obj: 'Identificar, evaluar y desarrollar proveedores estratégicos para asegurar la cadena.' },
+            { name: 'Cadena de Suministros', obj: 'Comprender la gestión integral de cadenas de suministro globales y sus retos contemporáneos.' }
         ]},
         4: { title: 'Cuarto Trimestre', sub: 'Negociación y contratación internacional', materias: [
-            { name: 'Estrategias de Negociación Internacional' },
-            { name: 'Cotizaciones y Contratos Internacionales' }
+            { name: 'Estrategias de Negociación Internacional', obj: 'Negociar acuerdos comerciales internacionales considerando factores culturales y legales.' },
+            { name: 'Cotizaciones y Contratos Internacionales', obj: 'Estructurar cotizaciones y contratos que protejan intereses en operaciones globales.' }
         ]},
         5: { title: 'Quinto Trimestre', sub: 'Evaluación de proveedores y distribución', materias: [
-            { name: 'Evaluación de Proveedores' },
-            { name: 'Sistemas de Distribución' }
+            { name: 'Evaluación de Proveedores', obj: 'Aplicar metodologías de evaluación y desarrollo de proveedores para optimizar la cadena.' },
+            { name: 'Sistemas de Distribución', obj: 'Diseñar sistemas de distribución eficientes que conecten producción con clientes finales.' }
         ]},
         6: { title: 'Sexto Trimestre', sub: 'Marco legal e inventarios', materias: [
-            { name: 'Legislación del Comercio Internacional' },
-            { name: 'Control de Inventarios' }
+            { name: 'Legislación del Comercio Internacional', obj: 'Conocer el marco legal del comercio exterior y la operación aduanera en México.' },
+            { name: 'Control de Inventarios', obj: 'Implementar técnicas de control de inventarios que optimicen costos y disponibilidad.' }
         ]},
         7: { title: 'Séptimo Trimestre', sub: 'Transporte global y servicio al cliente', materias: [
-            { name: 'Transportación Internacional' },
-            { name: 'Servicio al Cliente Industrial' }
+            { name: 'Transportación Internacional', obj: 'Gestionar modalidades, costos y documentación del transporte internacional de mercancías.' },
+            { name: 'Servicio al Cliente Industrial', obj: 'Diseñar estrategias de servicio que generen valor en relaciones B2B.' }
         ]},
         8: { title: 'Octavo Trimestre', sub: 'Ética profesional e investigación', materias: [
-            { name: 'Dimensión Ética del Ser Humano' },
-            { name: 'Seminario de Investigación' }
+            { name: 'Dimensión Ética del Ser Humano', obj: 'Reflexionar sobre los dilemas éticos del ejercicio profesional en logística y comercio.' },
+            { name: 'Seminario de Investigación', obj: 'Desarrollar el proyecto de investigación aplicada como producto final del programa.' }
         ]}
     };
 
@@ -645,6 +692,7 @@
                         </div>
                         <div class="plan-materia-body">
                             <p class="plan-materia-name">${m.name}</p>
+                            ${m.obj ? `<p class="plan-materia-obj">${m.obj}</p>` : ''}
                         </div>
                     </div>
                 `).join('')}
@@ -678,6 +726,86 @@
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // ── DOCENTE MODAL ──
+    (function () {
+        const docentes = {
+            'jorge-bautista': {
+                name: 'Jorge Bautista',
+                grade: 'MAI · Experto en Logística',
+                photo: 'assets/docentes/jorge-bautista.jpeg',
+                bio: ['Maestro en Administración Internacional. Gerente de Logística en diversas empresas multinacionales con amplia trayectoria.', 'Ha desarrollado programas de posgrado (MLI) y diplomados en Logística, además de fungir como asesor y capacitador empresarial.']
+            },
+            'renato-brassea': {
+                name: 'Renato Brassea',
+                grade: 'Mtro. en Derecho',
+                photo: 'assets/docentes/renato-brassea.jpeg',
+                bio: ['Abogado y Asesor Aduanero y del Comercio Exterior con sólida trayectoria en operaciones transfronterizas.', 'Director de Brassea & Brassea — Abogados y Asesores Aduaneros.']
+            },
+            'guillermo-rivero': {
+                name: 'Guillermo Rivero',
+                grade: 'Doctorando · MBA',
+                photo: 'assets/docentes/guillermo-rivero.jpeg',
+                bio: ['Doctorando con MBA, especializado en operaciones y logística.', 'Gerente de operaciones en Pasteurizadora Jersey del Noroeste S.A. Anteriormente, Gerente de Planta en Coca-Cola CDF.']
+            },
+            'alejandro-gracida': {
+                name: 'Alejandro Gracida',
+                grade: 'MBA',
+                photo: 'assets/docentes/alejandro-gracida.jpeg',
+                bio: ['Ex-Presidente de Toyota CAMEX. Consejero Corporativo en MGL (Manufacturing Support and Global Logistics).', 'Miembro estratégico del Cluster Aeroespacial de Baja California.']
+            },
+            'alejandro-osuna': {
+                name: 'Alejandro Osuna',
+                grade: 'LLM',
+                photo: 'assets/docentes/alejandro-osuna.png',
+                bio: ['Abogado especializado en arbitraje internacional, mediación y litigios corporativos transfronterizos.']
+            },
+            'ricardo-aranda': {
+                name: 'Ricardo Aranda',
+                grade: 'MBA',
+                photo: 'assets/docentes/ricardo-aranda.jpeg',
+                bio: ['Maestro en Administración. Gerente Senior de Programa en Sumitronics, con enfoque firme en servicio al cliente y CRM.']
+            },
+            'armando-tejeda': {
+                name: 'Armando Tejeda',
+                grade: 'MBA',
+                photo: 'assets/docentes/armando-tejeda.jpeg',
+                bio: ['Ejecutivo líder en empresas con presencia internacional como Telvista, gestionando marcas reconocidas mundialmente.', 'Especializado en planificación estratégica y desarrollo de nuevos negocios y mercados.']
+            },
+            'juan-carlos-falcon': {
+                name: 'Juan Carlos Falcón',
+                grade: 'MGEI',
+                photo: 'assets/docentes/juan-carlos-falcon.jpeg',
+                bio: ['Maestro en Gestión Empresarial Internacional, especializado en desarrollo de Business Plans y Planes de Negocios Internacionales.']
+            }
+        };
+
+        const overlay = document.getElementById('docModal');
+        const photoEl = document.getElementById('docModalPhoto');
+        const nameEl  = document.getElementById('docModalName');
+        const gradeEl = document.getElementById('docModalGrade');
+        const bioEl   = document.getElementById('docModalBio');
+        const closeBtn= document.getElementById('docModalClose');
+
+        function openModal(key) {
+            const d = docentes[key]; if (!d) return;
+            photoEl.src = d.photo; photoEl.alt = d.name;
+            nameEl.textContent = d.name; gradeEl.textContent = d.grade;
+            bioEl.innerHTML = d.bio.map(p => '<p>' + p + '</p>').join('');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.docente-card[data-docente]').forEach(card => {
+            card.addEventListener('click', () => openModal(card.getAttribute('data-docente')));
+        });
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    })();
 
     // ── ANIMACIONES ──
     const observer = new IntersectionObserver(entries => {
