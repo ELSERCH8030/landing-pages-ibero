@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestría en Logística Internacional | IBERO Tijuana</title>
+    <meta name="description" content="Impulsa el crecimiento global y sostenible. Optimiza cadenas globales de suministro. Modalidad presencial, 8 trimestres, inicio 30 de junio 2026.">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="https://use.typekit.net/phs8jtn.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --rojo: #E00034; --rojo-oscuro: #B8002A;
+            --blanco: #FFFFFF; --negro: #1A1A1A;
+            --gris-claro: #F7F7F8; --gris-suave: #EDEDF0; --gris: #6B6B70; --gris-oscuro: #2A2A2E;
+            --borde: #E5E5E8;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'alverata', 'Segoe UI', sans-serif; color: var(--gris-oscuro); line-height: 1.6; background: var(--blanco); overflow-x: hidden; padding-top: 69px; }
+
+        /* ── HEADER ── */
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: .75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; background: var(--rojo); box-shadow: 0 2px 12px rgba(0,0,0,.15); }
+        .logo-area { display: flex; align-items: center; gap: .75rem; }
+        .logo-img { height: 44px; width: auto; }
+        .header-divider { width: 1px; height: 28px; background: rgba(255,255,255,.4); }
+        .header-career { color: #fff; font-size: .82rem; font-weight: 600; max-width: 220px; line-height: 1.3; }
+        .nav-cta { background: #fff; color: var(--rojo); padding: .55rem 1.4rem; border-radius: 50px; font-size: .85rem; font-weight: 800; text-decoration: none; transition: .2s; white-space: nowrap; }
+        .nav-cta:hover { background: #f3f3f3; transform: scale(1.04); }
+
+        /* ── TICKER ── */
+        .ticker-wrap { width: 100%; background: var(--rojo); overflow: hidden; padding: .6rem 0; position: relative; }
+        .ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none; }
+        .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--rojo), transparent); }
+        .ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--rojo), transparent); }
+        .ticker-track { display: flex; width: max-content; animation: ticker-scroll 30s linear infinite; }
+        .ticker-track:hover { animation-play-state: paused; }
+        .ticker-item { display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; font-size: .8rem; font-weight: 600; color: #fff; letter-spacing: .8px; text-transform: uppercase; padding: 0 2.5rem; }
+        .ticker-dot { color: rgba(255,255,255,.6); font-size: .65rem; }
+        @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* ── HERO ── */
+        .hero { position: relative; min-height: 560px; padding: 5rem 1.5rem; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: #1a1a1a; }
+        .hero-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(20,20,20,.65) 0%, rgba(40,20,30,.55) 60%, rgba(184,0,42,.45) 100%); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 880px; padding: 0 1.5rem; }
+        .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.2); padding: .4rem 1.1rem; border-radius: 50px; font-size: .78rem; font-weight: 700; color: #fff; letter-spacing: .6px; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .hero-badge span { width: 6px; height: 6px; background: var(--rojo); border-radius: 50%; display: inline-block; animation: pulse-dot 1.6s ease-in-out infinite; }
+        .hero h1 { font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.12; margin-bottom: 1.2rem; letter-spacing: -.5px; }
+        .hero h1 em { color: var(--rojo); font-style: normal; }
+        .hero p { font-size: clamp(.98rem, 2vw, 1.18rem); color: rgba(255,255,255,.88); max-width: 620px; margin: 0 auto 1.6rem; font-weight: 400; }
+        .hero-meta { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin-bottom: 2rem; padding: .9rem 1.4rem; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 14px; backdrop-filter: blur(6px); }
+        .hero-meta-item { display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: #fff; font-weight: 600; }
+        .hero-meta-item svg { color: var(--rojo); }
+        @keyframes pulse-dot { 0%{box-shadow:0 0 0 0 rgba(224,0,52,.6)} 70%{box-shadow:0 0 0 8px rgba(224,0,52,0)} 100%{box-shadow:0 0 0 0 rgba(224,0,52,0)} }
+        .btn-hero { display: inline-flex; align-items: center; gap: .65rem; background: linear-gradient(135deg, var(--rojo), #c8102e); color: #fff; padding: 1.05rem 2.4rem; border-radius: 50px; font-size: 1.02rem; font-weight: 700; letter-spacing: .3px; text-decoration: none; border: 1.5px solid rgba(255,255,255,.18); box-shadow: 0 12px 30px rgba(224,0,52,.3); transition: all .3s ease; cursor: pointer; }
+        .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(224,0,52,.4); }
+        .btn-hero svg { transition: transform .3s ease; }
+        .btn-hero:hover svg { transform: translateX(4px); }
+
+        /* ── STATS BAR ── */
+        .stats-bar { background: var(--blanco); padding: 0 1.5rem; border-top: 3px solid var(--rojo); border-bottom: 1px solid var(--borde); }
+        .stats-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+        .stat-item { text-align: center; padding: 2rem 1rem; border-right: 1px solid var(--borde); }
+        .stat-item:last-child { border-right: none; }
+        .stat-num { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 900; color: var(--rojo); line-height: 1; letter-spacing: -1px; }
+        .stat-label { font-size: .72rem; color: var(--gris); letter-spacing: 1.5px; text-transform: uppercase; margin-top: .5rem; font-weight: 600; }
+
+        /* ── SECCIONES BASE ── */
+        .section { padding: 5rem 1.5rem; }
+        .section-light { background: var(--blanco); }
+        .section-soft { background: var(--gris-claro); }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-eyebrow { color: var(--rojo); font-size: .8rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: .8rem; font-weight: 800; }
+        .section-title { color: var(--negro); font-size: clamp(1.9rem, 3.6vw, 2.6rem); font-weight: 800; line-height: 1.2; max-width: 820px; margin: 0 auto .8rem; letter-spacing: -.3px; }
+        .section-title em { color: var(--rojo); font-style: normal; }
+        .section-sub { color: var(--gris); font-size: 1rem; max-width: 640px; margin: 0 auto; line-height: 1.6; }
+
+        /* ── PLAN DE ESTUDIOS ── */
+        .plan-meta { display: inline-flex; align-items: center; gap: 1.5rem; padding: 1rem 1.75rem; background: var(--blanco); border: 1px solid var(--borde); border-radius: 14px; flex-wrap: wrap; justify-content: center; margin-top: 1rem; box-shadow: 0 2px 12px rgba(0,0,0,.03); }
+        .plan-meta-item { display: flex; flex-direction: column; align-items: center; min-width: 110px; }
+        .plan-meta-item strong { color: var(--negro); font-size: 1.05rem; font-weight: 800; }
+        .plan-meta-item span { color: var(--gris); font-size: .72rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: .2rem; font-weight: 600; }
+        .plan-meta-sep { width: 1px; height: 32px; background: var(--borde); }
+
+        .plan-tabs { display: grid; grid-template-columns: repeat(8, 1fr); gap: .5rem; margin-bottom: .75rem; }
+        .plan-tab { background: var(--blanco); border: 1px solid var(--borde); color: var(--gris); padding: .95rem .5rem; border-radius: 10px; cursor: pointer; font-family: inherit; transition: all .3s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; align-items: center; gap: .2rem; }
+        .plan-tab:hover { border-color: rgba(224,0,52,.4); color: var(--negro); transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.05); }
+        .plan-tab .plan-tab-num { font-size: 1.15rem; font-weight: 800; }
+        .plan-tab .plan-tab-lbl { font-size: .62rem; letter-spacing: 1.3px; text-transform: uppercase; opacity: .8; }
+        .plan-tab.active { background: linear-gradient(135deg, var(--rojo), #c8102e); border-color: var(--rojo); color: #fff; box-shadow: 0 8px 22px rgba(224,0,52,.3); }
+        .plan-progress { height: 3px; background: var(--gris-suave); border-radius: 2px; overflow: hidden; }
+        .plan-progress-fill { height: 100%; background: linear-gradient(90deg, var(--rojo), #ff6b35); border-radius: 2px; transition: width .5s cubic-bezier(.2,.8,.2,1); width: 12.5%; }
+
+        .plan-panel { background: var(--blanco); border: 1px solid var(--borde); border-radius: 18px; padding: 2.25rem; margin-top: 2rem; animation: planFade .4s ease both; box-shadow: 0 4px 20px rgba(0,0,0,.04); }
+        @keyframes planFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .plan-panel-header { display: flex; align-items: center; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--borde); margin-bottom: 1.5rem; }
+        .plan-panel-badge { width: 58px; height: 58px; background: linear-gradient(135deg, var(--rojo), #c8102e); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 1.35rem; box-shadow: 0 6px 18px rgba(224,0,52,.3); flex-shrink: 0; }
+        .plan-panel-badge-sub { font-size: .55rem; letter-spacing: 1.2px; opacity: .9; font-weight: 600; }
+        .plan-panel-heading h3 { color: var(--negro); font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+        .plan-panel-heading p { color: var(--gris); font-size: .9rem; }
+        .plan-materias { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .plan-materia { background: var(--gris-claro); border: 1px solid var(--borde); border-radius: 12px; padding: 1.35rem 1.4rem; transition: all .25s ease; display: flex; gap: 1rem; }
+        .plan-materia:hover { border-color: rgba(224,0,52,.35); background: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+        .plan-materia-icon { width: 42px; height: 42px; background: rgba(224,0,52,.1); border: 1px solid rgba(224,0,52,.25); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--rojo); flex-shrink: 0; }
+        .plan-materia-name { color: var(--negro); font-size: 1rem; font-weight: 700; line-height: 1.35; }
+
+        /* ── DOCENTES ── */
+        .docentes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .docente-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 1.75rem 1.25rem 1.5rem; text-align: center; transition: .3s; box-shadow: 0 4px 16px rgba(0,0,0,.03); position: relative; }
+        .docente-card:hover { transform: translateY(-4px); border-color: rgba(224,0,52,.4); box-shadow: 0 16px 40px rgba(0,0,0,.08); }
+        .docente-photo-wrap { width: 110px; height: 110px; margin: 0 auto 1rem; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, var(--rojo), #ff6b35); }
+        .docente-photo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: var(--gris-suave); display: block; }
+        .docente-name { color: var(--negro); font-size: .98rem; font-weight: 800; line-height: 1.25; margin-bottom: .35rem; letter-spacing: -.1px; }
+        .docente-grade { color: var(--rojo); font-size: .78rem; font-weight: 700; margin-bottom: .85rem; letter-spacing: .3px; }
+        .docente-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; margin-bottom: .85rem; }
+        .docente-chip { background: rgba(224,0,52,.08); border: 1px solid rgba(224,0,52,.2); color: var(--rojo); font-size: .67rem; font-weight: 700; letter-spacing: .4px; padding: .25rem .55rem; border-radius: 50px; text-transform: uppercase; }
+        .docente-tagline { color: var(--gris); font-size: .82rem; line-height: 1.5; }
+
+        /* ── INVERSIÓN / PRECIOS ── */
+        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+        .price-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 2.2rem 1.8rem; text-align: center; transition: .25s; box-shadow: 0 4px 16px rgba(0,0,0,.04); }
+        .price-card:hover { border-color: rgba(224,0,52,.45); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,.08); }
+        .price-label { color: var(--gris); font-size: .8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: .8rem; }
+        .price-amount { color: var(--negro); font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 800; line-height: 1; margin-bottom: .4rem; }
+        .price-amount .currency { color: var(--rojo); font-size: .55em; vertical-align: top; margin-right: .15em; font-weight: 700; }
+        .price-note { color: var(--gris); font-size: .85rem; }
+        .price-trimestre { background: linear-gradient(135deg, rgba(224,0,52,.08) 0%, rgba(224,0,52,.02) 100%); border: 1px solid rgba(224,0,52,.3); border-radius: 16px; padding: 1.5rem; text-align: center; margin: 0 auto 2.5rem; max-width: 720px; }
+        .price-trimestre strong { color: var(--rojo); font-weight: 800; }
+        .price-trimestre span { color: var(--gris-oscuro); font-size: 1.05rem; }
+        .beca-card { background: linear-gradient(135deg, #fff5f7 0%, #fff 100%); border: 1px solid rgba(224,0,52,.3); border-radius: 16px; padding: 2rem; display: flex; gap: 1.5rem; align-items: flex-start; max-width: 920px; margin: 0 auto; box-shadow: 0 6px 24px rgba(224,0,52,.06); }
+        .beca-icon { flex-shrink: 0; width: 56px; height: 56px; background: var(--rojo); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .beca-title { color: var(--negro); font-size: 1.25rem; font-weight: 800; margin-bottom: .5rem; }
+        .beca-title em { color: var(--rojo); font-style: normal; }
+        .beca-text { color: var(--gris-oscuro); font-size: .98rem; line-height: 1.55; margin-bottom: .8rem; }
+        .beca-disclaimer { color: var(--gris); font-size: .82rem; line-height: 1.5; font-style: italic; }
+
+        /* ── ¿QUÉ HACE ÚNICO? ── */
+        .unique-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .unique-card { background: var(--blanco); border: 1px solid var(--borde); border-radius: 16px; padding: 2rem; transition: .25s; box-shadow: 0 4px 16px rgba(0,0,0,.03); }
+        .unique-card:hover { border-color: rgba(224,0,52,.4); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.07); }
+        .unique-icon { width: 52px; height: 52px; background: rgba(224,0,52,.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--rojo); margin-bottom: 1rem; }
+        .unique-title { color: var(--negro); font-size: 1.15rem; font-weight: 800; margin-bottom: .5rem; line-height: 1.3; }
+        .unique-text { color: var(--gris); font-size: .95rem; line-height: 1.6; }
+
+        /* ── PARA QUIÉN ── */
+        .conv-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .conv-checks { list-style: none; display: flex; flex-direction: column; gap: .85rem; margin-bottom: 1.5rem; }
+        .conv-checks li { display: flex; align-items: flex-start; gap: .75rem; color: var(--gris-oscuro); font-size: .95rem; line-height: 1.55; }
+        .conv-checks li .icon { width: 22px; height: 22px; min-width: 22px; background: rgba(224,0,52,.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--rojo); margin-top: 2px; }
+        .conv-img { width: 100%; border-radius: 20px; overflow: hidden; height: 360px; box-shadow: 0 12px 40px rgba(0,0,0,.12); }
+        .conv-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* ── PERFIL DE EGRESO ── */
+        .perfil-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        .perfil-item { background: var(--blanco); border: 1px solid var(--borde); border-radius: 14px; padding: 1.5rem; display: flex; gap: 1rem; transition: .25s; box-shadow: 0 2px 10px rgba(0,0,0,.03); }
+        .perfil-item:hover { border-color: rgba(224,0,52,.35); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.06); }
+        .perfil-num { width: 36px; height: 36px; min-width: 36px; background: var(--rojo); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .95rem; }
+        .perfil-text { color: var(--gris-oscuro); font-size: .95rem; line-height: 1.55; }
+
+        /* ── FORM ── */
+        .form-section { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 5rem 1.5rem; border-top: 3px solid var(--rojo); color: #fff; }
+        .form-cols { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .form-side h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.15; }
+        .form-side h2 em { color: var(--rojo); font-style: normal; }
+        .form-side > p { color: rgba(255,255,255,.7); font-size: .98rem; margin-bottom: 2rem; }
+        .countdown-box { background: rgba(255,255,255,.04); border: 1px solid rgba(224,0,52,.3); border-radius: 18px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .countdown-label { font-size: .68rem; text-transform: uppercase; letter-spacing: 2px; color: var(--rojo); margin-bottom: 1rem; font-weight: 800; display: flex; align-items: center; gap: .5rem; }
+        .countdown-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--rojo); display: inline-block; box-shadow: 0 0 6px var(--rojo); animation: pulse-dot 1.4s ease-in-out infinite; }
+        .countdown-grid { display: flex; align-items: stretch; gap: .6rem; margin-bottom: .8rem; }
+        .cd-item { flex: 1; display: flex; flex-direction: column; align-items: center; background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: .9rem .5rem .6rem; }
+        .cd-num { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
+        .cd-unit { font-size: .58rem; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,.5); margin-top: .4rem; font-weight: 700; }
+        .cd-sep { font-size: 1.6rem; font-weight: 900; color: var(--rojo); align-self: center; margin-bottom: .6rem; opacity: .7; }
+        .countdown-fecha { font-size: .8rem; color: rgba(255,255,255,.55); text-align: center; }
+        .proof-list { display: flex; flex-direction: column; gap: 1rem; }
+        .proof-item { display: flex; align-items: center; gap: 1rem; padding: .9rem 1rem; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; }
+        .proof-icon { min-width: 40px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(224,0,52,.15); border-radius: 10px; }
+        .proof-item strong { font-size: 1rem; color: #fff; font-weight: 800; display: block; }
+        .proof-item span { font-size: .78rem; color: rgba(255,255,255,.55); }
+
+        .form-card { background: #fff; color: var(--gris-oscuro); border-radius: 24px; padding: 2.2rem; box-shadow: 0 16px 50px rgba(0,0,0,.4); }
+        .form-card h3 { color: var(--negro); font-size: 1.4rem; font-weight: 800; margin-bottom: .3rem; }
+        .form-card > p { color: var(--gris); font-size: .9rem; margin-bottom: 1.5rem; }
+        .form-iframe-wrap { overflow: hidden; min-height: 540px; }
+        .form-iframe-wrap iframe { width: 100%; min-height: 540px; border: none; border-radius: 8px; }
+
+        /* ── UBICACIÓN ── */
+        .ubi-inner { max-width: 1100px; margin: 0 auto; }
+        .ubi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; margin-top: 2rem; }
+        .ubi-card { background: #fff; border: 1px solid var(--borde); border-radius: 16px; padding: 1.75rem; box-shadow: 0 4px 16px rgba(0,0,0,.04); }
+        .ubi-info { display: flex; align-items: flex-start; gap: .85rem; margin-bottom: 1.1rem; }
+        .ubi-info svg { color: var(--rojo); flex-shrink: 0; margin-top: 3px; }
+        .ubi-info strong { display: block; color: var(--negro); font-weight: 800; margin-bottom: .15rem; font-size: .95rem; }
+        .ubi-info span { color: var(--gris); font-size: .92rem; line-height: 1.5; }
+        .ubi-info a { color: var(--rojo); text-decoration: none; font-weight: 600; }
+        .ubi-info a:hover { text-decoration: underline; }
+        .ubi-map { border-radius: 16px; overflow: hidden; border: 1px solid var(--borde); min-height: 380px; }
+        .ubi-map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; }
+
+        /* ── FOOTER ── */
+        footer { background: var(--negro); color: rgba(255,255,255,.55); padding: 2rem 1.5rem; text-align: center; font-size: .82rem; }
+        footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+
+        /* ── ANIMATIONS ── */
+        .anim { opacity: 0; transition: opacity .8s ease, transform .8s ease; }
+        .anim-up { transform: translateY(35px); }
+        .anim.visible { opacity: 1; transform: none; }
+        .anim-delay-1 { transition-delay: .1s; }
+        .anim-delay-2 { transition-delay: .2s; }
+        .anim-delay-3 { transition-delay: .3s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .stat-item { border-bottom: 1px solid var(--borde); }
+            .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+            .stat-item:nth-child(2n) { border-right: none; }
+            .plan-tabs { grid-template-columns: repeat(4, 1fr); }
+            .plan-materias { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .unique-grid { grid-template-columns: 1fr; }
+            .conv-inner { grid-template-columns: 1fr; gap: 2rem; }
+            .perfil-grid { grid-template-columns: 1fr; }
+            .form-cols { grid-template-columns: 1fr; gap: 2rem; }
+            .ubi-grid { grid-template-columns: 1fr; }
+            .beca-card { flex-direction: column; gap: 1rem; }
+            .plan-panel { padding: 1.5rem 1.25rem; }
+            .header-career { display: none; }
+            .docentes-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 520px) {
+            .docentes-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .section { padding: 3.5rem 1rem; }
+            .hero { padding: 3.5rem 1rem; }
+            .hero-meta { gap: .8rem; padding: .7rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo-area">
+        <img src="../administracion-de-empresas/assets/asset_2.png" alt="IBERO Tijuana" class="logo-img" onerror="this.style.display='none'">
+        <div class="header-divider"></div>
+        <div class="header-career">Maestría en Logística Internacional</div>
+    </div>
+    <a href="#form" class="nav-cta">Solicitar información</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <video class="hero-video-bg" autoplay muted loop playsinline poster="assets/campus.jpg">
+        <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Maestría en <em>Logística</em><br>Internacional</h1>
+        <a href="#form" class="btn-hero">Solicita información <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+    <div class="stats-inner">
+        <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Años de duración</div></div>
+        <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Trimestres</div></div>
+        <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Materias por trimestre</div></div>
+        <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Sesiones por semana</div></div>
+    </div>
+</section>
+
+<!-- PLAN DE ESTUDIOS -->
+<section class="section section-soft" id="plan-estudios">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Plan de estudios</p>
+            <h2 class="section-title">Una formación <em>integral</em> para optimizar cadenas globales de suministro</h2>
+            <p class="section-sub">Plan trimestral con dos materias por periodo: del plan de negocios a la transportación internacional.</p>
+            <div class="plan-meta">
+                <div class="plan-meta-item"><strong>8</strong><span>Trimestres</span></div>
+                <div class="plan-meta-sep"></div>
+                <div class="plan-meta-item"><strong>16</strong><span>Materias</span></div>
+                <div class="plan-meta-sep"></div>
+                <div class="plan-meta-item"><strong>2 años</strong><span>Duración</span></div>
+                <div class="plan-meta-sep"></div>
+                <div class="plan-meta-item"><strong>Presencial</strong><span>Modalidad</span></div>
+            </div>
+        </div>
+
+        <div class="plan-tabs">
+            <button class="plan-tab active" data-trim="1"><span class="plan-tab-num">1</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="2"><span class="plan-tab-num">2</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="3"><span class="plan-tab-num">3</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="4"><span class="plan-tab-num">4</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="5"><span class="plan-tab-num">5</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="6"><span class="plan-tab-num">6</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="7"><span class="plan-tab-num">7</span><span class="plan-tab-lbl">Trimestre</span></button>
+            <button class="plan-tab" data-trim="8"><span class="plan-tab-num">8</span><span class="plan-tab-lbl">Trimestre</span></button>
+        </div>
+        <div class="plan-progress"><div class="plan-progress-fill" id="planProgressFill"></div></div>
+
+        <div class="plan-panel" id="planPanel">
+            <!-- contenido dinámico inyectado por JS -->
+        </div>
+    </div>
+</section>
+
+<!-- DOCENTES -->
+<section class="section section-light" id="docentes">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Plantilla Docente</p>
+            <h2 class="section-title">Aprende con <em>expertos</em> de la industria logística global</h2>
+            <p class="section-sub">Maestros y consultores con trayectoria en multinacionales, comercio exterior y cadenas de suministro internacionales.</p>
+        </div>
+
+        <div class="docentes-grid">
+            <article class="docente-card anim anim-up">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/jorge-bautista.jpeg" alt="Jorge Bautista" loading="lazy"></div>
+                <h3 class="docente-name">Jorge Bautista</h3>
+                <p class="docente-grade">MAI</p>
+                <div class="docente-chips"><span class="docente-chip">Multinacionales</span><span class="docente-chip">Logística</span></div>
+                <p class="docente-tagline">Experto en Logística y Gerente en diversas empresas multinacionales. Desarrollador de programas de posgrado y diplomados.</p>
+            </article>
+
+            <article class="docente-card anim anim-up">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/renato-brassea.jpeg" alt="Renato Brassea" loading="lazy"></div>
+                <h3 class="docente-name">Renato Brassea</h3>
+                <p class="docente-grade">Mtro. en Derecho</p>
+                <div class="docente-chips"><span class="docente-chip">Aduanas</span><span class="docente-chip">Comercio Ext.</span></div>
+                <p class="docente-tagline">Abogado y Asesor Aduanero. Director de Brassea & Brassea — Abogados y Asesores Aduaneros.</p>
+            </article>
+
+            <article class="docente-card anim anim-up">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/guillermo-rivero.jpeg" alt="Guillermo Rivero" loading="lazy"></div>
+                <h3 class="docente-name">Guillermo Rivero</h3>
+                <p class="docente-grade">Doctorando · MBA</p>
+                <div class="docente-chips"><span class="docente-chip">Operaciones</span><span class="docente-chip">Coca-Cola</span></div>
+                <p class="docente-tagline">Gerente de Operaciones en Pasteurizadora Jersey del Noroeste. Ex-Gte. de Planta en Coca-Cola CDF.</p>
+            </article>
+
+            <article class="docente-card anim anim-up">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/alejandro-gracida.jpeg" alt="Alejandro Gracida" loading="lazy"></div>
+                <h3 class="docente-name">Alejandro Gracida</h3>
+                <p class="docente-grade">MBA</p>
+                <div class="docente-chips"><span class="docente-chip">Toyota</span><span class="docente-chip">Aeroespacial</span></div>
+                <p class="docente-tagline">Ex-Presidente de Toyota CAMEX. Consejero en MGL y miembro del Cluster Aeroespacial de Baja California.</p>
+            </article>
+
+            <article class="docente-card anim anim-up">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/alejandro-osuna.png" alt="Alejandro Osuna" loading="lazy"></div>
+                <h3 class="docente-name">Alejandro Osuna</h3>
+                <p class="docente-grade">LLM</p>
+                <div class="docente-chips"><span class="docente-chip">Arbitraje Int.</span><span class="docente-chip">Mediación</span></div>
+                <p class="docente-tagline">Abogado especializado en arbitraje internacional, mediación y litigios corporativos transfronterizos.</p>
+            </article>
+
+            <article class="docente-card anim anim-up">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/ricardo-aranda.jpeg" alt="Ricardo Aranda" loading="lazy"></div>
+                <h3 class="docente-name">Ricardo Aranda</h3>
+                <p class="docente-grade">MBA</p>
+                <div class="docente-chips"><span class="docente-chip">Sumitronics</span><span class="docente-chip">CRM</span></div>
+                <p class="docente-tagline">Gerente Senior de Programa en Sumitronics, con enfoque firme en servicio al cliente y CRM.</p>
+            </article>
+
+            <article class="docente-card anim anim-up">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/armando-tejeda.jpeg" alt="Armando Tejeda" loading="lazy"></div>
+                <h3 class="docente-name">Armando Tejeda</h3>
+                <p class="docente-grade">MBA</p>
+                <div class="docente-chips"><span class="docente-chip">Telvista</span><span class="docente-chip">Estrategia</span></div>
+                <p class="docente-tagline">Ejecutivo líder en empresas internacionales (Telvista). Experto en planificación estratégica y desarrollo de mercados.</p>
+            </article>
+
+            <article class="docente-card anim anim-up">
+                <div class="docente-photo-wrap"><img class="docente-photo" src="assets/docentes/juan-carlos-falcon.jpeg" alt="Juan Carlos Falcón" loading="lazy"></div>
+                <h3 class="docente-name">Juan Carlos Falcón</h3>
+                <p class="docente-grade">MGEI</p>
+                <div class="docente-chips"><span class="docente-chip">Negocios Int.</span><span class="docente-chip">Business Plans</span></div>
+                <p class="docente-tagline">Especializado en desarrollo de Business Plans y Planes de Negocios Internacionales.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- INVERSIÓN -->
+<section class="section section-soft" id="inversion">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Inversión</p>
+            <h2 class="section-title">Una inversión <em>accesible</em> para tu carrera global</h2>
+            <p class="section-sub">Costos transparentes y planes de beca para que el factor económico no detenga tu crecimiento.</p>
+        </div>
+
+        <div class="pricing-grid anim anim-up">
+            <div class="price-card">
+                <p class="price-label">Inscripción</p>
+                <p class="price-amount"><span class="currency">$</span>1,500</p>
+                <p class="price-note">Pago único al ingresar</p>
+            </div>
+            <div class="price-card">
+                <p class="price-label">Colegiatura general</p>
+                <p class="price-amount"><span class="currency">$</span>10,860</p>
+                <p class="price-note">Costo mensual de colegiatura</p>
+            </div>
+        </div>
+
+        <div class="price-trimestre anim anim-up">
+            <span>Cursas <strong>2 materias por trimestre</strong> · 8 trimestres en total</span>
+        </div>
+
+        <div class="beca-card anim anim-up">
+            <div class="beca-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2l2.39 4.84L20 7.7l-4 3.9.94 5.5L12 14.5l-4.94 2.6L8 11.6l-4-3.9 5.61-.86z"/>
+                </svg>
+            </div>
+            <div class="beca-content">
+                <h3 class="beca-title">Beca Impulso – <em>Magis Posgrados</em></h3>
+                <p class="beca-text">Si tienes promedio mínimo de <strong>8.0</strong> en licenciatura, aplicas a un porcentaje de beca sobre el costo de colegiaturas.</p>
+                <p class="beca-disclaimer">Exención del porcentaje otorgado sobre el costo de colegiaturas, pagando únicamente el porcentaje restante. Sujeto al cumplimiento de requisitos académicos por periodo.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ¿QUÉ HACE ÚNICO? -->
+<section class="section section-light" id="programa">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">¿Qué hace único este programa?</p>
+            <h2 class="section-title">Un enfoque <em>integral</em> sobre toda la cadena de suministro</h2>
+        </div>
+        <div class="unique-grid">
+            <div class="unique-card anim anim-up">
+                <div class="unique-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M21 3l-7 7"/><path d="M8 21H3v-5"/><path d="M3 21l7-7"/><path d="M3 8V3h5"/><path d="M3 3l7 7"/><path d="M16 21h5v-5"/><path d="M21 21l-7-7"/></svg></div>
+                <h3 class="unique-title">Proceso logístico completo</h3>
+                <p class="unique-text">Cubre toda la cadena: desde la planeación de producción hasta la entrega final al cliente.</p>
+            </div>
+            <div class="unique-card anim anim-up">
+                <div class="unique-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                <h3 class="unique-title">Casos reales y proyectos aplicados</h3>
+                <p class="unique-text">Metodología práctica donde resuelves problemas reales de la industria, no solo teoría.</p>
+            </div>
+            <div class="unique-card anim anim-up">
+                <div class="unique-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                <h3 class="unique-title">Docentes con trayectoria global</h3>
+                <p class="unique-text">Expertos que han dirigido operaciones logísticas en multinacionales y comercio exterior.</p>
+            </div>
+            <div class="unique-card anim anim-up">
+                <div class="unique-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h3 class="unique-title">Red de contactos estratégicos</h3>
+                <p class="unique-text">Acceso a una amplia red empresarial global de la zona fronteriza más dinámica del mundo.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section class="section section-soft" id="quienes">
+    <div class="section-inner">
+        <div class="conv-inner">
+            <div class="conv-left anim anim-up">
+                <p class="section-eyebrow" style="text-align:left">¿Para quién es?</p>
+                <h2 class="section-title" style="text-align:left; margin:0 0 1rem">Hecha para quienes <em>conectan al mundo</em> a través del comercio</h2>
+                <p style="color:var(--gris); margin-bottom:1.5rem;">Dirigida a profesionales que buscan fortalecer competencias para optimizar cadenas globales de suministro y operar en una de las zonas fronterizas más dinámicas del mundo.</p>
+                <ul class="conv-checks">
+                    <li><span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Profesionales de negocios internacionales y comercio exterior</li>
+                    <li><span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Ingenieros industriales y administradores de operaciones</li>
+                    <li><span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Líderes en cadena de suministro, distribución y aduanas</li>
+                    <li><span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Profesionistas con horarios laborales (clases vespertinas)</li>
+                </ul>
+            </div>
+            <div class="conv-img anim anim-up">
+                <img src="assets/perfil-ingreso.jpg" alt="Operaciones logísticas y cadena de suministro internacional" onerror="this.parentElement.style.background='linear-gradient(135deg,#f0e8e0,#e8d8c8)';this.style.display='none'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PERFIL DE INGRESO -->
+<section class="section section-light" id="perfil">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Perfil de ingreso</p>
+            <h2 class="section-title">Lo que <em>necesitas</em> para empezar</h2>
+            <p class="section-sub">Cuatro cualidades que definen al candidato ideal para esta maestría. ¿Las identificas en ti?</p>
+        </div>
+        <div class="perfil-grid">
+            <div class="perfil-item anim anim-up"><div class="perfil-num">1</div><p class="perfil-text"><strong>Formación previa</strong> en negocios internacionales, comercio, administración, ingeniería industrial o logística.</p></div>
+            <div class="perfil-item anim anim-up"><div class="perfil-num">2</div><p class="perfil-text"><strong>Visión estratégica</strong> y capacidad de análisis para optimizar procesos en cadenas globales de suministro.</p></div>
+            <div class="perfil-item anim anim-up"><div class="perfil-num">3</div><p class="perfil-text"><strong>Habilidades de negociación</strong> y trabajo en entornos multiculturales e internacionales.</p></div>
+            <div class="perfil-item anim anim-up"><div class="perfil-num">4</div><p class="perfil-text"><strong>Interés en la sostenibilidad</strong> y la responsabilidad social en operaciones logísticas.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="form-section" id="form">
+    <div class="form-cols">
+        <div class="form-side anim anim-up">
+            <p style="color: var(--rojo); font-size: .8rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: .8rem;">Aparta tu lugar</p>
+            <h2>Da el siguiente paso en tu <em>desarrollo profesional</em></h2>
+            <p>Inicia el proceso de admisión y recibe asesoría personalizada con nuestra coordinadora de posgrados.</p>
+
+            <div class="countdown-box">
+                <div class="countdown-label">Inicio de clases</div>
+                <div class="countdown-grid">
+                    <div class="cd-item"><div class="cd-num" id="cd-d">00</div><div class="cd-unit">Días</div></div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-item"><div class="cd-num" id="cd-h">00</div><div class="cd-unit">Horas</div></div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-item"><div class="cd-num" id="cd-m">00</div><div class="cd-unit">Min</div></div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-item"><div class="cd-num" id="cd-s">00</div><div class="cd-unit">Seg</div></div>
+                </div>
+                <p class="countdown-fecha">30 de Junio, 2026</p>
+            </div>
+
+            <div class="proof-list">
+                <div class="proof-item">
+                    <div class="proof-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="2.2"><path d="M12 2l2.39 4.84L20 7.7l-4 3.9.94 5.5L12 14.5l-4.94 2.6L8 11.6l-4-3.9 5.61-.86z"/></svg></div>
+                    <div><strong>Reconocimiento Oficial</strong><span>RVOE BC 199 M2 14</span></div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <div><strong>Red Jesuita Internacional</strong><span>+220 universidades en el mundo</span></div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E00034" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div><strong>Networking profesional</strong><span>Comunidad activa de egresados y empresas</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-card anim anim-up">
+            <h3>Solicita información</h3>
+            <p>Te contactaremos a la brevedad con todos los detalles.</p>
+            <div class="form-iframe-wrap">
+                <iframe
+                    src="https://app.prospecty.mx/widget/form/LgL5Gg2vrA5XX7jyj5dy"
+                    title="Formulario MLOG IBERO Tijuana"
+                    data-form-id="LgL5Gg2vrA5XX7jyj5dy"
+                ></iframe>
+                <script src="https://app.prospecty.mx/js/form_embed.js"></script>
+            </div>
+            <p style="margin-top:1.25rem; font-size:.82rem; color:var(--gris); text-align:center;">
+                Contacto directo: <a href="mailto:wendy.sanchez@tijuana.ibero.mx" style="color:var(--rojo); font-weight:600;">wendy.sanchez@tijuana.ibero.mx</a><br>
+                Lic. Wendy Elizabeth Sánchez Alvarado · <a href="tel:+526643886002" style="color:var(--rojo); font-weight:600;">664-388-60-02</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="section section-light" id="ubicacion">
+    <div class="ubi-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow">Ubicación</p>
+            <h2 class="section-title">Conoce nuestro <em>campus</em></h2>
+            <p class="section-sub">IBERO Tijuana · Campus Playas</p>
+        </div>
+        <div class="ubi-grid">
+            <div class="ubi-card">
+                <div class="ubi-info">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div><strong>Dirección</strong><span>Av. Centro Universitario 2501, Col. Playas de Tijuana, C.P. 22500, Tijuana, B.C.</span></div>
+                </div>
+                <div class="ubi-info">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div><strong>Horario de atención</strong><span>Lunes a Viernes · 8:00 a 18:00 hrs</span></div>
+                </div>
+                <div class="ubi-info">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div><strong>Informes</strong><span>Lic. Wendy Elizabeth Sánchez Alvarado<br><a href="mailto:wendy.sanchez@tijuana.ibero.mx">wendy.sanchez@tijuana.ibero.mx</a><br><a href="tel:+526643886002">664-388-60-02</a></span></div>
+                </div>
+            </div>
+            <div class="ubi-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3367.5!2d-117.100958!3d32.5186438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d94a36bcc6d9cb%3A0x81d09293048babd8!2sUniversidad%20Iberoamericana%20Tijuana!5e0!3m2!1ses!2smx!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© IBERO Tijuana · Maestría en Logística Internacional · RVOE BC 199 M2 14</p>
+</footer>
+
+<script>
+    // ── PLAN DE ESTUDIOS ──
+    const PLAN = {
+        1: { title: 'Primer Trimestre', sub: 'Fundamentos del plan de negocios y producción', materias: [
+            { name: 'Plan de Negocios' },
+            { name: 'Programación Maestra de Producción' }
+        ]},
+        2: { title: 'Segundo Trimestre', sub: 'Requerimientos y planeación de producción', materias: [
+            { name: 'Plan de Requerimientos de Materiales' },
+            { name: 'Plan de Producción' }
+        ]},
+        3: { title: 'Tercer Trimestre', sub: 'Abastecimiento y cadena de suministros', materias: [
+            { name: 'Desarrollo de Fuentes de Abastecimiento' },
+            { name: 'Cadena de Suministros' }
+        ]},
+        4: { title: 'Cuarto Trimestre', sub: 'Negociación y contratación internacional', materias: [
+            { name: 'Estrategias de Negociación Internacional' },
+            { name: 'Cotizaciones y Contratos Internacionales' }
+        ]},
+        5: { title: 'Quinto Trimestre', sub: 'Evaluación de proveedores y distribución', materias: [
+            { name: 'Evaluación de Proveedores' },
+            { name: 'Sistemas de Distribución' }
+        ]},
+        6: { title: 'Sexto Trimestre', sub: 'Marco legal e inventarios', materias: [
+            { name: 'Legislación del Comercio Internacional' },
+            { name: 'Control de Inventarios' }
+        ]},
+        7: { title: 'Séptimo Trimestre', sub: 'Transporte global y servicio al cliente', materias: [
+            { name: 'Transportación Internacional' },
+            { name: 'Servicio al Cliente Industrial' }
+        ]},
+        8: { title: 'Octavo Trimestre', sub: 'Ética profesional e investigación', materias: [
+            { name: 'Dimensión Ética del Ser Humano' },
+            { name: 'Seminario de Investigación' }
+        ]}
+    };
+
+    function renderTrim(n) {
+        const data = PLAN[n];
+        const html = `
+            <div class="plan-panel-header">
+                <div class="plan-panel-badge">${n}<div class="plan-panel-badge-sub">TRIM</div></div>
+                <div class="plan-panel-heading">
+                    <h3>${data.title}</h3>
+                    <p>${data.sub}</p>
+                </div>
+            </div>
+            <div class="plan-materias">
+                ${data.materias.map(m => `
+                    <div class="plan-materia">
+                        <div class="plan-materia-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <div class="plan-materia-body">
+                            <p class="plan-materia-name">${m.name}</p>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        document.getElementById('planPanel').innerHTML = html;
+        document.getElementById('planProgressFill').style.width = (n * 12.5) + '%';
+        document.querySelectorAll('.plan-tab').forEach(t => t.classList.toggle('active', +t.dataset.trim === n));
+    }
+    document.querySelectorAll('.plan-tab').forEach(tab => {
+        tab.addEventListener('click', () => renderTrim(+tab.dataset.trim));
+    });
+    renderTrim(1);
+
+    // ── COUNTDOWN ──
+    const target = new Date('2026-06-30T08:00:00-07:00').getTime();
+    function updateCountdown() {
+        const diff = target - Date.now();
+        if (diff <= 0) {
+            ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '00');
+            return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+        document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+        document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+        document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ── ANIMACIONES ──
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: .12 });
+    document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
