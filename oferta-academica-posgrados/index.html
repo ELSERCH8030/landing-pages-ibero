@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1259299219355859');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1259299219355859&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posgrados | IBERO Tijuana</title>
+    <meta name="description" content="Conoce las maestrías de IBERO Tijuana. Programas con RVOE diseñados para impulsar tu carrera profesional en Tijuana, Baja California.">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="https://use.typekit.net/phs8jtn.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --rojo: #E00034;
+            --rojo-oscuro: #B8002A;
+            --blanco: #FFFFFF;
+            --negro: #1A1A1A;
+            --gris-claro: #F7F7F8;
+            --gris-suave: #EDEDF0;
+            --gris: #6B6B70;
+            --gris-oscuro: #2A2A2E;
+            --borde: #E5E5E8;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'alverata', 'Segoe UI', sans-serif;
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            background: var(--blanco);
+            overflow-x: hidden;
+            padding-top: 69px;
+        }
+
+        /* ── HEADER ── */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: .75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--rojo);
+            box-shadow: 0 2px 12px rgba(0,0,0,.15);
+        }
+        .logo-area { display: flex; align-items: center; gap: .75rem; }
+        .logo-img { height: 44px; width: auto; }
+        .header-divider { width: 1px; height: 28px; background: rgba(255,255,255,.4); }
+        .header-text { color: #fff; font-size: .9rem; font-weight: 600; letter-spacing: .3px; }
+        .back-link {
+            display: inline-flex; align-items: center; gap: .3rem;
+            color: rgba(255,255,255,.7);
+            font-size: .76rem; font-weight: 500;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,.3);
+            padding: .26rem .7rem;
+            border-radius: 50px;
+            transition: color .2s, border-color .2s;
+            white-space: nowrap;
+        }
+        .back-link:hover { color: #fff; border-color: rgba(255,255,255,.7); }
+        .back-link svg { width: 12px; height: 12px; }
+        .nav-cta {
+            background: #fff;
+            color: var(--rojo);
+            padding: .55rem 1.4rem;
+            border-radius: 50px;
+            font-size: .85rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: .2s;
+            white-space: nowrap;
+        }
+        .nav-cta:hover { background: #f3f3f3; transform: scale(1.04); }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            min-height: 560px;
+            padding: 5rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+        .hero-video-bg {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: center;
+            z-index: 0;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(20,20,20,.65) 0%, rgba(40,20,30,.55) 60%, rgba(184,0,42,.45) 100%);
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 880px; padding: 0 1.5rem; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: .5rem;
+            background: rgba(255,255,255,.12);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,.2);
+            padding: .4rem 1.1rem;
+            border-radius: 50px;
+            font-size: .78rem; font-weight: 700;
+            color: #fff;
+            letter-spacing: .6px; text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .hero-badge span {
+            width: 6px; height: 6px;
+            background: var(--rojo);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 1.6s ease-in-out infinite;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 4.4vw, 3.2rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.12;
+            margin-bottom: 1.2rem;
+            letter-spacing: -.5px;
+        }
+        .hero h1 em { color: var(--rojo); font-style: normal; }
+        .hero p {
+            font-size: clamp(.98rem, 2vw, 1.18rem);
+            color: rgba(255,255,255,.88);
+            max-width: 620px;
+            margin: 0 auto 1.8rem;
+            font-weight: 400;
+        }
+        @keyframes pulse-dot {
+            0%   { box-shadow: 0 0 0 0 rgba(224,0,52,.6); }
+            70%  { box-shadow: 0 0 0 8px rgba(224,0,52,0); }
+            100% { box-shadow: 0 0 0 0 rgba(224,0,52,0); }
+        }
+        .btn-hero {
+            display: inline-flex; align-items: center; gap: .65rem;
+            background: linear-gradient(135deg, var(--rojo), #c8102e);
+            color: #fff;
+            padding: 1.05rem 2.4rem;
+            border-radius: 50px;
+            font-size: 1.02rem; font-weight: 700;
+            letter-spacing: .3px;
+            text-decoration: none;
+            border: 1.5px solid rgba(255,255,255,.18);
+            box-shadow: 0 12px 30px rgba(224,0,52,.3);
+            transition: all .3s ease;
+        }
+        .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(224,0,52,.4); }
+        .btn-hero svg { transition: transform .3s ease; }
+        .btn-hero:hover svg { transform: translateX(4px); }
+
+        /* ── BENEFITS ── */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+        .benefit-card {
+            background: var(--blanco);
+            border: 1px solid var(--borde);
+            border-radius: 16px;
+            padding: 1.75rem 1.4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color .25s, transform .25s, box-shadow .25s;
+        }
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--rojo);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .35s ease;
+        }
+        .benefit-card:hover::before { transform: scaleX(1); }
+        .benefit-card:hover {
+            border-color: rgba(224,0,52,.28);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 38px rgba(0,0,0,.07);
+        }
+        .benefit-icon {
+            width: 50px; height: 50px;
+            background: rgba(224,0,52,.08);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--rojo);
+            transition: background .25s;
+        }
+        .benefit-card:hover .benefit-icon { background: rgba(224,0,52,.16); }
+        .benefit-icon svg { width: 24px; height: 24px; }
+        .benefit-card h3 {
+            color: var(--negro);
+            font-size: 1.02rem;
+            font-weight: 800;
+            line-height: 1.3;
+            letter-spacing: -.1px;
+        }
+        .benefit-card p {
+            color: var(--gris);
+            font-size: .88rem;
+            line-height: 1.55;
+        }
+
+        /* ── SECCIONES BASE ── */
+        .section { padding: 5rem 1.5rem; }
+        .section-light { background: var(--blanco); }
+        .section-soft  { background: var(--gris-claro); }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-eyebrow {
+            color: var(--rojo);
+            font-size: .8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: .8rem;
+            font-weight: 800;
+        }
+        .section-title {
+            color: var(--negro);
+            font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.2;
+            max-width: 820px;
+            margin: 0 auto .8rem;
+            letter-spacing: -.3px;
+        }
+        .section-title em { color: var(--rojo); font-style: normal; }
+        .section-sub {
+            color: var(--gris);
+            font-size: 1rem;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ── SECCIÓN DESTACADA (maestrías) ── */
+        .section-featured {
+            position: relative;
+            border-top: 4px solid var(--rojo);
+            padding-top: 6rem;
+            background:
+                radial-gradient(ellipse 70% 320px at 50% 0%, rgba(224,0,52,.06) 0%, transparent 70%),
+                var(--blanco);
+        }
+        .section-featured .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            background: rgba(224,0,52,.08);
+            border: 1px solid rgba(224,0,52,.22);
+            padding: .42rem 1.05rem;
+            border-radius: 50px;
+            font-size: .72rem;
+            margin-bottom: 1rem;
+        }
+        .section-featured .section-eyebrow::before {
+            content: '';
+            width: 7px; height: 7px;
+            background: var(--rojo);
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .section-featured .section-title {
+            font-size: clamp(2.1rem, 4.2vw, 3rem);
+        }
+
+        /* ── POSGRADOS GRID ── */
+        .posg-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+        }
+        .posg-card {
+            background: var(--blanco);
+            border: 1px solid var(--borde);
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: .9rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,.03);
+        }
+        .posg-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--rojo);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .35s ease;
+        }
+        .posg-card:hover::before { transform: scaleX(1); }
+        .posg-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(224,0,52,.28);
+            box-shadow: 0 14px 38px rgba(0,0,0,.08);
+        }
+        .posg-icon {
+            width: 52px; height: 52px;
+            background: rgba(224,0,52,.08);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--rojo);
+            flex-shrink: 0;
+            transition: background .28s;
+        }
+        .posg-card:hover .posg-icon { background: rgba(224,0,52,.16); }
+        .posg-icon svg { width: 24px; height: 24px; }
+        .posg-body { flex: 1; }
+        .posg-body h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--negro);
+            line-height: 1.3;
+            margin-bottom: .35rem;
+        }
+        .posg-body p {
+            font-size: .88rem;
+            color: var(--gris);
+            line-height: 1.5;
+        }
+        .posg-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            font-size: .85rem;
+            font-weight: 700;
+            color: var(--rojo);
+            padding-top: .25rem;
+        }
+        .posg-cta svg { width: 14px; height: 14px; transition: transform .25s; }
+        .posg-card:hover .posg-cta svg { transform: translateX(4px); }
+
+        /* ── CAMPUS SECTION ── */
+        .campus-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4rem;
+            margin-bottom: 1.6rem;
+        }
+        .campus-image {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            min-height: 380px;
+            background-color: var(--gris-suave);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 14px 40px rgba(0,0,0,.08);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .campus-image:hover { transform: translateY(-3px); box-shadow: 0 18px 48px rgba(0,0,0,.12); }
+        .campus-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.85) 100%);
+            z-index: 1;
+        }
+        .campus-info {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            z-index: 2;
+            padding: 1.6rem 1.4rem 1.4rem;
+            color: #fff;
+        }
+        .campus-info-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            background: var(--rojo);
+            color: #fff;
+            font-size: .65rem;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            padding: .25rem .7rem;
+            border-radius: 50px;
+            margin-bottom: .7rem;
+        }
+        .campus-info h4 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: .4rem;
+            letter-spacing: -.2px;
+        }
+        .campus-info-address {
+            display: flex;
+            align-items: flex-start;
+            gap: .5rem;
+            font-size: .85rem;
+            color: rgba(255,255,255,.88);
+            line-height: 1.45;
+        }
+        .campus-info-address svg {
+            width: 15px; height: 15px;
+            color: var(--rojo);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        .campus-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .campus-feature {
+            background: var(--blanco);
+            border: 1px solid var(--borde);
+            border-radius: 14px;
+            padding: 1.4rem 1.25rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+            align-items: flex-start;
+            transition: border-color .25s, transform .25s, box-shadow .25s;
+        }
+        .campus-feature:hover {
+            border-color: rgba(224,0,52,.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0,0,0,.05);
+        }
+        .campus-feature-icon {
+            width: 42px; height: 42px;
+            background: rgba(224,0,52,.08);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--rojo);
+            flex-shrink: 0;
+        }
+        .campus-feature-icon svg { width: 20px; height: 20px; }
+        .campus-feature-text strong {
+            display: block;
+            color: var(--negro);
+            font-size: .98rem;
+            font-weight: 800;
+            margin-bottom: .15rem;
+        }
+        .campus-feature-text span {
+            color: var(--gris);
+            font-size: .85rem;
+            line-height: 1.5;
+        }
+
+        /* ── COMUNIDAD ── */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+        }
+        .student-card {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            min-height: 420px;
+            background: var(--gris-suave);
+            box-shadow: 0 8px 26px rgba(0,0,0,.06);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+        .student-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
+        .student-photo {
+            position: absolute; inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform .6s ease;
+        }
+        .student-card:hover .student-photo { transform: scale(1.05); }
+        .student-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.85) 100%);
+            z-index: 1;
+        }
+        .student-info {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            z-index: 2;
+            padding: 1.5rem 1.4rem 1.4rem;
+            color: #fff;
+        }
+        .student-program {
+            display: inline-block;
+            background: var(--rojo);
+            color: #fff;
+            font-size: .65rem;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            padding: .25rem .7rem;
+            border-radius: 50px;
+            margin-bottom: .65rem;
+        }
+        .student-info h4 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: .35rem;
+        }
+        .student-info p {
+            font-size: .85rem;
+            color: rgba(255,255,255,.85);
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* ── FINAL CTA ── */
+        .final-cta {
+            background: linear-gradient(135deg, var(--rojo) 0%, #c8102e 100%);
+            color: #fff;
+            text-align: center;
+            padding: 4.5rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top right, rgba(255,255,255,.18) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .final-cta-inner { max-width: 720px; margin: 0 auto; position: relative; }
+        .final-cta h2 {
+            font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: .8rem;
+            letter-spacing: -.3px;
+        }
+        .final-cta p {
+            font-size: 1rem;
+            color: rgba(255,255,255,.9);
+            margin-bottom: 2rem;
+        }
+        .final-cta .btn-cta-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            background: #25D366;
+            color: #fff;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 12px 30px rgba(0,0,0,.2);
+            transition: transform .25s, background .25s;
+        }
+        .final-cta .btn-cta-wa:hover { transform: scale(1.05); background: #1ebe5d; }
+        .final-cta .btn-cta-wa svg { width: 18px; height: 18px; }
+
+        /* ── CONTACTO ── */
+        .contact-card {
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--blanco);
+            border: 1px solid var(--borde);
+            border-radius: 18px;
+            padding: 2rem 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+            box-shadow: 0 8px 28px rgba(0,0,0,.06);
+        }
+        .contact-avatar {
+            width: 88px; height: 88px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--rojo), #c8102e);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: .5px;
+            box-shadow: 0 8px 24px rgba(224,0,52,.3);
+        }
+        .contact-content { flex: 1; min-width: 0; }
+        .contact-content h3 {
+            color: var(--negro);
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: .2rem;
+        }
+        .contact-role {
+            color: var(--gris);
+            font-size: .85rem;
+            margin-bottom: 1rem;
+        }
+        .contact-actions { display: flex; flex-direction: column; gap: .5rem; align-items: flex-start; }
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            color: var(--negro);
+            text-decoration: none;
+            font-size: .9rem;
+            font-weight: 600;
+            padding: .55rem .95rem;
+            background: var(--gris-claro);
+            border: 1px solid var(--borde);
+            border-radius: 10px;
+            transition: border-color .2s, color .2s, background .2s;
+        }
+        .contact-link:hover {
+            border-color: rgba(224,0,52,.3);
+            color: var(--rojo);
+            background: rgba(224,0,52,.04);
+        }
+        .contact-link svg { width: 16px; height: 16px; color: var(--rojo); }
+
+        /* ── FLOATING WHATSAPP ── */
+        .wa-float {
+            position: fixed;
+            bottom: 22px; right: 22px;
+            width: 60px; height: 60px;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(37,211,102,.4);
+            z-index: 1500;
+            transition: transform .25s ease;
+            animation: wa-float-pulse 2.4s ease-in-out infinite;
+        }
+        .wa-float:hover { transform: scale(1.08); }
+        .wa-float svg { width: 30px; height: 30px; }
+        .wa-float-tip {
+            position: absolute;
+            right: 72px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--negro);
+            color: #fff;
+            font-size: .78rem;
+            font-weight: 600;
+            padding: .55rem .9rem;
+            border-radius: 8px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s, transform .25s;
+            box-shadow: 0 6px 18px rgba(0,0,0,.18);
+        }
+        .wa-float-tip::after {
+            content: '';
+            position: absolute;
+            right: -5px; top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            width: 10px; height: 10px;
+            background: var(--negro);
+        }
+        .wa-float:hover .wa-float-tip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(-4px);
+        }
+        @keyframes wa-float-pulse {
+            0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.55); }
+            50%      { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 14px rgba(37,211,102,0); }
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--negro);
+            color: rgba(255,255,255,.6);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: .85rem;
+        }
+        footer a { color: rgba(255,255,255,.8); text-decoration: none; }
+        footer a:hover { color: var(--rojo); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            .posg-grid, .community-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .campus-features { grid-template-columns: repeat(2, 1fr); }
+            .campus-image { min-height: 280px; }
+        }
+        @media (max-width: 640px) {
+            .benefits-grid { grid-template-columns: 1fr; }
+            .posg-grid, .community-grid { grid-template-columns: 1fr; }
+            .campus-images { grid-template-columns: 1fr; }
+            .campus-features { grid-template-columns: 1fr; }
+            .header-text, .header-divider, .back-link { display: none; }
+            .student-card { min-height: 380px; }
+            .contact-card { flex-direction: column; text-align: center; gap: 1.1rem; padding: 1.75rem 1.4rem; }
+            .contact-actions { align-items: center; }
+            .wa-float { bottom: 18px; right: 18px; width: 56px; height: 56px; }
+            .wa-float svg { width: 28px; height: 28px; }
+            .wa-float-tip { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-area">
+            <img src="../arquitectura/assets/asset_2.png" alt="IBERO Tijuana" class="logo-img">
+            <span class="header-divider"></span>
+            <span class="header-text">Posgrados</span>
+            <a href="https://tijuana.ibero.mx/" target="_blank" rel="noopener" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+                Sitio web
+            </a>
+        </div>
+        <a href="https://wa.me/526643886002?text=Hola%20Lic.%20Wendy%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20posgrados%20de%20IBERO%20Tijuana%20%F0%9F%8E%93"
+           target="_blank" rel="noopener" class="nav-cta">WhatsApp</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <video class="hero-video-bg" autoplay muted loop playsinline
+               poster="assets/plantel-playas.jpg"
+               src="assets/hero-video.mp4"></video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Impulsa tu carrera con un<br><em>posgrado IBERO</em></h1>
+            <p>Programas de maestría diseñados para profesionales que buscan transformar empresas, ciudades y cadenas de valor.</p>
+            <a href="#maestrias" class="btn-hero">
+                Explorar maestrías
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="section section-soft" id="beneficios">
+        <div class="section-inner">
+            <div class="section-header">
+                <p class="section-eyebrow">Por qué un posgrado IBERO</p>
+                <h2 class="section-title">Una formación con <em>tradición humanista</em> aplicada al mundo profesional</h2>
+                <p class="section-sub">Lo que distingue a nuestros programas de posgrado en Tijuana.</p>
+            </div>
+
+            <div class="benefits-grid">
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3>Visión humanista</h3>
+                    <p>Tradición jesuita aplicada a la formación profesional: ética, bien común y desarrollo humano integral.</p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <h3>Docentes con experiencia profesional</h3>
+                    <p>Maestros y doctores con trayectoria comprobada en consultoría, industria y proyectos de impacto real.</p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Casos y proyectos reales</h3>
+                    <p>Aprendes resolviendo problemas reales de la industria y la frontera, no solo con teoría académica.</p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3>Red en la zona fronteriza</h3>
+                    <p>Acceso a la red empresarial de Tijuana, una de las zonas fronterizas más dinámicas del mundo.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- POSGRADOS GRID -->
+    <section class="section section-light section-featured" id="maestrias">
+        <div class="section-inner">
+            <div class="section-header">
+                <p class="section-eyebrow">3 programas disponibles</p>
+                <h2 class="section-title">Encuentra tu <em>maestría</em></h2>
+                <p class="section-sub">Elige una para conocer el plan de estudios, perfil de egreso y costos.</p>
+            </div>
+
+            <div class="posg-grid">
+
+                <!-- Desarrollo Organizacional -->
+                <a href="https://promocion.iberotijuana.edu.mx/maestria-desarrollo-organizacional/" class="posg-card">
+                    <div class="posg-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="posg-body">
+                        <h3>Maestría en Desarrollo Organizacional</h3>
+                        <p>Talento, cultura y transformación organizacional con enfoque humanista.</p>
+                    </div>
+                    <span class="posg-cta">Ver maestría
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Logística Internacional -->
+                <a href="https://promocion.iberotijuana.edu.mx/maestria-logistica-internacional/" class="posg-card">
+                    <div class="posg-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13"/>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <div class="posg-body">
+                        <h3>Maestría en Logística Internacional</h3>
+                        <p>Cadena de suministro, comercio global y operaciones transfronterizas.</p>
+                    </div>
+                    <span class="posg-cta">Ver maestría
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Ciudades Sostenibles -->
+                <a href="https://promocion.iberotijuana.edu.mx/maestria-proyectos-ciudades-sostenibles/" class="posg-card">
+                    <div class="posg-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21h18"/>
+                            <path d="M5 21V8l5-3v16"/>
+                            <path d="M14 21V11l5-3v13"/>
+                            <path d="M9 9h.01"/>
+                            <path d="M9 13h.01"/>
+                            <path d="M9 17h.01"/>
+                            <path d="M17 13h.01"/>
+                            <path d="M17 17h.01"/>
+                        </svg>
+                    </div>
+                    <div class="posg-body">
+                        <h3>Maestría en Proyectos para Ciudades Sostenibles</h3>
+                        <p>Urbanismo, sostenibilidad y desarrollo de ciudades resilientes.</p>
+                    </div>
+                    <span class="posg-cta">Ver maestría
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS / PLANTEL -->
+    <section class="section section-soft" id="campus">
+        <div class="section-inner">
+            <div class="section-header">
+                <p class="section-eyebrow">Vive el campus</p>
+                <h2 class="section-title">Estudia en el <em>plantel IBERO Tijuana</em></h2>
+                <p class="section-sub">Un espacio diseñado para el pensamiento crítico, la colaboración y el desarrollo profesional.</p>
+            </div>
+
+            <div class="campus-images">
+                <div class="campus-image" style="background-image:url('assets/plantel-playas.jpg');">
+                    <div class="campus-info">
+                        <span class="campus-info-tag">Sede principal</span>
+                        <h4>Campus Playas</h4>
+                        <p class="campus-info-address">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>Av. Centro Universitario #2501, Playas de Tijuana, C.P. 22500, Tijuana, B.C.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="campus-image" style="background-image:url('assets/plantel-rio.jpg');">
+                    <div class="campus-info">
+                        <span class="campus-info-tag">Posgrados</span>
+                        <h4>Campus Río</h4>
+                        <p class="campus-info-address">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>Paseo del Río s/n, Río Tijuana 3ra Etapa, C.P. 22540, Tijuana, B.C.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campus-features">
+                    <div class="campus-feature">
+                        <div class="campus-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <div class="campus-feature-text">
+                            <strong>Aulas y biblioteca de posgrado</strong>
+                            <span>Espacios pensados para clases en grupo reducido y estudio individual.</span>
+                        </div>
+                    </div>
+
+                    <div class="campus-feature">
+                        <div class="campus-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <div class="campus-feature-text">
+                            <strong>Red Sistema Universitario Jesuita</strong>
+                            <span>Acceso a intercambios, congresos y comunidad académica internacional.</span>
+                        </div>
+                    </div>
+
+                    <div class="campus-feature">
+                        <div class="campus-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="campus-feature-text">
+                            <strong>Dos campus disponibles</strong>
+                            <span>Estudia en Campus Playas o Campus Río, según tu ubicación y horarios.</span>
+                        </div>
+                    </div>
+
+                    <div class="campus-feature">
+                        <div class="campus-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="campus-feature-text">
+                            <strong>Horarios compatibles con tu trabajo</strong>
+                            <span>Sesiones presenciales en horarios ejecutivos para profesionales activos.</span>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMUNIDAD -->
+    <section class="section section-light" id="comunidad">
+        <div class="section-inner">
+            <div class="section-header">
+                <p class="section-eyebrow">Nuestra comunidad</p>
+                <h2 class="section-title">Profesionales que <em>transforman</em></h2>
+                <p class="section-sub">Conoce a algunos de nuestros estudiantes de posgrado y su experiencia en IBERO Tijuana.</p>
+            </div>
+
+            <div class="community-grid">
+                <article class="student-card">
+                    <div class="student-photo" style="background-image:url('assets/alumno-1.jpg');"></div>
+                    <div class="student-info">
+                        <span class="student-program">Desarrollo Organizacional</span>
+                        <h4>María F.</h4>
+                        <p>"Aprendí a leer la cultura organizacional como un sistema vivo. Cambió mi forma de hacer consultoría."</p>
+                    </div>
+                </article>
+
+                <article class="student-card">
+                    <div class="student-photo" style="background-image:url('assets/alumno-2.jpg');"></div>
+                    <div class="student-info">
+                        <span class="student-program">Logística Internacional</span>
+                        <h4>Daniela G.</h4>
+                        <p>"Vivir en Tijuana y estudiar logística internacional fue la combinación perfecta. La frontera es nuestro laboratorio."</p>
+                    </div>
+                </article>
+
+                <article class="student-card">
+                    <div class="student-photo" style="background-image:url('assets/alumno-3.jpg');"></div>
+                    <div class="student-info">
+                        <span class="student-program">Ciudades Sostenibles</span>
+                        <h4>Carlos R.</h4>
+                        <p>"Desde el primer trimestre apliqué lo aprendido en proyectos reales de mi municipio. La teoría aterriza al instante."</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section section-soft" id="contacto">
+        <div class="section-inner">
+            <div class="section-header">
+                <p class="section-eyebrow">Contacto</p>
+                <h2 class="section-title">Habla con nuestra <em>asesora de posgrados</em></h2>
+                <p class="section-sub">Te acompañamos en todo el proceso, desde tu primera duda hasta tu inscripción.</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-avatar">WS</div>
+                <div class="contact-content">
+                    <h3>Lic. Wendy Elizabeth Sánchez Alvarado</h3>
+                    <p class="contact-role">Coordinadora de Posgrados · IBERO Tijuana</p>
+                    <div class="contact-actions">
+                        <a href="mailto:wendy.sanchez@tijuana.ibero.mx" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            wendy.sanchez@tijuana.ibero.mx
+                        </a>
+                        <a href="tel:+526643886002" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            664-388-60-02
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="final-cta-inner">
+            <h2>¿Listo para impulsar tu carrera?</h2>
+            <p>Habla con un asesor de posgrado y resuelve tus dudas sobre planes, costos y becas.</p>
+            <a href="https://wa.me/526643886002?text=Hola%20Lic.%20Wendy%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20posgrados%20de%20IBERO%20Tijuana%20%F0%9F%8E%93"
+               target="_blank" rel="noopener" class="btn-cta-wa">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Hablar por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 IBERO Tijuana · Posgrados · <a href="mailto:wendy.sanchez@tijuana.ibero.mx">wendy.sanchez@tijuana.ibero.mx</a></p>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/526643886002?text=Hola%20Lic.%20Wendy%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20posgrados%20de%20IBERO%20Tijuana%20%F0%9F%8E%93"
+       target="_blank" rel="noopener" class="wa-float" aria-label="Hablar por WhatsApp con la coordinadora de posgrados">
+        <span class="wa-float-tip">¿Dudas? Escríbenos por WhatsApp</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+</body>
+</html>
