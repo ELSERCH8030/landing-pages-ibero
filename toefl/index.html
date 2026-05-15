@@ -185,6 +185,162 @@
         .footer-bottom a { color: rgba(255,255,255,.7); text-decoration: none; }
         .footer-bottom a:hover { color: #fff; }
 
+        /* ── WHATSAPP WIDGET ── */
+        .wa-widget {
+            position: fixed;
+            bottom: 22px; right: 22px;
+            z-index: 1500;
+        }
+        /* Popup tipo chat */
+        .wa-popup {
+            position: absolute;
+            bottom: 76px; right: 0;
+            width: 320px;
+            max-width: calc(100vw - 32px);
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 16px 50px rgba(0,0,0,.28);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px) scale(.92);
+            transform-origin: bottom right;
+            pointer-events: none;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+        .wa-popup.open {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .wa-popup-header {
+            background: #075E54;
+            color: #fff;
+            padding: .9rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+        }
+        .wa-popup-avatar {
+            width: 40px; height: 40px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .wa-popup-avatar svg { width: 22px; height: 22px; }
+        .wa-popup-info { flex: 1; min-width: 0; }
+        .wa-popup-name { font-size: .92rem; font-weight: 700; line-height: 1.2; }
+        .wa-popup-status { font-size: .7rem; opacity: .85; display: flex; align-items: center; gap: .35rem; margin-top: 3px; }
+        .wa-popup-dot { width: 7px; height: 7px; background: #25D366; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 2px #fff; }
+        .wa-popup-close {
+            background: transparent; border: none; color: #fff;
+            font-size: 1rem; cursor: pointer; padding: 4px 8px;
+            opacity: .8; transition: opacity .2s;
+            line-height: 1;
+        }
+        .wa-popup-close:hover { opacity: 1; }
+        .wa-popup-body {
+            background: #ECE5DD;
+            background-image: linear-gradient(rgba(229,221,213,.94), rgba(229,221,213,.94));
+            padding: 1.25rem 1rem;
+            min-height: 110px;
+        }
+        .wa-popup-msg {
+            background: #fff;
+            padding: .75rem .9rem;
+            border-radius: 8px;
+            border-top-left-radius: 0;
+            font-size: .85rem;
+            line-height: 1.55;
+            color: #2a2a2e;
+            box-shadow: 0 1px 2px rgba(0,0,0,.08);
+            max-width: 92%;
+            position: relative;
+        }
+        .wa-popup-msg::before {
+            content: '';
+            position: absolute;
+            left: -7px; top: 0;
+            width: 0; height: 0;
+            border-style: solid;
+            border-width: 0 8px 8px 0;
+            border-color: transparent #fff transparent transparent;
+        }
+        .wa-popup-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
+            background: #25D366;
+            color: #fff;
+            padding: .95rem 1rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: .92rem;
+            transition: background .25s;
+        }
+        .wa-popup-cta:hover { background: #1faa54; }
+        .wa-popup-cta svg { width: 18px; height: 18px; }
+
+        /* Botón flotante */
+        .wa-float {
+            position: relative;
+            width: 60px; height: 60px;
+            background: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(37,211,102,.4);
+            transition: transform .25s ease;
+            animation: wa-float-pulse 2.4s ease-in-out infinite;
+            padding: 0;
+        }
+        .wa-float:hover { transform: scale(1.08); }
+        .wa-float svg { width: 30px; height: 30px; }
+        .wa-float-tip {
+            position: absolute;
+            right: 72px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--negro);
+            color: #fff;
+            font-size: .78rem;
+            font-weight: 600;
+            padding: .55rem .9rem;
+            border-radius: 8px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s, transform .25s;
+            box-shadow: 0 6px 18px rgba(0,0,0,.18);
+        }
+        .wa-float-tip::after {
+            content: '';
+            position: absolute;
+            right: -5px; top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            width: 10px; height: 10px;
+            background: var(--negro);
+        }
+        .wa-float:hover .wa-float-tip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(-4px);
+        }
+        /* Ocultar tooltip cuando popup está abierto */
+        .wa-widget.popup-open .wa-float-tip { display: none; }
+        @keyframes wa-float-pulse {
+            0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.55); }
+            50%      { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 14px rgba(37,211,102,0); }
+        }
+        .wa-widget.popup-open .wa-float { animation: none; }
+
         /* ── ANIMATIONS ── */
         .anim { opacity: 0; transition: opacity .8s ease, transform .8s ease; }
         .anim-up { transform: translateY(35px); }
@@ -213,6 +369,11 @@
             header { padding: .6rem 1rem; }
             .lang-btn { padding: .3rem .55rem; font-size: .7rem; }
             .nav-cta { padding: .45rem 1rem; font-size: .78rem; }
+            .wa-widget { bottom: 18px; right: 18px; }
+            .wa-float { width: 56px; height: 56px; }
+            .wa-float svg { width: 28px; height: 28px; }
+            .wa-float-tip { display: none; }
+            .wa-popup { bottom: 72px; }
         }
         @media (max-width: 480px) {
             section { padding: 3rem 1rem; }
@@ -385,39 +546,6 @@
     </div>
 </section>
 
-<!-- ═════════════════════ FORMULARIO (PROSPECTY) ═════════════════════ -->
-<section id="contacto" class="form-section">
-    <div class="section-inner">
-        <div class="section-header anim anim-up">
-            <p class="section-eyebrow" data-es="Contacto" data-en="Contact">Contacto</p>
-            <h2 class="section-title" data-es="¿Necesitas más información?" data-en="Need more information?">¿Necesitas más información?</h2>
-            <p class="section-sub" data-es="Déjanos tus datos y un asesor te contactará para resolver tus dudas sobre el TOEFL iBT en IBERO Tijuana." data-en="Leave us your details and an advisor will reach out to clear up your questions about the TOEFL iBT at IBERO Tijuana.">Déjanos tus datos y un asesor te contactará para resolver tus dudas sobre el TOEFL iBT en IBERO Tijuana.</p>
-        </div>
-        <div class="form-wrap anim anim-up" style="padding: 1rem;">
-            <div style="overflow:hidden; min-height: 640px;">
-                <iframe
-                    src="https://app.prospecty.mx/widget/form/xVtTon2cLLDuTMfWHAci"
-                    style="width:100%;height:100%;min-height:640px;border:none;border-radius:8px;display:block;"
-                    id="inline-xVtTon2cLLDuTMfWHAci"
-                    data-layout="{'id':'INLINE'}"
-                    data-trigger-type="alwaysShow"
-                    data-trigger-value=""
-                    data-activation-type="alwaysActivated"
-                    data-activation-value=""
-                    data-deactivation-type="neverDeactivate"
-                    data-deactivation-value=""
-                    data-form-name="FORMS TOEFL LANDING PAGE"
-                    data-height="undefined"
-                    data-layout-iframe-id="inline-xVtTon2cLLDuTMfWHAci"
-                    data-form-id="xVtTon2cLLDuTMfWHAci"
-                    title="FORMS TOEFL LANDING PAGE">
-                </iframe>
-                <script src="https://app.prospecty.mx/js/form_embed.js"></script>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- ═════════════════════ PRECIOS ═════════════════════ -->
 <section id="precios" class="precios">
     <div class="section-inner">
@@ -532,9 +660,49 @@
                 <p><strong data-es="Horarios de atención:" data-en="Office hours:">Horarios de atención:</strong> <span data-es="Lunes a viernes de 9:00 a 18:00 hrs." data-en="Monday to Friday, 9:00 AM – 6:00 PM.">Lunes a viernes de 9:00 a 18:00 hrs.</span></p>
                 <div class="ubi-contact">
                     <p><strong data-es="¿Tienes dudas sobre el examen?" data-en="Have questions about the exam?">¿Tienes dudas sobre el examen?</strong></p>
-                    <p data-es="Contáctanos al correo institucional o por WhatsApp. Te ayudamos con tu registro paso a paso." data-en="Reach out by email or WhatsApp. We'll guide you through registration step by step.">Contáctanos al correo institucional o por WhatsApp. Te ayudamos con tu registro paso a paso.</p>
-                    <p style="margin-top: .75rem;"><a href="mailto:promocion@tijuana.ibero.mx">promocion@tijuana.ibero.mx</a></p>
+                    <p data-es="Contáctanos por correo o WhatsApp con admisiones. Te ayudamos con tu registro paso a paso." data-en="Reach out by email or WhatsApp with admissions. We'll guide you through registration step by step.">Contáctanos por correo o WhatsApp con admisiones. Te ayudamos con tu registro paso a paso.</p>
+                    <p style="margin-top: .75rem;">
+                        <strong data-es="Mtra. Sonia Gallardo · Coordinadora de Idiomas" data-en="Mtra. Sonia Gallardo · Language Programs Coordinator">Mtra. Sonia Gallardo · Coordinadora de Idiomas</strong><br>
+                        <a href="mailto:sonia.gallardo@tijuana.ibero.mx">sonia.gallardo@tijuana.ibero.mx</a>
+                    </p>
+                    <p style="margin-top: .5rem;">
+                        <strong data-es="WhatsApp Admisiones" data-en="Admissions WhatsApp">WhatsApp Admisiones</strong><br>
+                        <a href="https://wa.me/526643613915?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20el%20TOEFL%20iBT%20en%20IBERO%20Tijuana%20%F0%9F%8C%8E" target="_blank" rel="noopener">+52 664 361 3915</a>
+                    </p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═════════════════════ FORMULARIO (PROSPECTY) ═════════════════════ -->
+<section id="contacto" class="form-section">
+    <div class="section-inner">
+        <div class="section-header anim anim-up">
+            <p class="section-eyebrow" data-es="Contacto" data-en="Contact">Contacto</p>
+            <h2 class="section-title" data-es="¿Necesitas más información?" data-en="Need more information?">¿Necesitas más información?</h2>
+            <p class="section-sub" data-es="Déjanos tus datos y un asesor te contactará para resolver tus dudas sobre el TOEFL iBT en IBERO Tijuana." data-en="Leave us your details and an advisor will reach out to clear up your questions about the TOEFL iBT at IBERO Tijuana.">Déjanos tus datos y un asesor te contactará para resolver tus dudas sobre el TOEFL iBT en IBERO Tijuana.</p>
+        </div>
+        <div class="form-wrap anim anim-up" style="padding: 1rem;">
+            <div style="overflow:hidden; min-height: 640px;">
+                <iframe
+                    src="https://app.prospecty.mx/widget/form/xVtTon2cLLDuTMfWHAci"
+                    style="width:100%;height:100%;min-height:640px;border:none;border-radius:8px;display:block;"
+                    id="inline-xVtTon2cLLDuTMfWHAci"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="FORMS TOEFL LANDING PAGE"
+                    data-height="undefined"
+                    data-layout-iframe-id="inline-xVtTon2cLLDuTMfWHAci"
+                    data-form-id="xVtTon2cLLDuTMfWHAci"
+                    title="FORMS TOEFL LANDING PAGE">
+                </iframe>
+                <script src="https://app.prospecty.mx/js/form_embed.js"></script>
             </div>
         </div>
     </div>
@@ -562,6 +730,84 @@
         </div>
     </div>
 </footer>
+
+<!-- ═════════════════════ WHATSAPP WIDGET (BOTÓN + POPUP) ═════════════════════ -->
+<div class="wa-widget" id="waWidget">
+    <!-- Popup tipo chat -->
+    <div class="wa-popup" id="waPopup" role="dialog" aria-labelledby="waPopupTitle" aria-hidden="true">
+        <div class="wa-popup-header">
+            <div class="wa-popup-avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+            </div>
+            <div class="wa-popup-info">
+                <div id="waPopupTitle" class="wa-popup-name" data-es="Admisiones IBERO Tijuana" data-en="IBERO Tijuana Admissions">Admisiones IBERO Tijuana</div>
+                <div class="wa-popup-status">
+                    <span class="wa-popup-dot" aria-hidden="true"></span>
+                    <span data-es="Normalmente responden en pocos minutos" data-en="Typically reply within a few minutes">Normalmente responden en pocos minutos</span>
+                </div>
+            </div>
+            <button type="button" class="wa-popup-close" onclick="toggleWaPopup()" aria-label="Cerrar">✕</button>
+        </div>
+        <div class="wa-popup-body">
+            <div class="wa-popup-msg">
+                <span data-es="¡Hola! 👋 ¿Tienes dudas sobre el TOEFL iBT&reg; en IBERO Tijuana? Déjanos un mensaje y te ayudamos con tu registro." data-en="Hi there! 👋 Questions about the TOEFL iBT&reg; at IBERO Tijuana? Drop us a message and we'll guide you through registration.">¡Hola! 👋 ¿Tienes dudas sobre el TOEFL iBT&reg; en IBERO Tijuana? Déjanos un mensaje y te ayudamos con tu registro.</span>
+            </div>
+        </div>
+        <a href="https://wa.me/526643613915?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20el%20TOEFL%20iBT%20en%20IBERO%20Tijuana%20%F0%9F%8C%8E"
+           target="_blank" rel="noopener" class="wa-popup-cta">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span data-es="Iniciar conversación" data-en="Start conversation">Iniciar conversación</span>
+        </a>
+    </div>
+    <!-- Botón flotante -->
+    <button type="button" class="wa-float" onclick="toggleWaPopup()" aria-label="Abrir WhatsApp Admisiones" aria-expanded="false" aria-controls="waPopup">
+        <span class="wa-float-tip" data-es="¿Dudas? Escríbenos" data-en="Have questions?">¿Dudas? Escríbenos</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </button>
+</div>
+
+<script>
+    // ── WhatsApp popup toggle ──
+    function toggleWaPopup() {
+        const widget = document.getElementById('waWidget');
+        const popup = document.getElementById('waPopup');
+        const button = widget.querySelector('.wa-float');
+        const isOpen = popup.classList.toggle('open');
+        widget.classList.toggle('popup-open', isOpen);
+        popup.setAttribute('aria-hidden', String(!isOpen));
+        button.setAttribute('aria-expanded', String(isOpen));
+    }
+    // Cerrar al hacer click fuera del widget
+    document.addEventListener('click', function(e) {
+        const widget = document.getElementById('waWidget');
+        const popup = document.getElementById('waPopup');
+        if (widget && popup && popup.classList.contains('open') && !widget.contains(e.target)) {
+            popup.classList.remove('open');
+            widget.classList.remove('popup-open');
+            popup.setAttribute('aria-hidden', 'true');
+            widget.querySelector('.wa-float').setAttribute('aria-expanded', 'false');
+        }
+    });
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const widget = document.getElementById('waWidget');
+            const popup = document.getElementById('waPopup');
+            if (popup && popup.classList.contains('open')) {
+                popup.classList.remove('open');
+                widget.classList.remove('popup-open');
+                popup.setAttribute('aria-hidden', 'true');
+                widget.querySelector('.wa-float').setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
+</script>
 
 <!-- ═════════════════════ JS ═════════════════════ -->
 <script>
