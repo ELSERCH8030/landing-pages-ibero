@@ -510,6 +510,13 @@
         return `${d}/${m}/${y}`;
     }
 
+    function safeFilenamePart(s) {
+        return (s || "")
+            .normalize("NFD").replace(/\p{Diacritic}/gu, "") // quita acentos
+            .replace(/[^A-Za-z0-9]+/g, "_")                  // todo lo demás -> _
+            .replace(/^_+|_+$/g, "");                        // trim
+    }
+
     async function fillSolicitud(data) {
         const bytes = await fetch(PDF_TEMPLATE).then(r => {
             if (!r.ok) throw new Error("No se pudo cargar el PDF base.");
@@ -685,7 +692,8 @@
             waLink.href = waUrl;
 
             const filled = await fillSolicitud(data);
-            const filename = `Solicitud-${(data.apellidoPaterno || "registro").replace(/\s+/g, "_")}.pdf`;
+            const nameParts = [safeFilenamePart(data.nombres), safeFilenamePart(data.apellidoPaterno)].filter(Boolean);
+            const filename = nameParts.length ? `Solicitud-${nameParts.join("-")}.pdf` : "Solicitud-Registro.pdf";
             downloadBytes(filled, filename);
 
             // Pequeño delay para que el navegador procese la primera descarga
