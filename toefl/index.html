@@ -116,20 +116,17 @@
         .porque-image { position: relative; }
         .porque-image img { width: 100%; height: 420px; object-fit: cover; border-radius: 18px; box-shadow: 0 12px 35px rgba(0,0,0,.15); }
 
-        /* ── PRECIOS ── */
+        /* ── PRECIOS (tarjeta única, centrada) ── */
         .precios { background: linear-gradient(180deg, #fff 0%, var(--gris-claro) 100%); }
-        .precios-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 880px; margin: 0 auto; }
-        .precio-card { background: #fff; border: 2px solid var(--borde); border-radius: 18px; padding: 2rem 1.75rem; text-align: center; transition: .3s; position: relative; }
-        .precio-card.featured { border-color: var(--rojo); box-shadow: 0 12px 35px rgba(224,0,52,.15); }
-        .precio-card.featured::before { content: attr(data-badge); position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--rojo); color: #fff; padding: .25rem .9rem; border-radius: 50px; font-size: .72rem; font-weight: 800; letter-spacing: .5px; white-space: nowrap; }
-        .precio-tipo { font-size: .82rem; color: var(--gris); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: .75rem; }
-        .precio-monto { font-size: clamp(2.2rem, 5vw, 3rem); color: var(--negro); font-weight: 800; line-height: 1; margin-bottom: .35rem; }
-        .precio-moneda { font-size: .85rem; color: var(--gris); font-weight: 600; margin-bottom: 1rem; }
-        .precio-nota { font-size: .8rem; color: var(--gris); line-height: 1.5; margin-bottom: 1.5rem; min-height: 2.4em; }
-        .precio-cta { display: inline-block; padding: .75rem 1.6rem; background: var(--rojo); color: #fff; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: .9rem; transition: .25s; }
-        .precio-cta:hover { background: var(--rojo-oscuro); transform: translateY(-2px); }
-        .precio-cta.secondary { background: transparent; color: var(--rojo); border: 2px solid var(--rojo); padding: .65rem 1.6rem; }
-        .precio-cta.secondary:hover { background: var(--rojo); color: #fff; }
+        .precio-single { max-width: 480px; margin: 0 auto; }
+        .precio-card { background: #fff; border: 2px solid var(--rojo); border-radius: 22px; padding: 2.75rem 2.25rem; text-align: center; transition: .3s; position: relative; box-shadow: 0 18px 50px rgba(224,0,52,.18); }
+        .precio-card::before { content: attr(data-badge); position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--rojo); color: #fff; padding: .35rem 1.1rem; border-radius: 50px; font-size: .75rem; font-weight: 800; letter-spacing: .6px; white-space: nowrap; text-transform: uppercase; }
+        .precio-tipo { font-size: .85rem; color: var(--gris); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: .75rem; }
+        .precio-monto { font-size: clamp(2.8rem, 6vw, 3.8rem); color: var(--negro); font-weight: 800; line-height: 1; margin-bottom: .35rem; }
+        .precio-moneda { font-size: .9rem; color: var(--gris); font-weight: 600; margin-bottom: 1.25rem; }
+        .precio-nota { font-size: .9rem; color: var(--gris); line-height: 1.55; margin-bottom: 1.75rem; }
+        .precio-cta { display: inline-flex; align-items: center; gap: .55rem; padding: 1rem 2.2rem; background: var(--rojo); color: #fff; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1rem; transition: .25s; box-shadow: 0 8px 22px rgba(224,0,52,.3); }
+        .precio-cta:hover { background: var(--rojo-oscuro); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(224,0,52,.4); }
 
         /* ── PROCESO ── */
         .proceso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; counter-reset: step; }
@@ -141,16 +138,34 @@
         .paso-card a { color: var(--rojo); text-decoration: none; font-weight: 700; font-size: .85rem; display: inline-flex; align-items: center; gap: .3rem; }
         .paso-card a:hover { text-decoration: underline; }
 
-        /* ── INFO OFICIAL ── */
-        .info-oficial { background: var(--gris-claro); }
-        .info-oficial-inner { max-width: 800px; margin: 0 auto; text-align: center; }
-        .info-oficial-card { background: #fff; padding: 2.5rem 2rem; border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,.05); }
-        .info-oficial-card h3 { font-size: 1.4rem; color: var(--negro); margin-bottom: .75rem; font-weight: 800; }
-        .info-oficial-card p { font-size: .95rem; color: var(--gris); line-height: 1.6; margin-bottom: 1.5rem; }
-        .info-link { display: inline-flex; align-items: center; background: #1a1a3a; color: #fff; padding: .9rem 1.6rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: .9rem; transition: .25s; gap: 1rem; }
-        .info-link:hover { background: #2a2a5a; transform: translateY(-2px); }
-        .info-link .info-link-label { font-size: .78rem; opacity: .85; font-weight: 600; }
-        .info-link .info-link-brand { font-size: 1.05rem; font-weight: 800; letter-spacing: .5px; }
+        /* ── DETALLES DEL EXAMEN (acordeón) ── */
+        .detalles { background: var(--gris-claro); }
+        .detalles-inner { max-width: 820px; margin: 0 auto; }
+        .acc-item { background: #fff; border: 1px solid var(--borde); border-radius: 14px; margin-bottom: .85rem; overflow: hidden; transition: box-shadow .25s, border-color .25s; }
+        .acc-item.open { box-shadow: 0 10px 28px rgba(0,0,0,.08); border-color: var(--rojo); }
+        .acc-trigger { width: 100%; background: transparent; border: none; padding: 1.15rem 1.4rem; display: flex; align-items: center; gap: 1rem; cursor: pointer; text-align: left; font-family: inherit; transition: background .2s; }
+        .acc-trigger:hover { background: var(--gris-claro); }
+        .acc-icon { width: 38px; height: 38px; min-width: 38px; background: rgba(224,0,52,.08); color: var(--rojo); border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: background .25s; }
+        .acc-item.open .acc-icon { background: var(--rojo); color: #fff; }
+        .acc-title { flex: 1; font-size: 1.02rem; font-weight: 700; color: var(--negro); }
+        .acc-chevron { width: 22px; height: 22px; color: var(--gris); transition: transform .3s; flex-shrink: 0; }
+        .acc-item.open .acc-chevron { transform: rotate(180deg); color: var(--rojo); }
+        .acc-body { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+        .acc-item.open .acc-body { max-height: 1200px; }
+        .acc-content { padding: 0 1.4rem 1.4rem 4.4rem; font-size: .92rem; color: var(--gris-oscuro); line-height: 1.65; }
+        .acc-content p { margin-bottom: .65rem; }
+        .acc-content ul { list-style: none; padding: 0; margin: .35rem 0 .75rem; }
+        .acc-content ul li { padding: .35rem 0; padding-left: 1.1rem; position: relative; }
+        .acc-content ul li::before { content: ''; position: absolute; left: 0; top: .9rem; width: 5px; height: 5px; background: var(--rojo); border-radius: 50%; }
+        .acc-content strong { color: var(--negro); }
+        .acc-content .acc-row { display: flex; align-items: baseline; gap: .75rem; padding: .4rem 0; border-bottom: 1px dashed var(--borde); font-size: .9rem; }
+        .acc-content .acc-row:last-child { border-bottom: none; }
+        .acc-content .acc-row .acc-row-label { min-width: 92px; font-weight: 700; color: var(--negro); }
+        .acc-content .acc-row .acc-row-val { color: var(--gris); }
+        @media (max-width: 600px) {
+            .acc-content { padding-left: 1.4rem; }
+            .acc-content .acc-row { flex-direction: column; gap: .15rem; }
+        }
 
         /* ── UBICACIÓN ── */
         .ubicacion-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; }
@@ -359,7 +374,6 @@
             .proceso-grid { grid-template-columns: repeat(2, 1fr); }
             .porque-inner { grid-template-columns: 1fr; gap: 2rem; }
             .porque-image img { height: 320px; }
-            .precios-grid { grid-template-columns: 1fr; }
             .ubicacion-inner { grid-template-columns: 1fr; }
             .ubi-map { height: 280px; }
             .footer-top { grid-template-columns: 1fr; }
@@ -431,7 +445,7 @@
 <section class="stats-bar" style="padding: 2rem 1.5rem;">
     <div class="stats-inner">
         <div class="stat-item">
-            <div class="stat-num">~3h</div>
+            <div class="stat-num">2h</div>
             <div class="stat-label" data-es="Duración del examen" data-en="Exam duration">Duración del examen</div>
         </div>
         <div class="stat-item">
@@ -550,28 +564,21 @@
 <section id="precios" class="precios">
     <div class="section-inner">
         <div class="section-header anim anim-up">
-            <p class="section-eyebrow" data-es="Costos" data-en="Pricing">Costos</p>
+            <p class="section-eyebrow" data-es="Costo" data-en="Price">Costo</p>
             <h2 class="section-title" data-es="Inscríbete a tu examen &lt;em&gt;TOEFL iBT&reg;&lt;/em&gt;" data-en="Register for your &lt;em&gt;TOEFL iBT&reg;&lt;/em&gt; exam">Inscríbete a tu examen <em>TOEFL iBT&reg;</em></h2>
-            <p class="section-sub" data-es="Elige la opción que corresponde a tu perfil y comienza el proceso de registro." data-en="Choose the option that fits your profile and start the registration process.">Elige la opción que corresponde a tu perfil y comienza el proceso de registro.</p>
+            <p class="section-sub" data-es="Pago en línea con tarjeta de crédito o débito. Tu lugar queda asegurado al completar el pago." data-en="Online payment with credit or debit card. Your seat is secured once payment is complete.">Pago en línea con tarjeta de crédito o débito. Tu lugar queda asegurado al completar el pago.</p>
         </div>
 
-        <div class="precios-grid">
-            <div class="precio-card featured anim anim-up" data-badge="Más popular" data-badge-es="Más popular" data-badge-en="Most popular">
-                <div class="precio-tipo" data-es="Público en general" data-en="General public">Público en general</div>
+        <div class="precio-single">
+            <div class="precio-card anim anim-up" data-badge="Examen oficial" data-badge-es="Examen oficial" data-badge-en="Official exam">
+                <div class="precio-tipo" data-es="Examen TOEFL iBT&reg;" data-en="TOEFL iBT&reg; exam">Examen TOEFL iBT&reg;</div>
                 <div class="precio-monto">$4,950</div>
                 <div class="precio-moneda" data-es="MXN · Pesos mexicanos" data-en="MXN · Mexican pesos">MXN · Pesos mexicanos</div>
-                <div class="precio-nota" data-es="Pago disponible en línea con tarjeta de crédito o débito." data-en="Online payment available with credit or debit card.">Pago disponible en línea con tarjeta de crédito o débito.</div>
+                <div class="precio-nota" data-es="Incluye la aplicación del examen oficial en nuestras instalaciones, certificadas por ETS." data-en="Includes the official exam administration at our ETS-certified facilities.">Incluye la aplicación del examen oficial en nuestras instalaciones, certificadas por ETS.</div>
                 <a href="https://enlinea.tij.ibero.mx/sit/SitActividadesEsp.cfm" target="_blank" rel="noopener" class="precio-cta">
                     <span data-es="Pagar en línea" data-en="Pay online">Pagar en línea</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:.4rem;vertical-align:middle"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
                 </a>
-            </div>
-            <div class="precio-card anim anim-up">
-                <div class="precio-tipo" data-es="Costo colaboradores" data-en="Collaborators rate">Costo colaboradores</div>
-                <div class="precio-monto">$4,450</div>
-                <div class="precio-moneda" data-es="MXN · Pesos mexicanos" data-en="MXN · Mexican pesos">MXN · Pesos mexicanos</div>
-                <div class="precio-nota" data-es="Este costo se tendrá que pagar directamente en caja." data-en="This rate must be paid directly at the cashier.">Este costo se tendrá que pagar directamente en caja.</div>
-                <a href="#proceso" class="precio-cta secondary" data-es="Ver instrucciones" data-en="See instructions">Ver instrucciones</a>
             </div>
         </div>
     </div>
@@ -590,7 +597,7 @@
             <div class="paso-card anim anim-up">
                 <div class="paso-num">1</div>
                 <h3 data-es="Realiza tu pago" data-en="Make your payment">Realiza tu pago</h3>
-                <p data-es="Pago en línea (público) o directamente en caja (colaboradores)." data-en="Online payment (general public) or directly at the cashier (collaborators).">Pago en línea (público) o directamente en caja (colaboradores).</p>
+                <p data-es="Pago en línea con tarjeta de crédito o débito a través de nuestro portal oficial." data-en="Online payment with credit or debit card through our official portal.">Pago en línea con tarjeta de crédito o débito a través de nuestro portal oficial.</p>
                 <a href="https://enlinea.tij.ibero.mx/sit/SitActividadesEsp.cfm" target="_blank" rel="noopener">
                     <span data-es="Ir al pago" data-en="Go to payment">Ir al pago</span>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -619,19 +626,94 @@
     </div>
 </section>
 
-<!-- ═════════════════════ INFO OFICIAL ETS ═════════════════════ -->
-<section class="info-oficial">
-    <div class="section-inner info-oficial-inner">
+<!-- ═════════════════════ DETALLES DEL EXAMEN (acordeón) ═════════════════════ -->
+<section class="detalles">
+    <div class="section-inner detalles-inner">
         <div class="section-header anim anim-up">
-            <p class="section-eyebrow" data-es="Información oficial" data-en="Official information">Información oficial</p>
-            <h2 class="section-title" data-es="Consulta los detalles directamente en &lt;em&gt;ETS&lt;/em&gt;" data-en="Find all the details directly at &lt;em&gt;ETS&lt;/em&gt;">Consulta los detalles directamente en <em>ETS</em></h2>
+            <p class="section-eyebrow" data-es="Detalles del examen" data-en="Exam details">Detalles del examen</p>
+            <h2 class="section-title" data-es="Todo lo que necesitas &lt;em&gt;saber&lt;/em&gt;" data-en="Everything you need to &lt;em&gt;know&lt;/em&gt;">Todo lo que necesitas <em>saber</em></h2>
+            <p class="section-sub" data-es="Formato, secciones, puntajes y políticas oficiales del TOEFL iBT&reg;. Toca cada bloque para ver más." data-en="Format, sections, scoring and official policies of the TOEFL iBT&reg;. Tap each block to expand.">Formato, secciones, puntajes y políticas oficiales del TOEFL iBT&reg;. Toca cada bloque para ver más.</p>
         </div>
-        <div class="info-oficial-card anim anim-up">
-            <p data-es="Para conocer todos los detalles oficiales sobre el examen, formato, secciones, puntajes y políticas, visita la página oficial de ETS:" data-en="For all official details about the exam — format, sections, scores and policies — visit the official ETS site:">Para conocer todos los detalles oficiales sobre el examen, formato, secciones, puntajes y políticas, visita la página oficial de ETS:</p>
-            <a href="https://www.ets.org/toefl" target="_blank" rel="noopener" class="info-link">
-                <span class="info-link-label">Visit the website</span>
-                <span class="info-link-brand">TOEFL&reg;</span>
-            </a>
+
+        <!-- ── 1. FORMATO ── -->
+        <div class="acc-item anim anim-up">
+            <button type="button" class="acc-trigger" aria-expanded="false">
+                <span class="acc-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </span>
+                <span class="acc-title" data-es="Formato del examen" data-en="Exam format">Formato del examen</span>
+                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="acc-body">
+                <div class="acc-content">
+                    <p data-es="El TOEFL iBT&reg; es el examen oficial de inglés de ETS, aplicado por internet en una sola sesión." data-en="The TOEFL iBT&reg; is ETS's official English exam, delivered via internet in a single session.">El TOEFL iBT&reg; es el examen oficial de inglés de ETS, aplicado por internet en una sola sesión.</p>
+                    <div class="acc-row"><span class="acc-row-label" data-es="Duración" data-en="Duration">Duración</span><span class="acc-row-val" data-es="Aproximadamente 2 horas en total" data-en="Approximately 2 hours total">Aproximadamente 2 horas en total</span></div>
+                    <div class="acc-row"><span class="acc-row-label" data-es="Modalidad" data-en="Format">Modalidad</span><span class="acc-row-val" data-es="Aplicado en computadora, en centro autorizado" data-en="Computer-based, at authorized center">Aplicado en computadora, en centro autorizado</span></div>
+                    <div class="acc-row"><span class="acc-row-label" data-es="Secciones" data-en="Sections">Secciones</span><span class="acc-row-val" data-es="4 (Reading, Listening, Speaking, Writing)" data-en="4 (Reading, Listening, Speaking, Writing)">4 (Reading, Listening, Speaking, Writing)</span></div>
+                    <div class="acc-row"><span class="acc-row-label" data-es="Idioma" data-en="Language">Idioma</span><span class="acc-row-val" data-es="Inglés (instrucciones y contenido)" data-en="English (instructions and content)">Inglés (instrucciones y contenido)</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── 2. SECCIONES ── -->
+        <div class="acc-item anim anim-up">
+            <button type="button" class="acc-trigger" aria-expanded="false">
+                <span class="acc-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </span>
+                <span class="acc-title" data-es="Las 4 secciones" data-en="The 4 sections">Las 4 secciones</span>
+                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="acc-body">
+                <div class="acc-content">
+                    <p><strong>Reading</strong> · <span data-es="35 minutos · 2 textos académicos con preguntas de comprensión." data-en="35 minutes · 2 academic passages with comprehension questions.">35 minutos · 2 textos académicos con preguntas de comprensión.</span></p>
+                    <p><strong>Listening</strong> · <span data-es="36 minutos · Conferencias y conversaciones en contexto académico." data-en="36 minutes · Lectures and conversations in academic contexts.">36 minutos · Conferencias y conversaciones en contexto académico.</span></p>
+                    <p><strong>Speaking</strong> · <span data-es="16 minutos · 4 tareas (1 independiente y 3 integradas con lectura y audio)." data-en="16 minutes · 4 tasks (1 independent, 3 integrated with reading and audio).">16 minutos · 4 tareas (1 independiente y 3 integradas con lectura y audio).</span></p>
+                    <p><strong>Writing</strong> · <span data-es="29 minutos · 1 tarea integrada y 1 redacción para discusión académica." data-en="29 minutes · 1 integrated task and 1 writing response for academic discussion.">29 minutos · 1 tarea integrada y 1 redacción para discusión académica.</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── 3. PUNTAJES ── -->
+        <div class="acc-item anim anim-up">
+            <button type="button" class="acc-trigger" aria-expanded="false">
+                <span class="acc-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                </span>
+                <span class="acc-title" data-es="Puntajes y resultados" data-en="Scoring and results">Puntajes y resultados</span>
+                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="acc-body">
+                <div class="acc-content">
+                    <div class="acc-row"><span class="acc-row-label" data-es="Escala" data-en="Scale">Escala</span><span class="acc-row-val" data-es="0–30 puntos por sección" data-en="0–30 points per section">0–30 puntos por sección</span></div>
+                    <div class="acc-row"><span class="acc-row-label" data-es="Total" data-en="Total">Total</span><span class="acc-row-val" data-es="0–120 puntos (suma de las 4 secciones)" data-en="0–120 points (sum of all 4 sections)">0–120 puntos (suma de las 4 secciones)</span></div>
+                    <div class="acc-row"><span class="acc-row-label" data-es="Entrega" data-en="Delivery">Entrega</span><span class="acc-row-val" data-es="Resultados disponibles en línea en tu cuenta ETS, 4 a 8 días después del examen" data-en="Results available online in your ETS account, 4 to 8 days after the exam">Resultados disponibles en línea en tu cuenta ETS, 4 a 8 días después del examen</span></div>
+                    <div class="acc-row"><span class="acc-row-label" data-es="Vigencia" data-en="Validity">Vigencia</span><span class="acc-row-val" data-es="2 años a partir de la fecha del examen" data-en="2 years from the exam date">2 años a partir de la fecha del examen</span></div>
+                    <p style="margin-top:.85rem;" data-es="No hay puntaje de 'aprobado' o 'reprobado': cada institución define su mínimo requerido." data-en="There is no 'pass' or 'fail' score: each institution defines its own minimum requirement.">No hay puntaje de "aprobado" o "reprobado": cada institución define su mínimo requerido.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── 4. POLÍTICAS ── -->
+        <div class="acc-item anim anim-up">
+            <button type="button" class="acc-trigger" aria-expanded="false">
+                <span class="acc-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </span>
+                <span class="acc-title" data-es="Políticas el día del examen" data-en="Test-day policies">Políticas el día del examen</span>
+                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="acc-body">
+                <div class="acc-content">
+                    <ul>
+                        <li data-es="Identificación oficial con foto vigente (INE/pasaporte). Sin ID válida no se permite la aplicación." data-en="Valid government-issued photo ID (INE/passport). Without valid ID, you will not be allowed to test.">Identificación oficial con foto vigente (INE/pasaporte). Sin ID válida no se permite la aplicación.</li>
+                        <li data-es="Llega al menos 30 minutos antes de la hora programada." data-en="Arrive at least 30 minutes before your scheduled time.">Llega al menos 30 minutos antes de la hora programada.</li>
+                        <li data-es="No se permiten celulares, mochilas, alimentos ni bebidas en el área del examen." data-en="No cell phones, backpacks, food or drinks are allowed in the testing area.">No se permiten celulares, mochilas, alimentos ni bebidas en el área del examen.</li>
+                        <li data-es="Los resultados se envían automáticamente a las instituciones que selecciones durante el examen." data-en="Scores are sent automatically to the institutions you select during the exam.">Los resultados se envían automáticamente a las instituciones que selecciones durante el examen.</li>
+                        <li data-es="Reagendar o cancelar el examen está sujeto a las políticas oficiales de ETS." data-en="Rescheduling or canceling the exam is subject to official ETS policies.">Reagendar o cancelar el examen está sujeto a las políticas oficiales de ETS.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -816,6 +898,24 @@
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: .12 });
     document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+
+    // ── Acordeón de detalles del examen (un solo bloque abierto a la vez) ──
+    document.querySelectorAll('.acc-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const item = trigger.closest('.acc-item');
+            const wasOpen = item.classList.contains('open');
+            // Cerrar todos los demás
+            document.querySelectorAll('.acc-item.open').forEach(other => {
+                if (other !== item) {
+                    other.classList.remove('open');
+                    other.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
+                }
+            });
+            // Toggle del actual
+            item.classList.toggle('open', !wasOpen);
+            trigger.setAttribute('aria-expanded', String(!wasOpen));
+        });
+    });
 
     // ── Internationalization (ES / EN) ──
     (function() {
