@@ -77,6 +77,21 @@
         .radio-group input:checked + span { color: var(--rojo); font-weight: 700; }
         .radio-group label:has(input:checked) { border-color: var(--rojo); background: rgba(224,0,52,.05); }
 
+        /* ── FIRMA DIGITAL ── */
+        .sig-wrap { background: #fff; border: 2px dashed var(--borde); border-radius: 12px; padding: 1rem; transition: .15s; }
+        .sig-wrap.invalid { border-color: var(--error); background: #fff5f5; }
+        .sig-wrap.has-signature { border-style: solid; border-color: var(--rojo); }
+        .sig-help { font-size: .82rem; color: var(--gris); margin-bottom: .6rem; }
+        .sig-canvas-box { position: relative; background: #fafafa; border-radius: 8px; overflow: hidden; }
+        .sig-canvas { display: block; width: 100%; height: 180px; cursor: crosshair; touch-action: none; background: #fff; border-radius: 8px; }
+        .sig-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #c7c7cc; font-size: .9rem; font-style: italic; pointer-events: none; }
+        .sig-placeholder.hide { display: none; }
+        .sig-actions { display: flex; justify-content: space-between; align-items: center; margin-top: .6rem; }
+        .sig-clear-btn { background: none; border: 1px solid var(--borde); color: var(--gris); padding: .35rem .85rem; border-radius: 50px; font-size: .82rem; font-weight: 600; cursor: pointer; transition: .15s; }
+        .sig-clear-btn:hover { border-color: var(--error); color: var(--error); }
+        .sig-status { font-size: .82rem; color: var(--exito); font-weight: 700; display: none; }
+        .sig-status.show { display: inline; }
+
         /* ── AVISO DE PRIVACIDAD ── */
         .aviso-box { background: #fff8e1; border: 1px solid #f4d575; border-radius: 12px; padding: 1.1rem 1.25rem; display: flex; gap: .85rem; align-items: flex-start; }
         .aviso-box input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--rojo); flex-shrink: 0; cursor: pointer; }
@@ -144,18 +159,19 @@
 <div class="form-wrap">
     <form class="form-card" id="solicitudForm" novalidate>
 
-        <!-- ─────────── INFO INSTITUCIONAL (OPCIONAL) ─────────── -->
+        <!-- ─────────── FECHA DE EXAMEN ─────────── -->
         <div class="form-section">
-            <h2>Información institucional</h2>
-            <p class="section-note">Opcional — normalmente lo asigna la universidad. Llénalo solo si ya lo tienes.</p>
+            <h2>Fecha de examen</h2>
+            <p class="section-note">Selecciona la fecha en la que presentarás tu examen de admisión.</p>
             <div class="grid">
                 <div class="field col-6">
-                    <label>No. de cuenta</label>
-                    <input type="text" name="noCuenta">
-                </div>
-                <div class="field col-6">
-                    <label>Fecha de examen</label>
-                    <input type="text" name="fechaExamen" placeholder="DD/MM/AAAA">
+                    <label>Fecha de examen <span class="req">*</span></label>
+                    <select name="fechaExamen" required>
+                        <option value="">Selecciona una fecha…</option>
+                        <option value="29 de mayo de 2026">29 de mayo de 2026</option>
+                        <option value="26 de junio de 2026">26 de junio de 2026</option>
+                        <option value="24 de julio de 2026">24 de julio de 2026</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -354,25 +370,25 @@
             <p class="section-note">Únicamente para alumnos que ingresan a Licenciatura.</p>
             <div class="grid">
                 <div class="field col-4">
-                    <label>Apellido Paterno</label>
-                    <input type="text" name="padreApellidoPaterno">
+                    <label>Apellido Paterno <span class="req">*</span></label>
+                    <input type="text" name="padreApellidoPaterno" required>
                 </div>
                 <div class="field col-4">
-                    <label>Apellido Materno</label>
-                    <input type="text" name="padreApellidoMaterno">
+                    <label>Apellido Materno <span class="req">*</span></label>
+                    <input type="text" name="padreApellidoMaterno" required>
                 </div>
                 <div class="field col-4">
-                    <label>Nombre(s)</label>
-                    <input type="text" name="padreNombres">
+                    <label>Nombre(s) <span class="req">*</span></label>
+                    <input type="text" name="padreNombres" required>
                 </div>
 
                 <div class="field col-6">
-                    <label>Calle</label>
-                    <input type="text" name="padreCalle">
+                    <label>Calle <span class="req">*</span></label>
+                    <input type="text" name="padreCalle" required>
                 </div>
                 <div class="field col-2">
-                    <label>Número</label>
-                    <input type="text" name="padreNumero">
+                    <label>Número <span class="req">*</span></label>
+                    <input type="text" name="padreNumero" required>
                 </div>
                 <div class="field col-2">
                     <label>Edificio</label>
@@ -384,16 +400,16 @@
                 </div>
 
                 <div class="field col-2">
-                    <label>C.P.</label>
-                    <input type="text" name="padreCp" inputmode="numeric">
+                    <label>C.P. <span class="req">*</span></label>
+                    <input type="text" name="padreCp" required inputmode="numeric">
                 </div>
                 <div class="field col-6">
-                    <label>Colonia</label>
-                    <input type="text" name="padreColonia">
+                    <label>Colonia <span class="req">*</span></label>
+                    <input type="text" name="padreColonia" required>
                 </div>
                 <div class="field col-4">
-                    <label>Estado</label>
-                    <input type="text" name="padreEstado">
+                    <label>Estado <span class="req">*</span></label>
+                    <input type="text" name="padreEstado" required>
                 </div>
 
                 <div class="field col-4">
@@ -405,20 +421,36 @@
                     <input type="tel" name="padreTelTrabajo" inputmode="tel">
                 </div>
                 <div class="field col-4">
-                    <label>Tel. celular</label>
-                    <input type="tel" name="padreTelCelular" inputmode="tel">
+                    <label>Tel. celular <span class="req">*</span></label>
+                    <input type="tel" name="padreTelCelular" required inputmode="tel">
                 </div>
 
                 <div class="field col-8">
-                    <label>Correo electrónico</label>
-                    <input type="email" name="padreCorreo">
+                    <label>Correo electrónico <span class="req">*</span></label>
+                    <input type="email" name="padreCorreo" required>
                 </div>
                 <div class="field col-4">
-                    <label>Género</label>
+                    <label>Género <span class="req">*</span></label>
                     <div class="radio-group">
-                        <label><input type="radio" name="padreGenero" value="F"><span>Fem.</span></label>
+                        <label><input type="radio" name="padreGenero" value="F" required><span>Fem.</span></label>
                         <label><input type="radio" name="padreGenero" value="M"><span>Masc.</span></label>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─────────── FIRMA DEL SOLICITANTE ─────────── -->
+        <div class="form-section">
+            <h2>Firma del solicitante</h2>
+            <div class="sig-wrap" id="sigWrap">
+                <p class="sig-help">Firma en el recuadro con tu dedo (en móvil/tablet) o con el mouse (en computadora). Esta firma se incluirá en tu solicitud.</p>
+                <div class="sig-canvas-box">
+                    <canvas id="sigCanvas" class="sig-canvas" width="900" height="270" aria-label="Pad de firma"></canvas>
+                    <div class="sig-placeholder" id="sigPlaceholder">Firma aquí ✍️</div>
+                </div>
+                <div class="sig-actions">
+                    <span class="sig-status" id="sigStatus">✓ Firma capturada</span>
+                    <button type="button" class="sig-clear-btn" id="sigClear">Limpiar firma</button>
                 </div>
             </div>
         </div>
@@ -491,6 +523,78 @@
     successModal.addEventListener("click", (e) => { if (e.target === successModal) closeModal(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && successModal.classList.contains("show")) closeModal(); });
 
+    // ── SIGNATURE PAD ──────────────────────────────────────────
+    const sigCanvas = document.getElementById("sigCanvas");
+    const sigCtx = sigCanvas.getContext("2d");
+    const sigWrap = document.getElementById("sigWrap");
+    const sigPlaceholder = document.getElementById("sigPlaceholder");
+    const sigStatus = document.getElementById("sigStatus");
+    const sigClear = document.getElementById("sigClear");
+    let sigDrawing = false;
+    let sigHasContent = false;
+
+    sigCtx.lineWidth = 2.5;
+    sigCtx.lineCap = "round";
+    sigCtx.lineJoin = "round";
+    sigCtx.strokeStyle = "#0a2540";
+
+    function sigPos(e) {
+        const rect = sigCanvas.getBoundingClientRect();
+        const cx = e.touches ? e.touches[0].clientX : e.clientX;
+        const cy = e.touches ? e.touches[0].clientY : e.clientY;
+        return {
+            x: (cx - rect.left) * (sigCanvas.width / rect.width),
+            y: (cy - rect.top) * (sigCanvas.height / rect.height),
+        };
+    }
+    function sigStart(e) {
+        e.preventDefault();
+        sigDrawing = true;
+        const p = sigPos(e);
+        sigCtx.beginPath();
+        sigCtx.moveTo(p.x, p.y);
+    }
+    function sigDraw(e) {
+        if (!sigDrawing) return;
+        e.preventDefault();
+        const p = sigPos(e);
+        sigCtx.lineTo(p.x, p.y);
+        sigCtx.stroke();
+        if (!sigHasContent) {
+            sigHasContent = true;
+            sigPlaceholder.classList.add("hide");
+            sigStatus.classList.add("show");
+            sigWrap.classList.add("has-signature");
+            sigWrap.classList.remove("invalid");
+        }
+    }
+    function sigEnd() { sigDrawing = false; }
+
+    sigCanvas.addEventListener("mousedown", sigStart);
+    sigCanvas.addEventListener("mousemove", sigDraw);
+    sigCanvas.addEventListener("mouseup", sigEnd);
+    sigCanvas.addEventListener("mouseleave", sigEnd);
+    sigCanvas.addEventListener("touchstart", sigStart, { passive: false });
+    sigCanvas.addEventListener("touchmove", sigDraw, { passive: false });
+    sigCanvas.addEventListener("touchend", sigEnd);
+    sigClear.addEventListener("click", () => {
+        sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+        sigHasContent = false;
+        sigPlaceholder.classList.remove("hide");
+        sigStatus.classList.remove("show");
+        sigWrap.classList.remove("has-signature");
+    });
+
+    async function getSignatureBytes() {
+        return await new Promise((resolve) => {
+            sigCanvas.toBlob((blob) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.readAsArrayBuffer(blob);
+            }, "image/png");
+        });
+    }
+
     function showMsg(text, type) {
         msg.textContent = text;
         msg.className = "form-msg show " + type;
@@ -517,7 +621,7 @@
             .replace(/^_+|_+$/g, "");                        // trim
     }
 
-    async function fillSolicitud(data) {
+    async function fillSolicitud(data, signatureBytes) {
         const bytes = await fetch(PDF_TEMPLATE).then(r => {
             if (!r.ok) throw new Error("No se pudo cargar el PDF base.");
             return r.arrayBuffer();
@@ -602,14 +706,19 @@
             } catch (e) { console.warn("Checkbox no encontrado:", name, e); }
         }
 
-        // Campos institucionales (No. de cuenta y Fecha de examen) no son AcroForm,
-        // se dibujan encima de las líneas. Coordenadas medidas con pdfplumber.
-        // Origen de pdf-lib = esquina inferior izquierda. Página Letter (612x792).
+        // Fecha de examen y firma: no son AcroForm, se dibujan sobre el PDF.
+        // Coordenadas en pdf-lib (origen = esquina inferior izquierda). Página Letter (612x792).
         const page = pdfDoc.getPages()[0];
         const helv = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
-        const drawOpts = { font: helv, size: 9, color: PDFLib.rgb(0, 0, 0) };
-        if (data.noCuenta) page.drawText(data.noCuenta, { x: 460, y: 763, ...drawOpts });
-        if (data.fechaExamen) page.drawText(data.fechaExamen, { x: 496, y: 733, ...drawOpts });
+        if (data.fechaExamen) {
+            page.drawText(data.fechaExamen, { x: 496, y: 733, font: helv, size: 9, color: PDFLib.rgb(0, 0, 0) });
+        }
+        if (signatureBytes) {
+            const png = await pdfDoc.embedPng(signatureBytes);
+            // Línea de firma: arriba del label "Firma del solicitante" (y_top=748 en pdfplumber → y~44 en pdf-lib)
+            const sigW = 180, sigH = 55;
+            page.drawImage(png, { x: 216, y: 50, width: sigW, height: sigH });
+        }
 
         return await pdfDoc.save();
     }
@@ -652,6 +761,7 @@
     function validate() {
         let firstInvalid = null;
         form.querySelectorAll(".invalid").forEach(el => el.classList.remove("invalid"));
+        sigWrap.classList.remove("invalid");
         for (const el of form.querySelectorAll("[required]")) {
             if (el.type === "radio") {
                 const group = form.querySelectorAll(`[name="${el.name}"]`);
@@ -663,6 +773,10 @@
                 el.classList.add("invalid");
                 if (!firstInvalid) firstInvalid = el;
             }
+        }
+        if (!sigHasContent) {
+            sigWrap.classList.add("invalid");
+            if (!firstInvalid) firstInvalid = sigWrap;
         }
         if (!document.getElementById("avisoAceptado").checked && !firstInvalid) {
             firstInvalid = document.getElementById("avisoAceptado");
@@ -691,7 +805,8 @@
             const waUrl = buildWhatsAppUrl(data);
             waLink.href = waUrl;
 
-            const filled = await fillSolicitud(data);
+            const signatureBytes = await getSignatureBytes();
+            const filled = await fillSolicitud(data, signatureBytes);
             const nameParts = [safeFilenamePart(data.nombres), safeFilenamePart(data.apellidoPaterno)].filter(Boolean);
             const filename = nameParts.length ? `Solicitud-${nameParts.join("-")}.pdf` : "Solicitud-Registro.pdf";
             downloadBytes(filled, filename);
