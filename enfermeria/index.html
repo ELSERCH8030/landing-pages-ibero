@@ -295,6 +295,70 @@
             .footer-legal { font-size: .65rem; }
         }
 
+        /* Compromiso IBERO — esquema especial */
+        .compromiso-ibero { background: linear-gradient(135deg, #1A1A1A 0%, #262626 50%, #1A1A1A 100%); color: var(--blanco); padding: 5rem 1.5rem; position: relative; overflow: hidden; }
+        .compromiso-ibero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--rojo), transparent); }
+        .compromiso-ibero::after { content: ''; position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(224,0,52,.08) 0%, transparent 70%); pointer-events: none; }
+        .compromiso-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; position: relative; z-index: 1; }
+        .compromiso-eyebrow { display: inline-block; font-size: .75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--rojo); font-weight: 700; margin-bottom: 1rem; }
+        .compromiso-manifiesto h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.25; margin-bottom: 1.25rem; color: var(--blanco); }
+        .compromiso-manifiesto h2 .resalte { color: var(--rojo); }
+        .compromiso-manifiesto p { font-size: 1rem; font-weight: 300; opacity: .8; line-height: 1.7; }
+        .compromiso-card { background: linear-gradient(145deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.02) 100%); border: 1px solid rgba(255,255,255,.12); border-radius: 24px; padding: 2.75rem 2.25rem; backdrop-filter: blur(8px); position: relative; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 80px rgba(224,0,52,.15); }
+        .compromiso-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: linear-gradient(180deg, var(--rojo) 0%, #ff4d6a 50%, transparent 100%); }
+        .compromiso-card::after { content: ''; position: absolute; top: -50%; left: -50%; width: 60%; height: 200%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.04), transparent); transform: skewX(-20deg); animation: card-shine 5s infinite; pointer-events: none; }
+        @keyframes card-shine { 0% { left: -60%; } 100% { left: 120%; } }
+        .compromiso-card-label { display: inline-block; font-size: .72rem; text-transform: uppercase; letter-spacing: 2px; color: var(--blanco); background: linear-gradient(135deg, var(--rojo), #ff4d6a); padding: .45rem 1.1rem; border-radius: 50px; font-weight: 700; margin-bottom: 1.5rem; box-shadow: 0 4px 16px rgba(224,0,52,.4); }
+        .compromiso-card .monto-label { display: block; font-size: .8rem; text-transform: uppercase; letter-spacing: 2px; opacity: .6; margin-bottom: .5rem; font-weight: 600; }
+        .monto-numero { display: flex; align-items: baseline; gap: .2rem; position: relative; }
+        .monto-numero::before { content: ''; position: absolute; top: 50%; left: -10%; width: 70%; height: 70%; background: radial-gradient(ellipse, rgba(224,0,52,.35) 0%, transparent 70%); transform: translateY(-50%); filter: blur(20px); pointer-events: none; z-index: 0; }
+        .monto-moneda { font-size: 2rem; font-weight: 600; background: linear-gradient(135deg, #ff4d6a, var(--rojo)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1; }
+        .monto-valor { font-size: clamp(3.8rem, 9vw, 5.5rem); font-weight: 900; line-height: 1; letter-spacing: -2px; background: linear-gradient(135deg, #ffffff 0%, #ff4d6a 50%, var(--rojo) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1; text-shadow: 0 0 40px rgba(224,0,52,.4); filter: drop-shadow(0 4px 12px rgba(224,0,52,.3)); }
+        .monto-mxn { font-size: 1rem; font-weight: 700; opacity: .7; letter-spacing: 2px; margin-left: .5rem; position: relative; z-index: 1; }
+        .compromiso-divider { height: 1px; background: rgba(255,255,255,.1); margin: 1.5rem 0; }
+        .extra-row { display: flex; justify-content: space-between; align-items: center; padding: .45rem 0; font-size: .92rem; }
+        .extra-label { opacity: .7; font-weight: 300; }
+        .extra-valor { font-weight: 600; }
+        .compromiso-ctas { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: 1.75rem; }
+        .cta-whatsapp, .cta-reservar { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .9rem 1rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: .92rem; transition: all .3s; text-align: center; }
+        .cta-whatsapp { background: #25D366; color: var(--blanco); box-shadow: 0 4px 16px rgba(37,211,102,.3); }
+        .cta-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.45); background: #20c25b; }
+        .cta-reservar { background: var(--rojo); color: var(--blanco); box-shadow: 0 4px 16px rgba(224,0,52,.3); }
+        .cta-reservar:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(224,0,52,.45); background: var(--rojo-oscuro); }
+        .compromiso-nota { font-size: .72rem; text-align: center; margin-top: 1.1rem; opacity: .4; line-height: 1.5; }
+        @media (max-width: 768px) {
+            .compromiso-ibero { padding: 3.5rem 1.25rem; }
+            .compromiso-container { grid-template-columns: 1fr; gap: 2rem; }
+            .compromiso-card { padding: 2rem 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .compromiso-ibero { padding: 2.5rem 1rem; }
+            .compromiso-card { padding: 1.75rem 1.4rem; border-radius: 18px; }
+            .compromiso-ctas { grid-template-columns: 1fr; gap: .6rem; }
+            .cta-whatsapp, .cta-reservar { padding: .8rem 1rem; font-size: .88rem; }
+            .monto-valor { font-size: 3.4rem; letter-spacing: -1.5px; }
+            .monto-moneda { font-size: 1.5rem; }
+            .monto-mxn { font-size: .85rem; }
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-fab { position: fixed; bottom: 24px; right: 24px; z-index: 9998; display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+        .whatsapp-fab-tooltip { background: var(--blanco); color: var(--gris-oscuro); padding: .65rem 1rem; border-radius: 50px; font-size: .85rem; font-weight: 600; box-shadow: 0 4px 20px rgba(0,0,0,.15); white-space: nowrap; opacity: 0; transform: translateX(10px); transition: opacity .3s, transform .3s; pointer-events: none; }
+        .whatsapp-fab-tooltip::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-style: solid; border-width: 6px 0 6px 6px; border-color: transparent transparent transparent var(--blanco); }
+        .whatsapp-fab:hover .whatsapp-fab-tooltip { opacity: 1; transform: translateX(0); }
+        .whatsapp-fab-btn { width: 64px; height: 64px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--blanco); box-shadow: 0 6px 24px rgba(37,211,102,.5); position: relative; transition: transform .3s; animation: wa-pulse 2s infinite; }
+        .whatsapp-fab:hover .whatsapp-fab-btn { transform: scale(1.1); }
+        .whatsapp-fab-btn::before, .whatsapp-fab-btn::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 3px solid #25D366; animation: wa-ring 2s infinite; pointer-events: none; }
+        .whatsapp-fab-btn::after { animation-delay: 1s; }
+        @keyframes wa-pulse { 0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,.5); } 50% { box-shadow: 0 6px 32px rgba(37,211,102,.8); } }
+        @keyframes wa-ring { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.6); opacity: 0; } }
+        @media (max-width: 768px) {
+            .whatsapp-fab { bottom: 18px; right: 18px; }
+            .whatsapp-fab-tooltip { display: none; }
+            .whatsapp-fab-btn { width: 56px; height: 56px; }
+        }
+        .whatsapp-fab.hidden { opacity: 0; pointer-events: none; transform: translateY(20px); transition: opacity .3s, transform .3s; }
+
         /* Scroll animations */
         .anim { opacity: 0; transition: opacity .8s ease, transform .8s ease; }
         .anim-up { transform: translateY(40px); }
@@ -331,6 +395,42 @@
         <h1>Licenciatura en Enfermería</h1>
         <p>Formamos a quienes sostienen el cuidado de otros con la preparación y humanidad que exige saber estar presente cuando más se necesita.</p>
         <a href="#contacto" class="nav-cta" style="font-size:1.1rem; padding:.85rem 2.5rem;">Inscríbete ahora</a>
+    </div>
+</section>
+
+<section class="compromiso-ibero">
+    <div class="compromiso-container">
+        <div class="compromiso-manifiesto anim anim-left">
+            <span class="compromiso-eyebrow">Compromiso IBERO Tijuana</span>
+            <h2>Ante la alta demanda, IBERO contribuye con la sociedad formando a las y los <span class="resalte">mejores en enfermería</span>.</h2>
+            <p>Por eso lanzamos un esquema especial de colegiatura para Otoño 2026, pensado para quienes asumen con vocación el cuidado de los demás.</p>
+        </div>
+        <div class="compromiso-card anim anim-right">
+            <span class="compromiso-card-label">Esquema Especial Otoño 2026</span>
+            <span class="monto-label">Aportación mensual</span>
+            <div class="monto-numero">
+                <span class="monto-moneda">$</span>
+                <span class="monto-valor">7,500</span>
+                <span class="monto-mxn">MXN</span>
+            </div>
+            <div class="compromiso-divider"></div>
+            <div class="extra-row">
+                <span class="extra-label">Examen de admisión</span>
+                <span class="extra-valor">$1,800 MXN</span>
+            </div>
+            <div class="extra-row">
+                <span class="extra-label">Cupo por convocatoria</span>
+                <span class="extra-valor">20 lugares</span>
+            </div>
+            <div class="compromiso-ctas">
+                <a href="https://wa.me/526643613915?text=Hola%2C%20me%20interesa%20el%20Esquema%20Especial%20Oto%C3%B1o%202026%20de%20la%20Licenciatura%20en%20Enfermer%C3%ADa%20de%20IBERO%20Tijuana." target="_blank" rel="noopener" class="cta-whatsapp">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+                    Habla con un asesor
+                </a>
+                <a href="#contacto" class="cta-reservar">Reservar mi lugar</a>
+            </div>
+            <p class="compromiso-nota">Esquema sujeto a convocatoria. Aplica únicamente para la Licenciatura en Enfermería · Otoño 2026.</p>
+        </div>
     </div>
 </section>
 
@@ -444,9 +544,8 @@
 <section class="urgencia-banner" id="contacto">
     <div class="urgencia-layout">
         <div class="urgencia-left">
-            <div class="urgencia-lema">Hazlo <span>Realidad</span></div>
-            <p style="font-size:clamp(1rem, 2vw, 1.25rem); font-weight:300; opacity:.9; margin-bottom:1rem; line-height:1.7;">Hoy más que nunca, el mundo necesita <strong style="font-weight:700;">profesionales de la salud preparados y comprometidos.</strong></p>
-            <p style="font-size:clamp(.95rem, 1.8vw, 1.1rem); font-weight:300; opacity:.8; margin-bottom:1.5rem; line-height:1.7;">En <strong style="font-weight:700;">IBERO Tijuana</strong> decidimos formar parte activa de esa respuesta.</p>
+            <div class="urgencia-lema">Estás a un paso de <span>pertenecer a IBERO</span></div>
+            <p style="font-size:clamp(1rem, 2vw, 1.15rem); font-weight:300; opacity:.9; margin-bottom:1.75rem; line-height:1.7;">Ya conoces el <strong style="font-weight:700;">Esquema Especial Otoño 2026.</strong> Comparte tus datos y un asesor te acompañará paso a paso en el proceso de admisión.</p>
             <div class="urgencia-item" style="display:inline-block; margin-bottom:1.5rem;">
                 <div class="urgencia-item-label">Próximo examen de admisión</div>
                 <div class="urgencia-item-value rojo">29 de Mayo</div>
@@ -460,7 +559,7 @@
             </div>
             <div class="urgencia-lugares">Lugares disponibles: <strong id="lugares-count">14</strong> de 20</div>
             <div class="urgencia-barra"><div class="urgencia-barra-inner" id="barra-lugares" style="width:70%"></div></div>
-            <p style="font-size:clamp(1rem, 2vw, 1.15rem); margin-top:1.25rem; line-height:1.6; background:rgba(224,0,52,.15); border-left:4px solid var(--rojo); padding:.75rem 1rem; border-radius:0 8px 8px 0;">Sé de los <strong style="font-weight:700; color:var(--rojo); font-size:1.2em;">primeros 20</strong> en inscribirte y conoce nuestro <strong style="font-weight:700;">esquema especial de colegiatura Otoño 2026.</strong></p>
+            <p style="font-size:clamp(1rem, 2vw, 1.15rem); margin-top:1.25rem; line-height:1.6; background:rgba(224,0,52,.15); border-left:4px solid var(--rojo); padding:.75rem 1rem; border-radius:0 8px 8px 0;">Reserva el tuyo <strong style="font-weight:700; color:var(--rojo);">antes de que se agoten.</strong></p>
         </div>
         <div class="urgencia-form">
             <div style="overflow:hidden;">
@@ -515,6 +614,14 @@
         </div>
     </div>
 </section>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/526643613915?text=Hola%2C%20me%20interesa%20la%20Licenciatura%20en%20Enfermer%C3%ADa%20de%20IBERO%20Tijuana%20y%20su%20Esquema%20Especial%20Oto%C3%B1o%202026." target="_blank" rel="noopener" class="whatsapp-fab" id="whatsapp-fab" aria-label="Habla con un asesor por WhatsApp">
+    <span class="whatsapp-fab-tooltip">¿Te ayudamos? Escríbenos</span>
+    <span class="whatsapp-fab-btn">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+    </span>
+</a>
+
 <!-- Pop-up de urgencia -->
 <div id="popup-urgencia" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; padding:1rem; pointer-events:none;">
     <div style="max-width:480px; margin:0 auto; background:var(--blanco); border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,.25); padding:1.5rem; position:relative; pointer-events:auto; transform:translateY(100%); transition:transform .5s ease;">
@@ -551,11 +658,15 @@
         }
         popup.style.display = 'block';
         setTimeout(function(){ popup.querySelector('div').style.transform = 'translateY(0)'; }, 50);
+        var fab = document.getElementById('whatsapp-fab');
+        if (fab) fab.classList.add('hidden');
     }
     window.cerrarPopup = function() {
         var popup = document.getElementById('popup-urgencia');
         popup.querySelector('div').style.transform = 'translateY(100%)';
         setTimeout(function(){ popup.style.display = 'none'; }, 500);
+        var fab = document.getElementById('whatsapp-fab');
+        if (fab) fab.classList.remove('hidden');
     };
     window.addEventListener('scroll', function() {
         var scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
