@@ -310,11 +310,13 @@
         @keyframes card-shine { 0% { left: -60%; } 100% { left: 120%; } }
         .compromiso-card-label { display: inline-block; font-size: .72rem; text-transform: uppercase; letter-spacing: 2px; color: var(--blanco); background: linear-gradient(135deg, var(--rojo), #ff4d6a); padding: .45rem 1.1rem; border-radius: 50px; font-weight: 700; margin-bottom: 1.5rem; box-shadow: 0 4px 16px rgba(224,0,52,.4); }
         .compromiso-card .monto-label { display: block; font-size: .8rem; text-transform: uppercase; letter-spacing: 2px; opacity: .6; margin-bottom: .5rem; font-weight: 600; }
-        .monto-numero { display: flex; align-items: baseline; gap: .2rem; position: relative; }
-        .monto-numero::before { content: ''; position: absolute; top: 50%; left: -10%; width: 70%; height: 70%; background: radial-gradient(ellipse, rgba(224,0,52,.35) 0%, transparent 70%); transform: translateY(-50%); filter: blur(20px); pointer-events: none; z-index: 0; }
+        .monto-numero { display: flex; align-items: baseline; gap: .2rem; position: relative; padding: .25rem 0; }
+        .monto-numero::before { content: ''; position: absolute; top: 50%; left: -15%; width: 80%; height: 90%; background: radial-gradient(ellipse, rgba(255,77,106,.55) 0%, rgba(224,0,52,.3) 35%, transparent 75%); transform: translateY(-50%); filter: blur(28px); pointer-events: none; z-index: 0; animation: glow-pulse 3s ease-in-out infinite; }
+        @keyframes glow-pulse { 0%, 100% { opacity: .7; transform: translateY(-50%) scale(1); } 50% { opacity: 1; transform: translateY(-50%) scale(1.18); } }
         .monto-moneda { font-size: 2rem; font-weight: 600; background: linear-gradient(135deg, #ff4d6a, var(--rojo)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1; }
-        .monto-valor { font-size: clamp(3.8rem, 9vw, 5.5rem); font-weight: 900; line-height: 1; letter-spacing: -2px; background: linear-gradient(135deg, #ffffff 0%, #ff4d6a 50%, var(--rojo) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1; text-shadow: 0 0 40px rgba(224,0,52,.4); filter: drop-shadow(0 4px 12px rgba(224,0,52,.3)); }
-        .monto-mxn { font-size: 1rem; font-weight: 700; opacity: .7; letter-spacing: 2px; margin-left: .5rem; position: relative; z-index: 1; }
+        .monto-valor { font-size: clamp(3.8rem, 9vw, 5.5rem); font-weight: 900; line-height: 1; letter-spacing: -2px; background: linear-gradient(110deg, var(--rojo) 0%, #ff4d6a 20%, #ffffff 45%, #ffd4dc 50%, #ffffff 55%, #ff4d6a 80%, var(--rojo) 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; position: relative; z-index: 1; animation: shimmer-text 3.5s linear infinite; filter: drop-shadow(0 0 30px rgba(255,77,106,.5)) drop-shadow(0 4px 12px rgba(224,0,52,.4)); }
+        @keyframes shimmer-text { 0% { background-position: 200% 0; } 100% { background-position: -100% 0; } }
+        .monto-mxn { font-size: 1rem; font-weight: 700; opacity: .75; letter-spacing: 2px; margin-left: .5rem; position: relative; z-index: 1; }
         .compromiso-divider { height: 1px; background: rgba(255,255,255,.1); margin: 1.5rem 0; }
         .extra-row { display: flex; justify-content: space-between; align-items: center; padding: .45rem 0; font-size: .92rem; }
         .extra-label { opacity: .7; font-weight: 300; }
