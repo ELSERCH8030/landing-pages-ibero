@@ -141,25 +141,30 @@
             gap: .5rem;
         }
         .logo-area { display: flex; align-items: center; gap: .75rem; }
+        .logo-link { display: inline-flex; }
         .logo-img { height: 50px; width: auto; object-fit: contain; }
         .header-divider { width: 1px; height: 32px; background: rgba(255,255,255,.4); flex-shrink: 0; }
         .header-text { color: #fff; font-size: .92rem; font-weight: 600; letter-spacing: .3px; }
         .back-link {
             display: inline-flex;
             align-items: center;
-            gap: .3rem;
-            color: rgba(255,255,255,.65);
-            font-size: .78rem;
-            font-weight: 500;
+            gap: .35rem;
+            color: var(--rojo);
+            background: #fff;
+            font-size: .8rem;
+            font-weight: 800;
             text-decoration: none;
-            border: 1px solid rgba(255,255,255,.25);
-            padding: .28rem .75rem;
+            border: none;
+            padding: .42rem .95rem;
             border-radius: 50px;
-            transition: color .2s, border-color .2s;
+            text-transform: uppercase;
+            letter-spacing: .3px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.18);
+            transition: transform .2s, box-shadow .2s;
             white-space: nowrap;
         }
-        .back-link:hover { color: #fff; border-color: rgba(255,255,255,.6); }
-        .back-link svg { width: 12px; height: 12px; }
+        .back-link:hover { transform: scale(1.05); box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+        .back-link svg { width: 13px; height: 13px; }
         .nav-cta {
             display: inline-flex;
             align-items: center;
@@ -473,8 +478,11 @@
             .corner-popup.visible { transform: translateY(0); }
             .corner-popup.hidden  { transform: translateY(calc(100% + 2rem)); }
 
-            /* Back link oculto en pantallas muy chicas */
-            .back-link { display: none; }
+            /* WhatsApp oculto en el nav móvil (hay más opciones de contacto abajo) */
+            .nav-cta { display: none; }
+            /* Back link siempre visible para regresar a inicio */
+            .header-inner { padding: .7rem 1rem; }
+            .logo-img { height: 40px; }
         }
     </style>
 </head>
@@ -498,14 +506,16 @@
     <header>
         <div class="header-inner">
             <div class="logo-area">
-                <img src="../arquitectura/assets/asset_2.png" alt="IBERO Tijuana" class="logo-img">
+                <a href="https://tijuana.ibero.mx/" class="logo-link">
+                    <img src="../arquitectura/assets/asset_2.png" alt="IBERO Tijuana" class="logo-img">
+                </a>
                 <span class="header-divider"></span>
                 <span class="header-text">Oferta Académica</span>
-                <a href="https://tijuana.ibero.mx/" target="_blank" rel="noopener" class="back-link">
+                <a href="https://tijuana.ibero.mx/" class="back-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="15 18 9 12 15 6"/>
                     </svg>
-                    Sitio web
+                    Regresar a inicio
                 </a>
             </div>
             <a href="https://wa.me/526643613915?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20las%20licenciaturas%20de%20IBERO%20Tijuana%20%F0%9F%93%9A"
