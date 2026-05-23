@@ -38,9 +38,13 @@
         /* ── HEADER ── */
         header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: .75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; background: var(--rojo); box-shadow: 0 2px 12px rgba(0,0,0,.15); gap: 1rem; }
         .logo-area { display: flex; align-items: center; gap: .75rem; flex: 1; min-width: 0; }
+        .logo-link { display: inline-flex; }
         .logo-img { height: 44px; width: auto; }
         .header-divider { width: 1px; height: 28px; background: rgba(255,255,255,.4); flex-shrink: 0; }
         .header-career { color: #fff; font-size: .82rem; font-weight: 600; line-height: 1.3; }
+        .back-link { display: inline-flex; align-items: center; gap: .35rem; color: var(--rojo); background: #fff; font-size: .75rem; font-weight: 800; text-decoration: none; padding: .38rem .9rem; border-radius: 50px; text-transform: uppercase; letter-spacing: .3px; box-shadow: 0 2px 8px rgba(0,0,0,.18); transition: transform .2s, box-shadow .2s; white-space: nowrap; }
+        .back-link:hover { transform: scale(1.05); box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+        .back-link svg { width: 13px; height: 13px; }
         .header-right { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
 
         /* ── LANGUAGE TOGGLE ── */
@@ -240,11 +244,17 @@
             .ubicacion-inner { grid-template-columns: 1fr; }
             .ubi-map { height: 280px; }
             .footer-top { grid-template-columns: 1fr; }
-            .header-career { display: none; }
+            .header-career, .header-divider { display: none; }
         }
         @media (max-width: 600px) {
-            header { padding: .6rem 1rem; }
-            .lang-btn { padding: .3rem .55rem; font-size: .7rem; }
+            header { padding: .6rem .9rem; gap: .5rem; }
+            .logo-img { height: 36px; }
+            .logo-area { gap: .5rem; }
+            .back-link { padding: .42rem .55rem; gap: 0; }
+            .back-link span { display: none; }
+            .back-link svg { width: 14px; height: 14px; }
+            .header-right { gap: .5rem; }
+            .lang-toggle { display: none; }
             .nav-cta { padding: .45rem 1rem; font-size: .78rem; }
         }
         @media (max-width: 480px) {
@@ -285,9 +295,17 @@
 <!-- ═════════════════════ HEADER ═════════════════════ -->
 <header>
     <div class="logo-area">
-        <img src="assets/logo-ibero.png" alt="IBERO Tijuana" class="logo-img">
+        <a href="https://tijuana.ibero.mx/" class="logo-link" aria-label="Ir a tijuana.ibero.mx">
+            <img src="assets/logo-ibero.png" alt="IBERO Tijuana" class="logo-img">
+        </a>
         <div class="header-divider"></div>
         <div class="header-career" data-es="TOEFL iBT&reg; · Centro Autorizado" data-en="TOEFL iBT&reg; · Authorized Center">TOEFL iBT&reg; · Centro Autorizado</div>
+        <a href="https://tijuana.ibero.mx/" class="back-link" aria-label="Regresar a tijuana.ibero.mx">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            <span data-es="Regresar a inicio" data-en="Back to home">Regresar a inicio</span>
+        </a>
     </div>
     <div class="header-right">
         <div class="lang-toggle" role="group" aria-label="Language selector">
