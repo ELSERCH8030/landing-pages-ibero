@@ -68,6 +68,8 @@
         }
         .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--rojo); box-shadow: 0 0 0 3px rgba(224,0,52,.12); }
         .field input.invalid, .field select.invalid { border-color: var(--error); background: #fff5f5; }
+        .field-warn { display: none; color: var(--error); font-size: .75rem; margin-top: .3rem; }
+        .field-warn.show { display: block; }
 
         /* ── RADIO GROUPS ── */
         .radio-group { display: flex; gap: 1rem; flex-wrap: wrap; padding-top: .25rem; }
@@ -210,12 +212,12 @@
                     </select>
                 </div>
                 <div class="field col-4">
-                    <label>Promedio de preparatoria</label>
-                    <input type="text" name="promedio" placeholder="Ej. 9.2" inputmode="decimal">
+                    <label>Promedio de preparatoria <span class="req">*</span></label>
+                    <input type="text" name="promedio" placeholder="Ej. 9.2" inputmode="decimal" required>
                 </div>
 
                 <div class="field col-4">
-                    <label>¿Has estado inscrito en la UIA antes? <span class="req">*</span></label>
+                    <label>¿Has estado inscrito en la Universidad Iberoamericana (UIA) antes? <span class="req">*</span></label>
                     <div class="radio-group">
                         <label><input type="radio" name="uiaAntes" value="si" required><span>Sí</span></label>
                         <label><input type="radio" name="uiaAntes" value="no"><span>No</span></label>
@@ -313,7 +315,7 @@
                     </div>
                 </div>
                 <div class="field col-6">
-                    <label>¿Qué transporte usarás para venir a la UIA?</label>
+                    <label>¿Qué transporte usarás para venir a la Universidad Iberoamericana (UIA)?</label>
                     <input type="text" name="transporte" placeholder="Ej. Automóvil propio">
                 </div>
 
@@ -773,6 +775,7 @@
     function validate() {
         let firstInvalid = null;
         form.querySelectorAll(".invalid").forEach(el => el.classList.remove("invalid"));
+        form.querySelectorAll('input[type="tel"]').forEach(inp => inp._warn && inp._warn.classList.remove("show"));
         sigWrap.classList.remove("invalid");
         for (const el of form.querySelectorAll("[required]")) {
             if (el.type === "radio") {
@@ -789,6 +792,14 @@
         if (!sigHasContent) {
             sigWrap.classList.add("invalid");
             if (!firstInvalid) firstInvalid = sigWrap;
+        }
+        for (const inp of form.querySelectorAll('input[type="tel"]')) {
+            const v = inp.value.trim();
+            if (v && v.length !== 10) {
+                inp.classList.add("invalid");
+                setTelWarn(inp, "El número debe tener 10 dígitos.");
+                if (!firstInvalid) firstInvalid = inp;
+            }
         }
         if (!document.getElementById("avisoAceptado").checked && !firstInvalid) {
             firstInvalid = document.getElementById("avisoAceptado");
@@ -842,6 +853,37 @@
             btn.classList.remove("loading");
             btnLabel.textContent = "Generar Solicitud y enviar por WhatsApp";
         }
+    });
+
+    // ── Teléfonos: solo números, exactamente 10 dígitos ──
+    function setTelWarn(inp, text) { inp._warn.textContent = text; inp._warn.classList.add("show"); }
+    function clearTelWarn(inp) { inp._warn.classList.remove("show"); }
+    form.querySelectorAll('input[type="tel"]').forEach((inp) => {
+        inp.setAttribute("inputmode", "numeric");
+        inp.setAttribute("maxlength", "10");
+        const warn = document.createElement("small");
+        warn.className = "field-warn";
+        inp.insertAdjacentElement("afterend", warn);
+        inp._warn = warn;
+        inp.addEventListener("input", () => {
+            const raw = inp.value;
+            const digits = raw.replace(/[^0-9]/g, "").slice(0, 10);
+            if (digits !== raw) inp.value = digits;
+            if (inp.value.length > 0 && inp.value.length < 10) {
+                setTelWarn(inp, "El número debe tener 10 dígitos.");
+            } else if (/[^0-9]/.test(raw)) {
+                setTelWarn(inp, "Solo se permiten números.");
+            } else {
+                clearTelWarn(inp);
+                inp.classList.remove("invalid");
+            }
+        });
+        inp.addEventListener("blur", () => {
+            if (inp.value && inp.value.length !== 10) {
+                setTelWarn(inp, "El número debe tener 10 dígitos.");
+                inp.classList.add("invalid");
+            }
+        });
     });
 
     // Limpia "invalid" cuando el usuario corrige
