@@ -668,6 +668,15 @@
     </a>
 
     <script src="https://app.prospecty.mx/js/form_embed.js"></script>
+    <script>
+        // Meta Pixel: registrar conversión (Lead) al enviar el formulario de Prospecty
+        window.addEventListener('message', function(event) {
+            if (event.data && (event.data.type === 'form:submit' || event.data.type === 'form_submitted' ||
+                (typeof event.data === 'string' && event.data.indexOf('form') !== -1 && event.data.indexOf('submit') !== -1))) {
+                if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+            }
+        });
+    </script>
 
     <!-- POP UP PROMOCIONAL -->
     <div class="promo" id="promoPopup" aria-hidden="true">
