@@ -489,7 +489,7 @@
             <p style="font-size:clamp(.95rem, 1.8vw, 1.1rem); font-weight:300; opacity:.8; margin-bottom:1.5rem; line-height:1.7;">En <strong style="font-weight:700;">IBERO Tijuana</strong> te formamos con bases sólidas, tecnología de frontera y el enfoque humanista jesuita.</p>
             <div class="urgencia-item">
                 <div class="urgencia-item-label">Próximo examen de admisión</div>
-                <div class="urgencia-item-value rojo">26 de Junio</div>
+                <div class="urgencia-item-value rojo">13 y 24 de Julio</div>
             </div>
             <p style="font-size:.95rem; margin-bottom:.75rem; opacity:.85;">El examen de admisión se acerca en:</p>
             <div class="countdown" id="countdown">
@@ -581,7 +581,7 @@
         <p style="font-size:1.05rem; font-weight:700; color:var(--gris-oscuro); margin-bottom:.75rem;">El examen de admisión para Mecatrónica Otoño 2026 está a <span style="color:var(--rojo);" id="popup-dias">30</span> días</p>
         <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <span style="font-size:.85rem; color:var(--gris);">Examen de admisión: <strong style="color:var(--gris-oscuro);">26 de Junio</strong></span>
+            <span style="font-size:.85rem; color:var(--gris);">Examen de admisión: <strong style="color:var(--gris-oscuro);">13 y 24 de Julio</strong></span>
         </div>
         <a href="#contacto" onclick="cerrarPopup()" style="display:block; text-align:center; background:var(--rojo); color:white; padding:.75rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:.95rem; transition:background .3s;">Quiero saber más</a>
     </div>
@@ -613,7 +613,7 @@
 
 <script>
 (function() {
-    var target = new Date('2026-06-26T09:00:00-07:00').getTime();
+    var target = new Date('2026-07-13T09:00:00-07:00').getTime();
     function update() {
         var diff = Math.max(0, target - Date.now());
         document.getElementById('cd-dias').textContent = String(Math.floor(diff / 86400000)).padStart(2,'0');
