@@ -239,28 +239,6 @@
         .cm-points li::before { content: ''; width: 7px; height: 7px; min-width: 7px; border-radius: 50%; background: var(--rojo); }
         body.cm-lock { overflow: hidden; }
 
-        /* ── POP UP PROMOCIONAL ───────────────────────── */
-        .promo { position: fixed; inset: 0; z-index: 3500; display: none; align-items: center; justify-content: center; padding: 1.4rem; }
-        .promo.open { display: flex; }
-        .promo-overlay { position: absolute; inset: 0; background: rgba(8,0,3,.74); backdrop-filter: blur(3px); opacity: 0; transition: opacity .35s ease; }
-        .promo.open .promo-overlay { opacity: 1; }
-        .promo-dialog { position: relative; z-index: 1; width: 100%; max-width: 460px; transform: scale(.92); opacity: 0; transition: transform .4s cubic-bezier(.2,1.2,.3,1), opacity .35s ease; }
-        .promo.open .promo-dialog { transform: none; opacity: 1; }
-        .promo-close { position: absolute; top: -14px; right: -14px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; border: none; background: #fff; color: var(--tinta); font-size: 1.15rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.35); display: flex; align-items: center; justify-content: center; line-height: 1; transition: background .2s, transform .2s; }
-        .promo-close:hover { background: #f1f1f1; transform: scale(1.08); }
-        .promo-img-link { display: block; border-radius: 16px 16px 0 0; overflow: hidden; }
-        .promo-img-link img { width: 100%; height: auto; display: block; }
-        .promo-cta { display: flex; align-items: center; justify-content: center; gap: .5rem; background: var(--rojo); color: #fff; font-weight: 800; font-size: 1rem; padding: 1rem; text-decoration: none; border-radius: 0 0 16px 16px; box-shadow: 0 16px 40px rgba(0,0,0,.4); transition: background .2s; }
-        .promo-cta:hover { background: var(--rojo-oscuro); }
-        .promo-cta svg { width: 18px; height: 18px; transition: transform .25s; }
-        .promo-cta:hover svg { transform: translateX(4px); }
-        body.promo-lock { overflow: hidden; }
-        @media (max-width: 540px) {
-            .promo-dialog { max-width: 92vw; }
-            .promo-close { top: -10px; right: -6px; width: 34px; height: 34px; font-size: 1.05rem; }
-            .promo-cta { font-size: .92rem; }
-        }
-
         /* ── CTAs DE REGISTRO ─────────────────────────── */
         .header-cta { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1.3rem; background: #fff; color: var(--rojo); font-weight: 800; font-size: .85rem; border-radius: 50px; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 14px rgba(0,0,0,.18); transition: transform .2s, box-shadow .2s; animation: hcta-pulse 2.6s ease-in-out infinite; }
         .header-cta:hover { transform: scale(1.05); box-shadow: 0 6px 18px rgba(0,0,0,.28); }
@@ -690,20 +668,6 @@
         });
     </script>
 
-    <!-- POP UP PROMOCIONAL -->
-    <div class="promo" id="promoPopup" aria-hidden="true">
-        <div class="promo-overlay" data-promo-close></div>
-        <div class="promo-dialog" role="dialog" aria-modal="true" aria-label="Promoción IBERO Tijuana">
-            <button class="promo-close" data-promo-close aria-label="Cerrar">✕</button>
-            <a href="#carreras" class="promo-img-link" data-promo-go>
-                <img id="promoImg" src="assets/popup-oferta.jpg" alt="Tu lugar no se sortea, se elige — IBERO Tijuana">
-            </a>
-            <a href="#carreras" class="promo-cta" data-promo-go>Ver la oferta completa
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-        </div>
-    </div>
-
     <!-- MODAL CARRERA -->
     <div class="cm" id="careerModal" aria-hidden="true">
         <div class="cm-overlay" data-close></div>
@@ -869,36 +833,6 @@
             update();
         })();
 
-        // Pop up promocional (a los 3s, una vez por sesión, solo si la imagen carga)
-        (function() {
-            const promo = document.getElementById('promoPopup');
-            if (!promo) return;
-            const img = document.getElementById('promoImg');
-            let shown = false;
-            try { shown = sessionStorage.getItem('promoShown') === '1'; } catch (e) {}
-            function close() {
-                promo.classList.remove('open');
-                promo.setAttribute('aria-hidden', 'true');
-                document.body.classList.remove('promo-lock');
-            }
-            function open() {
-                if (promo.classList.contains('open')) return;
-                if (!(img.complete && img.naturalWidth > 0)) return; // imagen no disponible: no mostrar
-                try { sessionStorage.setItem('promoShown', '1'); } catch (e) {}
-                promo.classList.add('open');
-                promo.setAttribute('aria-hidden', 'false');
-                document.body.classList.add('promo-lock');
-            }
-            promo.querySelectorAll('[data-promo-close]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); close(); }));
-            promo.querySelectorAll('[data-promo-go]').forEach(el => el.addEventListener('click', () => { close(); }));
-            document.addEventListener('keydown', e => { if (e.key === 'Escape' && promo.classList.contains('open')) close(); });
-            if (!shown) {
-                setTimeout(function() {
-                    if (img.complete && img.naturalWidth > 0) open();
-                    else img.addEventListener('load', open, { once: true });
-                }, 3000);
-            }
-        })();
     </script>
 </body>
 </html>
