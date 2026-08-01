@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#6B0F1A">
+<meta name="robots" content="noindex, nofollow">
+<title>Encuentra tu grupo — Curso Propedéutico IBERO Tijuana</title>
+<style>
+/*FONTS*/
+
+/* ─── TOKENS DE MARCA ───────────────────────────────────────────────── */
+:root{
+  --vino:#6B0F1A;          /* rojo oscuro institucional */
+  --vino-2:#8C1420;
+  --rojo:#C1272D;
+  --rojo-vivo:#E73439;     /* Pantone 185 — del logo oficial */
+  --gris:#82786F;
+  --gris-cl:#B7AFA8;
+  --negro:#1A1614;
+  --hueso:#F6F2EF;
+  --blanco:#FFFFFF;
+  --linea:rgba(107,15,26,.14);
+  --sombra:0 2px 10px rgba(107,15,26,.07);
+  --sombra-lg:0 18px 50px rgba(26,22,20,.20);
+  --r:16px; --r-sm:12px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Iberoamericana','Segoe UI',system-ui,sans-serif;
+  background:var(--hueso); color:var(--negro);
+  min-height:100dvh; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 90vw 60vh at 12% -10%, rgba(193,39,45,.10) 0%, transparent 62%),
+    radial-gradient(ellipse 70vw 50vh at 95% 108%, rgba(107,15,26,.08) 0%, transparent 62%);
+}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input{font:inherit}
+
+/* ─── HEADER ────────────────────────────────────────────────────────── */
+header{
+  position:relative; z-index:10;
+  background:var(--vino);
+  padding:14px 20px; padding-top:calc(14px + env(safe-area-inset-top));
+  display:flex; align-items:center; gap:16px;
+}
+header .logo{height:34px;width:auto;color:#fff;flex-shrink:0;display:block}
+header .sep{width:1px;height:26px;background:rgba(255,255,255,.28);flex-shrink:0}
+header .rot{
+  font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.86);line-height:1.35;
+}
+.gbar{height:3px;background:var(--gris);position:relative;z-index:10}
+
+/* ─── LAYOUT ────────────────────────────────────────────────────────── */
+.wrap{max-width:780px;margin:0 auto;padding:38px 20px 80px;position:relative;z-index:1}
+
+/* ─── HERO ──────────────────────────────────────────────────────────── */
+.hero{margin-bottom:24px}
+.kicker{
+  font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--rojo);margin-bottom:12px;display:flex;align-items:center;gap:9px;
+}
+.kicker::before{content:'';width:22px;height:2px;background:var(--rojo);flex-shrink:0}
+h1{
+  font-size:clamp(2.1rem,7.5vw,3.3rem);font-weight:900;line-height:.98;
+  letter-spacing:-.025em;color:var(--vino);margin-bottom:14px;
+}
+h1 em{font-style:normal;color:var(--negro);display:block;font-weight:500}
+.hero p{color:var(--gris);font-size:1rem;max-width:46ch;font-weight:500}
+
+/* ─── TARJETA DEL PROPEDÉUTICO ──────────────────────────────────────── */
+.evento{
+  background:var(--blanco);border:1px solid var(--linea);border-radius:var(--r);
+  box-shadow:var(--sombra);overflow:hidden;display:flex;
+}
+.evento::before{content:'';width:5px;background:var(--rojo);flex-shrink:0}
+.evento-in{padding:18px 20px;flex:1;min-width:0}
+.ev-rot{
+  font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--rojo);display:block;margin-bottom:12px;
+}
+.ev-fila{display:flex;align-items:flex-start;gap:11px;font-size:.92rem;font-weight:500;color:var(--gris);padding:5px 0}
+.ev-fila svg{flex-shrink:0;color:var(--gris-cl);margin-top:2px}
+.ev-fila b{color:var(--negro);font-weight:700}
+.ev-fila .sede{color:var(--vino);font-weight:900;letter-spacing:.01em}
+
+/* ─── BUSCADOR ──────────────────────────────────────────────────────── */
+.buscador{position:sticky;top:0;z-index:20;padding:20px 0 12px;background:linear-gradient(var(--hueso) 76%,transparent)}
+.campo{
+  display:flex;align-items:center;gap:12px;
+  background:var(--blanco);border:1.5px solid var(--linea);border-radius:var(--r);
+  padding:0 14px;box-shadow:var(--sombra);transition:border-color .16s, box-shadow .16s;
+}
+.campo:focus-within{border-color:var(--rojo);box-shadow:0 0 0 4px rgba(193,39,45,.10)}
+.campo svg{flex-shrink:0;color:var(--gris)}
+.campo input{
+  flex:1;border:none;outline:none;background:none;
+  padding:16px 0;font-size:1.05rem;font-weight:500;color:var(--negro);min-width:0;
+}
+.campo input::placeholder{color:var(--gris-cl);font-weight:500}
+/* fuera la "x" nativa de type=search: ya tenemos la nuestra */
+.campo input::-webkit-search-cancel-button,
+.campo input::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+.limpiar{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--hueso);
+  color:var(--gris);display:none;align-items:center;justify-content:center;font-size:1rem;line-height:1;
+}
+.limpiar.on{display:flex}
+.tog{
+  display:none;align-items:center;gap:7px;margin-top:10px;
+  font-size:.78rem;font-weight:700;color:var(--gris);padding:4px 2px;
+}
+.tog.hay{display:flex}
+.tog svg{transition:transform .18s}
+.tog[aria-expanded="true"] svg{transform:rotate(180deg)}
+.tog b{color:var(--rojo)}
+.filtros{display:none;gap:8px;flex-wrap:wrap;margin-top:10px}
+.filtros.abierto{display:flex}
+.pill{
+  font-size:.76rem;font-weight:700;letter-spacing:.02em;
+  padding:7px 13px;border-radius:999px;border:1.5px solid var(--linea);
+  background:var(--blanco);color:var(--gris);transition:.15s;white-space:nowrap;
+}
+.pill:hover{border-color:var(--gris-cl);color:var(--negro)}
+.pill.on{background:var(--vino);border-color:var(--vino);color:#fff}
+
+/* ─── RESULTADOS ────────────────────────────────────────────────────── */
+.conteo{
+  font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--gris);margin:20px 0 12px;
+}
+.lista{display:flex;flex-direction:column;gap:9px}
+.item{
+  display:flex;align-items:center;gap:14px;width:100%;text-align:left;
+  background:var(--blanco);border:1px solid var(--linea);border-radius:var(--r-sm);
+  padding:14px 14px 14px 0;overflow:hidden;position:relative;
+  transition:transform .12s, box-shadow .12s, border-color .12s;
+}
+.item::before{content:'';width:4px;align-self:stretch;background:var(--rojo);flex-shrink:0}
+.item:hover,.item:focus-visible{transform:translateY(-1px);box-shadow:0 6px 18px rgba(107,15,26,.10);border-color:rgba(107,15,26,.25);outline:none}
+.item.sel{border-color:var(--rojo);box-shadow:0 0 0 3px rgba(193,39,45,.10)}
+.item-txt{flex:1;min-width:0}
+.item-nom{font-weight:700;font-size:1rem;line-height:1.25;color:var(--negro);margin-bottom:3px}
+.item-nom mark{background:rgba(231,52,57,.20);color:inherit;border-radius:3px;padding:0 1px}
+.item-meta{font-size:.82rem;color:var(--gris);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip{
+  flex-shrink:0;background:var(--vino);color:#fff;border-radius:9px;
+  padding:8px 14px;text-align:center;line-height:1;min-width:62px;
+}
+.chip small{display:block;font-size:.55rem;font-weight:700;letter-spacing:.12em;opacity:.72;margin-bottom:4px}
+.chip b{font-size:1.2rem;font-weight:900;letter-spacing:-.01em}
+.item .fl{flex-shrink:0;color:var(--gris-cl)}
+
+.estado{
+  text-align:center;padding:46px 24px;border:1.5px dashed var(--linea);
+  border-radius:var(--r);color:var(--gris);background:rgba(255,255,255,.5);
+}
+.estado b{display:block;color:var(--negro);font-weight:700;font-size:1.05rem;margin-bottom:6px}
+.estado span{font-size:.9rem;font-weight:500}
+.mas{text-align:center;font-size:.82rem;color:var(--gris);font-weight:600;padding:16px 0 0}
+
+/* ─── AYUDA ─────────────────────────────────────────────────────────── */
+.ayuda{
+  margin-top:42px;border-top:1px solid var(--linea);padding-top:22px;
+  font-size:.84rem;color:var(--gris);font-weight:500;line-height:1.65;
+}
+.ayuda b{color:var(--negro);font-weight:700}
+.ayuda a{color:var(--rojo);font-weight:700;text-decoration:none}
+.ayuda a:hover{text-decoration:underline}
+
+/* ─── DATOS DE ESTUDIANTE (MODAL) ───────────────────────────────────── */
+.velo{
+  position:fixed;inset:0;z-index:100;background:rgba(26,22,20,.55);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.velo.on{opacity:1;pointer-events:auto}
+.hoja{
+  width:100%;max-width:430px;max-height:calc(100dvh - 40px);overflow-y:auto;
+  background:var(--blanco);border-radius:20px;box-shadow:var(--sombra-lg);
+  transform:translateY(14px) scale(.985);transition:transform .22s cubic-bezier(.2,.8,.3,1);
+}
+.velo.on .hoja{transform:none}
+.hoja-hd{
+  background:var(--vino);color:#fff;padding:20px 22px;border-radius:20px 20px 0 0;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.hoja-hd .logo{height:26px;width:auto;color:#fff;display:block}
+.cerrar{
+  width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.cerrar:hover{background:rgba(255,255,255,.28)}
+.hoja-bd{padding:24px 22px 8px}
+.hoja-rot{
+  font-size:.63rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--rojo);margin-bottom:10px;
+}
+.hoja-nom{font-size:1.5rem;font-weight:900;line-height:1.1;letter-spacing:-.02em;color:var(--vino);margin-bottom:20px}
+.grupo-box{
+  background:var(--vino);color:#fff;border-radius:14px;padding:16px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;
+}
+.grupo-box small{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.75;display:block;margin-bottom:5px}
+.grupo-box b{font-size:2.1rem;font-weight:900;line-height:1;letter-spacing:-.02em}
+.datos{display:flex;flex-direction:column}
+.dato{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px solid var(--linea)}
+.dato:last-child{border-bottom:none}
+.dato dt{font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);flex-shrink:0}
+.dato dd{font-size:.95rem;font-weight:600;color:var(--negro);text-align:right;overflow-wrap:anywhere}
+.hoja-ev{
+  background:var(--hueso);border-radius:12px;padding:15px 16px;margin-top:18px;
+  border-left:4px solid var(--rojo);
+}
+.acciones{padding:18px 22px calc(22px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:9px}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 18px;border-radius:12px;font-size:.95rem;font-weight:700;transition:.15s;width:100%;
+}
+.btn svg{flex-shrink:0}
+.btn-p{background:var(--vino);color:#fff}
+.btn-p:hover{background:var(--vino-2)}
+.btn-p:disabled{opacity:.6;cursor:wait}
+.btn-s{background:var(--blanco);color:var(--vino);border:1.5px solid var(--linea)}
+.btn-s:hover{border-color:var(--vino);background:rgba(107,15,26,.03)}
+.btn-fila{display:flex;gap:9px}
+.btn-fila .btn{flex:1}
+.aviso{font-size:.74rem;color:var(--gris);text-align:center;font-weight:500;padding:2px 22px 0;line-height:1.5}
+
+@media(max-width:520px){
+  .velo{padding:0;align-items:flex-end}
+  .hoja{max-width:none;border-radius:20px 20px 0 0;max-height:94dvh;transform:translateY(40px)}
+  .hoja-hd{border-radius:20px 20px 0 0}
+  .velo.on .hoja{transform:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ─── IMPRESIÓN ─────────────────────────────────────────────────────── */
+@media print{
+  body::before,header,.gbar,.hero,.evento,.buscador,.conteo,.lista,.mas,.ayuda,.estado,.acciones,.cerrar,.aviso{display:none!important}
+  .velo{position:static;background:none;padding:0;opacity:1;backdrop-filter:none}
+  .hoja{box-shadow:none;max-width:none;max-height:none;border:1px solid #ccc}
+  .hoja-hd,.grupo-box,.hoja-ev{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <!--LOGO-->
+  <div class="sep"></div>
+  <div class="rot">Curso Propedéutico<br>Nuevo Ingreso 2026</div>
+</header>
+<div class="gbar"></div>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="kicker">Estudiantes de nuevo ingreso</div>
+    <h1>Encuentra tu grupo<em>antes de empezar.</em></h1>
+    <p>Estamos muy emocionados de darte la bienvenida a esta nueva etapa académica.
+       Escribe tu nombre, toca tu resultado y guarda tus datos en tu celular.</p>
+  </section>
+
+  <section class="evento">
+    <div class="evento-in">
+      <span class="ev-rot" id="ev-rot"></span>
+      <div class="ev-fila">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+        <span id="ev-fechas"></span>
+      </div>
+      <div class="ev-fila">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+        <span id="ev-horario"></span>
+      </div>
+      <div class="ev-fila">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span id="ev-punto"></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="buscador">
+    <label class="campo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+             placeholder="Escribe tu nombre…" aria-label="Buscar por nombre">
+      <button class="limpiar" id="limpiar" type="button" aria-label="Limpiar búsqueda">✕</button>
+    </label>
+    <button class="tog" id="tog" type="button" aria-expanded="false" aria-controls="filtros">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      <span id="tog-txt">Filtrar por carrera</span>
+    </button>
+    <div class="filtros" id="filtros"></div>
+  </div>
+
+  <div class="conteo" id="conteo"></div>
+  <div class="lista" id="lista" role="listbox" aria-label="Resultados"></div>
+  <div class="mas" id="mas"></div>
+
+  <div class="ayuda" id="ayuda"></div>
+
+</main>
+
+<!-- DATOS DE ESTUDIANTE -->
+<div class="velo" id="velo" role="dialog" aria-modal="true" aria-labelledby="fnom">
+  <div class="hoja" id="hoja">
+    <div class="hoja-hd">
+      <!--LOGO-->
+      <button class="cerrar" id="cerrar" type="button" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="hoja-bd">
+      <div class="hoja-rot" id="frot">Datos de estudiante</div>
+      <div class="hoja-nom" id="fnom"></div>
+      <div class="grupo-box">
+        <div><small>Tu grupo</small><b id="fgrupo"></b></div>
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"><path d="M17 20a5 5 0 0 0-10 0"/><circle cx="12" cy="9" r="3.4"/><path d="M21 20a4 4 0 0 0-3-3.8M3 20a4 4 0 0 1 3-3.8"/></svg>
+      </div>
+      <dl class="datos" id="fdatos"></dl>
+      <div class="hoja-ev">
+        <span class="ev-rot" id="fev-rot"></span>
+        <div class="ev-fila"><span id="fev-fechas"></span></div>
+        <div class="ev-fila"><span id="fev-punto"></span></div>
+      </div>
+    </div>
+    <div class="acciones">
+      <button class="btn btn-p" id="descargar" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        Descargar mis datos
+      </button>
+      <div class="btn-fila">
+        <button class="btn btn-s" id="compartir" type="button">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0-13 4 4m-4-4-4 4"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>
+          Compartir
+        </button>
+        <button class="btn btn-s" id="copiar" type="button">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.4"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg>
+          Copiar
+        </button>
+      </div>
+    </div>
+    <div class="aviso">La imagen se guarda en tu galería o carpeta de descargas.</div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ══════════════════════════════════════════════════════════════════════
+   1) CONFIGURACIÓN  —  se edita aquí, no hace falta tocar el resto
+   ══════════════════════════════════════════════════════════════════ */
+const CONFIG = {
+  periodo:   "Otoño 2026",
+  generacion:"Generación 2026",
+  contacto:  "",     // ← correo de Servicios Escolares. Vacío = sin liga.
+  minLetras: 2,      // letras mínimas antes de mostrar resultados
+  maxLista:  40,     // máximo de resultados en pantalla
+
+  evento: {
+    nombre:  "Curso Propedéutico",
+    fechas:  "Del 3 al 7 de agosto de 2026",
+    horario: "De 8:00 a.m. a 1:00 p.m.",
+    punto:   "Aldea India",
+    acceso:  "entrando por caseta"
+  },
+
+  // Campos que se muestran, en orden. "k" = llave del dato.
+  campos: [
+    { k:"cuenta",  et:"Número de cuenta" },
+    { k:"carrera", et:"Carrera"          }
+  ]
+};
+
+/* ══════════════════════════════════════════════════════════════════════
+   2) DATOS  —  generados por _build\build.py desde el Excel de _datos\
+   ══════════════════════════════════════════════════════════════════ */
+const ALUMNOS = /*ALUMNOS*/[];
+
+/* ══════════════════════════════════════════════════════════════════════
+   3) LÓGICA
+   ══════════════════════════════════════════════════════════════════ */
+const LOGO_SVG = /*LOGO_SVG*/"";
+
+const $ = s => document.querySelector(s);
+const q = $("#q"), lista = $("#lista"), conteo = $("#conteo"), mas = $("#mas"),
+      filtros = $("#filtros"), velo = $("#velo"), limpiar = $("#limpiar");
+
+const esc = s => (s||"").toString().replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* normIdx conserva la longitud carácter a carácter → sirve para resaltar */
+const normIdx = s => (s||"").toString().toLowerCase()
+  .normalize("NFD").replace(/[̀-ͯ]/g,"")
+  .replace(/[^a-z0-9]/g," ");
+/* norm además colapsa espacios → sirve para comparar */
+const norm = s => normIdx(s).replace(/\s+/g," ").trim();
+
+/* índice de búsqueda */
+ALUMNOS.forEach((a,i)=>{
+  a._i = i;
+  a._b = norm([a.nombre, a.cuenta, a.carrera, a.grupo].join(" "));
+});
+
+const CARRERAS = [...new Set(ALUMNOS.map(a=>a.carrera).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
+let carreraSel = "";
+let resultados = [];
+let sel = -1;
+
+/* ── filtros por carrera (plegados) ── */
+const tog = $("#tog"), togTxt = $("#tog-txt");
+if (CARRERAS.length > 1 && CARRERAS.length <= 40){
+  tog.classList.add("hay");
+  CARRERAS.forEach(c=>{
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "pill"; b.textContent = c; b.dataset.val = c;
+    b.onclick = ()=>{
+      carreraSel = (carreraSel === c) ? "" : c;
+      [...filtros.children].forEach(p=>p.classList.toggle("on", p.dataset.val === carreraSel));
+      togTxt.innerHTML = carreraSel ? "Carrera: <b>" + esc(carreraSel) + "</b>" : "Filtrar por carrera";
+      buscar();
+    };
+    filtros.appendChild(b);
+  });
+  tog.onclick = ()=>{
+    const abierto = filtros.classList.toggle("abierto");
+    tog.setAttribute("aria-expanded", abierto ? "true" : "false");
+  };
+}
+
+/* ── búsqueda ── */
+function buscar(){
+  const raw = q.value.trim();
+  const t = norm(raw);
+  limpiar.classList.toggle("on", raw.length>0);
+  sel = -1;
+
+  if (t.length < CONFIG.minLetras && !carreraSel){
+    resultados = [];
+    conteo.textContent = "";
+    mas.textContent = "";
+    lista.innerHTML =
+      `<div class="estado"><b>Empieza a escribir tu nombre</b>
+       <span>Con ${CONFIG.minLetras} letras basta. Puedes escribir tu nombre o tu apellido.</span></div>`;
+    return;
+  }
+
+  const toks = t ? t.split(" ") : [];
+  let r = ALUMNOS.filter(a=>{
+    if (carreraSel && a.carrera !== carreraSel) return false;
+    return toks.every(k => a._b.includes(k));
+  });
+
+  /* los que empiezan con lo escrito, primero */
+  if (toks.length){
+    const ini = norm(raw);
+    r.sort((a,b)=>{
+      const pa = norm(a.nombre).startsWith(ini) ? 0 : 1;
+      const pb = norm(b.nombre).startsWith(ini) ? 0 : 1;
+      return pa-pb || a.nombre.localeCompare(b.nombre,"es");
+    });
+  } else {
+    r.sort((a,b)=>a.nombre.localeCompare(b.nombre,"es"));
+  }
+
+  resultados = r;
+  pintar(toks);
+}
+
+function pintar(toks){
+  if (!resultados.length){
+    conteo.textContent = "";
+    mas.textContent = "";
+    lista.innerHTML =
+      `<div class="estado"><b>Sin coincidencias</b>
+       <span>Revisa la ortografía o intenta solo con tu apellido.</span></div>`;
+    return;
+  }
+  const n = resultados.length;
+  conteo.textContent = n === 1 ? "1 resultado" : n + " resultados";
+
+  const vista = resultados.slice(0, CONFIG.maxLista);
+  lista.innerHTML = vista.map(a=>`
+    <button class="item" type="button" role="option" data-i="${a._i}">
+      <div class="item-txt">
+        <div class="item-nom">${resaltar(a.nombre, toks)}</div>
+        <div class="item-meta">${esc(a.carrera||"")}</div>
+      </div>
+      <div class="chip"><small>GRUPO</small><b>${esc(a.grupo||"—")}</b></div>
+      <svg class="fl" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+    </button>`).join("");
+
+  mas.textContent = n > CONFIG.maxLista
+    ? `Mostrando ${CONFIG.maxLista} de ${n}. Escribe un poco más para afinar.` : "";
+}
+
+function resaltar(txt, toks){
+  let out = esc(txt);
+  if (!toks || !toks.length) return out;
+  const plano = normIdx(txt);
+  const marcas = [];
+  toks.forEach(k=>{
+    let p = plano.indexOf(k);
+    while (p !== -1){ marcas.push([p, p+k.length]); p = plano.indexOf(k, p+1); }
+  });
+  if (!marcas.length) return out;
+  marcas.sort((a,b)=>a[0]-b[0]);
+  const fus = [];
+  marcas.forEach(m=>{
+    const u = fus[fus.length-1];
+    if (u && m[0] <= u[1]) u[1] = Math.max(u[1], m[1]); else fus.push([...m]);
+  });
+  let res = "", pos = 0;
+  fus.forEach(([a,b])=>{ res += esc(txt.slice(pos,a)) + "<mark>" + esc(txt.slice(a,b)) + "</mark>"; pos = b; });
+  return res + esc(txt.slice(pos));
+}
+
+/* ── interacción ── */
+q.addEventListener("input", buscar);
+limpiar.onclick = ()=>{ q.value=""; q.focus(); buscar(); };
+lista.addEventListener("click", e=>{
+  const b = e.target.closest(".item");
+  if (b) abrir(ALUMNOS[+b.dataset.i]);
+});
+q.addEventListener("keydown", e=>{
+  const vis = [...lista.querySelectorAll(".item")];
+  if (e.key === "ArrowDown" || e.key === "ArrowUp"){
+    if (!vis.length) return;
+    e.preventDefault();
+    sel = e.key === "ArrowDown" ? Math.min(sel+1, vis.length-1) : Math.max(sel-1, 0);
+    vis.forEach((v,i)=>v.classList.toggle("sel", i===sel));
+    vis[sel].scrollIntoView({block:"nearest"});
+  } else if (e.key === "Enter"){
+    e.preventDefault();
+    const t = vis[sel>=0?sel:0];
+    if (t) abrir(ALUMNOS[+t.dataset.i]);
+  }
+});
+
+/* ── hoja de datos ── */
+let actual = null;
+function abrir(a){
+  actual = a;
+  $("#fnom").textContent = a.nombre;
+  $("#fgrupo").textContent = a.grupo || "—";
+  $("#fdatos").innerHTML = CONFIG.campos
+    .filter(c => a[c.k])
+    .map(c => `<div class="dato"><dt>${esc(c.et)}</dt><dd>${esc(a[c.k])}</dd></div>`).join("");
+  velo.classList.add("on");
+  document.body.style.overflow = "hidden";
+  $("#cerrar").focus();
+}
+function cerrar(){
+  velo.classList.remove("on");
+  document.body.style.overflow = "";
+  actual = null;
+  q.focus({preventScroll:true});
+}
+$("#cerrar").onclick = cerrar;
+velo.addEventListener("click", e=>{ if (e.target === velo) cerrar(); });
+document.addEventListener("keydown", e=>{ if (e.key === "Escape" && velo.classList.contains("on")) cerrar(); });
+
+/* ── texto plano ── */
+function textoDatos(a){
+  const E = CONFIG.evento;
+  const l = [a.nombre, ""];
+  l.push("Grupo: " + (a.grupo||"—"));
+  CONFIG.campos.forEach(c=>{ if (a[c.k]) l.push(c.et + ": " + a[c.k]); });
+  l.push("", E.nombre, E.fechas + " · " + E.horario, "Punto de reunión: " + E.punto);
+  l.push("", "IBERO Tijuana · Nuevo Ingreso " + CONFIG.periodo);
+  return l.join("\n");
+}
+
+function flash(btn, txt){
+  const o = btn.innerHTML;
+  btn.innerHTML = txt;
+  setTimeout(()=>{ btn.innerHTML = o; }, 1600);
+}
+
+$("#copiar").onclick = async ()=>{
+  if (!actual) return;
+  const b = $("#copiar");
+  try{
+    await navigator.clipboard.writeText(textoDatos(actual));
+    flash(b, "Copiado ✓");
+  }catch(_){ flash(b, "No se pudo"); }
+};
+
+/* ══════════════════════════════════════════════════════════════════════
+   4) IMAGEN DESCARGABLE (canvas 1080 px, altura automática)
+   ══════════════════════════════════════════════════════════════════ */
+const W = 1080, H_MIN = 1400, H_MAX = 2200;
+const C = { vino:"#6B0F1A", rojo:"#C1272D", gris:"#82786F", negro:"#1A1614", hueso:"#F6F2EF", blanco:"#FFFFFF" };
+let logoImg = null;
+
+function cargarLogo(){
+  if (logoImg) return Promise.resolve(logoImg);
+  return new Promise(res=>{
+    const im = new Image();
+    im.onload = ()=>{ logoImg = im; res(im); };
+    im.onerror = ()=>res(null);
+    im.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(LOGO_SVG);
+  });
+}
+
+const F = (peso, px) => `${peso} ${px}px Iberoamericana, "Segoe UI", system-ui, sans-serif`;
+const esp = (ctx, v) => { if ("letterSpacing" in ctx) ctx.letterSpacing = v + "px"; };
+
+function ajustar(ctx, txt, peso, maxPx, minPx, maxAncho){
+  let px = maxPx;
+  while (px > minPx){
+    ctx.font = F(peso, px);
+    if (ctx.measureText(txt).width <= maxAncho) break;
+    px -= 2;
+  }
+  ctx.font = F(peso, px);
+  return px;
+}
+
+function envolver(ctx, txt, maxAncho){
+  const pal = txt.split(" "); const li = []; let cur = "";
+  pal.forEach(p=>{
+    const t = cur ? cur + " " + p : p;
+    if (ctx.measureText(t).width > maxAncho && cur){ li.push(cur); cur = p; }
+    else cur = t;
+  });
+  if (cur) li.push(cur);
+  return li;
+}
+
+function rr(ctx, x, y, w, h, r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+}
+
+/* Dibuja en un lienzo alto y devuelve dónde terminó, para recortar luego. */
+function cuerpo(ctx, a, logo){
+  const BH = 300, M = 88, AW = W - M*2, E = CONFIG.evento;
+
+  ctx.fillStyle = C.blanco; ctx.fillRect(0, 0, W, H_MAX);
+
+  /* ── banda superior ── */
+  ctx.fillStyle = C.vino; ctx.fillRect(0, 0, W, BH);
+  ctx.fillStyle = C.gris; ctx.fillRect(0, BH, W, 6);
+
+  ctx.textAlign = "center";
+  if (logo){
+    const lw = 400, lh = lw * (logo.height / logo.width || .40);
+    ctx.drawImage(logo, (W - lw)/2, 44, lw, lh);
+  } else {
+    ctx.fillStyle = C.blanco;
+    ctx.font = F(900, 78); ctx.fillText("IBERO", W/2, 140);
+    ctx.font = F(500, 30); ctx.fillText("TIJUANA", W/2, 182);
+  }
+  ctx.fillStyle = "rgba(255,255,255,.82)";
+  ctx.font = F(700, 22); esp(ctx, 5);
+  ctx.fillText((E.nombre + " · " + CONFIG.periodo).toUpperCase(), W/2, 256);
+  esp(ctx, 0);
+
+  ctx.textAlign = "left";
+  let y = BH + 6 + 92;
+
+  /* ── rótulo ── */
+  ctx.fillStyle = C.rojo; ctx.font = F(700, 22); esp(ctx, 4);
+  ctx.fillText("DATOS DE ESTUDIANTE", M, y);
+  esp(ctx, 0);
+
+  /* ── nombre (baja de cuerpo hasta caber en 2 renglones) ── */
+  let nomPx = 64, lineas;
+  for (;;){
+    ctx.font = F(900, nomPx);
+    lineas = envolver(ctx, a.nombre, AW);
+    if (lineas.length <= 2 || nomPx <= 38) break;
+    nomPx -= 3;
+  }
+  lineas = lineas.slice(0, 3);
+  y += 34 + nomPx;
+  ctx.fillStyle = C.vino;
+  lineas.forEach((l, i)=>{ ctx.fillText(l, M, y + i * nomPx * 1.14); });
+  y += (lineas.length - 1) * nomPx * 1.14 + 52;
+
+  /* ── caja de grupo: se ajusta al ancho del texto (grupos de 1 letra) ── */
+  const GH = 168, gTxt = a.grupo || "—";
+  ctx.font = F(700, 22); esp(ctx, 5);
+  const wRot = ctx.measureText("TU GRUPO").width;
+  esp(ctx, 0);
+  const gPx = ajustar(ctx, gTxt, 900, 82, 38, AW - 80);
+  const GW = Math.min(AW, Math.max(340, Math.max(wRot, ctx.measureText(gTxt).width) + 130));
+  ctx.fillStyle = C.vino; rr(ctx, M, y, GW, GH, 22); ctx.fill();
+  ctx.fillStyle = "rgba(255,255,255,.74)"; ctx.font = F(700, 22); esp(ctx, 5);
+  ctx.fillText("TU GRUPO", M + 40, y + 56);
+  esp(ctx, 0);
+  ctx.fillStyle = C.blanco; ctx.font = F(900, gPx);
+  ctx.fillText(gTxt, M + 40, y + 132);
+  y += GH + 66;
+
+  /* ── datos ── */
+  const filas = CONFIG.campos.filter(c => a[c.k]);
+  filas.forEach((c, i)=>{
+    ctx.fillStyle = C.gris; ctx.font = F(700, 21); esp(ctx, 3);
+    ctx.fillText(c.et.toUpperCase(), M, y);
+    esp(ctx, 0);
+    ctx.fillStyle = C.negro;
+    ajustar(ctx, a[c.k], 700, 38, 22, AW);
+    ctx.fillText(a[c.k], M, y + 50);
+    if (i < filas.length - 1){
+      ctx.strokeStyle = "rgba(107,15,26,.13)"; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(M, y + 74); ctx.lineTo(W - M, y + 74); ctx.stroke();
+    }
+    y += 100;
+  });
+
+  /* ── recuadro del propedéutico ── */
+  y += 14;
+  const PH = 210;
+  ctx.fillStyle = C.hueso; rr(ctx, M, y, AW, PH, 18); ctx.fill();
+  ctx.fillStyle = C.rojo;  rr(ctx, M, y, 7, PH, 4); ctx.fill();
+  const PX = M + 36;
+  ctx.fillStyle = C.rojo; ctx.font = F(700, 21); esp(ctx, 3);
+  ctx.fillText(E.nombre.toUpperCase(), PX, y + 50);
+  esp(ctx, 0);
+  ctx.fillStyle = C.negro;
+  ajustar(ctx, E.fechas, 700, 32, 22, AW - 80);
+  ctx.fillText(E.fechas, PX, y + 100);
+  ctx.fillStyle = C.gris;
+  ajustar(ctx, E.horario, 500, 30, 20, AW - 80);
+  ctx.fillText(E.horario, PX, y + 142);
+  /* punto de reunión: etiqueta en gris + sede en vino */
+  ctx.font = F(500, 30);
+  const et = "Punto de reunión: ";
+  ctx.fillStyle = C.gris; ctx.fillText(et, PX, y + 184);
+  const wEt = ctx.measureText(et).width;
+  ctx.fillStyle = C.vino; ctx.font = F(900, 30);
+  ctx.fillText(E.punto.toUpperCase(), PX + wEt, y + 184);
+  y += PH;
+
+  return y + 30;
+}
+
+async function dibujarDatos(a){
+  await (document.fonts ? document.fonts.ready : Promise.resolve());
+  const logo = await cargarLogo();
+
+  /* 1) lienzo alto para medir */
+  const tmp = document.createElement("canvas");
+  tmp.width = W; tmp.height = H_MAX;
+  const fin = cuerpo(tmp.getContext("2d"), a, logo);
+
+  /* 2) lienzo final, recortado a la altura justa + pie */
+  const PIE = 96;
+  const H = Math.max(H_MIN, Math.min(H_MAX, Math.round(fin) + PIE));
+  const cv = document.createElement("canvas");
+  cv.width = W; cv.height = H;
+  const ctx = cv.getContext("2d");
+  ctx.fillStyle = C.blanco; ctx.fillRect(0, 0, W, H);
+  ctx.drawImage(tmp, 0, 0, W, H - PIE, 0, 0, W, H - PIE);
+
+  /* 3) pie */
+  ctx.fillStyle = C.hueso; ctx.fillRect(0, H - PIE, W, PIE);
+  ctx.fillStyle = C.rojo;  ctx.fillRect(0, H - PIE, W, 5);
+  ctx.fillStyle = C.gris;  ctx.font = F(500, 24); ctx.textAlign = "center";
+  ctx.fillText("Universidad Iberoamericana Tijuana · " + CONFIG.generacion, W/2, H - 38);
+
+  return cv;
+}
+
+const slug = s => norm(s).replace(/\s+/g,"_");
+const nombreArchivo = a => "Datos_" + slug(a.nombre) + "_Grupo_" + (a.grupo||"") + ".png";
+
+$("#descargar").onclick = async ()=>{
+  if (!actual) return;
+  const b = $("#descargar"); const o = b.innerHTML;
+  b.disabled = true; b.textContent = "Generando…";
+  try{
+    const cv = await dibujarDatos(actual);
+    const a = document.createElement("a");
+    a.href = cv.toDataURL("image/png");
+    a.download = nombreArchivo(actual);
+    document.body.appendChild(a); a.click(); a.remove();
+  }catch(err){ alert("No se pudo generar la imagen: " + err.message); }
+  b.disabled = false; b.innerHTML = o;
+};
+
+$("#compartir").onclick = async ()=>{
+  if (!actual) return;
+  const b = $("#compartir");
+  try{
+    const cv = await dibujarDatos(actual);
+    const blob = await new Promise(r=>cv.toBlob(r, "image/png"));
+    const file = new File([blob], nombreArchivo(actual), {type:"image/png"});
+    if (navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({ files:[file], title:"Mis datos · IBERO Tijuana" });
+    } else {
+      await navigator.share({ title:"Mis datos · IBERO Tijuana", text: textoDatos(actual) });
+    }
+  }catch(err){
+    if (err && err.name === "AbortError") return;
+    flash(b, "No disponible");
+  }
+};
+
+/* ── arranque: se llenan los textos del evento desde CONFIG ── */
+(function inicio(){
+  const E = CONFIG.evento;
+  $("#ev-rot").textContent  = E.nombre;
+  $("#fev-rot").textContent = E.nombre;
+  $("#ev-fechas").innerHTML  = "<b>" + esc(E.fechas) + "</b>";
+  $("#ev-horario").textContent = E.horario;
+  $("#ev-punto").innerHTML   = "Punto de reunión: <span class='sede'>" + esc(E.punto) + "</span>"
+                             + (E.acceso ? " <span>(" + esc(E.acceso) + ")</span>" : "");
+  $("#fev-fechas").innerHTML = "<b>" + esc(E.fechas) + "</b> · " + esc(E.horario);
+  $("#fev-punto").innerHTML  = "Punto de reunión: <span class='sede'>" + esc(E.punto) + "</span>";
+  $("#frot").textContent     = "Datos de estudiante · " + CONFIG.periodo;
+
+  $("#ayuda").innerHTML = "<b>¿No apareces o algún dato está mal?</b><br>"
+    + (CONFIG.contacto
+        ? "Escribe a <a href=\"mailto:" + esc(CONFIG.contacto) + "?subject="
+          + encodeURIComponent("Curso Propedéutico 2026 — revisión de datos")
+          + "\">Servicios Escolares</a> con tu nombre completo para revisarlo."
+        : "Acércate a Servicios Escolares con tu nombre completo para revisarlo.");
+
+  if (!navigator.share) $("#compartir").style.display = "none";
+  buscar();
+  q.focus({preventScroll:true});
+})();
+</script>
+</body>
+</html>
