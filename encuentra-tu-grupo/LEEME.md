@@ -22,6 +22,7 @@ moverse:
 | `Cuenta` (o `Matrícula`) | número de cuenta |
 | `Apellido paterno` · `Apellido materno` · `Nombre` | se unen en ese orden |
 | `Grupo` | grupo |
+| `Salon` (o `Salón`, `Aula`) | salón |
 
 Limpia espacios sobrantes automáticamente y avisa en consola si algún alumno
 se quedó sin grupo.

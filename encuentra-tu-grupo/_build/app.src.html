@@ -322,6 +322,7 @@ h1 em{font-style:normal;color:var(--negro);display:block;font-weight:500}
       <div class="hoja-nom" id="fnom"></div>
       <div class="grupo-box">
         <div><small>Tu grupo</small><b id="fgrupo"></b></div>
+        <div><small>Tu salón</small><b id="fsalon"></b></div>
         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"><path d="M17 20a5 5 0 0 0-10 0"/><circle cx="12" cy="9" r="3.4"/><path d="M21 20a4 4 0 0 0-3-3.8M3 20a4 4 0 0 1 3-3.8"/></svg>
       </div>
       <dl class="datos" id="fdatos"></dl>
@@ -374,6 +375,7 @@ const CONFIG = {
 
   // Campos que se muestran, en orden. "k" = llave del dato.
   campos: [
+    { k:"salon",   et:"Salón"            },
     { k:"cuenta",  et:"Número de cuenta" },
     { k:"carrera", et:"Carrera"          }
   ]
@@ -493,6 +495,7 @@ function pintar(toks){
         <div class="item-meta">${esc(a.carrera||"")}</div>
       </div>
       <div class="chip"><small>GRUPO</small><b>${esc(a.grupo||"—")}</b></div>
+      <div class="chip"><small>SALÓN</small><b>${esc(a.salon||"—")}</b></div>
       <svg class="fl" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
     </button>`).join("");
 
@@ -549,8 +552,9 @@ function abrir(a){
   actual = a;
   $("#fnom").textContent = a.nombre;
   $("#fgrupo").textContent = a.grupo || "—";
+  $("#fsalon").textContent = a.salon || "—";
   $("#fdatos").innerHTML = CONFIG.campos
-    .filter(c => a[c.k])
+    .filter(c => a[c.k] && c.k !== "salon")   /* el salón ya va en la caja de arriba */
     .map(c => `<div class="dato"><dt>${esc(c.et)}</dt><dd>${esc(a[c.k])}</dd></div>`).join("");
   velo.classList.add("on");
   document.body.style.overflow = "hidden";

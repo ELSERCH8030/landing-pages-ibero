@@ -12,9 +12,31 @@ import os, re, json, base64, io, glob
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 PROY = os.path.dirname(AQUI)
-RECURSOS = r"C:\Users\leonardo.gonzalez\Documents\IBERO - DG\2026\00_RECURSOS"
+RECURSOS = os.environ.get(
+    "IBERO_RECURSOS",
+    r"C:\Users\leonardo.gonzalez\Documents\IBERO - DG\2026\00_RECURSOS")
 SVG_ORIG = os.path.join(RECURSOS, "Logos", "PROMOCIONALES", "IBEROTijuana_LTR.svg")
 FUENTES = os.path.join(RECURSOS, "Tipograf\u00edas", "Iberoamericana")
+
+# Copia de lo ya generado (fuentes en base64 y logotipo), para poder compilar
+# en una PC que no tenga la carpeta RECURSOS. Se regenera sola cuando si esta.
+CACHE = os.path.join(AQUI, "cache")
+HAY_RECURSOS = os.path.isdir(FUENTES) and os.path.isfile(SVG_ORIG)
+
+
+def cache_lee(nombre):
+    p = os.path.join(CACHE, nombre)
+    if not os.path.isfile(p):
+        raise SystemExit(
+            "ERROR: no esta RECURSOS (%s) ni el respaldo _build\\cache\\%s.\n"
+            "       Define IBERO_RECURSOS con la ruta correcta, o recupera el cache."
+            % (RECURSOS, nombre))
+    return open(p, encoding="utf-8").read()
+
+
+def cache_escribe(nombre, texto):
+    os.makedirs(CACHE, exist_ok=True)
+    open(os.path.join(CACHE, nombre), "w", encoding="utf-8").write(texto)
 
 VIEWBOX = "48 62 680 270"          # recorte al logotipo, sin el fondo rojo
 ASPECTO = (680, 270)
@@ -38,6 +60,9 @@ def unicodes():
 
 
 def css_fuentes():
+    if not HAY_RECURSOS:
+        print("  sin RECURSOS: uso las fuentes del cache")
+        return cache_lee("fuentes.css")
     from fontTools.ttLib import TTFont
     from fontTools.subset import Subsetter, Options
     bloques = []
@@ -61,7 +86,9 @@ def css_fuentes():
             "@font-face{font-family:'Iberoamericana';font-style:normal;"
             "font-weight:%d;font-display:swap;"
             "src:url(data:font/woff2;base64,%s) format('woff2')}" % (peso, b64))
-    return "\n".join(bloques)
+    css = "\n".join(bloques)
+    cache_escribe("fuentes.css", css)
+    return css
 
 
 # ── 2. LOGO ──────────────────────────────────────────────────────────────
@@ -76,6 +103,18 @@ def logo_svg(color):
             % (VIEWBOX, ASPECTO[0], ASPECTO[1], cuerpo))
 
 
+def logos():
+    """(svg inline con class="logo", cadena JS del mismo logo en blanco)."""
+    if not HAY_RECURSOS:
+        print("  sin RECURSOS: uso el logotipo del cache")
+        return cache_lee("logo_inline.svg"), cache_lee("logo_js.txt")
+    inline = logo_svg("currentColor").replace('<svg ', '<svg class="logo" ')
+    js = json.dumps(logo_svg("#FFFFFF"))
+    cache_escribe("logo_inline.svg", inline)
+    cache_escribe("logo_js.txt", js)
+    return inline, js
+
+
 # ── 3. ALUMNOS ───────────────────────────────────────────────────────────
 # Encabezados esperados en la hoja (se buscan por nombre, no por posicion).
 COLS = {
@@ -85,6 +124,7 @@ COLS = {
     "am":      ["apellido materno", "apellido maerno"],   # el Excel trae la errata
     "nom":     ["nombre", "nombre(s)", "nombres"],
     "grupo":   ["grupo"],
+    "salon":   ["salon", "salón", "aula"],
 }
 
 
@@ -133,22 +173,33 @@ def leer_alumnos():
             "cuenta":  val(fila, "cuenta"),
             "carrera": val(fila, "carrera"),
             "grupo":   val(fila, "grupo"),
+            "salon":   val(fila, "salon"),
         })
 
     alumnos.sort(key=lambda a: a["nombre"])
-    sin = [a for a in alumnos if not a["grupo"]]
-    if sin:
-        print("  AVISO: %d sin grupo ->" % len(sin), [a["nombre"] for a in sin][:5])
+    for campo, etiqueta in (("grupo", "grupo"), ("salon", "salon")):
+        sin = [a for a in alumnos if not a[campo]]
+        if sin:
+            print("  AVISO: %d sin %s ->" % (len(sin), etiqueta),
+                  [a["nombre"] for a in sin][:5])
     print("  %d alumnos · %d carreras · grupos %s"
           % (len(alumnos),
              len({a["carrera"] for a in alumnos}),
              ", ".join(sorted({a["grupo"] for a in alumnos if a["grupo"]}))))
 
-    lineas = ["{nombre:%s, cuenta:%s, carrera:%s, grupo:%s}" % (
+    # un grupo deberia ocupar un solo salon; avisar si no es asi
+    for g in sorted({a["grupo"] for a in alumnos if a["grupo"]}):
+        salones = sorted({a["salon"] for a in alumnos if a["grupo"] == g and a["salon"]})
+        if len(salones) > 1:
+            print("  AVISO: el grupo %s aparece en varios salones -> %s"
+                  % (g, ", ".join(salones)))
+
+    lineas = ["{nombre:%s, cuenta:%s, carrera:%s, grupo:%s, salon:%s}" % (
         json.dumps(a["nombre"], ensure_ascii=False),
         json.dumps(a["cuenta"], ensure_ascii=False),
         json.dumps(a["carrera"], ensure_ascii=False),
-        json.dumps(a["grupo"], ensure_ascii=False)) for a in alumnos]
+        json.dumps(a["grupo"], ensure_ascii=False),
+        json.dumps(a["salon"], ensure_ascii=False)) for a in alumnos]
     return "[\n " + ",\n ".join(lineas) + "\n]"
 
 
@@ -161,10 +212,9 @@ def main():
     print("Generando fuentes...")
     src = src.replace("/*FONTS*/", css_fuentes())
 
-    inline = logo_svg("currentColor").replace(
-        '<svg ', '<svg class="logo" ')
+    inline, logo_js = logos()
     src = src.replace("<!--LOGO-->", inline)
-    src = src.replace('/*LOGO_SVG*/""', json.dumps(logo_svg("#FFFFFF")))
+    src = src.replace('/*LOGO_SVG*/""', logo_js)
 
     for falta in ("/*ALUMNOS*/", "/*FONTS*/", "<!--LOGO-->", "/*LOGO_SVG*/"):
         if falta in src:
