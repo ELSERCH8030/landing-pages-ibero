@@ -289,25 +289,7 @@
             .promo-body { padding: 1.25rem 1.25rem 1.5rem; }
         }
     
-        /* ── WHATSAPP FAB ────────────────────────────── */
-        .wa-fab { position: fixed; bottom: 24px; right: 24px; z-index: 9998; display: flex; align-items: center; gap: .75rem; text-decoration: none; }
-        .wa-fab-tooltip { position: relative; background: #fff; color: #1A1A1A; padding: .65rem 1rem; border-radius: 50px; font-size: .85rem; font-weight: 600; box-shadow: 0 4px 20px rgba(0,0,0,.15); white-space: nowrap; opacity: 0; transform: translateX(10px); transition: opacity .3s, transform .3s; pointer-events: none; }
-        .wa-fab-tooltip::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-style: solid; border-width: 6px 0 6px 6px; border-color: transparent transparent transparent #fff; }
-        .wa-fab:hover .wa-fab-tooltip { opacity: 1; transform: translateX(0); }
-        .wa-fab-btn { width: 64px; height: 64px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 6px 24px rgba(37,211,102,.5); position: relative; transition: transform .3s; animation: wafab-pulse 2s infinite; }
-        .wa-fab-btn svg { width: 32px; height: 32px; position: relative; z-index: 1; }
-        .wa-fab:hover .wa-fab-btn { transform: scale(1.1); }
-        .wa-fab-btn::before, .wa-fab-btn::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 3px solid #25D366; animation: wafab-ring 2s infinite; pointer-events: none; }
-        .wa-fab-btn::after { animation-delay: 1s; }
-        @keyframes wafab-pulse { 0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,.5); } 50% { box-shadow: 0 6px 32px rgba(37,211,102,.8); } }
-        @keyframes wafab-ring { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.6); opacity: 0; } }
-        .wa-fab.hidden { opacity: 0; pointer-events: none; transform: translateY(20px); transition: opacity .3s, transform .3s; }
-        @media (max-width: 768px) {
-            .wa-fab { bottom: 18px; right: 18px; }
-            .wa-fab-tooltip { display: none; }
-            .wa-fab-btn { width: 56px; height: 56px; }
-            .wa-fab-btn svg { width: 28px; height: 28px; }
-        }
+        .fechas-vacio { text-align: center; max-width: 560px; margin: 0 auto; padding: 2rem 1.5rem; background: #fff; border: 1px dashed var(--borde); border-radius: 14px; color: var(--gris); font-size: .92rem; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -607,18 +589,7 @@
             <p class="section-sub" data-es="Todas las aplicaciones son los sábados a las 10:00 a.m. en el campus de IBERO Tijuana." data-en="All test sessions are held on Saturdays at 10:00 a.m. at the IBERO Tijuana campus.">Todas las aplicaciones son los sábados a las 10:00 a.m. en el campus de IBERO Tijuana.</p>
         </div>
 
-        <div class="fechas-grid">
-            <div class="fecha-card proxima anim anim-up" data-badge="Próxima" data-badge-es="Próxima" data-badge-en="Next">
-                <div class="fecha-mes" data-es="Agosto" data-en="August">Agosto</div>
-                <div class="fecha-dia">29</div>
-                <div class="fecha-info" data-es="Sábado · 10:00 a.m." data-en="Saturday · 10:00 a.m.">Sábado · 10:00 a.m.</div>
-            </div>
-            <div class="fecha-card anim anim-up">
-                <div class="fecha-mes" data-es="Septiembre" data-en="September">Septiembre</div>
-                <div class="fecha-dia">12</div>
-                <div class="fecha-info" data-es="Sábado · 10:00 a.m." data-en="Saturday · 10:00 a.m.">Sábado · 10:00 a.m.</div>
-            </div>
-        </div>
+        <div class="fechas-grid" id="fechas-grid"></div>
 
         <p class="fechas-nota" data-es="Las fechas pueden estar sujetas a cambios por parte de ETS. &lt;a href='#proceso'&gt;Asegura tu lugar registrándote&lt;/a&gt; con anticipación." data-en="Dates may be subject to changes by ETS. &lt;a href='#proceso'&gt;Secure your seat by registering&lt;/a&gt; in advance.">Las fechas pueden estar sujetas a cambios por parte de ETS. <a href="#proceso">Asegura tu lugar registrándote</a> con anticipación.</p>
     </div>
@@ -762,18 +733,7 @@
         </div>
         <div class="promo-body">
             <p class="promo-text" data-es="Aplica tu examen oficial en IBERO Tijuana. Estas son las próximas fechas disponibles:" data-en="Take your official exam at IBERO Tijuana. These are the next available dates:">Aplica tu examen oficial en IBERO Tijuana. Estas son las próximas fechas disponibles:</p>
-            <div class="promo-dates">
-                <div class="promo-date">
-                    <div class="promo-date-mes" data-es="Agosto" data-en="August">Agosto</div>
-                    <div class="promo-date-dia">29</div>
-                    <div class="promo-date-info" data-es="Sábado · 10 a.m." data-en="Saturday · 10 a.m.">Sábado · 10 a.m.</div>
-                </div>
-                <div class="promo-date">
-                    <div class="promo-date-mes" data-es="Septiembre" data-en="September">Septiembre</div>
-                    <div class="promo-date-dia">12</div>
-                    <div class="promo-date-info" data-es="Sábado · 10 a.m." data-en="Saturday · 10 a.m.">Sábado · 10 a.m.</div>
-                </div>
-            </div>
+            <div class="promo-dates" id="promo-dates"></div>
             <a href="#contacto" class="promo-cta" id="promoCta">
                 <span data-es="Solicita más información" data-en="Request more information">Solicita más información</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -783,6 +743,118 @@
 </div>
 
 <!-- ═════════════════════ JS ═════════════════════ -->
+<!-- ── Fechas de aplicación TOEFL (se filtran solas) ────────────────────────
+     PARA ACTUALIZAR: edita únicamente la lista FECHAS_TOEFL de abajo.
+     Alimenta los DOS lugares donde se muestran fechas: la sección
+     "Elige tu fecha de aplicación" y el popup de promoción.
+     Cada fecha se oculta sola cuando faltan menos de DIAS_ANTICIPACION
+     días, porque ETS exige solicitar el examen con ese margen.
+     No hay que borrar fechas pasadas a mano.                             -->
+<script>
+(function () {
+    // ── ÚNICO LUGAR QUE HAY QUE EDITAR ──────────────────────────────
+    // Formato AAAA-MM-DD. Los exámenes son sábados a las 10:00 a.m.
+    // Puedes dejar cargado todo el calendario del año: las fechas
+    // aparecen y desaparecen solas según la anticipación requerida.
+    var FECHAS_TOEFL = [
+        '2026-08-29',
+        '2026-09-12'
+    ];
+
+    // Días mínimos de anticipación para poder registrarse (regla de ETS).
+    var DIAS_ANTICIPACION = 10;
+    // ────────────────────────────────────────────────────────────────
+
+    var MESES = {
+        es: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+        en: ['January','February','March','April','May','June','July','August','September','October','November','December']
+    };
+    var SABADO = { es: 'Sábado · 10:00 a.m.', en: 'Saturday · 10:00 a.m.' };
+    var SABADO_CORTO = { es: 'Sábado · 10 a.m.', en: 'Saturday · 10 a.m.' };
+
+    // Medianoche de hoy en hora local, para no depender de la zona horaria.
+    var hoy = new Date();
+    hoy = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+
+    var disponibles = FECHAS_TOEFL
+        .map(function (iso) {
+            var p = iso.split('-');
+            // new Date(iso) interpretaría UTC y en Tijuana desfasaría un día
+            var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+            return isNaN(d) ? null : d;
+        })
+        .filter(function (d) {
+            if (!d) return false;
+            return Math.round((d - hoy) / 86400000) >= DIAS_ANTICIPACION;
+        })
+        .sort(function (a, b) { return a - b; });
+
+    var lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+
+    function bloque(clase, textoEs, textoEn, textoVisible) {
+        var el = document.createElement('div');
+        el.className = clase;
+        if (textoEs) {
+            el.setAttribute('data-es', textoEs);
+            el.setAttribute('data-en', textoEn);
+        }
+        el.textContent = textoVisible;
+        return el;
+    }
+
+    // ── 1. Sección "Elige tu fecha de aplicación" ───────────────────
+    var grid = document.getElementById('fechas-grid');
+    if (grid) {
+        if (!disponibles.length) {
+            var vacio = document.createElement('p');
+            vacio.className = 'fechas-vacio';
+            vacio.setAttribute('data-es', 'Estamos confirmando las próximas fechas de aplicación. Escríbenos y te avisamos en cuanto se publiquen.');
+            vacio.setAttribute('data-en', 'We are confirming the next test dates. Contact us and we will let you know as soon as they are published.');
+            vacio.textContent = vacio.getAttribute('data-' + lang);
+            grid.parentNode.insertBefore(vacio, grid);
+            grid.style.display = 'none';
+        } else {
+            disponibles.forEach(function (d, i) {
+                var card = document.createElement('div');
+                card.className = 'fecha-card anim anim-up' + (i === 0 ? ' proxima' : '');
+                if (i === 0) {
+                    card.setAttribute('data-badge-es', 'Próxima');
+                    card.setAttribute('data-badge-en', 'Next');
+                    card.setAttribute('data-badge', lang === 'en' ? 'Next' : 'Próxima');
+                }
+                card.appendChild(bloque('fecha-mes', MESES.es[d.getMonth()], MESES.en[d.getMonth()], MESES[lang][d.getMonth()]));
+                card.appendChild(bloque('fecha-dia', null, null, d.getDate()));
+                card.appendChild(bloque('fecha-info', SABADO.es, SABADO.en, SABADO[lang]));
+                grid.appendChild(card);
+            });
+        }
+    }
+
+    // ── 2. Popup de promoción (muestra como mucho dos fechas) ───────
+    var promo = document.getElementById('promo-dates');
+    if (promo) {
+        if (!disponibles.length) {
+            promo.style.display = 'none';
+            var texto = document.querySelector('.promo-text');
+            if (texto) {
+                texto.setAttribute('data-es', 'Aplica tu examen oficial en IBERO Tijuana. Escríbenos para conocer las próximas fechas disponibles.');
+                texto.setAttribute('data-en', 'Take your official exam at IBERO Tijuana. Contact us for the next available dates.');
+                texto.textContent = texto.getAttribute('data-' + lang);
+            }
+        } else {
+            disponibles.slice(0, 2).forEach(function (d) {
+                var item = document.createElement('div');
+                item.className = 'promo-date';
+                item.appendChild(bloque('promo-date-mes', MESES.es[d.getMonth()], MESES.en[d.getMonth()], MESES[lang][d.getMonth()]));
+                item.appendChild(bloque('promo-date-dia', null, null, d.getDate()));
+                item.appendChild(bloque('promo-date-info', SABADO_CORTO.es, SABADO_CORTO.en, SABADO_CORTO[lang]));
+                promo.appendChild(item);
+            });
+        }
+    }
+})();
+</script>
+
 <script>
     // ── Animaciones on-scroll ──
     const observer = new IntersectionObserver(entries => {
@@ -931,15 +1003,6 @@
     }
 })();
 </script>
-
-
-<!-- WHATSAPP FAB -->
-<a href="https://wa.me/526643613915?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20el%20examen%20TOEFL%20iBT%20en%20IBERO%20Tijuana." target="_blank" rel="noopener" class="wa-fab" id="whatsapp-fab" aria-label="Habla con un asesor por WhatsApp">
-    <span class="wa-fab-tooltip" data-es="¿Te ayudamos? Escríbenos" data-en="Need help? Message us">¿Te ayudamos? Escríbenos</span>
-    <span class="wa-fab-btn">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </span>
-</a>
 
 </body>
 </html>
