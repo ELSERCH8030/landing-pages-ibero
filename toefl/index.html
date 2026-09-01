@@ -769,6 +769,11 @@
 
     // Días mínimos de anticipación para poder registrarse (regla de ETS).
     var DIAS_ANTICIPACION = 10;
+
+    // Cuántas fechas se muestran a la vez. La lista de arriba puede tener
+    // el año completo: solo se publican las más próximas y, conforme
+    // vencen, van entrando las siguientes.
+    var MAX_VISIBLES = 2;
     // ────────────────────────────────────────────────────────────────
 
     var MESES = {
@@ -820,7 +825,7 @@
             grid.parentNode.insertBefore(vacio, grid);
             grid.style.display = 'none';
         } else {
-            disponibles.forEach(function (d, i) {
+            disponibles.slice(0, MAX_VISIBLES).forEach(function (d, i) {
                 var card = document.createElement('div');
                 card.className = 'fecha-card anim anim-up' + (i === 0 ? ' proxima' : '');
                 if (i === 0) {
@@ -848,7 +853,7 @@
                 texto.textContent = texto.getAttribute('data-' + lang);
             }
         } else {
-            disponibles.slice(0, 2).forEach(function (d) {
+            disponibles.slice(0, MAX_VISIBLES).forEach(function (d) {
                 var item = document.createElement('div');
                 item.className = 'promo-date';
                 item.appendChild(bloque('promo-date-mes', MESES.es[d.getMonth()], MESES.en[d.getMonth()], MESES[lang][d.getMonth()]));
