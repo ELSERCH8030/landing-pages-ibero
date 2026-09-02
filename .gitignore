@@ -9,6 +9,6 @@ Thumbs.db
 # Claude local config
 .claude/
 
-# Conector Prospecty (secretos y config local de Vercel)
+# Conector Prospecty: el archivo con el token vive en el servidor, nunca en el repo
+prospecty-config.php
 prospecty-api/.env*
-prospecty-api/.vercel

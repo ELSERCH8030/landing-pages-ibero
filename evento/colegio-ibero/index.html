@@ -273,10 +273,10 @@
 (function () {
     /* ─────────────────────────────────────────────────────────────
        CONFIGURACIÓN
-       LEAD_ENDPOINT: URL del conector desplegado (carpeta prospecty-api).
+       LEAD_ENDPOINT: conector PHP en este mismo servidor (carpeta prospecty-api).
        El token del CRM vive en el servidor, nunca en esta página.
        ───────────────────────────────────────────────────────────── */
-    var LEAD_ENDPOINT = 'https://REEMPLAZAR-CON-TU-DOMINIO.vercel.app/api/lead';
+    var LEAD_ENDPOINT = '../../prospecty-api/enviar.php';
     var FUENTE = 'Plática Colegio Ibero';
     var TAGS = ['platica-colegio-ibero', 'padre-de-familia', 'evento-2026-09-03'];
 
