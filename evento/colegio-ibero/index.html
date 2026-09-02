@@ -120,6 +120,8 @@
         .form-error { grid-column: 1 / -1; display: none; background: #FFF0F3; border: 1px solid rgba(224,0,52,.25); color: var(--rojo-oscuro); border-radius: 12px; padding: .8rem 1rem; font-size: .85rem; }
         .form-error.show { display: block; }
 
+        .form-embed { overflow: hidden; min-height: 420px; margin: 0 -.25rem; }
+        .form-embed iframe { display: block; min-height: 420px; }
         .seguridad { text-align: center; font-size: .74rem; color: var(--gris); font-weight: 300; margin-top: 1.1rem; line-height: 1.5; }
         .seguridad svg { width: 14px; height: 14px; color: #25D366; vertical-align: -2px; margin-right: .3rem; }
 
@@ -177,90 +179,37 @@
 
 <main>
     <div class="card" id="card">
-        <div id="form-wrap">
-            <div class="card-head">
-                <h2>Regístrate aquí</h2>
-                <p>Toma menos de un minuto.</p>
-                <div class="accent-line"></div>
-            </div>
-
-            <form id="lead-form" class="form-grid" novalidate autocomplete="on">
-                <div class="campo full">
-                    <label for="nombre">Nombre de mamá o papá <span class="req">*</span></label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellido" autocomplete="name" required>
-                </div>
-                <div class="campo">
-                    <label for="telefono">WhatsApp <span class="req">*</span></label>
-                    <input type="tel" id="telefono" name="telefono" placeholder="664 000 0000" inputmode="tel" autocomplete="tel" required>
-                    <span class="hint">10 dígitos</span>
-                </div>
-                <div class="campo">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" inputmode="email" autocomplete="email">
-                </div>
-
-                <div class="separador">Sobre tu hijo o hija</div>
-
-                <div class="campo">
-                    <label for="hijo">Nombre del alumno(a) <span class="req">*</span></label>
-                    <input type="text" id="hijo" name="hijo" placeholder="Nombre" autocomplete="off" required>
-                </div>
-                <div class="campo">
-                    <label for="grado">Grado que cursa <span class="req">*</span></label>
-                    <select id="grado" name="grado" required>
-                        <option value="" disabled selected>Selecciona</option>
-                        <option>3° de preparatoria</option>
-                        <option>2° de preparatoria</option>
-                        <option>1° de preparatoria</option>
-                        <option>Secundaria</option>
-                    </select>
-                </div>
-                <div class="campo full">
-                    <label for="carrera">Licenciatura de interés <span class="req">*</span></label>
-                    <select id="carrera" name="carrera" required>
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <option>Administración de Empresas</option>
-                        <option>Administración de Negocios Internacionales</option>
-                        <option>Arquitectura</option>
-                        <option>Comunicación</option>
-                        <option>Derecho</option>
-                        <option>Enfermería</option>
-                        <option>Ingeniería Industrial y Manufactura Inteligente</option>
-                        <option>Ingeniería Mecatrónica</option>
-                        <option>Medicina</option>
-                        <option>Nutrición</option>
-                        <option>Psicología</option>
-                        <option>Aún no decide</option>
-                    </select>
-                </div>
-
-                <label class="consent">
-                    <input type="checkbox" id="consent" name="consent" required>
-                    <span>Acepto que IBERO Tijuana me contacte por WhatsApp, llamada o correo para darme información sobre su oferta académica.</span>
-                </label>
-
-                <div class="form-error" id="form-error"></div>
-
-                <button type="submit" class="btn" id="btn-enviar">
-                    <span class="spinner"></span>
-                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
-                    <span class="btn-text">Quiero recibir información</span>
-                </button>
-            </form>
-
-            <div class="seguridad">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                Tus datos están protegidos y solo se usan para contactarte.
-            </div>
+        <div class="card-head">
+            <h2>Regístrate aquí</h2>
+            <p>Toma menos de un minuto.</p>
+            <div class="accent-line"></div>
         </div>
-
-        <div class="exito" id="exito">
-            <div class="check">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            </div>
-            <h2>¡Gracias, <span id="exito-nombre"></span>!</h2>
-            <p>Recibimos tu registro. En breve un asesor de admisiones te escribirá por WhatsApp.</p>
-            <button type="button" class="btn-otro" id="btn-otro">Registrar a otra persona</button>
+        <!-- Formulario creado en Prospecty (Sites → Forms). Si se usa otro formulario, cambiar el ID en las 4 posiciones. -->
+        <div class="form-embed">
+            <iframe
+                src="https://app.prospecty.mx/widget/form/prLZHpDTXhd6UlvKFtyp"
+                style="width:100%;height:100%;border:none;border-radius:3px"
+                id="inline-prLZHpDTXhd6UlvKFtyp"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="FORMS PLATICA PADRES"
+                data-height="805"
+                data-layout-iframe-id="inline-prLZHpDTXhd6UlvKFtyp"
+                data-form-id="prLZHpDTXhd6UlvKFtyp"
+                data-cookie-consent="true"
+                data-cookie-consent-provider="auto"
+                title="FORMS PLATICA PADRES"
+            ></iframe>
+            <script src="https://app.prospecty.mx/js/form_embed.js"></script>
+        </div>
+        <div class="seguridad">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Tus datos están protegidos y solo se usan para contactarte.
         </div>
     </div>
 </main>
@@ -270,107 +219,11 @@
 </footer>
 
 <script>
-(function () {
-    /* ─────────────────────────────────────────────────────────────
-       CONFIGURACIÓN
-       LEAD_ENDPOINT: conector PHP en este mismo servidor (carpeta prospecty-api).
-       El token del CRM vive en el servidor, nunca en esta página.
-       ───────────────────────────────────────────────────────────── */
-    var LEAD_ENDPOINT = '../../prospecty-api/enviar.php';
-    var FUENTE = 'Plática Colegio Ibero';
-    var TAGS = ['platica-colegio-ibero', 'padre-de-familia', 'evento-2026-09-03'];
-
-    var form = document.getElementById('lead-form');
-    var btn = document.getElementById('btn-enviar');
-    var errorBox = document.getElementById('form-error');
-    var params = new URLSearchParams(location.search);
-
-    function slug(s) {
-        return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+window.addEventListener('message', function (e) {
+    if (e.data && (e.data.type === 'form-submitted' || e.data.event === 'form-submitted')) {
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
     }
-    function showError(msg) { errorBox.textContent = msg; errorBox.classList.add('show'); }
-    function clearError() { errorBox.textContent = ''; errorBox.classList.remove('show'); }
-
-    function validar() {
-        var ok = true, first = null;
-        clearError();
-        form.querySelectorAll('[required]').forEach(function (el) {
-            var valido;
-            if (el.type === 'checkbox') valido = el.checked;
-            else if (el.id === 'telefono') valido = el.value.replace(/\D/g, '').length >= 10;
-            else valido = el.value.trim() !== '';
-            el.classList.toggle('invalid', !valido);
-            if (!valido) { ok = false; if (!first) first = el; }
-        });
-        var email = document.getElementById('email');
-        if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-            email.classList.add('invalid'); ok = false; if (!first) first = email;
-        } else email.classList.remove('invalid');
-        if (!ok) {
-            showError(first.type === 'checkbox' ? 'Para continuar, acepta que podamos contactarte.' : 'Revisa los campos marcados en rojo.');
-            if (first.type !== 'checkbox') first.focus();
-        }
-        return ok;
-    }
-
-    form.addEventListener('input', function (e) { if (e.target.classList) e.target.classList.remove('invalid'); });
-
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (!validar()) return;
-
-        var carrera = document.getElementById('carrera').value;
-        var payload = {
-            nombre: document.getElementById('nombre').value.trim(),
-            telefono: document.getElementById('telefono').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            hijo: document.getElementById('hijo').value.trim(),
-            grado: document.getElementById('grado').value,
-            carrera: carrera,
-            colegio: 'Colegio Ibero',
-            fuente: FUENTE,
-            tags: TAGS.concat(['carrera-' + slug(carrera)]),
-            utm: {
-                source: params.get('utm_source') || '', medium: params.get('utm_medium') || '',
-                campaign: params.get('utm_campaign') || '', content: params.get('utm_content') || ''
-            },
-            pagina: location.href
-        };
-
-        btn.disabled = true; btn.classList.add('loading');
-        btn.querySelector('.btn-text').textContent = 'Enviando…';
-
-        fetch(LEAD_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        })
-        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, data: d }; }); })
-        .then(function (res) {
-            if (!res.ok || !res.data.ok) throw new Error(res.data.error || 'No se pudo enviar');
-            if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-            document.getElementById('exito-nombre').textContent = payload.nombre.split(' ')[0];
-            document.getElementById('form-wrap').style.display = 'none';
-            document.getElementById('exito').classList.add('show');
-            window.scrollTo({ top: document.getElementById('card').offsetTop - 24, behavior: 'smooth' });
-        })
-        .catch(function (err) {
-            showError('No pudimos enviar tu registro. Revisa tu conexión e inténtalo de nuevo.');
-            console.error(err);
-        })
-        .finally(function () {
-            btn.disabled = false; btn.classList.remove('loading');
-            btn.querySelector('.btn-text').textContent = 'Quiero recibir información';
-        });
-    });
-
-    document.getElementById('btn-otro').addEventListener('click', function () {
-        form.reset();
-        document.getElementById('exito').classList.remove('show');
-        document.getElementById('form-wrap').style.display = '';
-        document.getElementById('nombre').focus();
-    });
-})();
+});
 </script>
 </body>
 </html>
