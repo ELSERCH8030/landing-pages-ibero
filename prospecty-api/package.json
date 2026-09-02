@@ -1,0 +1,7 @@
+{
+  "name": "prospecty-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Conector de formularios HTML hacia Prospecty (HighLevel) para las landings de IBERO Tijuana",
+  "engines": { "node": ">=18" }
+}

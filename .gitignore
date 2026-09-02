@@ -8,3 +8,7 @@ Thumbs.db
 
 # Claude local config
 .claude/
+
+# Conector Prospecty (secretos y config local de Vercel)
+prospecty-api/.env*
+prospecty-api/.vercel
