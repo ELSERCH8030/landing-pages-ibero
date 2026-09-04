@@ -13,19 +13,27 @@
     <!-- End Google tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IBERO Tijuana | Oferta Académica</title>
+    <meta name="description" content="Licenciaturas y posgrados de la Universidad Iberoamericana Tijuana.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="canonical" href="https://promocion.iberotijuana.edu.mx/oferta-academica/">
-    <noscript><meta http-equiv="refresh" content="0; url=/oferta-academica/"></noscript>
+    <link rel="stylesheet" href="https://use.typekit.net/phs8jtn.css">
     <style>
-        body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: 'Segoe UI', Tahoma, sans-serif; background: #E00034; color: #fff; text-align: center; }
-        a { color: #fff; font-weight: 700; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem 1.25rem; font-family: 'alverata', 'Segoe UI', Tahoma, sans-serif; background: #E00034; color: #fff; text-align: center; }
+        h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: .5rem; }
+        p { font-weight: 300; opacity: .9; margin-bottom: 2rem; }
+        .botones { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+        .btn { display: inline-block; padding: .9rem 2rem; border-radius: 50px; background: #fff; color: #E00034; font-weight: 700; text-decoration: none; }
+        .btn.sec { background: transparent; color: #fff; border: 2px solid #fff; }
     </style>
 </head>
 <body>
-    <p>Ir a la <a href="/oferta-academica/">oferta académica de IBERO Tijuana</a>…</p>
-    <script>
-    // Deja que la etiqueta de Google dispare antes de redirigir.
-    setTimeout(function(){ window.location.replace('/oferta-academica/'); }, 1200);
-    </script>
+    <main>
+        <h1>Universidad Iberoamericana Tijuana</h1>
+        <p>Conoce nuestra oferta académica.</p>
+        <div class="botones">
+            <a class="btn" href="/oferta-academica/">Licenciaturas</a>
+            <a class="btn sec" href="/oferta-academica-posgrados/">Posgrados</a>
+        </div>
+    </main>
 </body>
 </html>

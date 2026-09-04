@@ -1,0 +1,18 @@
+# Charset explicito en la cabecera HTTP: el navegador no depende de encontrar
+# el <meta charset> dentro de los primeros 1024 bytes del HTML.
+AddDefaultCharset UTF-8
+
+# Forzar que el navegador siempre revise si hay una versión nueva.
+# (Apache + mod_headers. Si el servidor es otro, se ignora sin causar problemas.)
+<IfModule mod_headers.c>
+    # HTML: nunca servir cacheado, siempre traer la última versión
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+    # Imágenes, video y demás: cachear pero revalidar en cada visita (304 si no cambió)
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|mp4|webm|ico|css|js|pdf)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+</IfModule>
