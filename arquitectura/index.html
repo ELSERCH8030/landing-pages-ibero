@@ -719,5 +719,37 @@ window.addEventListener("message", function(event) {
     </span>
 </a>
 
+<style>#popup-urgencia.popup-oculto-por-formulario { display: none !important; }</style>
+<script>
+// El popup de urgencia es position:fixed con z-index 9999 y su caja interna
+// tiene pointer-events:auto, asi que al aparecer se monta sobre el formulario
+// y se come el clic del checkbox de terminos y del boton de enviar.
+// Mientras la seccion de contacto este a la vista, el popup se retira.
+// Se usa una clase (no style.display) para no interferir con el script propio
+// del popup: al alejarse del formulario vuelve a mostrarse solo.
+(function () {
+    var popup = document.getElementById('popup-urgencia');
+    var contacto = document.getElementById('contacto');
+    if (!popup || !contacto) return;
+    var fab = document.getElementById('whatsapp-fab');
+    function formularioALaVista() {
+        var r = contacto.getBoundingClientRect();
+        return r.top < window.innerHeight && r.bottom > 0;
+    }
+    function ajustar() {
+        var tapa = formularioALaVista();
+        if (tapa) {
+            popup.classList.add('popup-oculto-por-formulario');
+            if (fab) fab.classList.remove('hidden');
+        } else {
+            popup.classList.remove('popup-oculto-por-formulario');
+            if (fab && popup.style.display === 'block') fab.classList.add('hidden');
+        }
+    }
+    window.addEventListener('scroll', ajustar, { passive: true });
+    window.addEventListener('resize', ajustar);
+    ajustar();
+})();
+</script>
 </body>
 </html>
