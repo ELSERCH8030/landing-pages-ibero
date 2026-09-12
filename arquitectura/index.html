@@ -751,5 +751,29 @@ window.addEventListener("message", function(event) {
     ajustar();
 })();
 </script>
+
+<script>
+// Origen de campaña en el botón de WhatsApp.
+// Si la persona llegó desde un anuncio (la URL trae utm_source=google o utm_source=facebook),
+// el mensaje prellenado lo menciona. Así el CRM puede etiquetar el origen aunque el prospecto
+// escriba por WhatsApp sin llenar el formulario. Sin utm_source, el mensaje no cambia.
+(function () {
+    var fuente = '';
+    try {
+        fuente = (new URLSearchParams(window.location.search).get('utm_source') || '').toLowerCase();
+        if (fuente) sessionStorage.setItem('ibero_utm_source', fuente);
+        else fuente = sessionStorage.getItem('ibero_utm_source') || '';
+    } catch (e) {}
+    var red = '';
+    if (/^(facebook|fb|ig|instagram|meta)$/.test(fuente)) red = 'Facebook';
+    else if (/^(google|adwords)$/.test(fuente)) red = 'Google';
+    if (!red) return;
+    var texto = 'Hola, vi su anuncio de Arquitectura en ' + red + ' y quiero información.';
+    var enlaces = document.querySelectorAll('a[href^="https://wa.me/526643613915"]');
+    for (var i = 0; i < enlaces.length; i++) {
+        enlaces[i].setAttribute('href', 'https://wa.me/526643613915?text=' + encodeURIComponent(texto));
+    }
+})();
+</script>
 </body>
 </html>
