@@ -326,6 +326,7 @@
         .monto-valor { font-size: clamp(3.8rem, 9vw, 5.5rem); font-weight: 900; line-height: 1; letter-spacing: -2px; background: linear-gradient(110deg, var(--rojo) 0%, #ff4d6a 20%, #ffffff 45%, #ffd4dc 50%, #ffffff 55%, #ff4d6a 80%, var(--rojo) 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; position: relative; z-index: 1; animation: shimmer-text 3.5s linear infinite; filter: drop-shadow(0 0 30px rgba(255,77,106,.5)) drop-shadow(0 4px 12px rgba(224,0,52,.4)); }
         @keyframes shimmer-text { 0% { background-position: 200% 0; } 100% { background-position: -100% 0; } }
         .monto-mxn { font-size: 1rem; font-weight: 700; opacity: .75; letter-spacing: 2px; margin-left: .5rem; position: relative; z-index: 1; }
+        .monto-aviso { font-size: .75rem; opacity: .55; margin-top: .4rem; position: relative; z-index: 1; }
         .compromiso-divider { height: 1px; background: rgba(255,255,255,.1); margin: 1.5rem 0; }
         .extra-row { display: flex; justify-content: space-between; align-items: center; padding: .45rem 0; font-size: .92rem; }
         .extra-label { opacity: .7; font-weight: 300; }
@@ -432,6 +433,7 @@
                 <span class="monto-valor">7,500</span>
                 <span class="monto-mxn">MXN</span>
             </div>
+            <p class="monto-aviso">*Costos sujetos al aumento anual</p>
             <div class="compromiso-divider"></div>
             <div class="extra-row">
                 <span class="extra-label">Examen de admisión</span>
