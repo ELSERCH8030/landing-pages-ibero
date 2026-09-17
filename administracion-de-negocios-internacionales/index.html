@@ -633,6 +633,7 @@ window.addEventListener("message", function(event) {
     var red = '';
     if (/^(facebook|fb|ig|instagram|meta)$/.test(fuente)) red = 'Facebook';
     else if (/^(google|adwords)$/.test(fuente)) red = 'Google';
+    else if (/^(chatgpt|openai)$/.test(fuente)) red = 'ChatGPT';
     if (!red) return;
     var texto = 'Hola, vi su anuncio de Negocios Internacionales en ' + red + ' y quiero información.';
     var enlaces = document.querySelectorAll('a[href^="https://wa.me/526643613915"]');
