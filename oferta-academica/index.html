@@ -831,5 +831,26 @@
             popup.classList.add('hidden');
         }
     </script>
+
+    <script>
+        // Conserva los UTM del anuncio al entrar a una carrera, para que el formulario
+        // de Prospecty y el botón de WhatsApp de la landing sepan de dónde vino el prospecto.
+        // Sin UTM en la URL, los enlaces no cambian.
+        (function () {
+            var utm = [];
+            try {
+                new URLSearchParams(window.location.search).forEach(function (valor, clave) {
+                    if (/^utm_/i.test(clave)) utm.push([clave, valor]);
+                });
+            } catch (e) { return; }
+            if (!utm.length) return;
+            var enlaces = document.querySelectorAll('a.career-card[href^="https://promocion.iberotijuana.edu.mx/"]');
+            for (var i = 0; i < enlaces.length; i++) {
+                var url = new URL(enlaces[i].href);
+                for (var j = 0; j < utm.length; j++) url.searchParams.set(utm[j][0], utm[j][1]);
+                enlaces[i].href = url.toString();
+            }
+        })();
+    </script>
 </body>
 </html>
