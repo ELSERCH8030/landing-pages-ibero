@@ -761,6 +761,7 @@ window.addEventListener("message", function(event) {
     if (/^(facebook|fb|ig|instagram|meta)$/.test(fuente)) red = 'Facebook';
     else if (/^(google|adwords)$/.test(fuente)) red = 'Google';
     else if (/^(chatgpt|openai)$/.test(fuente)) red = 'ChatGPT';
+    else if (/^spotify$/.test(fuente)) red = 'Spotify';
     if (!red) return;
     var texto = 'Hola, vi su anuncio de Psicología en ' + red + ' y quiero información.';
     var enlaces = document.querySelectorAll('a[href^="https://wa.me/526643613915"]');
