@@ -341,6 +341,33 @@
             .hero-meta { gap: .8rem; padding: .7rem 1rem; }
         }
     </style>
+    <style>
+        /* Celular: el logo (159px) y el botón "Solicitar información" (190px) no cabían juntos
+           y el botón se salía 11px por la derecha, cortado. Se achican sin bajar el header de
+           68px, porque el body tiene padding-top de 69px para dejarle ese espacio. */
+        @media (max-width: 480px) {
+            header { padding: .75rem 1rem; min-height: 68px; }
+            .logo-img { height: 36px; }
+            .header-divider { display: none; }
+            .nav-cta { padding: .5rem 1rem; font-size: .8rem; }
+            /* Los trimestres, la cuenta regresiva y la columna del formulario no podían encogerse
+               más que su contenido y empujaban la página unos 13px a la derecha a 360px. */
+            .plan-tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .plan-tab { padding: .8rem .25rem; }
+            .plan-tab .plan-tab-lbl { letter-spacing: .5px; }
+            .form-section { padding: 3.5rem 1rem; }
+            .form-cols { grid-template-columns: minmax(0, 1fr); }
+            .countdown-box { padding: 1.1rem; }
+            .countdown-grid { gap: .35rem; }
+            /* El correo de informes no tiene espacios y a 320px no cabía en la tarjeta. */
+            .ubi-card { overflow-wrap: anywhere; }
+        }
+        @media (max-width: 359px) {
+            .nav-cta { padding: .5rem .8rem; font-size: .75rem; }
+            .plan-tab .plan-tab-lbl { font-size: .55rem; letter-spacing: .3px; }
+            .cd-sep { display: none; }
+        }
+    </style>
 </head>
 <body>
 

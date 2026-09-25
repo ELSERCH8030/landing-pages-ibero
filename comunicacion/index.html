@@ -248,6 +248,32 @@
             .wa-fab-btn svg { width: 28px; height: 28px; }
         }
     </style>
+    <style>
+        /* La animación lateral de "Perfil del egresado" (translateX de 40px) ensanchaba la
+           página: en celular se podía mover de lado y el botón de WhatsApp quedaba cortado.
+           Se recorta en la sección; overflow-x hidden en body o html no lo evita en
+           Chrome de Android, y clip no rompe el header sticky. */
+        #perfil { overflow-x: clip; }
+        /* El header ocupa dos filas en celular (unos 105px) y la portada empezaba a 62px,
+           así que tapaba la franja del RVOE. Con sticky el header ocupa su propio espacio
+           y la portada empieza justo debajo, mida lo que mida. */
+        header { position: sticky; }
+        .hero { margin-top: 0; }
+        /* Ya visible la franja del RVOE (unos 43px), la etiqueta de la portada quedaba pegada a ella. */
+        @media (max-width: 480px) { .hero { padding-top: 4rem; } }
+    </style>
+    <script>
+    // Los botones que llevan a #contacto dejaban el inicio de la sección escondido debajo
+    // del header. El alto del header cambia con el ancho (79px en escritorio, hasta 133px
+    // en celulares chicos), así que se mide en vez de fijarlo en el CSS.
+    document.addEventListener('DOMContentLoaded', function () {
+        var header = document.querySelector('header');
+        if (!header) return;
+        function ajustar() { document.documentElement.style.scrollPaddingTop = header.offsetHeight + 'px'; }
+        ajustar();
+        window.addEventListener('resize', ajustar);
+    });
+    </script>
 </head>
 <body>
 
