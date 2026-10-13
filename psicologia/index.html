@@ -796,5 +796,15 @@ window.addEventListener("message", function(event) {
     }
 })();
 </script>
+<script>
+// Conversión de Google Ads "Clic WhatsApp - Landings": cuenta a quien escribe por WhatsApp
+// en lugar de llenar el formulario. Escucha en document para cubrir todos los botones de WhatsApp.
+document.addEventListener('click', function (e) {
+    var enlace = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+    if (enlace && typeof gtag === 'function') {
+        gtag('event', 'conversion', { 'send_to': 'AW-18415704288/uzVpCPT__JsdEOCxpc1E' });
+    }
+});
+</script>
 </body>
 </html>

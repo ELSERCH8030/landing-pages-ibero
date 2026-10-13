@@ -12,3 +12,6 @@ Thumbs.db
 # Conector Prospecty: el archivo con el token vive en el servidor, nunca en el repo
 prospecty-config.php
 prospecty-api/.env*
+
+# Planeacion de campañas (presupuestos, keywords): no se publica en el sitio
+_campanas/
