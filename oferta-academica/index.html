@@ -864,5 +864,32 @@ document.addEventListener('click', function (e) {
     }
 });
 </script>
+<script>
+// Origen de campaña en el botón de WhatsApp (igual que en las landings de cada carrera).
+// Si la persona llegó desde un anuncio (utm_source=google, facebook, etc.), el mensaje
+// prellenado lo menciona para que el CRM etiquete el origen. Sin utm_source, no cambia.
+(function () {
+    var fuente = '';
+    try {
+        fuente = (new URLSearchParams(window.location.search).get('utm_source') || '').toLowerCase();
+        if (fuente) sessionStorage.setItem('ibero_utm_source', fuente);
+        else fuente = sessionStorage.getItem('ibero_utm_source') || '';
+    } catch (e) {}
+    var red = '';
+    if (/^(facebook|fb|ig|instagram|meta)$/.test(fuente)) red = 'Facebook';
+    else if (/^(google|adwords)$/.test(fuente)) red = 'Google';
+    else if (/^(chatgpt|openai)$/.test(fuente)) red = 'ChatGPT';
+    else if (/^spotify$/.test(fuente)) red = 'Spotify';
+    if (!red) return;
+    var enlaces = document.querySelectorAll('a[href^="https://wa.me/526643613915"]');
+    for (var i = 0; i < enlaces.length; i++) {
+        var examen = /examen/.test(decodeURIComponent(enlaces[i].getAttribute('href')));
+        var texto = examen
+            ? 'Hola, vi su anuncio de IBERO Tijuana en ' + red + ' y quiero información sobre el examen de admisión.'
+            : 'Hola, vi su anuncio de las licenciaturas de IBERO Tijuana en ' + red + ' y quiero información.';
+        enlaces[i].setAttribute('href', 'https://wa.me/526643613915?text=' + encodeURIComponent(texto));
+    }
+})();
+</script>
 </body>
 </html>
