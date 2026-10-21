@@ -1,0 +1,18 @@
+# Charset explicito: el servidor manda "text/html" sin charset, asi que sin
+# esto el navegador depende de encontrar el <meta charset> en los primeros
+# 1024 bytes del HTML y puede caer a windows-1252 (acentos rotos).
+AddDefaultCharset UTF-8
+
+# El servidor manda Cache-Control: max-age=2592000 (30 dias) para el HTML,
+# asi que quien ya visito la landing sigue viendo la version vieja durante un
+# mes y no le llegan las correcciones. Aqui se fuerza a revalidar siempre.
+<IfModule mod_headers.c>
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|mp4|webm|ico|css|js|pdf)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+</IfModule>
