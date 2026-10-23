@@ -362,6 +362,16 @@
             transition: transform .35s ease;
         }
         .posg-card:hover::before { transform: scaleX(1); }
+        /* Foto a todo lo ancho arriba de la tarjeta: anula el padding de la tarjeta. */
+        .posg-foto {
+            margin: -1.75rem -1.5rem .15rem;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: var(--gris-claro, #f4f4f5);
+        }
+        .posg-foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+        .posg-card:hover .posg-foto img { transform: scale(1.06); }
+        .posg-card::before { z-index: 1; }
         .posg-card:hover {
             transform: translateY(-5px);
             border-color: rgba(224,0,52,.28);
@@ -886,6 +896,7 @@
 
                 <!-- Desarrollo Organizacional -->
                 <a href="https://promocion.iberotijuana.edu.mx/maestria-desarrollo-organizacional/" class="posg-card">
+                    <div class="posg-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?auto=format&fit=crop&w=800&q=70" alt="Equipo de trabajo reunido alrededor de una mesa"></div>
                     <div class="posg-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -907,6 +918,7 @@
 
                 <!-- Logística Internacional -->
                 <a href="https://promocion.iberotijuana.edu.mx/maestria-logistica-internacional/" class="posg-card">
+                    <div class="posg-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1590497008432-598f04441de8?auto=format&fit=crop&w=800&q=70" alt="Puerto con contenedores y grúas de carga"></div>
                     <div class="posg-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="1" y="3" width="15" height="13"/>
@@ -928,6 +940,7 @@
 
                 <!-- Ciudades Sostenibles -->
                 <a href="https://promocion.iberotijuana.edu.mx/maestria-proyectos-ciudades-sostenibles/" class="posg-card">
+                    <div class="posg-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1542800952-e5471ed41326?auto=format&fit=crop&w=800&q=70" alt="Vista aérea de una plaza con árboles y edificios"></div>
                     <div class="posg-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M3 21h18"/>
