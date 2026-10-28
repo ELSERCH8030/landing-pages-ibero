@@ -781,15 +781,14 @@
 <!-- ── Fechas de aplicación TOEFL (se filtran solas) ────────────────────────
      PARA ACTUALIZAR: edita únicamente toefl/fechas.js.
      Alimenta los DOS lugares donde se muestran fechas: la sección
-     "Elige tu fecha de aplicación" y el popup de promoción (y además la
-     tarjeta "Curso TOEFL" de educacion-continua).
+     "Elige tu fecha de aplicación" y el popup de promoción.
      Cada fecha se oculta sola cuando faltan menos de DIAS_ANTICIPACION
      días, porque ETS exige solicitar el examen con ese margen.
      No hay que borrar fechas pasadas a mano.                             -->
 <script src="fechas.js"></script>
 <script>
 (function () {
-    // Calendario y anticipación vienen de fechas.js (compartido con educacion-continua).
+    // Calendario y anticipación vienen de fechas.js.
     var FECHAS_TOEFL = (window.TOEFL && window.TOEFL.fechas) || [];
     var DIAS_ANTICIPACION = (window.TOEFL && window.TOEFL.diasAnticipacion) || 10;
 

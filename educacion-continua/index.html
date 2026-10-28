@@ -726,7 +726,7 @@
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1664638413302-d1ca29ac885b?auto=format&fit=crop&w=800&q=70" alt="Muestras de materiales para diseño de interiores"></div>
                         <div class="tarjeta-cuerpo"><span class="tarjeta-area">Diseño e Interiorismo</span><h3>Diseño de Interiores</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
-                    <a class="tarjeta" href="../toefl/" data-area="idiomas" data-modo="presencial" data-toefl data-fechas="">
+                    <a class="tarjeta" href="#programas" data-programa="curso-toefl" data-area="idiomas" data-modo="presencial" data-fechas="2027-01-19">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1631888717579-50577ecc6553?auto=format&fit=crop&w=800&q=70" alt="Dos personas estudiando con un libro"></div>
                         <div class="tarjeta-cuerpo"><span class="tarjeta-area">Idiomas</span><h3>Curso TOEFL</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
@@ -1199,6 +1199,20 @@
                     "beneficio": "25%"
                 }
             ]
+        },
+        "curso-toefl": {
+            "tipo": "Curso presencial",
+            "inicio": "2027-01-19",
+            "fin": "2027-02-19",
+            "horario": [
+                "Por confirmar",
+                ""
+            ],
+            "sede": [
+                "Presencial",
+                "IBERO Campus Playas"
+            ],
+            "corto": true
         }
     }
     </script>
@@ -1231,8 +1245,6 @@
         <symbol id="icono-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
     </svg>
 
-<!-- Calendario del examen TOEFL compartido con la landing /toefl/ (tarjeta "Curso TOEFL"). -->
-<script src="../toefl/fechas.js"></script>
 <script>
 (function () {
     // Una fecha deja de mostrarse el día del inicio. Súbelo si las inscripciones cierran antes.
@@ -1250,23 +1262,18 @@
     var params = new URLSearchParams(location.search), utm = new URLSearchParams();
     params.forEach(function (v, k) { if (k.indexOf('utm_') === 0) utm.set(k, v); });
     if (utm.toString()) {
-        document.querySelectorAll('a[href^="https://www.educon.iberotijuana.edu.mx/"], a[href^="../toefl/"]').forEach(function (a) {
+        document.querySelectorAll('a[href^="https://www.educon.iberotijuana.edu.mx/"]').forEach(function (a) {
             a.href += (a.href.indexOf('?') < 0 ? '?' : '&') + utm.toString();
         });
     }
 
     // ---------- Fechas ----------
-    // La tarjeta de TOEFL usa las fechas y la anticipación de la landing /toefl/,
-    // para que aquí aparezca la misma próxima fecha que se ve allá.
-    var tarjetaToefl = document.querySelector('#rejilla .tarjeta[data-toefl]');
-    if (tarjetaToefl && window.TOEFL) tarjetaToefl.dataset.fechas = window.TOEFL.fechas.join(',');
     function proximaFecha(el) {
         var lista = (el.dataset.fechas || '').split(',').filter(Boolean);
-        var minimo = el.hasAttribute('data-toefl') && window.TOEFL ? window.TOEFL.diasAnticipacion : DIAS_ANTICIPACION;
         for (var i = 0; i < lista.length; i++) {
             var p = lista[i].split('-'), f = new Date(+p[0], +p[1] - 1, +p[2]);
             var dias = Math.round((f - hoy) / 86400000);
-            if (dias >= minimo) return { fecha: f, dias: dias };
+            if (dias >= DIAS_ANTICIPACION) return { fecha: f, dias: dias };
         }
         return null;
     }
@@ -1783,7 +1790,7 @@
         if (enlaceOrigen) enlaceOrigen.focus({ preventScroll: true });
     }
     function moverVista(paso) {
-        // Solo programas con vista rápida: TOEFL abre su propia landing y no tiene datos aquí.
+        // Solo programas con vista rápida (todos los del calendario tienen datos en datos-programas).
         var conVista = tarjetas.filter(function (t) { return DATOS[slugDe(t)]; });
         var lista = conVista.filter(function (t) { return !t.hidden; });
         if (lista.indexOf(vistaActual) < 0) lista = conVista;

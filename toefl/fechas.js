@@ -1,5 +1,5 @@
 // Calendario del examen TOEFL iBT en IBERO Tijuana. ÚNICO LUGAR QUE HAY QUE EDITAR.
-// Lo leen toefl/index.html y la tarjeta "Curso TOEFL" de educacion-continua/index.html.
+// Lo lee toefl/index.html (fechas del examen, no del curso de preparación).
 //
 // Formato AAAA-MM-DD. Los exámenes son sábados a las 10:00 a.m.
 // Puedes dejar cargado todo el calendario del año: las fechas
