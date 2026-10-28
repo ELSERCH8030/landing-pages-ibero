@@ -108,6 +108,19 @@
         header.solido { background: var(--rojo); box-shadow: 0 6px 24px rgba(0,0,0,.12); }
         .header-in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
         .logo-img { height: 42px; width: auto; }
+        /* Mismo botón "Regresar a inicio" que la landing de Posgrados. */
+        .logo-area { display: flex; align-items: center; gap: .9rem; }
+        .back-link {
+            display: inline-flex; align-items: center; gap: .35rem;
+            color: var(--rojo); background: var(--blanco);
+            font-size: .78rem; font-weight: 800; letter-spacing: .3px; text-transform: uppercase;
+            text-decoration: none; white-space: nowrap;
+            padding: .4rem .9rem; border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.18);
+            transition: transform .2s, box-shadow .2s;
+        }
+        .back-link:hover { transform: scale(1.05); box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+        .back-link svg { width: 13px; height: 13px; }
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
             font: inherit; font-weight: 700; font-size: .95rem; text-decoration: none; cursor: pointer;
@@ -520,6 +533,17 @@
         .modulos li + li { margin-top: .55rem; }
         @keyframes modulo { to { opacity: 1; translate: 0 0; } }
         .vista-ideal { background: var(--gris-claro); border-radius: 14px; padding: 1rem 1.1rem; color: var(--gris-oscuro); font-size: .95rem; }
+        .pagos { display: grid; gap: .6rem; }
+        .pago { display: flex; align-items: center; gap: .9rem; border: 1px solid var(--borde); border-radius: 14px; padding: .8rem .95rem; }
+        .pago:first-child { border-color: var(--rojo); background: #FFF7F9; }
+        .pago-pct {
+            flex: 0 0 56px; height: 56px; border-radius: 12px; background: #FDE8EC; color: var(--rojo);
+            display: grid; place-content: center; text-align: center; font-weight: 800; font-size: 1.05rem; line-height: 1;
+        }
+        .pago-pct small { display: block; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; margin-top: .2rem; }
+        .pago small { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gris); }
+        .pago b { display: block; font-size: 1.05rem; color: var(--negro); line-height: 1.25; }
+        .pago span { font-size: .85rem; color: var(--gris); }
         .docentes { display: grid; gap: .9rem; }
         .docente { display: flex; gap: .8rem; align-items: flex-start; }
         .iniciales {
@@ -597,9 +621,17 @@
     <div class="progreso-pagina" id="progreso-pagina" aria-hidden="true"></div>
     <header id="cabecera">
         <div class="wrap header-in">
-            <a href="https://tijuana.ibero.mx/" aria-label="IBERO Tijuana">
-                <img src="assets/logo-ibero-tijuana-blanco.png" alt="IBERO Tijuana" class="logo-img">
-            </a>
+            <div class="logo-area">
+                <a href="https://tijuana.ibero.mx/" aria-label="IBERO Tijuana">
+                    <img src="assets/logo-ibero-tijuana-blanco.png" alt="IBERO Tijuana" class="logo-img">
+                </a>
+                <a href="https://tijuana.ibero.mx/" class="back-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                    Regresar a inicio
+                </a>
+            </div>
             <a href="https://www.educon.iberotijuana.edu.mx/registro_educon" class="btn btn-blanco btn-chico header-cta registro">Iniciar mi registro</a>
         </div>
     </header>
@@ -885,8 +917,8 @@
             "inicio": "2026-11-17",
             "fin": "2027-04-20",
             "inversion": [
-                "Desde $3,920 MXN al mes",
-                "Precio especial para socios Coparmex"
+                "Desde $3,760 al mes",
+                "Precio de lista $23,500"
             ],
             "horario": [
                 "Martes 4:00 a 8:00 p. m.",
@@ -920,6 +952,20 @@
                     "Lic. Jorge Loera",
                     ""
                 ]
+            ],
+            "pagos": [
+                {
+                    "nombre": "Promoción",
+                    "monto": "5 pagos de $3,760",
+                    "detalle": "Total $18,800",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago único",
+                    "monto": "$17,625",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                }
             ]
         },
         "administracion_hospitales": {
@@ -1070,7 +1116,25 @@
                 "Presencial",
                 "IBERO Campus Río"
             ],
-            "corto": true
+            "corto": true,
+            "inversion": [
+                "Desde $3,760 al mes",
+                "Precio de lista $23,500"
+            ],
+            "pagos": [
+                {
+                    "nombre": "Promoción",
+                    "monto": "5 pagos de $3,760",
+                    "detalle": "Total $18,800",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago único",
+                    "monto": "$17,625",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                }
+            ]
         },
         "interiorismo": {
             "tipo": "Diplomado presencial",
@@ -1084,7 +1148,25 @@
                 "Presencial",
                 "IBERO Campus Río"
             ],
-            "corto": true
+            "corto": true,
+            "inversion": [
+                "Desde $3,760 al mes",
+                "Precio de lista $23,500"
+            ],
+            "pagos": [
+                {
+                    "nombre": "Promoción",
+                    "monto": "5 pagos de $3,760",
+                    "detalle": "Total $18,800",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago único",
+                    "monto": "$17,625",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                }
+            ]
         },
         "diseno-de-interiores": {
             "tipo": "Diplomado presencial",
@@ -1098,7 +1180,25 @@
                 "Presencial",
                 "IBERO Campus Río"
             ],
-            "corto": true
+            "corto": true,
+            "inversion": [
+                "Desde $3,760 al mes",
+                "Precio de lista $23,500"
+            ],
+            "pagos": [
+                {
+                    "nombre": "Promoción",
+                    "monto": "5 pagos de $3,760",
+                    "detalle": "Total $18,800",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago único",
+                    "monto": "$17,625",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                }
+            ]
         }
     }
     </script>
@@ -1240,7 +1340,7 @@
     function conTransicion(fn) {
         if (!document.startViewTransition || reducido) { fn(); return; }
         tarjetas.forEach(function (t, i) { t.style.viewTransitionName = 'programa-' + i; });
-        document.startViewTransition(fn).finished.finally(function () {
+        document.startViewTransition(fn).finished.catch(function () {}).finally(function () {
             tarjetas.forEach(function (t) { t.style.viewTransitionName = ''; });
         });
     }
@@ -1617,6 +1717,11 @@
                 datoFicha(d.sede[0] === 'En línea' ? SVG.pantalla : SVG.pin, 'Modalidad', d.sede[0], d.sede[1]) +
                 (d.inversion ? datoFicha(SVG.dinero, 'Inversión', d.inversion[0], d.inversion[1]) : datoFicha(SVG.dinero, 'Inversión', 'Pregunta a tu asesora')) +
             '</div>';
+        if (d.pagos) {
+            html += '<div><h3>Opciones de pago</h3><div class="pagos">' + d.pagos.map(function (o) {
+                return '<div class="pago"><span class="pago-pct">' + o.beneficio + '<small>desc.</small></span><div><small>' + o.nombre + '</small><b>' + o.monto + '</b><span>' + o.detalle + '</span></div></div>';
+            }).join('') + '</div></div>';
+        }
         if (d.modulos) {
             html += '<div><h3>Lo que vas a dominar</h3><ol class="modulos">' +
                 d.modulos.map(function (m, i) { return '<li style="animation-delay:' + (.25 + i * .07).toFixed(2) + 's">' + m + '</li>'; }).join('') +
@@ -1631,7 +1736,7 @@
         if (d.faq) html += '<div><h3>Pregunta frecuente</h3><div class="vista-faq"><b>' + d.faq[0] + '</b><p>' + d.faq[1] + '</p></div></div>';
         if (d.nota) html += '<p class="vista-desc" style="margin-top:1.6rem"><b>' + d.nota + '</b></p>';
         html += d.corto
-            ? '<p class="vista-nota">Fechas sujetas a cambio. Pregunta a tu asesora por el plan de estudios, la inversión y los requisitos.</p>'
+            ? '<p class="vista-nota">Fechas y precios sujetos a cambio. Pregunta a tu asesora por el plan de estudios y los requisitos.</p>'
             : '<p class="vista-nota">Información de educon.iberotijuana.edu.mx. Fechas y precios sujetos a cambio.</p>';
         vistaCuerpo.innerHTML = html;
         // Vista rápida corta: el programa no tiene página en educon a la cual mandar.
@@ -1658,7 +1763,8 @@
             cambio();
             hacia.style.viewTransitionName = 'foto-programa';
         });
-        vt.finished.finally(function () {
+        // Una transición abortada (recarga, pestaña oculta) rechaza finished; no es un error real.
+        vt.finished.catch(function () {}).finally(function () {
             hacia.style.viewTransitionName = '';
             document.body.classList.remove('vista-morph');
         });
