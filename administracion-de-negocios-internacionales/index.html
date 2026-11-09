@@ -344,6 +344,11 @@
             <div class="urgencia-item">
                 <div class="urgencia-item-label">Próximo examen de admisión</div>
                 <div class="urgencia-item-value rojo">27 de Noviembre</div>
+                <div class="promo-examen" style="margin-top:.75rem; padding-top:.75rem; border-top:1px solid rgba(255,255,255,.12);">
+                    <div class="urgencia-item-label">Beneficio de noviembre</div>
+                    <span style="font-size:.95rem; text-decoration:line-through; text-decoration-thickness:1px; opacity:.5;">$1,800 MXN</span>
+                    <span style="font-size:1.3rem; font-weight:700; margin-left:.4rem;">Sin costo</span>
+                </div>
             </div>
             <p style="font-size:.95rem; margin-bottom:.75rem; opacity:.85;">El examen de admisión se acerca en:</p>
             <div class="countdown" id="countdown">
@@ -524,7 +529,7 @@
         <p style="font-size:1.05rem; font-weight:700; color:var(--gris-oscuro); margin-bottom:.75rem;">El examen de admisión para Negocios Internacionales Primavera 2027 está a <span style="color:var(--rojo);" id="popup-dias">30</span> días</p>
         <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--rojo)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <span style="font-size:.85rem; color:var(--gris);">Examen de admisión: <strong style="color:var(--gris-oscuro);">27 de Noviembre</strong></span>
+            <span style="font-size:.85rem; color:var(--gris);">Examen de admisión: <strong style="color:var(--gris-oscuro);">27 de Noviembre</strong><span class="promo-examen"> · <s style="opacity:.7;">$1,800</s> <strong style="color:var(--rojo);">Sin costo</strong></span></span>
         </div>
         <a href="#contacto" onclick="cerrarPopup()" style="display:block; text-align:center; background:var(--rojo); color:white; padding:.75rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:.95rem;">Quiero saber más</a>
     </div>
@@ -701,6 +706,15 @@ document.addEventListener('click', function (e) {
         gtag('event', 'conversion', { 'send_to': 'AW-18415704288/uzVpCPT__JsdEOCxpc1E' });
     }
 });
+</script>
+<script>
+    // Promoción: examen de admisión sin costo para el examen del 27 de noviembre 2026.
+    // Se quita sola al terminar ese día (aunque el navegador tenga la página en caché).
+    (function() {
+        if (Date.now() < new Date('2026-11-28T00:00:00-08:00').getTime()) return;
+        document.querySelectorAll('.promo-examen').forEach(function(el) { el.style.display = 'none'; });
+        document.querySelectorAll('.promo-examen-despues').forEach(function(el) { el.style.display = ''; });
+    })();
 </script>
 </body>
 </html>
