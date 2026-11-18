@@ -1371,8 +1371,9 @@
 (function () {
     // Una fecha deja de mostrarse el día del inicio. Súbelo si las inscripciones cierran antes.
     var DIAS_ANTICIPACION = 0;
-    // A partir de cuántos días se dice "Inicia en N días" en lugar de la fecha.
-    var DIAS_CUENTA_REGRESIVA = 45;
+    // Solo en los últimos N días se dice "Inicia en N días"; antes, "Inscripciones abiertas"
+    // (o la fecha en la tarjeta), para que un inicio lejano no se sienta lejano.
+    var DIAS_CUENTA_REGRESIVA = 14;
     var MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
     var MESES_LARGOS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
     var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1401,6 +1402,7 @@
         return null;
     }
     function textoCuenta(prox) {
+        if (prox.dias > DIAS_CUENTA_REGRESIVA) return 'Inscripciones abiertas';
         if (prox.dias === 0) return 'Inicia hoy';
         if (prox.dias === 1) return 'Inicia mañana';
         return 'Inicia en ' + prox.dias + ' días';
