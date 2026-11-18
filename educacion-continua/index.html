@@ -1829,7 +1829,15 @@
     function slugDe(a) { return a.dataset.programa || new URL(a.href).pathname.replace(/^\//, ''); }
     function tarjetaDe(slug) { return tarjetas.filter(function (t) { return slugDe(t) === slug; })[0]; }
     function aFecha(iso) { var p = iso.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
-    function fechaCorta(f) { return f.getDate() + ' ' + MESES[f.getMonth()] + ' ' + f.getFullYear(); }
+    // "Del 9 de marzo al 28 de septiembre de 2027" (el año va una vez si no cambia). Cada trozo
+    // va sin cortes por dentro para que el renglón se parta en un lugar natural.
+    function fechaRango(a, b) {
+        var trozo = function (s) { return '<span class="sin-corte">' + s + '</span>'; };
+        var dia = function (f) { return f.getDate() + ' de ' + MESES_LARGOS[f.getMonth()]; };
+        var anio = function (f) { return trozo('de ' + f.getFullYear()); };
+        return trozo('Del ' + dia(a)) + ' ' + (a.getFullYear() !== b.getFullYear() ? anio(a) + ' ' : '') +
+            trozo('al ' + dia(b)) + ' ' + anio(b);
+    }
     function iniciales(nombre) {
         return nombre.replace(/^(Mtro|Mtra|Dr|Dra|Lic|Ing|Arq)\.\s*/, '').split(' ').slice(0, 2)
             .map(function (w) { return w.charAt(0); }).join('');
@@ -1867,7 +1875,7 @@
             (d.desc ? '<p class="vista-desc">' + d.desc + '</p>' : '') +
             '<p class="vista-estado' + (pasado ? ' pasado' : '') + '">' + estado + '</p>' +
             '<div class="ficha">' +
-                datoFicha(SVG.calendario, 'Fechas', inicio ? '<span class="sin-corte">' + fechaCorta(inicio) + ' –</span> <span class="sin-corte">' + fechaCorta(fin) + '</span>'
+                datoFicha(SVG.calendario, 'Fechas', inicio ? fechaRango(inicio, fin)
                     : mes ? mesTexto.charAt(0).toUpperCase() + mesTexto.slice(1) : 'Por confirmar', !inicio && mes ? 'Día por confirmar' : '') +
                 datoFicha(SVG.reloj, 'Horario', d.horario[0], d.horario[1]) +
                 datoFicha(d.sede[0] === 'En línea' ? SVG.pantalla : SVG.pin, 'Modalidad', d.sede[0], d.sede[1]) +
