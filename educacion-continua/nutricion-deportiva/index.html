@@ -487,6 +487,20 @@
             .manifiesto .pal { opacity: 1; }
             .progreso { display: none; }
         }
+        /* Anchos de texto: que ningún párrafo o título se vaya a un renglón de más por falta de espacio. */
+        .respaldo p { max-width: 46rem; }
+        /* Textos cortos (hasta ~5 renglones): renglones parejos, sin una o dos palabras solas al final. */
+        .modulo p, .bajada, .hero-sub, .respaldo p, .final p, .nota-precios, .frontera span, .paso p, .praxis-nota span,
+        .perfiles span, .perfiles b, .docente-rol, .ficha dd, .pago p, .lista-precio { text-wrap: balance; }
+        .plan .bajada { max-width: 48rem; }
+        .modulo p { max-width: 40rem; }
+        @media (min-width: 960px) {
+            .respaldo-rejilla { grid-template-columns: 2fr 1fr; }
+            .respaldo .cifras { grid-template-columns: 1fr; }
+            .plan-cuerpo { grid-template-columns: 2fr 3fr; gap: 4rem; }
+            .inversion-rejilla { grid-template-columns: 1fr 1fr; }
+            .inversion .titulo { font-size: clamp(2.1rem, 4.2vw, 3.3rem); }
+        }
     </style>
 </head>
 <body>
@@ -635,44 +649,8 @@
             </div>
         </section>
 
-        <!-- ================= DOCENTES ================= -->
-        <section class="seccion docentes" id="docentes">
-            <div class="wrap">
-                <span class="eyebrow revela">Docentes</span>
-                <h2 class="titulo revela" style="--d:.08s">Aprende de quienes <em>lo viven a diario.</em></h2>
-                <div class="docentes-rejilla">
-                    <article class="docente revela" style="--d:.1s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">FR</div>
-                            <div><h3>Dr. Francisco Rojas</h3><div class="docente-rol">Educación física y deporte</div></div>
-                        </div>
-                        <p>Doctor en educación física y deporte especializado en consultoría nutricional, ejercicio y docencia universitaria.</p>
-                    </article>
-                    <article class="docente revela" style="--d:.22s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">JD</div>
-                            <div><h3>Mtro. Jorge Dieter</h3><div class="docente-rol">Nutriólogo deportivo</div></div>
-                        </div>
-                        <p>Nutriólogo especializado en Deportes con Maestría en Nutrición y Dietética, certificado ISAK y licenciado en Fisioterapia.</p>
-                    </article>
-                    <article class="docente revela" style="--d:.34s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">AN</div>
-                            <div><h3>Lic. Andrea Nájera</h3><div class="docente-rol">Nutrióloga deportiva</div></div>
-                        </div>
-                        <p>Nutrióloga deportiva certificada por ISSN con diploma deportivo IICDEM y certificación antropométrica ISAK 2.</p>
-                    </article>
-                    <article class="docente revela" style="--d:.1s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">CS</div>
-                            <div><h3>Lic. Carlos Segovia</h3><div class="docente-rol">Nutriólogo deportivo</div></div>
-                        </div>
-                        <p>Nutriólogo especializado en Deportes con más de 10 años trabajando con atletas de UFC, box y equipos profesionales.</p>
-                        <div class="docente-cifra"><b>+<span data-contar="10">10</span></b><span>años trabajando con atletas profesionales</span></div>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <!-- DOCENTES: sin profesores confirmados en la app de EduCon (pendientes 23 nov 2026).
+             Se vuelve a poner la seccion cuando EduCon confirme la planta docente. -->
 
         <!-- ================= MODELO PRAXIS ================= -->
         <section class="seccion praxis" id="modelo">
@@ -701,7 +679,7 @@
                     <p class="lista-precio revela" style="--d:.14s">Precio de lista: <s>$23,500 MXN</s> (5 pagos de $4,700)</p>
                     <dl class="ficha revela" style="--d:.2s">
                         <div><dt>Inicio</dt><dd>3 de abril de 2027</dd></div>
-                        <div><dt>Término</dt><dd>28 de agosto de 2027</dd></div>
+                        <div><dt>Término</dt><dd>4 de septiembre de 2027</dd></div>
                         <div><dt>Horario</dt><dd>Sábado, 9:00 a. m. a 1:00 p. m.</dd></div>
                         <div><dt>Sede</dt><dd>Presencial · IBERO Campus Playas</dd></div>
                     </dl>

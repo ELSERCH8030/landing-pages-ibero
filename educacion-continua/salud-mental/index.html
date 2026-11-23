@@ -487,6 +487,36 @@
             .manifiesto .pal { opacity: 1; }
             .progreso { display: none; }
         }
+        /* Anchos de texto: que ningún párrafo o título se vaya a un renglón de más por falta de espacio. */
+        .respaldo p { max-width: 46rem; }
+        /* Textos cortos (hasta ~5 renglones): renglones parejos, sin una o dos palabras solas al final. */
+        .modulo p, .bajada, .hero-sub, .respaldo p, .final p, .nota-precios, .frontera span, .paso p, .praxis-nota span,
+        .perfiles span, .perfiles b, .docente-rol, .ficha dd, .pago p, .lista-precio { text-wrap: balance; }
+        .plan .bajada { max-width: 48rem; }
+        .modulo p { max-width: 40rem; }
+        @media (min-width: 960px) {
+            .respaldo-rejilla { grid-template-columns: 2fr 1fr; }
+            .respaldo .cifras { grid-template-columns: 1fr; }
+            .plan-cuerpo { grid-template-columns: 2fr 3fr; gap: 4rem; }
+            .inversion-rejilla { grid-template-columns: 1fr 1fr; }
+            .inversion .titulo { font-size: clamp(2.1rem, 4.2vw, 3.3rem); }
+        }
+        /* ---------- En colaboración con ---------- */
+        .alianza { background: var(--crema); }
+        .alianza-rejilla { display: grid; gap: 2.5rem; align-items: center; }
+        .alianza-logo { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: clamp(2rem, 6vw, 3.5rem); box-shadow: 0 24px 60px -30px rgba(28,0,9,.25); }
+        .alianza-logo img { max-height: 210px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+        .alianza-nombre { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; font-weight: 300; letter-spacing: -.02em; color: var(--negro); text-align: center; text-wrap: balance; }
+        .alianza .titulo { margin: 1rem 0 1.25rem; }
+        .alianza-desc { color: var(--gris); max-width: 38rem; text-wrap: balance; }
+        .beneficios { list-style: none; margin-top: 2rem; display: grid; gap: 1.1rem; }
+        .beneficios li { display: flex; gap: .9rem; align-items: flex-start; }
+        .beneficios svg { width: 26px; height: 26px; flex: none; margin-top: .1rem; fill: none; stroke: var(--rojo); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .beneficios b { display: block; color: var(--negro); font-weight: 600; }
+        .beneficios span { color: var(--gris); text-wrap: balance; }
+        @media (min-width: 960px) {
+            .alianza-rejilla { grid-template-columns: 5fr 7fr; gap: 5.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -530,9 +560,9 @@
             </div>
             <div class="wrap aparece" style="animation-delay:1.2s">
                 <dl class="hero-datos">
-                    <div><dt>Inicio</dt><dd>Marzo <small>2027</small></dd></div>
+                    <div><dt>Inicio</dt><dd>8 de abril <small>2027</small></dd></div>
                     <div><dt>Duración</dt><dd>80 horas <small>6 módulos</small></dd></div>
-                    <div><dt>Inversión</dt><dd>Desde $3,760 <small>al mes</small></dd></div>
+                    <div><dt>Horario</dt><dd>Jueves <small>6:00 a 10:00 p. m.</small></dd></div>
                     <div><dt>Modalidad</dt><dd>Presencial <small>IBERO Campus Río</small></dd></div>
                 </dl>
             </div>
@@ -606,14 +636,12 @@
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1714646793012-38c58049e718?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Infancia: evaluación e intervención</h3>
                             <p>Identificar y abordar problemas de salud mental en la infancia mediante herramientas de evaluación e intervención básicas, con enfoque en entornos familiares y educativos.</p>
-                            <div class="modulo-imparte">Imparte: <b>Mtro. Daniel Velázquez</b></div>
                         </article>
                         <article class="modulo" data-romano="II" data-foto="1" data-horas="16">
                             <div class="modulo-num"><span>Módulo II</span><i>16 horas</i></div>
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1778334987734-a7da7a107f10?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Adolescencia: trastornos emocionales y conductuales</h3>
                             <p>Evaluar y manejar trastornos emocionales y conductuales comunes en adolescentes, con énfasis en prevención y contención de situaciones de riesgo.</p>
-                            <div class="modulo-imparte">Imparte: <b>Mtra. Kenia Lugo Salazar</b></div>
                         </article>
                         <article class="modulo" data-romano="III" data-foto="2" data-horas="16">
                             <div class="modulo-num"><span>Módulo III</span><i>16 horas</i></div>
@@ -632,14 +660,12 @@
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Abordaje familiar y comunitario en salud mental</h3>
                             <p>Diseñar estrategias de intervención familiar y comunitaria para promover salud mental y prevenir problemas en contextos diversos.</p>
-                            <div class="modulo-imparte">Imparte: <b>Lic. Victoria Valdespino</b></div>
                         </article>
                         <article class="modulo" data-romano="VI" data-foto="5" data-horas="12">
                             <div class="modulo-num"><span>Módulo VI</span><i>12 horas</i></div>
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Diseño de proyectos de intervención en salud mental</h3>
                             <p>Elaborar un proyecto aplicado de intervención en salud mental para un contexto real, integrando los conocimientos adquiridos en todas las etapas vitales.</p>
-                            <div class="modulo-imparte">Imparte: <b>Mtro. Francisco Maldonado</b></div>
                         </article>
                     </div>
                 </div>
@@ -647,41 +673,21 @@
             </div>
         </section>
 
-        <!-- ================= DOCENTES ================= -->
-        <section class="seccion docentes" id="docentes">
-            <div class="wrap">
-                <span class="eyebrow revela">Docentes</span>
-                <h2 class="titulo revela" style="--d:.08s">Aprende de quienes <em>lo viven a diario.</em></h2>
-                <div class="docentes-rejilla">
-                    <article class="docente revela" style="--d:.1s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">DV</div>
-                            <div><h3>Mtro. Daniel Velázquez</h3><div class="docente-rol">Módulo I · Infancia</div></div>
-                        </div>
-                        <p>Neuropsicólogo especializado en terapia infantil, autismo y TDAH certificado por UCLA. Director del Centro Ser con 18 años de experiencia.</p>
-                        <div class="docente-cifra"><b><span data-contar="18">18</span></b><span>años de experiencia</span></div>
-                    </article>
-                    <article class="docente revela" style="--d:.22s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">KL</div>
-                            <div><h3>Mtra. Kenia Lugo Salazar</h3><div class="docente-rol">Módulo II · Adolescencia</div></div>
-                        </div>
-                        <p>Maestra en Psicología de la Salud certificada en Primeros Auxilios en Salud Mental. Responsable de hospitalización infantil y adolescente.</p>
-                    </article>
-                    <article class="docente revela" style="--d:.34s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">VV</div>
-                            <div><h3>Lic. Victoria Valdespino</h3><div class="docente-rol">Módulo V · Abordaje familiar y comunitario</div></div>
-                        </div>
-                        <p>Psicóloga clínica con Maestría en Terapia Familiar y Adicciones. Especialista en coordinación terapéutica en HSMT.</p>
-                    </article>
-                    <article class="docente revela" style="--d:.1s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">FM</div>
-                            <div><h3>Mtro. Francisco Maldonado</h3><div class="docente-rol">Módulo VI · Proyectos de intervención</div></div>
-                        </div>
-                        <p>Neuropsicólogo y doctorando en Educación. Coordinador del CEDE-CETYS y coautor del Protocolo de prevención en crisis de salud mental.</p>
-                    </article>
+        <!-- DOCENTES: sin profesores confirmados en la app de EduCon (pendientes 23 nov 2026).
+             Se vuelve a poner la seccion cuando EduCon confirme la planta docente. -->
+
+        <!-- ================= EN COLABORACIÓN CON ================= -->
+        <section class="seccion alianza" id="colaboracion">
+            <div class="wrap alianza-rejilla">
+                <div class="alianza-logo revela"><img loading="lazy" src="../assets/logos/hospital-salud-mental-tijuana.png" alt="Hospital de Salud Mental de Tijuana, A.C."></div>
+                <div>
+                    <span class="eyebrow revela">En colaboración con</span>
+                    <h2 class="titulo revela" style="--d:.08s">Un diplomado con <em>el Hospital de Salud Mental de Tijuana.</em></h2>
+                    <p class="alianza-desc revela" style="--d:.14s">El Hospital de Salud Mental de Tijuana es una asociación civil dedicada a la atención de la salud mental en la ciudad. Su colaboración acerca el diplomado a la realidad clínica que se vive en Tijuana.</p>
+                    <ul class="beneficios">
+                        <li class="revela" style="--d:0.10s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Mirada clínica local</b><span>Contenidos conectados con la atención de la salud mental en la región.</span></div></li>
+                        <li class="revela" style="--d:0.18s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Vinculación profesional</b><span>Conoces a profesionales que trabajan en la atención de la salud mental en Tijuana.</span></div></li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -710,29 +716,35 @@
                 <div class="inversion-texto">
                     <span class="eyebrow revela">Inversión</span>
                     <h2 class="titulo revela" style="--d:.08s">Una inversión en <em>tu formación clínica.</em></h2>
-                    <p class="lista-precio revela" style="--d:.14s">Precio de lista: <s>$23,500 MXN</s></p>
+                    <p class="lista-precio revela" style="--d:.14s">Precio de lista: <s>$23,500 MXN</s> (5 pagos de $4,700)</p>
                     <dl class="ficha revela" style="--d:.2s">
-                        <div><dt>Inicio</dt><dd>Marzo de 2027</dd></div>
-                        <div><dt>Duración</dt><dd>80 horas · 6 módulos</dd></div>
+                        <div><dt>Inicio</dt><dd>8 de abril de 2027</dd></div>
+                        <div><dt>Término</dt><dd>2 de septiembre de 2027</dd></div>
+                        <div><dt>Horario</dt><dd>Jueves, 6:00 a 10:00 p. m.</dd></div>
                         <div><dt>Sede</dt><dd>Presencial · IBERO Campus Río</dd></div>
                     </dl>
                 </div>
                 <div class="pagos">
                     <article class="pago oscuro revela" style="--d:.1s">
-                        <div class="pago-nombre"><span>Inscripción anticipada</span></div>
-                        <div class="pago-monto"><span class="antes">Mensualidades desde</span>$<span data-contar="3760">3,760</span><small>MXN</small></div>
-                        <p>Precio por inscripción anticipada. Tu asesora te comparte el plan de pagos.</p>
+                        <div class="pago-nombre"><span>Promoción especial</span><span class="pago-ahorro">20% de descuento</span></div>
+                        <div class="pago-monto"><span class="antes">5 pagos de</span>$<span data-contar="3760">3,760</span><small>MXN</small></div>
+                        <p>Total de $18,800 MXN.</p>
                     </article>
-                    <article class="pago revela" style="--d:.22s">
-                        <div class="pago-nombre"><span>Pago único</span><span class="pago-ahorro">25% de descuento</span></div>
+                    <article class="pago revela" style="--d:.18s">
+                        <div class="pago-nombre"><span>Pago de contado</span><span class="pago-ahorro">25% de descuento</span></div>
                         <div class="pago-monto">$<span data-contar="17625">17,625</span><small>MXN</small></div>
                         <p>En una sola exhibición.</p>
+                    </article>
+                    <article class="pago revela" style="--d:.26s">
+                        <div class="pago-nombre"><span>Egresado IBERO</span><span class="pago-ahorro">30% de descuento</span></div>
+                        <div class="pago-monto"><span class="antes">5 pagos de</span>$<span data-contar="3290">3,290</span><small>MXN</small></div>
+                        <p>Total de $16,450 MXN.</p>
                     </article>
                     <div class="inversion-ctas revela" style="--d:.3s">
                         <a href="https://www.educon.iberotijuana.edu.mx/registro_educon" class="btn btn-rojo">Iniciar mi registro <span class="flecha" aria-hidden="true">→</span></a>
                         <a href="#" class="btn btn-tinta wa"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-wa"/></svg>Resolver mis dudas</a>
                     </div>
-                    <p class="nota-precios revela" style="--d:.34s">Precios en pesos mexicanos.</p>
+                    <p class="nota-precios revela" style="--d:.34s">En colaboración con el Hospital de Salud Mental de Tijuana. Precios en pesos mexicanos.</p>
                 </div>
             </div>
         </section>

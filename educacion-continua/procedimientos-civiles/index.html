@@ -487,6 +487,36 @@
             .manifiesto .pal { opacity: 1; }
             .progreso { display: none; }
         }
+        /* Anchos de texto: que ningún párrafo o título se vaya a un renglón de más por falta de espacio. */
+        .respaldo p { max-width: 46rem; }
+        /* Textos cortos (hasta ~5 renglones): renglones parejos, sin una o dos palabras solas al final. */
+        .modulo p, .bajada, .hero-sub, .respaldo p, .final p, .nota-precios, .frontera span, .paso p, .praxis-nota span,
+        .perfiles span, .perfiles b, .docente-rol, .ficha dd, .pago p, .lista-precio { text-wrap: balance; }
+        .plan .bajada { max-width: 48rem; }
+        .modulo p { max-width: 40rem; }
+        @media (min-width: 960px) {
+            .respaldo-rejilla { grid-template-columns: 2fr 1fr; }
+            .respaldo .cifras { grid-template-columns: 1fr; }
+            .plan-cuerpo { grid-template-columns: 2fr 3fr; gap: 4rem; }
+            .inversion-rejilla { grid-template-columns: 1fr 1fr; }
+            .inversion .titulo { font-size: clamp(2.1rem, 4.2vw, 3.3rem); }
+        }
+        /* ---------- En colaboración con ---------- */
+        .alianza { background: var(--crema); }
+        .alianza-rejilla { display: grid; gap: 2.5rem; align-items: center; }
+        .alianza-logo { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: clamp(2rem, 6vw, 3.5rem); box-shadow: 0 24px 60px -30px rgba(28,0,9,.25); }
+        .alianza-logo img { max-height: 210px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+        .alianza-nombre { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; font-weight: 300; letter-spacing: -.02em; color: var(--negro); text-align: center; text-wrap: balance; }
+        .alianza .titulo { margin: 1rem 0 1.25rem; }
+        .alianza-desc { color: var(--gris); max-width: 38rem; text-wrap: balance; }
+        .beneficios { list-style: none; margin-top: 2rem; display: grid; gap: 1.1rem; }
+        .beneficios li { display: flex; gap: .9rem; align-items: flex-start; }
+        .beneficios svg { width: 26px; height: 26px; flex: none; margin-top: .1rem; fill: none; stroke: var(--rojo); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .beneficios b { display: block; color: var(--negro); font-weight: 600; }
+        .beneficios span { color: var(--gris); text-wrap: balance; }
+        @media (min-width: 960px) {
+            .alianza-rejilla { grid-template-columns: 5fr 7fr; gap: 5.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -523,7 +553,7 @@
             </div>
             <div class="wrap aparece" style="animation-delay:1.2s">
                 <dl class="hero-datos">
-                    <div><dt>Inicio</dt><dd>9 de marzo <small>2027</small></dd></div>
+                    <div><dt>Inicio</dt><dd>16 de febrero <small>2027</small></dd></div>
                     <div><dt>Duración</dt><dd>80 horas <small>9 módulos</small></dd></div>
                     <div><dt>Horario</dt><dd>Martes <small>6:00 a 10:00 p. m.</small></dd></div>
                     <div><dt>Modalidad</dt><dd>En línea <small>Clases en vivo</small></dd></div>
@@ -696,6 +726,23 @@
             </div>
         </section>
 
+        <!-- ================= EN COLABORACIÓN CON ================= -->
+        <section class="seccion alianza" id="colaboracion">
+            <div class="wrap alianza-rejilla">
+                <div class="alianza-logo revela"><img loading="lazy" src="../assets/logos/barra-mexicana-abogados.png" alt="Barra Mexicana, Colegio de Abogados, Capítulo Baja California"></div>
+                <div>
+                    <span class="eyebrow revela">En colaboración con</span>
+                    <h2 class="titulo revela" style="--d:.08s">Un diplomado con <em>la Barra Mexicana.</em></h2>
+                    <p class="alianza-desc revela" style="--d:.14s">La Barra Mexicana, Colegio de Abogados, es una de las agrupaciones de abogados más antiguas y reconocidas del país. Su participación, a través del Capítulo Baja California, acerca el diplomado a la práctica real del litigio civil y familiar.</p>
+                    <ul class="beneficios">
+                        <li class="revela" style="--d:0.10s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Profesores de la Barra</b><span>Entre tus docentes está la Presidenta Nacional de la Barra Mexicana, Colegio de Abogados.</span></div></li>
+                        <li class="revela" style="--d:0.18s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Desde la práctica</b><span>Contenidos pensados desde el ejercicio diario de la abogacía, no solo desde la teoría.</span></div></li>
+                        <li class="revela" style="--d:0.26s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Red profesional</b><span>Convives con abogadas y abogados en activo de la región.</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <!-- ================= MODELO PRAXIS ================= -->
         <section class="seccion praxis" id="modelo">
             <div class="wrap">
@@ -722,8 +769,8 @@
                     <h2 class="titulo revela" style="--d:.08s">Una inversión en <em>tu práctica profesional.</em></h2>
                     <p class="lista-precio revela" style="--d:.14s">Precio de lista: <s>$23,500 MXN</s> (5 pagos de $4,700)</p>
                     <dl class="ficha revela" style="--d:.2s">
-                        <div><dt>Inicio</dt><dd>9 de marzo de 2027</dd></div>
-                        <div><dt>Término</dt><dd>28 de septiembre de 2027</dd></div>
+                        <div><dt>Inicio</dt><dd>16 de febrero de 2027</dd></div>
+                        <div><dt>Término</dt><dd>7 de septiembre de 2027</dd></div>
                         <div><dt>Horario</dt><dd>Martes, 6:00 a 10:00 p. m.</dd></div>
                         <div><dt>Modalidad</dt><dd>En línea · Clases en vivo</dd></div>
                     </dl>
@@ -748,7 +795,7 @@
                         <a href="https://www.educon.iberotijuana.edu.mx/registro_educon" class="btn btn-rojo">Iniciar mi registro <span class="flecha" aria-hidden="true">→</span></a>
                         <a href="#" class="btn btn-tinta wa"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-wa"/></svg>Resolver mis dudas</a>
                     </div>
-                    <p class="nota-precios revela" style="--d:.34s">Precios en pesos mexicanos.</p>
+                    <p class="nota-precios revela" style="--d:.34s">En colaboración con La Barra Mexicana, Colegio de Abogados. Precios en pesos mexicanos.</p>
                 </div>
             </div>
         </section>

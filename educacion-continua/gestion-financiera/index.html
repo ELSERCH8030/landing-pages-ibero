@@ -475,6 +475,36 @@
             .manifiesto .pal { opacity: 1; }
             .progreso { display: none; }
         }
+        /* Anchos de texto: que ningún párrafo o título se vaya a un renglón de más por falta de espacio. */
+        .respaldo p { max-width: 46rem; }
+        /* Textos cortos (hasta ~5 renglones): renglones parejos, sin una o dos palabras solas al final. */
+        .modulo p, .bajada, .hero-sub, .respaldo p, .final p, .nota-precios, .frontera span, .paso p, .praxis-nota span,
+        .perfiles span, .perfiles b, .docente-rol, .ficha dd, .pago p, .lista-precio { text-wrap: balance; }
+        .plan .bajada { max-width: 48rem; }
+        .modulo p { max-width: 40rem; }
+        @media (min-width: 960px) {
+            .respaldo-rejilla { grid-template-columns: 2fr 1fr; }
+            .respaldo .cifras { grid-template-columns: 1fr; }
+            .plan-cuerpo { grid-template-columns: 2fr 3fr; gap: 4rem; }
+            .inversion-rejilla { grid-template-columns: 1fr 1fr; }
+            .inversion .titulo { font-size: clamp(2.1rem, 4.2vw, 3.3rem); }
+        }
+        /* ---------- En colaboración con ---------- */
+        .alianza { background: var(--crema); }
+        .alianza-rejilla { display: grid; gap: 2.5rem; align-items: center; }
+        .alianza-logo { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: clamp(2rem, 6vw, 3.5rem); box-shadow: 0 24px 60px -30px rgba(28,0,9,.25); }
+        .alianza-logo img { max-height: 210px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+        .alianza-nombre { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; font-weight: 300; letter-spacing: -.02em; color: var(--negro); text-align: center; text-wrap: balance; }
+        .alianza .titulo { margin: 1rem 0 1.25rem; }
+        .alianza-desc { color: var(--gris); max-width: 38rem; text-wrap: balance; }
+        .beneficios { list-style: none; margin-top: 2rem; display: grid; gap: 1.1rem; }
+        .beneficios li { display: flex; gap: .9rem; align-items: flex-start; }
+        .beneficios svg { width: 26px; height: 26px; flex: none; margin-top: .1rem; fill: none; stroke: var(--rojo); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .beneficios b { display: block; color: var(--negro); font-weight: 600; }
+        .beneficios span { color: var(--gris); text-wrap: balance; }
+        @media (min-width: 960px) {
+            .alianza-rejilla { grid-template-columns: 5fr 7fr; gap: 5.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -632,20 +662,31 @@
                 <div class="docentes-rejilla">
                     <article class="docente revela" style="--d:.1s">
                         <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">JS</div>
-                            <div><h3>Dr. Jesús Antonio Soto Alcántar</h3><div class="docente-rol">Contaduría y control interno</div></div>
-                        </div>
-                        <p>Profesional de la contaduría pública y administración de negocios, con más de 10 años de experiencia en el ámbito contable, fiscal, auditoría y control interno.</p>
-                        <div class="docente-cifra"><b>+<span data-contar="10">10</span></b><span>años de experiencia contable, fiscal y de auditoría</span></div>
-                    </article>
-                    <article class="docente revela" style="--d:.22s">
-                        <div class="docente-cabeza">
                             <div class="monograma" aria-hidden="true">MR</div>
-                            <div><h3>Dr. Marco Vinicio Rivas</h3><div class="docente-rol">Finanzas y operaciones</div></div>
+                            <div><h3>Dr. Marco Vinicio Rivas</h3><div class="docente-rol">Módulo V · Evaluación de proyectos y financiamiento</div></div>
                         </div>
                         <p>Doctor en Administración, con MBA y posgrados en Finanzas y Sistemas de Información. Cuenta con más de 22 años de experiencia en empresas de clase mundial, liderando operaciones, finanzas y cadena de suministro. También cuenta con trayectoria docente en licenciatura, maestría y doctorado.</p>
                         <div class="docente-cifra"><b>+<span data-contar="22">22</span></b><span>años en empresas de clase mundial</span></div>
                     </article>
+                </div>
+                <!-- Solo los profesores confirmados en la app de EduCon (pendientes 23 nov 2026). -->
+                <p class="bajada revela" style="margin-top:1.5rem">El resto de la planta docente se anunciará próximamente.</p>
+            </div>
+        </section>
+
+        <!-- ================= EN COLABORACIÓN CON ================= -->
+        <section class="seccion alianza" id="colaboracion">
+            <div class="wrap alianza-rejilla">
+                <div class="alianza-logo revela"><img loading="lazy" src="../assets/logos/coparmex-tijuana.png" alt="COPARMEX Tijuana"></div>
+                <div>
+                    <span class="eyebrow revela">En colaboración con</span>
+                    <h2 class="titulo revela" style="--d:.08s">Un diplomado con <em>COPARMEX Tijuana.</em></h2>
+                    <p class="alianza-desc revela" style="--d:.14s">COPARMEX Tijuana es el centro empresarial de la Confederación Patronal de la República Mexicana en la ciudad, que agrupa a empresas de todos los sectores. Juntos diseñamos un programa para quienes toman decisiones financieras en las empresas de la región.</p>
+                    <ul class="beneficios">
+                        <li class="revela" style="--d:0.10s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Precio preferente</b><span>Socios de COPARMEX y egresados IBERO tienen 20% de descuento.</span></div></li>
+                        <li class="revela" style="--d:0.18s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Enfoque empresarial</b><span>Contenidos pensados para la realidad de las empresas de la frontera.</span></div></li>
+                        <li class="revela" style="--d:0.26s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Red de contactos</b><span>Compartes el aula con dueños de negocio, gerentes y emprendedores.</span></div></li>
+                    </ul>
                 </div>
             </div>
         </section>

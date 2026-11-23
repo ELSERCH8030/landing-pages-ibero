@@ -54,8 +54,8 @@
     </script>
     <!-- End Spotify Pixel -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso TOEFL | Educación Continua IBERO Tijuana</title>
-    <meta name="description" content="Curso de preparación para el TOEFL en IBERO Tijuana: presencial en Campus Playas, del 19 de enero al 19 de febrero de 2027.">
+    <title>Curso de preparación para la certificación TOEFL iBT | Educación Continua IBERO Tijuana</title>
+    <meta name="description" content="Curso de preparación para la certificación TOEFL iBT en IBERO Tijuana: 20 horas presenciales en Campus Playas, del 6 de febrero al 6 de marzo de 2027, y examen el 13 de marzo.">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="icon" type="image/png" sizes="48x48" href="../../favicon-48.png">
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -487,6 +487,36 @@
             .manifiesto .pal { opacity: 1; }
             .progreso { display: none; }
         }
+        /* Anchos de texto: que ningún párrafo o título se vaya a un renglón de más por falta de espacio. */
+        .respaldo p { max-width: 46rem; }
+        /* Textos cortos (hasta ~5 renglones): renglones parejos, sin una o dos palabras solas al final. */
+        .modulo p, .bajada, .hero-sub, .respaldo p, .final p, .nota-precios, .frontera span, .paso p, .praxis-nota span,
+        .perfiles span, .perfiles b, .docente-rol, .ficha dd, .pago p, .lista-precio { text-wrap: balance; }
+        .plan .bajada { max-width: 48rem; }
+        .modulo p { max-width: 40rem; }
+        @media (min-width: 960px) {
+            .respaldo-rejilla { grid-template-columns: 2fr 1fr; }
+            .respaldo .cifras { grid-template-columns: 1fr; }
+            .plan-cuerpo { grid-template-columns: 2fr 3fr; gap: 4rem; }
+            .inversion-rejilla { grid-template-columns: 1fr 1fr; }
+            .inversion .titulo { font-size: clamp(2.1rem, 4.2vw, 3.3rem); }
+        }
+        /* ---------- En colaboración con ---------- */
+        .alianza { background: var(--crema); }
+        .alianza-rejilla { display: grid; gap: 2.5rem; align-items: center; }
+        .alianza-logo { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: clamp(2rem, 6vw, 3.5rem); box-shadow: 0 24px 60px -30px rgba(28,0,9,.25); }
+        .alianza-logo img { max-height: 210px; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+        .alianza-nombre { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; font-weight: 300; letter-spacing: -.02em; color: var(--negro); text-align: center; text-wrap: balance; }
+        .alianza .titulo { margin: 1rem 0 1.25rem; }
+        .alianza-desc { color: var(--gris); max-width: 38rem; text-wrap: balance; }
+        .beneficios { list-style: none; margin-top: 2rem; display: grid; gap: 1.1rem; }
+        .beneficios li { display: flex; gap: .9rem; align-items: flex-start; }
+        .beneficios svg { width: 26px; height: 26px; flex: none; margin-top: .1rem; fill: none; stroke: var(--rojo); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .beneficios b { display: block; color: var(--negro); font-weight: 600; }
+        .beneficios span { color: var(--gris); text-wrap: balance; }
+        @media (min-width: 960px) {
+            .alianza-rejilla { grid-template-columns: 5fr 7fr; gap: 5.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -510,22 +540,22 @@
                 src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1800&q=65" alt=""></div>
             <div class="wrap hero-in">
                 <span class="eyebrow aparece" style="animation-delay:.1s">Curso de preparación&nbsp;·&nbsp;Idiomas</span>
-                <h1 aria-label="Curso TOEFL">
+                <h1 aria-label="Curso de preparación para la certificación TOEFL iBT">
                     <span class="palabra"><span style="animation-delay:.25s">Curso</span></span><br>
-                    <em><span class="palabra"><span style="animation-delay:.42s">TOEFL</span></span></em>
+                    <em><span class="palabra"><span style="animation-delay:.42s">TOEFL iBT</span></span></em>
                 </h1>
-                <p class="hero-sub aparece" style="animation-delay:.85s">Prepárate para el examen TOEFL con un curso presencial en IBERO Tijuana, Campus Playas.</p>
+                <p class="hero-sub aparece" style="animation-delay:.85s">Prepárate para la certificación TOEFL iBT con 20 horas de curso presencial y presenta el examen al terminar, en IBERO Tijuana, Campus Playas.</p>
                 <div class="hero-ctas aparece" style="animation-delay:1s">
                     <a href="#" class="btn btn-blanco wa"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-wa"/></svg>Quiero información</a>
-                    <a href="#inversion" class="btn btn-linea">Ver fechas</a>
+                    <a href="#plan" class="btn btn-linea">Ver plan y fechas</a>
                 </div>
             </div>
             <div class="wrap aparece" style="animation-delay:1.2s">
                 <dl class="hero-datos">
-                    <div><dt>Inicio</dt><dd>19 de enero <small>2027</small></dd></div>
-                    <div><dt>Término</dt><dd>19 de febrero <small>2027</small></dd></div>
-                    <div><dt>Modalidad</dt><dd>Presencial <small>Curso de preparación</small></dd></div>
-                    <div><dt>Sede</dt><dd>Campus Playas <small>IBERO Tijuana</small></dd></div>
+                    <div><dt>Inicio</dt><dd>6 de febrero <small>2027</small></dd></div>
+                    <div><dt>Examen</dt><dd>13 de marzo <small>2027</small></dd></div>
+                    <div><dt>Horario</dt><dd>Sábado <small>9:00 a. m. a 1:00 p. m.</small></dd></div>
+                    <div><dt>Sede</dt><dd>Presencial <small>IBERO Campus Playas</small></dd></div>
                 </dl>
             </div>
         </section>
@@ -533,8 +563,8 @@
         <!-- ================= CINTA DE TEMAS ================= -->
         <div class="cinta" aria-hidden="true">
             <div class="cinta-pista">
-                <span>Curso de preparación</span><span>Presencial</span><span>IBERO Campus Playas</span><span>Inicia el 19 de enero</span><span>Termina el 19 de febrero</span><span>Educación Continua</span><span>Respaldo IBERO</span>
-                <span>Curso de preparación</span><span>Presencial</span><span>IBERO Campus Playas</span><span>Inicia el 19 de enero</span><span>Termina el 19 de febrero</span><span>Educación Continua</span><span>Respaldo IBERO</span>
+                <span>Curso de preparación</span><span>TOEFL iBT</span><span>IBERO Campus Playas</span><span>Inicia el 6 de febrero</span><span>Examen el 13 de marzo</span><span>Centro de Idiomas IBERO</span><span>Respaldo IBERO</span>
+                <span>Curso de preparación</span><span>TOEFL iBT</span><span>IBERO Campus Playas</span><span>Inicia el 6 de febrero</span><span>Examen el 13 de marzo</span><span>Centro de Idiomas IBERO</span><span>Respaldo IBERO</span>
             </div>
         </div>
 
@@ -565,13 +595,57 @@
         </section>
 
         <!-- ================= PLAN DE ESTUDIOS ================= -->
-        <section class="seccion plan plan-solo" id="plan">
+        <section class="seccion plan" id="plan">
             <div class="wrap">
                 <div class="plan-cabeza">
                     <span class="eyebrow revela" style="color:#fff">Plan de estudios</span>
-                    <h2 class="titulo revela" style="--d:.08s">El temario completo, <em>directo con tu asesora.</em></h2>
-                    <p class="bajada revela" style="--d:.16s">Escríbenos y te compartimos el temario, los horarios y los costos del curso.</p>
-                    <div class="plan-accion revela" style="--d:.24s"><a href="#" class="btn btn-blanco wa"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-wa"/></svg>Pedir el temario</a></div>
+                    <h2 class="titulo revela" style="--d:.08s">Veinte horas de preparación. <em>Y el examen.</em></h2>
+                    <p class="bajada revela" style="--d:.16s">Cinco sábados de práctica y, al final, el examen TOEFL iBT.</p>
+                </div>
+                <div class="plan-cuerpo">
+                    <div class="plan-visual" aria-hidden="true">
+                        <div class="plan-fotos" id="plan-fotos">
+                            <img class="activa" loading="lazy" src="https://images.unsplash.com/photo-1758270704262-ecc82b23dc37?auto=format&fit=crop&w=1000&q=70" alt="">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=70" alt="">
+                            <span class="plan-romano" id="plan-romano">I</span>
+                        </div>
+                        <div class="plan-avance">
+                            <div class="plan-avance-texto"><span>Módulo <b id="plan-modulo">1</b> de 2</span><span><b>20</b> horas + examen</span></div>
+                            <div class="plan-barra"><i id="plan-barra"></i></div>
+                        </div>
+                    </div>
+                    <div class="plan-lista" id="plan-lista">
+                        <span class="plan-riel" id="plan-riel" aria-hidden="true"></span>
+                        <article class="modulo" data-romano="I" data-foto="0">
+                            <div class="modulo-num"><span>Módulo I</span><i>20 horas</i></div>
+                            <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1758270704262-ecc82b23dc37?auto=format&fit=crop&w=1000&q=70" alt=""></div>
+                            <h3>Curso de preparación para examen</h3>
+                            <p>Del 6 de febrero al 6 de marzo. Conoce cada sección del examen, practica con ejercicios tipo TOEFL iBT y trabaja tus estrategias de tiempo.</p>
+                        </article>
+                        <article class="modulo" data-romano="II" data-foto="1">
+                            <div class="modulo-num"><span>Módulo II</span></div>
+                            <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1000&q=70" alt=""></div>
+                            <h3>Examen TOEFL iBT</h3>
+                            <p>Sábado 13 de marzo. Presentas el examen al terminar el curso, con la práctica todavía fresca.</p>
+                        </article>
+                    </div>
+                </div>
+                <p class="plan-total revela"><span><b>2 módulos</b></span><span><b>20 horas</b> + examen</span><span><b>Sábados</b>, 9:00 a. m. a 1:00 p. m.</span></p>
+            </div>
+        </section>
+
+        <!-- ================= EN COLABORACIÓN CON ================= -->
+        <section class="seccion alianza" id="colaboracion">
+            <div class="wrap alianza-rejilla">
+                <div class="alianza-logo revela"><span class="alianza-nombre">Centro de Idiomas IBERO</span></div>
+                <div>
+                    <span class="eyebrow revela">En colaboración con</span>
+                    <h2 class="titulo revela" style="--d:.08s">Un curso con <em>el Centro de Idiomas IBERO.</em></h2>
+                    <p class="alianza-desc revela" style="--d:.14s">El curso lo imparte el Centro de Idiomas de IBERO Tijuana, el área de la universidad dedicada a la enseñanza de lenguas.</p>
+                    <ul class="beneficios">
+                        <li class="revela" style="--d:0.10s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Especialistas en idiomas</b><span>Te preparas con el equipo de idiomas de la universidad.</span></div></li>
+                        <li class="revela" style="--d:0.18s"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m7.8 12.3 2.8 2.8 5.6-5.9"/></svg><div><b>Examen al terminar</b><span>Presentas el TOEFL iBT el 13 de marzo, con la práctica todavía fresca.</span></div></li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -600,22 +674,35 @@
                 <div class="inversion-texto">
                     <span class="eyebrow revela">Inversión</span>
                     <h2 class="titulo revela" style="--d:.08s">Fechas, costos y <em>formas de pago.</em></h2>
+                    <p class="lista-precio revela" style="--d:.14s">Precio de lista: <s>$2,950 MXN</s> (una sola exhibición)</p>
                     <dl class="ficha revela" style="--d:.2s">
-                        <div><dt>Inicio</dt><dd>19 de enero de 2027</dd></div>
-                        <div><dt>Término</dt><dd>19 de febrero de 2027</dd></div>
+                        <div><dt>Curso</dt><dd>6 de febrero al 6 de marzo de 2027</dd></div>
+                        <div><dt>Examen</dt><dd>13 de marzo de 2027</dd></div>
+                        <div><dt>Horario</dt><dd>Sábado, 9:00 a. m. a 1:00 p. m.</dd></div>
                         <div><dt>Sede</dt><dd>Presencial · IBERO Campus Playas</dd></div>
                     </dl>
                 </div>
                 <div class="pagos">
                     <article class="pago oscuro revela" style="--d:.1s">
-                        <div class="pago-nombre"><span>Inversión</span></div>
-                        <div class="pago-monto texto">Pregunta a tu asesora</div>
-                        <p>Te compartimos costos, horarios y formas de pago por WhatsApp.</p>
+                        <div class="pago-nombre"><span>Promoción especial</span><span class="pago-ahorro">20% de descuento</span></div>
+                        <div class="pago-monto">$<span data-contar="2360">2,360</span><small>MXN</small></div>
+                        <p>En una sola exhibición.</p>
+                    </article>
+                    <article class="pago revela" style="--d:.18s">
+                        <div class="pago-nombre"><span>Pago de contado</span><span class="pago-ahorro">25% de descuento</span></div>
+                        <div class="pago-monto">$2,212.50<small>MXN</small></div>
+                        <p>En una sola exhibición.</p>
+                    </article>
+                    <article class="pago revela" style="--d:.26s">
+                        <div class="pago-nombre"><span>Egresado IBERO</span><span class="pago-ahorro">30% de descuento</span></div>
+                        <div class="pago-monto">$<span data-contar="2065">2,065</span><small>MXN</small></div>
+                        <p>En una sola exhibición.</p>
                     </article>
                     <div class="inversion-ctas revela" style="--d:.3s">
                         <a href="https://www.educon.iberotijuana.edu.mx/registro_educon" class="btn btn-rojo">Iniciar mi registro <span class="flecha" aria-hidden="true">→</span></a>
                         <a href="#" class="btn btn-tinta wa"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-wa"/></svg>Resolver mis dudas</a>
                     </div>
+                    <p class="nota-precios revela" style="--d:.34s">En colaboración con el Centro de Idiomas IBERO. Precios en pesos mexicanos.</p>
                 </div>
             </div>
         </section>
@@ -683,7 +770,7 @@
 
 <script>
 (function () {
-    var PROGRAMA = 'Curso TOEFL';
+    var PROGRAMA = 'Curso de preparación para la certificación TOEFL iBT';
     var WA_NUMERO = '526643886002';
     var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var $ = function (id) { return document.getElementById(id); };

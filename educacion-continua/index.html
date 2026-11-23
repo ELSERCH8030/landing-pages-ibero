@@ -91,6 +91,8 @@
         /* Evita palabras sueltas: títulos con renglones parejos, párrafos sin viudas. */
         h1, h2, h3, b, .tarjeta-area, .vista-tipo, .eyebrow { text-wrap: balance; }
         p, li, small, .dato, .ficha span, .docente span, .wa-msj { text-wrap: pretty; }
+        /* Textos cortos: renglones parejos, sin una o dos palabras solas al final. */
+        .seccion-cabeza p, .pilar p, .tarjeta p, .final p { text-wrap: balance; }
         a { color: inherit; }
         .wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
         em { font-style: normal; color: var(--rojo); }
@@ -184,7 +186,7 @@
         /* ---------- Secciones ---------- */
         .seccion { padding: 4.5rem 0; }
         .seccion-gris { background: var(--gris-claro); }
-        .seccion-cabeza { margin-bottom: 2.25rem; max-width: 42rem; }
+        .seccion-cabeza { margin-bottom: 2.25rem; max-width: 50rem; }
         .seccion-cabeza .eyebrow { color: var(--rojo); margin-bottom: .6rem; }
         .seccion-cabeza h2 { font-size: clamp(1.9rem, 7vw, 3rem); line-height: 1.08; font-weight: 800; color: var(--negro); letter-spacing: -.01em; }
         .seccion-cabeza p { margin-top: .9rem; color: var(--gris); font-size: 1.05rem; }
@@ -654,7 +656,7 @@
                     <a href="#programas" class="btn btn-blanco">Explorar programas</a>
                 </div>
                 <div class="cifras aparece" style="animation-delay:1.2s">
-                    <div class="cifra"><b data-contar="10">10</b><span>programas</span></div>
+                    <div class="cifra"><b data-contar="14">14</b><span>programas</span></div>
                     <div class="cifra"><b data-contar="5">5</b><span>áreas de especialización</span></div>
                     <div class="cifra"><b data-contar="220" data-prefijo="+">+220</b><span>universidades en la red jesuita</span></div>
                     <div class="cifra"><b data-contar="450" data-prefijo="+">+450</b><span>años de tradición educativa</span></div>
@@ -697,7 +699,7 @@
                         <button class="modo" data-modo="en-linea" aria-pressed="false">En línea</button>
                     </div>
                 </div>
-                <p class="conteo" id="conteo" aria-live="polite">Mostrando 10 programas</p>
+                <p class="conteo" id="conteo" aria-live="polite">Mostrando 14 programas</p>
                 <br>
 
                 <!--
@@ -708,45 +710,61 @@
                     estimado mientras no hay día exacto; también se oculta solo al terminar el mes.
                 -->
                 <div class="rejilla" id="rejilla">
-                    <a class="tarjeta" href="./procedimientos-civiles/" data-programa="procedimientos_civiles" data-area="derecho" data-modo="en-linea" data-fechas="2027-03-09">
+                    <a class="tarjeta" href="./procedimientos-civiles/" data-programa="procedimientos_civiles" data-area="derecho" data-modo="en-linea" data-fechas="2027-02-16">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1711003596872-aa68f08a4b8e?auto=format&fit=crop&w=800&q=70" alt="Sala de audiencias"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Derecho</span><h3>Código Nacional de Procedimientos Civiles y Familiares</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pantalla"/></svg>En línea</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Derecho</span><h3>Código Nacional de Procedimientos Civiles y Familiares</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pantalla"/></svg>En línea</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>16 feb</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
-                    <a class="tarjeta" href="./alta-direccion/" data-programa="alta_direccion" data-area="negocios" data-modo="presencial" data-fechas="2026-11-17">
+                    <a class="tarjeta" href="./alta-direccion/" data-programa="alta_direccion" data-area="negocios" data-modo="presencial" data-fechas="2027-06-01">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=800&q=70" alt="Sala de consejo"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Negocios y Liderazgo</span><h3>Alta Dirección</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Negocios y Liderazgo</span><h3>Alta Dirección</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>1 jun</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
                     <a class="tarjeta" href="./gestion-financiera/" data-programa="gestion-financiera" data-area="negocios" data-modo="presencial" data-fechas="2027-02-02">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1763038311036-6d18805537e5?auto=format&fit=crop&w=800&q=70" alt="Profesionista revisando gráficas financieras"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Negocios y Liderazgo</span><h3>Gestión Financiera</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Negocios y Liderazgo</span><h3>Gestión Financiera</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>2 feb</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
-                    <a class="tarjeta" href="./interiorismo/" data-programa="interiorismo" data-area="diseno" data-modo="presencial" data-fechas="2027-01-19">
+                    <a class="tarjeta" href="./endomarketing/" data-programa="endomarketing" data-area="negocios" data-modo="presencial" data-fechas="2027-03-03">
+                        <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1758691737584-a8f17fb34475?auto=format&fit=crop&w=800&q=70" alt="Colaboradores celebrando en la oficina"></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Negocios y Liderazgo</span><h3>Endomarketing</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>3 mar</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                    </a>
+                    <a class="tarjeta" href="./interiorismo/" data-programa="interiorismo" data-area="diseno" data-modo="presencial" data-fechas="2027-02-06">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=70" alt="Sala con diseño interior contemporáneo"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Diseño e Interiorismo</span><h3>Interiorismo</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Diseño e Interiorismo</span><h3>Desarrollo de Proyectos de Interiorismo</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>6 feb</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
-                    <a class="tarjeta" href="./diseno-de-interiores/" data-programa="diseno-de-interiores" data-area="diseno" data-modo="presencial" data-fechas="2027-01-19">
+                    <a class="tarjeta" href="./diseno-de-interiores/" data-programa="diseno-de-interiores" data-area="diseno" data-modo="presencial" data-fechas="2027-03-06">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1664638413302-d1ca29ac885b?auto=format&fit=crop&w=800&q=70" alt="Muestras de materiales para diseño de interiores"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Diseño e Interiorismo</span><h3>Diseño de Interiores</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Diseño e Interiorismo</span><h3>Decoración de Interiores</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>6 mar</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
-                    <a class="tarjeta" href="./curso-toefl/" data-programa="curso-toefl" data-area="idiomas" data-modo="presencial" data-fechas="2027-01-19">
+                    <a class="tarjeta" href="./curso-toefl/" data-programa="curso-toefl" data-area="idiomas" data-modo="presencial" data-fechas="2027-02-06">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1631888717579-50577ecc6553?auto=format&fit=crop&w=800&q=70" alt="Dos personas estudiando con un libro"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Idiomas</span><h3>Curso TOEFL</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Idiomas</span><h3>Curso de preparación TOEFL iBT</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>6 feb</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
                     <a class="tarjeta" href="./clinicas-y-hospitales/" data-programa="administracion_hospitales" data-area="salud" data-modo="presencial" data-fechas="2027-03-10">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=70" alt="Recepción de hospital"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Administración de Clínicas y Hospitales</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Administración de Clínicas y Hospitales</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>10 mar</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
                     <a class="tarjeta" href="./neuropsicologia/" data-programa="neuropsicologia" data-area="salud" data-modo="presencial" data-fechas="2027-04-13">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=70" alt="Modelo de cerebro"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Neuropsicología</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Neuropsicología</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>13 abr</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
-                    <a class="tarjeta" href="./salud-mental/" data-programa="diplomado-en-abordaje-clinico-de-la-salud-mental" data-area="salud" data-modo="presencial" data-fechas="" data-mes="2027-03">
+                    <a class="tarjeta" href="./salud-mental/" data-programa="diplomado-en-abordaje-clinico-de-la-salud-mental" data-area="salud" data-modo="presencial" data-fechas="2027-04-08">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1758273241078-8eec353836be?auto=format&fit=crop&w=800&q=70" alt="Sesión de terapia"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Abordaje Clínico de la Salud Mental</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Abordaje Clínico de la Salud Mental</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>8 abr</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
                     <a class="tarjeta" href="./nutricion-deportiva/" data-programa="diplomado-en-nutricion-deportiva" data-area="salud" data-modo="presencial" data-fechas="2027-04-03">
                         <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=70" alt="Atleta en la pista"></div>
-                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Nutrición Deportiva</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Fecha por confirmar</span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Nutrición Deportiva</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pin"/></svg>Presencial</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>3 abr</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                    </a>
+                    <a class="tarjeta" href="./gestion-sanitaria/" data-programa="gestion-sanitaria" data-area="salud" data-modo="en-linea" data-fechas="2027-02-05">
+                        <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&w=800&q=70" alt="Equipo médico caminando por un pasillo de hospital"></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Diplomado Internacional en Gestión Sanitaria</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pantalla"/></svg>En línea</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>5 feb</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                    </a>
+                    <a class="tarjeta" href="./menopausia-climaterio/" data-programa="menopausia-climaterio" data-area="salud" data-modo="en-linea" data-fechas="2027-02-06">
+                        <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1631558556874-1d127211f574?auto=format&fit=crop&w=800&q=70" alt="Médica conversando con una paciente"></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Diplomado Internacional en Menopausia – Climaterio</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pantalla"/></svg>En línea</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>6 feb</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
+                    </a>
+                    <a class="tarjeta" href="./educacion-en-diabetes/" data-programa="educacion-en-diabetes" data-area="salud" data-modo="en-linea" data-fechas="2027-02-12">
+                        <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1683727186226-910f31a9da45?auto=format&fit=crop&w=800&q=70" alt="Prueba de glucosa con un glucómetro"></div>
+                        <div class="tarjeta-cuerpo"><span class="tarjeta-area">Salud</span><h3>Diplomado Internacional de Educación en Diabetes</h3><div class="tarjeta-pie"><div class="datos"><span class="dato"><svg aria-hidden="true"><use href="#icono-pantalla"/></svg>En línea</span><span class="dato fecha"><svg aria-hidden="true"><use href="#icono-calendario"/></svg><span class="fecha-texto">Inicia el <b>12 feb</b></span></span></div><span class="ir" aria-hidden="true">→</span></div></div>
                     </a>
                 </div>
                 <p class="vacio" id="vacio">No hay programas con esa combinación. Prueba con otra modalidad.</p>
@@ -865,7 +883,9 @@
         Información copiada de cada página de educon.iberotijuana.edu.mx (21 oct 2026); fechas,
         horarios y sedes del calendario de Educación Continua (27 oct 2026); módulos, docentes y
         meses de inicio del correo de Educación Continua (nov 2026); fechas, horarios, modalidad y
-        precios de los próximos programas del CSV de Educación Continua (13 nov 2026). Los programas con
+        precios de los próximos programas del CSV de Educación Continua (13 nov 2026); fechas, horarios,
+        sedes, módulos, profesores confirmados y precios del documento "Pendientes EduCon x Medios
+        Digitales" (23 nov 2026), que manda sobre lo anterior. Los programas con
         "corto": true no tienen página en educon. Cada programa tiene además su propia landing
         en una carpeta de educacion-continua/ (la que abre "Ver programa completo").
         Si cambian fechas, precios o docentes, hay que actualizarlo aquí, en data-fechas /
@@ -876,8 +896,8 @@
         "procedimientos_civiles": {
             "tipo": "Diplomado en línea",
             "desc": "Actualízate en el nuevo Código Nacional de Procedimientos Civiles y Familiares: principios procesales, oralidad, etapas del procedimiento, régimen probatorio y medios de impugnación, con una mirada a la dinámica familiar.",
-            "inicio": "2027-03-09",
-            "fin": "2027-09-28",
+            "inicio": "2027-02-16",
+            "fin": "2027-09-07",
             "inversion": [
                 "Desde $3,760 al mes",
                 "Precio de lista $23,500"
@@ -911,8 +931,16 @@
                     "Presidenta Nacional de la Barra Mexicana, Colegio de Abogados."
                 ],
                 [
+                    "Dr. Stephen Javier Urbina Rodríguez",
+                    "Abogado postulante con más de 25 años en materia familiar, civil y mercantil."
+                ],
+                [
                     "Mtra. Nubia Ismene Rivera Patiño",
                     "Jueza de Primera Instancia en materia familiar."
+                ],
+                [
+                    "Mtra. Laura María Rodríguez Macías",
+                    "Especialista en Derecho Internacional, catedrática de la UNAM por más de 20 años."
                 ]
             ],
             "pagos": [
@@ -934,13 +962,14 @@
                     "detalle": "Total $16,450",
                     "beneficio": "30%"
                 }
-            ]
+            ],
+            "nota": "En colaboración con La Barra Mexicana, Colegio de Abogados."
         },
         "alta_direccion": {
-            "tipo": "Diplomado presencial",
+            "tipo": "Diplomado presencial · Generación 5",
             "desc": "Desarrolla competencias estratégicas, humanas y financieras para tomar decisiones que generan impacto real.",
-            "inicio": "2026-11-17",
-            "fin": "2027-04-27",
+            "inicio": "2027-06-01",
+            "fin": "2027-10-26",
             "inversion": [
                 "Desde $3,920 al mes",
                 "Precio de lista $24,500"
@@ -959,28 +988,6 @@
                 "Liderazgo y dirección con sentido humano",
                 "Gestión financiera estratégica",
                 "Gobierno corporativo, sustentabilidad y responsabilidad social"
-            ],
-            "docentes": [
-                [
-                    "Mtro. Héctor Javier González Delgado",
-                    "Director Comercial, de Atención a Clientes y Comunicación Corporativa de Grupo TELVISTA y consejero de COPARMEX Tijuana."
-                ],
-                [
-                    "Mtra. Erika López Castañeda",
-                    "Directora Global de Recursos Humanos en Eaton Mobility Group, con más de 20 años en gestión del talento y desarrollo organizacional."
-                ],
-                [
-                    "Mtro. Jorge Bautista Olvera",
-                    ""
-                ],
-                [
-                    "Dr. Marco Vinicio Rivas",
-                    "Doctor en Administración con MBA, con más de 22 años liderando operaciones, finanzas y cadena de suministro en empresas de clase mundial."
-                ],
-                [
-                    "Mtra. Claudia Flores Loera",
-                    ""
-                ]
             ],
             "pagos": [
                 {
@@ -1021,12 +1028,6 @@
                 "Desarrollo organizacional y gestión del talento",
                 "Mercadotecnia y gestión comercial",
                 "Gestión de procesos y calidad"
-            ],
-            "docentes": [
-                [
-                    "Dr. Julio Bazán",
-                    "Maestro en Alta Dirección Corporativa, con más de 10 años en gestión hospitalaria, calidad y recursos humanos."
-                ]
             ],
             "faq": [
                 "¿Necesito ser administrador para tomar el diplomado?",
@@ -1073,23 +1074,9 @@
             "modulos": [
                 "Fundamentos neurocientíficos",
                 "Modelos teóricos en neuropsicología",
-                "Evaluación neuropsicológica: principios y práctica",
                 "Patologías neurológicas y psiquiátricas",
+                "Evaluación neuropsicológica: principios y práctica",
                 "Intervención y rehabilitación neuropsicológica"
-            ],
-            "docentes": [
-                [
-                    "Mtra. Adarahí Cardona Solorio",
-                    "Psicóloga y neuropsicóloga, especialista en evaluación y diagnóstico."
-                ],
-                [
-                    "Mtro. Víctor Aviña Lomelí",
-                    "Fundador del Centro Neuropsic México, con más de 17 años de experiencia clínica."
-                ],
-                [
-                    "Dr. Faustino Rentería Ibarra",
-                    "Médico y neuropsicólogo, con más de 32 años en Educación Especial."
-                ]
             ],
             "faq": [
                 "¿Debo ser psicólogo titulado para tomar el diplomado?",
@@ -1119,14 +1106,14 @@
         "diplomado-en-abordaje-clinico-de-la-salud-mental": {
             "tipo": "Diplomado presencial",
             "desc": "Desarrolla competencias teórico-prácticas para la intervención especializada por etapas vitales: desde la infancia hasta la vejez.",
-            "inicio": null,
-            "fin": null,
+            "inicio": "2027-04-08",
+            "fin": "2027-09-02",
             "inversion": [
-                "Desde $3,760 MXN al mes",
-                "Precio por inscripción anticipada"
+                "Desde $3,760 al mes",
+                "Precio de lista $23,500"
             ],
             "horario": [
-                "Por confirmar",
+                "Jueves 6:00 a 10:00 p. m.",
                 ""
             ],
             "sede": [
@@ -1141,18 +1128,33 @@
                 "Abordaje familiar y comunitario en salud mental",
                 "Diseño de proyectos de intervención en salud mental"
             ],
-            "docentes": [
-                [
-                    "Mtro. Daniel Velázquez",
-                    "Neuropsicólogo especializado en terapia infantil, autismo y TDAH, certificado por UCLA."
-                ]
-            ]
+            "pagos": [
+                {
+                    "nombre": "Promoción especial",
+                    "monto": "5 pagos de $3,760",
+                    "detalle": "Total $18,800",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago de contado",
+                    "monto": "$17,625",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                },
+                {
+                    "nombre": "Egresado IBERO",
+                    "monto": "5 pagos de $3,290",
+                    "detalle": "Total $16,450",
+                    "beneficio": "30%"
+                }
+            ],
+            "nota": "En colaboración con el Hospital de Salud Mental de Tijuana."
         },
         "diplomado-en-nutricion-deportiva": {
             "tipo": "Diplomado presencial",
             "desc": "Aprende a evaluar y diseñar intervenciones nutricionales para personas físicamente activas y deportistas, con bases de fisiología del ejercicio, hidratación y ayudas ergogénicas.",
             "inicio": "2027-04-03",
-            "fin": "2027-08-28",
+            "fin": "2027-09-04",
             "inversion": [
                 "Desde $3,760 al mes",
                 "Precio de lista $23,500"
@@ -1173,12 +1175,6 @@
                 "Intervención nutricional en poblaciones físicamente activas"
             ],
             "ideal": "Nutriólogos, médicos, licenciados en actividad física, educación física y fisioterapia, y estudiantes de esas carreras.",
-            "docentes": [
-                [
-                    "Dr. Francisco Rojas",
-                    "Doctor en educación física y deporte, especializado en consultoría nutricional, ejercicio y docencia universitaria."
-                ]
-            ],
             "pagos": [
                 {
                     "nombre": "Promoción especial",
@@ -1226,10 +1222,6 @@
             ],
             "docentes": [
                 [
-                    "Dr. Jesús Antonio Soto Alcántar",
-                    "Profesional de la contaduría pública y administración de negocios, con más de 10 años de experiencia contable, fiscal, de auditoría y control interno."
-                ],
-                [
                     "Dr. Marco Vinicio Rivas",
                     "Doctor en Administración con MBA, con más de 22 años liderando operaciones, finanzas y cadena de suministro en empresas de clase mundial."
                 ]
@@ -1253,15 +1245,15 @@
         },
         "interiorismo": {
             "tipo": "Diplomado presencial",
-            "inicio": "2027-01-19",
-            "fin": "2027-05-18",
+            "inicio": "2027-02-06",
+            "fin": "2027-07-03",
             "horario": [
-                "6:00 a 10:00 p. m.",
+                "Sábado 9:00 a. m. a 1:00 p. m.",
                 ""
             ],
             "sede": [
                 "Presencial",
-                "IBERO Campus Río"
+                "IBERO Campus Playas"
             ],
             "corto": true,
             "inversion": [
@@ -1277,26 +1269,270 @@
             ],
             "pagos": [
                 {
-                    "nombre": "Promoción",
+                    "nombre": "Promoción especial",
                     "monto": "5 pagos de $3,760",
                     "detalle": "Total $18,800",
                     "beneficio": "20%"
                 },
                 {
-                    "nombre": "Pago único",
+                    "nombre": "Pago de contado",
                     "monto": "$17,625",
                     "detalle": "Una sola exhibición",
                     "beneficio": "25%"
+                },
+                {
+                    "nombre": "Egresado IBERO",
+                    "monto": "5 pagos de $3,290",
+                    "detalle": "Total $16,450",
+                    "beneficio": "30%"
                 }
             ]
         },
         "diseno-de-interiores": {
             "tipo": "Curso presencial",
-            "inicio": "2027-01-19",
-            "fin": "2027-05-18",
+            "inicio": "2027-03-06",
+            "fin": "2027-04-17",
             "horario": [
-                "6:00 a 10:00 p. m.",
+                "Sábado 6:00 a 10:00 p. m.",
                 ""
+            ],
+            "sede": [
+                "Presencial",
+                "IBERO Campus Playas"
+            ],
+            "corto": true,
+            "inversion": [
+                "2 pagos desde $2,832",
+                "Precio de lista $7,080"
+            ],
+            "pagos": [
+                {
+                    "nombre": "Promoción",
+                    "monto": "2 pagos de $2,832",
+                    "detalle": "Total $5,664",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago de contado",
+                    "monto": "$5,310",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                },
+                {
+                    "nombre": "Egresado IBERO",
+                    "monto": "$4,956",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "30%"
+                }
+            ],
+            "modulos": [
+                "Introducción al interiorismo y análisis del espacio",
+                "Distribución, ergonomía y composición",
+                "Color, materiales y texturas",
+                "Iluminación y ambientación interior",
+                "Conceptualización y lenguaje visual",
+                "Desarrollo y presentación de la propuesta"
+            ]
+        },
+        "curso-toefl": {
+            "tipo": "Curso presencial",
+            "inicio": "2027-02-06",
+            "fin": "2027-03-13",
+            "horario": [
+                "Sábado 9:00 a. m. a 1:00 p. m.",
+                "20 horas + examen"
+            ],
+            "sede": [
+                "Presencial",
+                "IBERO Campus Playas"
+            ],
+            "corto": true,
+            "inversion": [
+                "Desde $2,065",
+                "Precio de lista $2,950"
+            ],
+            "modulos": [
+                "Curso de preparación para examen (6 feb al 6 mar)",
+                "Examen TOEFL iBT (13 mar)"
+            ],
+            "pagos": [
+                {
+                    "nombre": "Promoción especial",
+                    "monto": "$2,360",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago de contado",
+                    "monto": "$2,212.50",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                },
+                {
+                    "nombre": "Egresado IBERO",
+                    "monto": "$2,065",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "30%"
+                }
+            ],
+            "nota": "En colaboración con el Centro de Idiomas IBERO."
+        },
+        "gestion-sanitaria": {
+            "tipo": "Diplomado internacional en línea",
+            "desc": "Fortalece tu capacidad para dirigir organizaciones de salud: del sistema sanitario mexicano a la dirección hospitalaria y la seguridad del paciente, con la visión internacional de UIC Barcelona.",
+            "inicio": "2027-02-05",
+            "fin": "2027-06-05",
+            "horario": [
+                "Viernes 6:00 a 8:00 p. m.",
+                "Sábado 9:00 a. m. a 12:00 p. m."
+            ],
+            "sede": [
+                "En línea",
+                "Programa internacional"
+            ],
+            "corto": true,
+            "inversion": [
+                "Desde $3,760 al mes",
+                "Precio de lista $23,500"
+            ],
+            "modulos": [
+                "Macrogestión y entorno sanitario en México",
+                "Mesogestión y dirección de organizaciones hospitalarias",
+                "Microgestión, seguridad del paciente y bioética aplicada"
+            ],
+            "pagos": [
+                {
+                    "nombre": "Promoción especial",
+                    "monto": "5 pagos de $3,760",
+                    "detalle": "Total $18,800",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago de contado",
+                    "monto": "$17,625",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                },
+                {
+                    "nombre": "Egresado IBERO",
+                    "monto": "5 pagos de $3,290",
+                    "detalle": "Total $16,450",
+                    "beneficio": "30%"
+                }
+            ],
+            "nota": "En colaboración con UIC Barcelona."
+        },
+        "menopausia-climaterio": {
+            "tipo": "Diplomado internacional en línea",
+            "desc": "Actualízate en la atención integral de la mujer en el climaterio y la posmenopausia, con algoritmos de decisión clínica.",
+            "inicio": "2027-02-06",
+            "fin": "2027-07-03",
+            "horario": [
+                "Sábado 9:00 a. m. a 1:00 p. m.",
+                ""
+            ],
+            "sede": [
+                "En línea",
+                "Programa internacional"
+            ],
+            "corto": true,
+            "inversion": [
+                "Desde $3,760 al mes",
+                "Precio de lista $23,500"
+            ],
+            "modulos": [
+                "Sistema de salud y atención primaria en la mujer madura",
+                "Salud pública, demografía y epidemiología del climaterio",
+                "Fisiología y neuroendocrinología del climaterio",
+                "Síntomas vasomotores y manifestaciones neurovegetativas",
+                "Riesgo cardiometabólico y patología tiroidea en la posmenopausia",
+                "Salud ósea: osteopenia, osteoporosis y prevención de fracturas",
+                "Salud mental, afecto y deterioro cognitivo",
+                "Síndrome genitourinario de la menopausia y salud sexual",
+                "Farmacología avanzada, terapia hormonal y comorbilidades",
+                "Algoritmos de decisión clínica y criterios de referencia"
+            ],
+            "pagos": [
+                {
+                    "nombre": "Promoción especial",
+                    "monto": "5 pagos de $3,760",
+                    "detalle": "Total $18,800",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago de contado",
+                    "monto": "$17,625",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                },
+                {
+                    "nombre": "Egresado IBERO",
+                    "monto": "5 pagos de $3,290",
+                    "detalle": "Total $16,450",
+                    "beneficio": "30%"
+                }
+            ],
+            "nota": "En colaboración con Mujer, Hormonía y Salud A.C."
+        },
+        "educacion-en-diabetes": {
+            "tipo": "Diplomado internacional en línea",
+            "desc": "Fórmate como educador en diabetes: bases clínicas, autocuidado, alimentación, actividad física y comunicación para el cambio de conducta.",
+            "inicio": "2027-02-12",
+            "fin": "2027-07-10",
+            "horario": [
+                "Viernes 6:00 a 8:00 p. m.",
+                "Sábado 9:00 a. m. a 12:00 p. m."
+            ],
+            "sede": [
+                "En línea",
+                "Programa internacional"
+            ],
+            "corto": true,
+            "inversion": [
+                "Desde $3,760 al mes",
+                "Precio de lista $23,500"
+            ],
+            "modulos": [
+                "Panorama global y fundamentos",
+                "Bases clínicas de la diabetes",
+                "Autocuidado y monitoreo",
+                "Alimentación y actividad física",
+                "Comunicación y cambio conductual",
+                "Diseño de experiencias educativas",
+                "Complicaciones, seguridad y referencia",
+                "Equidad, cultura y salud digital",
+                "Proyecto integrador y evaluación"
+            ],
+            "pagos": [
+                {
+                    "nombre": "Promoción especial",
+                    "monto": "5 pagos de $3,760",
+                    "detalle": "Total $18,800",
+                    "beneficio": "20%"
+                },
+                {
+                    "nombre": "Pago de contado",
+                    "monto": "$17,625",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "25%"
+                },
+                {
+                    "nombre": "Egresado IBERO",
+                    "monto": "5 pagos de $3,290",
+                    "detalle": "Total $16,450",
+                    "beneficio": "30%"
+                }
+            ],
+            "nota": "En colaboración con el Consejo Nacional de Educadores en Diabetes (CONED)."
+        },
+        "endomarketing": {
+            "tipo": "Curso presencial",
+            "desc": "Aprende a ver a tus colaboradores como tu primer cliente: diagnostica el clima interno, diseña la comunicación y la experiencia del empleado, y mide su impacto.",
+            "inicio": "2027-03-03",
+            "fin": "2027-05-12",
+            "horario": [
+                "Miércoles 6:00 a 9:00 p. m.",
+                "30 horas"
             ],
             "sede": [
                 "Presencial",
@@ -1304,37 +1540,49 @@
             ],
             "corto": true,
             "inversion": [
-                "Desde $3,760 al mes",
-                "Precio de lista $23,500"
+                "2 pagos desde $3,540",
+                "Precio de lista $8,850"
+            ],
+            "modulos": [
+                "Fundamentos y diagnóstico del cliente interno",
+                "Estrategia de comunicación",
+                "Experiencia del empleado",
+                "Métricas, indicadores y plan de acción"
+            ],
+            "docentes": [
+                [
+                    "Mayra Socorro Hinojosa",
+                    "Módulo I · Diagnóstico del cliente interno."
+                ],
+                [
+                    "Ángel René López Marmolejo",
+                    "Módulo II · Estrategia de comunicación."
+                ],
+                [
+                    "Cristel Anais Zamudio Pulido",
+                    "Módulo III · Experiencia del empleado."
+                ]
             ],
             "pagos": [
                 {
                     "nombre": "Promoción",
-                    "monto": "5 pagos de $3,760",
-                    "detalle": "Total $18,800",
+                    "monto": "2 pagos de $3,540",
+                    "detalle": "Total $7,080",
                     "beneficio": "20%"
                 },
                 {
-                    "nombre": "Pago único",
-                    "monto": "$17,625",
+                    "nombre": "Pago de contado",
+                    "monto": "$6,637.50",
                     "detalle": "Una sola exhibición",
                     "beneficio": "25%"
+                },
+                {
+                    "nombre": "Egresado IBERO",
+                    "monto": "$6,195",
+                    "detalle": "Una sola exhibición",
+                    "beneficio": "30%"
                 }
             ]
-        },
-        "curso-toefl": {
-            "tipo": "Curso presencial",
-            "inicio": "2027-01-19",
-            "fin": "2027-02-19",
-            "horario": [
-                "Por confirmar",
-                ""
-            ],
-            "sede": [
-                "Presencial",
-                "IBERO Campus Playas"
-            ],
-            "corto": true
         }
     }
     </script>

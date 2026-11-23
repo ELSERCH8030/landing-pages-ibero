@@ -487,6 +487,20 @@
             .manifiesto .pal { opacity: 1; }
             .progreso { display: none; }
         }
+        /* Anchos de texto: que ningún párrafo o título se vaya a un renglón de más por falta de espacio. */
+        .respaldo p { max-width: 46rem; }
+        /* Textos cortos (hasta ~5 renglones): renglones parejos, sin una o dos palabras solas al final. */
+        .modulo p, .bajada, .hero-sub, .respaldo p, .final p, .nota-precios, .frontera span, .paso p, .praxis-nota span,
+        .perfiles span, .perfiles b, .docente-rol, .ficha dd, .pago p, .lista-precio { text-wrap: balance; }
+        .plan .bajada { max-width: 48rem; }
+        .modulo p { max-width: 40rem; }
+        @media (min-width: 960px) {
+            .respaldo-rejilla { grid-template-columns: 2fr 1fr; }
+            .respaldo .cifras { grid-template-columns: 1fr; }
+            .plan-cuerpo { grid-template-columns: 2fr 3fr; gap: 4rem; }
+            .inversion-rejilla { grid-template-columns: 1fr 1fr; }
+            .inversion .titulo { font-size: clamp(2.1rem, 4.2vw, 3.3rem); }
+        }
     </style>
 </head>
 <body>
@@ -584,8 +598,8 @@
                         <div class="plan-fotos" id="plan-fotos">
                             <img class="activa" loading="lazy" src="https://images.unsplash.com/photo-1719650592946-55163c4994cb?auto=format&fit=crop&w=1000&q=70" alt="">
                             <img loading="lazy" src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=1000&q=70" alt="">
-                            <img loading="lazy" src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?auto=format&fit=crop&w=1000&q=70" alt="">
                             <img loading="lazy" src="https://images.unsplash.com/photo-1758691463110-697a814b2033?auto=format&fit=crop&w=1000&q=70" alt="">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?auto=format&fit=crop&w=1000&q=70" alt="">
                             <img loading="lazy" src="https://images.unsplash.com/photo-1708686816818-2b018e0c1296?auto=format&fit=crop&w=1000&q=70" alt="">
                             <span class="plan-romano" id="plan-romano">I</span>
                         </div>
@@ -601,34 +615,30 @@
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1719650592946-55163c4994cb?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Fundamentos neurocientíficos</h3>
                             <p>Adquiere una base sólida en las neurociencias, incluyendo neuroanatomía, neurofisiología, neuroquímica y neurodesarrollo, para contextualizar la relación entre la función cerebral, la cognición y el comportamiento.</p>
-                            <div class="modulo-imparte">Imparte: <b>Mtra. Adarahí Cardona Solorio</b></div>
                         </article>
                         <article class="modulo" data-romano="II" data-foto="1">
                             <div class="modulo-num"><span>Módulo II</span></div>
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Modelos teóricos en neuropsicología</h3>
                             <p>Comprende los principales modelos teóricos de la neuropsicología, su desarrollo histórico y su aplicación para interpretar la relación entre el cerebro y el comportamiento.</p>
-                            <div class="modulo-imparte">Imparte: <b>Dr. Faustino Rentería Ibarra</b></div>
                         </article>
                         <article class="modulo" data-romano="III" data-foto="2">
                             <div class="modulo-num"><span>Módulo III</span></div>
-                            <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?auto=format&fit=crop&w=1000&q=70" alt=""></div>
-                            <h3>Evaluación neuropsicológica: principios y práctica</h3>
-                            <p>Especialízate en la metodología de la evaluación neuropsicológica, desde la planificación hasta la interpretación de los resultados y la elaboración de informes clínicos.</p>
-                            <div class="modulo-imparte">Imparte: <b>Mtro. Víctor Aviña Lomelí</b></div>
-                        </article>
-                        <article class="modulo" data-romano="IV" data-foto="3">
-                            <div class="modulo-num"><span>Módulo IV</span></div>
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1758691463110-697a814b2033?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Neuropsicología de las patologías neurológicas y psiquiátricas</h3>
                             <p>Domina conocimientos sobre los perfiles neuropsicológicos de las principales patologías neurológicas y psiquiátricas, que permitan un diagnóstico preciso y una comprensión integral del paciente.</p>
+                        </article>
+                        <article class="modulo" data-romano="IV" data-foto="3">
+                            <div class="modulo-num"><span>Módulo IV</span></div>
+                            <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?auto=format&fit=crop&w=1000&q=70" alt=""></div>
+                            <h3>Evaluación neuropsicológica: principios y práctica</h3>
+                            <p>Especialízate en la metodología de la evaluación neuropsicológica, desde la planificación hasta la interpretación de los resultados y la elaboración de informes clínicos.</p>
                         </article>
                         <article class="modulo" data-romano="V" data-foto="4">
                             <div class="modulo-num"><span>Módulo V</span></div>
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1708686816818-2b018e0c1296?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Intervención y rehabilitación neuropsicológica</h3>
                             <p>Desarrolla habilidades para diseñar e implementar planes de intervención y rehabilitación neuropsicológica, enfocados en la mejora funcional y la calidad de vida de los pacientes.</p>
-                            <div class="modulo-imparte">Imparte: <b>Mtro. Víctor Aviña Lomelí</b></div>
                         </article>
                     </div>
                 </div>
@@ -636,38 +646,8 @@
             </div>
         </section>
 
-        <!-- ================= DOCENTES ================= -->
-        <section class="seccion docentes" id="docentes">
-            <div class="wrap">
-                <span class="eyebrow revela">Docentes</span>
-                <h2 class="titulo revela" style="--d:.08s">Aprende de quienes <em>lo viven a diario.</em></h2>
-                <div class="docentes-rejilla tres">
-                    <article class="docente revela" style="--d:.1s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">AC</div>
-                            <div><h3>Mtra. Adarahí Cardona Solorio</h3><div class="docente-rol">Módulo I · Psicóloga y Neuropsicóloga</div></div>
-                        </div>
-                        <p>Especialista en evaluación y diagnóstico neuropsicológico. Con experiencia clínica en Hospital de Salud Mental, actualmente en la Dirección Municipal de Salud Pública. Docente universitaria y candidata a Doctorado en Investigación Interdisciplinaria en Salud por la UABC.</p>
-                    </article>
-                    <article class="docente revela" style="--d:.22s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">FR</div>
-                            <div><h3>Dr. Faustino Rentería Ibarra</h3><div class="docente-rol">Módulo II · Médico Cirujano y Neuropsicólogo</div></div>
-                        </div>
-                        <p>Más de 32 años en Educación Especial. Fundador y director de la Unidad de Diagnóstico y Rehabilitación Neuropsicológica. Catedrático de posgrado, miembro activo de organismos profesionales y especialista en neuroeducación e inclusión.</p>
-                        <div class="docente-cifra"><b>+<span data-contar="32">32</span></b><span>años en Educación Especial</span></div>
-                    </article>
-                    <article class="docente revela" style="--d:.34s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">VA</div>
-                            <div><h3>Mtro. Víctor Aviña Lomelí</h3><div class="docente-rol">Módulos III y V · Neuropsicólogo y Psicoterapeuta</div></div>
-                        </div>
-                        <p>Más de 17 años de experiencia clínica y académica. Director y fundador del Centro Neuropsic México y la Clínica de Especialidades en Neurodesarrollo y Salud Mental. Certificado internacionalmente en neuropsicología clínica con formación en Colombia.</p>
-                        <div class="docente-cifra"><b>+<span data-contar="17">17</span></b><span>años de experiencia clínica y académica</span></div>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <!-- DOCENTES: sin profesores confirmados en la app de EduCon (pendientes 23 nov 2026).
+             Se vuelve a poner la seccion cuando EduCon confirme la planta docente. -->
 
         <!-- ================= MODELO PRAXIS ================= -->
         <section class="seccion praxis" id="modelo">

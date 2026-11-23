@@ -55,7 +55,7 @@
     <!-- End Spotify Pixel -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diplomado en Desarrollo de Proyectos de Interiorismo | Educación Continua IBERO Tijuana</title>
-    <meta name="description" content="Diplomado en Desarrollo de Proyectos de Interiorismo de IBERO Tijuana: 5 módulos, 80 horas, presencial en Campus Río. Del concepto a la presentación final, con SketchUp.">
+    <meta name="description" content="Diplomado en Desarrollo de Proyectos de Interiorismo de IBERO Tijuana: 5 módulos, 80 horas, presencial en Campus Playas. Del concepto a la presentación final, con SketchUp.">
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
     <link rel="icon" type="image/png" sizes="48x48" href="../../favicon-48.png">
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
@@ -487,6 +487,20 @@
             .manifiesto .pal { opacity: 1; }
             .progreso { display: none; }
         }
+        /* Anchos de texto: que ningún párrafo o título se vaya a un renglón de más por falta de espacio. */
+        .respaldo p { max-width: 46rem; }
+        /* Textos cortos (hasta ~5 renglones): renglones parejos, sin una o dos palabras solas al final. */
+        .modulo p, .bajada, .hero-sub, .respaldo p, .final p, .nota-precios, .frontera span, .paso p, .praxis-nota span,
+        .perfiles span, .perfiles b, .docente-rol, .ficha dd, .pago p, .lista-precio { text-wrap: balance; }
+        .plan .bajada { max-width: 48rem; }
+        .modulo p { max-width: 40rem; }
+        @media (min-width: 960px) {
+            .respaldo-rejilla { grid-template-columns: 2fr 1fr; }
+            .respaldo .cifras { grid-template-columns: 1fr; }
+            .plan-cuerpo { grid-template-columns: 2fr 3fr; gap: 4rem; }
+            .inversion-rejilla { grid-template-columns: 1fr 1fr; }
+            .inversion .titulo { font-size: clamp(2.1rem, 4.2vw, 3.3rem); }
+        }
     </style>
 </head>
 <body>
@@ -528,10 +542,10 @@
             </div>
             <div class="wrap aparece" style="animation-delay:1.2s">
                 <dl class="hero-datos">
-                    <div><dt>Inicio</dt><dd>19 de enero <small>2027</small></dd></div>
+                    <div><dt>Inicio</dt><dd>6 de febrero <small>2027</small></dd></div>
                     <div><dt>Duración</dt><dd>80 horas <small>5 módulos</small></dd></div>
-                    <div><dt>Horario</dt><dd>6:00 a 10:00 <small>p. m.</small></dd></div>
-                    <div><dt>Modalidad</dt><dd>Presencial <small>IBERO Campus Río</small></dd></div>
+                    <div><dt>Horario</dt><dd>Sábado <small>9:00 a. m. a 1:00 p. m.</small></dd></div>
+                    <div><dt>Modalidad</dt><dd>Presencial <small>IBERO Campus Playas</small></dd></div>
                 </dl>
             </div>
         </section>
@@ -658,24 +672,29 @@
                 <div class="inversion-texto">
                     <span class="eyebrow revela">Inversión</span>
                     <h2 class="titulo revela" style="--d:.08s">Una inversión en <em>tu manera de diseñar.</em></h2>
-                    <p class="lista-precio revela" style="--d:.14s">Precio de lista: <s>$23,500 MXN</s></p>
+                    <p class="lista-precio revela" style="--d:.14s">Precio de lista: <s>$23,500 MXN</s> (5 pagos de $4,700)</p>
                     <dl class="ficha revela" style="--d:.2s">
-                        <div><dt>Inicio</dt><dd>19 de enero de 2027</dd></div>
-                        <div><dt>Término</dt><dd>18 de mayo de 2027</dd></div>
-                        <div><dt>Horario</dt><dd>6:00 a 10:00 p. m.</dd></div>
-                        <div><dt>Sede</dt><dd>Presencial · IBERO Campus Río</dd></div>
+                        <div><dt>Inicio</dt><dd>6 de febrero de 2027</dd></div>
+                        <div><dt>Término</dt><dd>3 de julio de 2027</dd></div>
+                        <div><dt>Horario</dt><dd>Sábado, 9:00 a. m. a 1:00 p. m.</dd></div>
+                        <div><dt>Sede</dt><dd>Presencial · IBERO Campus Playas</dd></div>
                     </dl>
                 </div>
                 <div class="pagos">
                     <article class="pago oscuro revela" style="--d:.1s">
-                        <div class="pago-nombre"><span>Promoción</span><span class="pago-ahorro">20% de descuento</span></div>
+                        <div class="pago-nombre"><span>Promoción especial</span><span class="pago-ahorro">20% de descuento</span></div>
                         <div class="pago-monto"><span class="antes">5 pagos de</span>$<span data-contar="3760">3,760</span><small>MXN</small></div>
-                        <p>Total de $18,800 MXN, por inscripción anticipada.</p>
+                        <p>Total de $18,800 MXN.</p>
                     </article>
-                    <article class="pago revela" style="--d:.22s">
-                        <div class="pago-nombre"><span>Pago único</span><span class="pago-ahorro">25% de descuento</span></div>
+                    <article class="pago revela" style="--d:.18s">
+                        <div class="pago-nombre"><span>Pago de contado</span><span class="pago-ahorro">25% de descuento</span></div>
                         <div class="pago-monto">$<span data-contar="17625">17,625</span><small>MXN</small></div>
                         <p>En una sola exhibición.</p>
+                    </article>
+                    <article class="pago revela" style="--d:.26s">
+                        <div class="pago-nombre"><span>Egresado IBERO</span><span class="pago-ahorro">30% de descuento</span></div>
+                        <div class="pago-monto"><span class="antes">5 pagos de</span>$<span data-contar="3290">3,290</span><small>MXN</small></div>
+                        <p>Total de $16,450 MXN.</p>
                     </article>
                     <div class="inversion-ctas revela" style="--d:.3s">
                         <a href="https://www.educon.iberotijuana.edu.mx/registro_educon" class="btn btn-rojo">Iniciar mi registro <span class="flecha" aria-hidden="true">→</span></a>
@@ -749,7 +768,7 @@
 
 <script>
 (function () {
-    var PROGRAMA = 'Interiorismo';
+    var PROGRAMA = 'Desarrollo de Proyectos de Interiorismo';
     var WA_NUMERO = '526643886002';
     var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var $ = function (id) { return document.getElementById(id); };

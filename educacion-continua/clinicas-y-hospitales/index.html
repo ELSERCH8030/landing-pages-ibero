@@ -487,6 +487,20 @@
             .manifiesto .pal { opacity: 1; }
             .progreso { display: none; }
         }
+        /* Anchos de texto: que ningún párrafo o título se vaya a un renglón de más por falta de espacio. */
+        .respaldo p { max-width: 46rem; }
+        /* Textos cortos (hasta ~5 renglones): renglones parejos, sin una o dos palabras solas al final. */
+        .modulo p, .bajada, .hero-sub, .respaldo p, .final p, .nota-precios, .frontera span, .paso p, .praxis-nota span,
+        .perfiles span, .perfiles b, .docente-rol, .ficha dd, .pago p, .lista-precio { text-wrap: balance; }
+        .plan .bajada { max-width: 48rem; }
+        .modulo p { max-width: 40rem; }
+        @media (min-width: 960px) {
+            .respaldo-rejilla { grid-template-columns: 2fr 1fr; }
+            .respaldo .cifras { grid-template-columns: 1fr; }
+            .plan-cuerpo { grid-template-columns: 2fr 3fr; gap: 4rem; }
+            .inversion-rejilla { grid-template-columns: 1fr 1fr; }
+            .inversion .titulo { font-size: clamp(2.1rem, 4.2vw, 3.3rem); }
+        }
     </style>
 </head>
 <body>
@@ -609,7 +623,6 @@
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Gestión financiera y presupuestaria</h3>
                             <p>Fortalece tu capacidad para tomar decisiones financieras informadas y garantizar la sostenibilidad económica de tu institución médica.</p>
-                            <div class="modulo-imparte">Imparte: <b>C.P. Elsa Ivette Hernández Vargas</b></div>
                         </article>
                         <article class="modulo" data-romano="III" data-foto="2">
                             <div class="modulo-num"><span>Módulo III</span></div>
@@ -622,7 +635,6 @@
                             <div class="foto cortina modulo-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1629909614456-6b1c5c94cecc?auto=format&fit=crop&w=1000&q=70" alt=""></div>
                             <h3>Mercadotecnia y gestión comercial</h3>
                             <p>Diseña estrategias de posicionamiento y crecimiento para clínicas y hospitales en un entorno altamente competitivo.</p>
-                            <div class="modulo-imparte">Imparte: <b>Mtro. Landare Pimentel</b></div>
                         </article>
                         <article class="modulo" data-romano="V" data-foto="4">
                             <div class="modulo-num"><span>Módulo V</span></div>
@@ -636,37 +648,8 @@
             </div>
         </section>
 
-        <!-- ================= DOCENTES ================= -->
-        <section class="seccion docentes" id="docentes">
-            <div class="wrap">
-                <span class="eyebrow revela">Docentes</span>
-                <h2 class="titulo revela" style="--d:.08s">Aprende de quienes <em>lo viven a diario.</em></h2>
-                <div class="docentes-rejilla tres">
-                    <article class="docente revela" style="--d:.1s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">JB</div>
-                            <div><h3>Dr. Julio Bazán</h3><div class="docente-rol">Gestión hospitalaria y calidad</div></div>
-                        </div>
-                        <p>Con más de 10 años de experiencia en el sector salud, principalmente en gestión hospitalaria, calidad y recursos humanos. Es Maestro en Alta Dirección Corporativa y cuenta con formación en Psicología, Administración Hospitalaria y Recursos Humanos.</p>
-                        <div class="docente-cifra"><b>+<span data-contar="10">10</span></b><span>años de experiencia en el sector salud</span></div>
-                    </article>
-                    <article class="docente revela" style="--d:.22s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">EH</div>
-                            <div><h3>C.P. Elsa Ivette Hernández Vargas</h3><div class="docente-rol">Módulo II · Directora General de PBM Photomedice</div></div>
-                        </div>
-                        <p>Contadora Pública y MBA en Gestión Ejecutiva Internacional. Directora General de PBM Photomedice, Centro Médico de Alta Tecnología. Fue CFO de Sistemas Médicos Nacionales durante ocho años e inició su carrera en KPMG como auditora de empresas multinacionales y binacionales.</p>
-                    </article>
-                    <article class="docente revela" style="--d:.34s">
-                        <div class="docente-cabeza">
-                            <div class="monograma" aria-hidden="true">LP</div>
-                            <div><h3>Mtro. Landare Pimentel</h3><div class="docente-rol">Módulo IV · Mercadotecnia</div></div>
-                        </div>
-                        <p>Licenciado en Mercadotecnia y MBA. Fundador y Director de Brainstorm Mkt Studio, agencia de consultoría especializada en branding con presencia en Latinoamérica. Creador del Marketing Estructural® y de la metodología de auditoría Zoom 360®. TEDx Speaker y autor del libro «Diamante de Marcas Extraordinarias».</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <!-- DOCENTES: sin profesores confirmados en la app de EduCon (pendientes 23 nov 2026).
+             Se vuelve a poner la seccion cuando EduCon confirme la planta docente. -->
 
         <!-- ================= MODELO PRAXIS ================= -->
         <section class="seccion praxis" id="modelo">
