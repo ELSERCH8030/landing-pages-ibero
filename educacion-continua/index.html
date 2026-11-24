@@ -1320,8 +1320,8 @@
                 },
                 {
                     "nombre": "Egresado IBERO",
-                    "monto": "$4,956",
-                    "detalle": "Una sola exhibición",
+                    "monto": "2 pagos de $2,478",
+                    "detalle": "Total $4,956",
                     "beneficio": "30%"
                 }
             ],
@@ -1348,8 +1348,8 @@
             ],
             "corto": true,
             "inversion": [
-                "Desde $2,065",
-                "Precio de lista $2,950"
+                "Curso + examen: $7,900",
+                "Egresado IBERO: $7,015"
             ],
             "modulos": [
                 "Curso de preparación para examen (6 feb al 6 mar)",
@@ -1357,25 +1357,17 @@
             ],
             "pagos": [
                 {
-                    "nombre": "Promoción especial",
-                    "monto": "$2,360",
-                    "detalle": "Una sola exhibición",
-                    "beneficio": "20%"
-                },
-                {
-                    "nombre": "Pago de contado",
-                    "monto": "$2,212.50",
-                    "detalle": "Una sola exhibición",
-                    "beneficio": "25%"
+                    "nombre": "Curso + examen",
+                    "monto": "$7,900",
+                    "detalle": "Curso $2,950 + Examen TOEFL iBT $4,950"
                 },
                 {
                     "nombre": "Egresado IBERO",
-                    "monto": "$2,065",
-                    "detalle": "Una sola exhibición",
-                    "beneficio": "30%"
+                    "monto": "$7,015",
+                    "detalle": "Curso $2,065 (30% desc.) + Examen TOEFL iBT $4,950"
                 }
             ],
-            "nota": "En colaboración con el Centro de Idiomas IBERO."
+            "nota": "Son dos pagos: el curso, antes de iniciar clases, y el Examen TOEFL iBT (sin descuento), a más tardar el 6 de marzo de 2027. En colaboración con el Centro de Idiomas IBERO."
         },
         "gestion-sanitaria": {
             "tipo": "Diplomado internacional en línea",
@@ -1540,7 +1532,7 @@
             ],
             "corto": true,
             "inversion": [
-                "2 pagos desde $3,540",
+                "3 pagos desde $2,360",
                 "Precio de lista $8,850"
             ],
             "modulos": [
@@ -1566,7 +1558,7 @@
             "pagos": [
                 {
                     "nombre": "Promoción",
-                    "monto": "2 pagos de $3,540",
+                    "monto": "3 pagos de $2,360",
                     "detalle": "Total $7,080",
                     "beneficio": "20%"
                 },
@@ -1578,8 +1570,8 @@
                 },
                 {
                     "nombre": "Egresado IBERO",
-                    "monto": "$6,195",
-                    "detalle": "Una sola exhibición",
+                    "monto": "3 pagos de $2,065",
+                    "detalle": "Total $6,195",
                     "beneficio": "30%"
                 }
             ]
@@ -2133,7 +2125,7 @@
             '</div>';
         if (d.pagos) {
             html += '<div><h3>Opciones de pago</h3><div class="pagos">' + d.pagos.map(function (o) {
-                return '<div class="pago"><span class="pago-pct">' + o.beneficio + '<small>desc.</small></span><div><small>' + o.nombre + '</small><b>' + o.monto + '</b><span>' + o.detalle + '</span></div></div>';
+                return '<div class="pago">' + (o.beneficio ? '<span class="pago-pct">' + o.beneficio + '<small>desc.</small></span>' : '') + '<div><small>' + o.nombre + '</small><b>' + o.monto + '</b><span>' + o.detalle + '</span></div></div>';
             }).join('') + '</div></div>';
         }
         if (d.modulos) {
